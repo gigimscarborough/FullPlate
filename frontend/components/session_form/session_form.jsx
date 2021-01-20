@@ -12,7 +12,8 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.action(user).then(() => this.props.history.push("/"));
+        this.props.action(user).then(() => this.props.closeModal());
+        // .then(() => this.props.history.push("/"))
     }
 
     handleInput(type) {
@@ -31,20 +32,16 @@ class SessionForm extends React.Component {
 
         const loginRender = () =>  (
             <div className="login-form-container">
-                <form onSubmit={this.handleSubmit} className="login-form-box">
-                <h1>Please sign in</h1>
                 <div onClick={this.props.closeModal} className="close-x">X</div>
+                <form onSubmit={this.handleSubmit} className="login-form-box">
+                <h1 className="form-header">Please sign in</h1>
                     <br/>
                     <div className="login-form">
-                    <label> Email
-                    <input type="text" onChange={this.handleInput('email')} />
-                    </label>
+                        <input type="text" className="form-input" type="text" placeholder="E-mail Address*" onChange={this.handleInput('email')} />
                     <br/>
-                    <label> Password
-                    <input type="password" onChange={this.handleInput('password')} />
-                    </label>
+                        <input type="text" className="form-input" type="password" placeholder="Password*" onChange={this.handleInput('password')} />
                     <br/>
-                    <button className="form-btn">Submit</button>
+                        <button type="text" className="form-btn">Sign In</button>
                 </div>
                 <ul>
                     {errorList}
@@ -56,32 +53,24 @@ class SessionForm extends React.Component {
 
         const signupRender = () =>  (
              <div className="login-form-container">
-                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <h1>Welcome to FullPlate!</h1>
                     <div onClick={this.props.closeModal} className="close-x">X</div>
+                 <form onSubmit={this.handleSubmit} className="login-form-box">
+                    <h1 className="form-header">Welcome to FullPlate!</h1>
                     <br/>
                     <div className="login-form">
-                    <label> Email
-                    <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
-                    </label>
+                        <input type="text" className="form-input" type="text" value={this.state.email} placeholder="E-mail Address*" onChange={this.handleInput('email')} />
                     <br />
-                    <label> Password
-                    <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
-                    </label>
+                        <input type="text" className="form-input" type="text" value={this.state.first_name} placeholder="First Name*" onChange={this.handleInput('first_name')} />
                     <br />
-                    <label> First Name
-                    <input type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} />
-                    </label>
+                        <input type="text" className="form-input" type="text" value={this.state.last_name} placeholder="Last Name*" onChange={this.handleInput('last_name')} />
                     <br />
-                    <label> Last Name
-                    <input type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} />
-                    </label>
+                        <input type="password" className="form-input" type="text"value={this.state.password} placeholder="Password*"onChange={this.handleInput('password')} />
                     <br />
                     </div>
                     <ul>
                         {errorList}
                     </ul>
-                    <button className="form-btn">Submit</button>
+                    <button className="form-btn">Create Account</button>
                 <p>Already Have An Account? {this.props.otherForm}</p>
                  </form>
              </div>

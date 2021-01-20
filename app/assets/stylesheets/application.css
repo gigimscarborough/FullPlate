@@ -13,72 +13,132 @@
  *= require_tree .
  *= require_self
  */
-
  body {
+   
+   font-family: 'Commissioner', sans-serif;
+  }
+  
+  button {
+    font-family: 'Commissioner', sans-serif;
+    border-radius: 3px;
+    border: none;
+    font-size: 14px;
+  }
 
-  font-family: 'Montserrat', sans-serif;
- }
-
- button {
-  font-family: 'Montserrat', sans-serif;
-  border-radius: 3px;
-  outline: none;
- }
+  h1 {
+    font-size: 50px;
+  }
+  
+  .top-border{
+    height: 25px;
+    left: 0;
+    right: 0;
+    color: lightgray
+  }
 
  .login-form-container {
-  
+  position: relative;
    display: flex;
    justify-content: center;
    
  }
 
  .login-form {
+   position: relative;
    display: flex;
    justify-content: center;
    flex-direction: column;
  }
 
  .login-form-box { 
-   padding: 20px;
    background: white;
    position: relative;
+   top: 50px;
+   width: 350px;
+   height: 500px;
  }
 
+ 
+ .modal-background {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 10;
+  }
+  
+  .modal-form {
+    background-color: white;
+    font-family: 'Commissioner', sans-serif;
+    position: absolute;
+    border-radius: 10px;
+    height: 675px;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .close-x {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+  }
+  
+  .sign-up-btn {
+    height: 30px;
+    width: 75px;
+    font-size: 13px;
+    color: black;
+    background-color: white;
+    border: solid lightgray 1px;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .log-in-btn {
+    height: 30px;
+    width: 75px;
+    font-size: 13px;
+    color: white;
+    background-color: #247F9E;
+    border: solid blue 1px;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+  } 
+  
+  .switch-form {
+    color:  #B22222;
+    cursor: pointer;
+  }
+  
   .form-btn{
     display: flex;
    justify-content: center;
    border-radius: 3px;
     background-color: #B22222;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Commissioner', sans-serif;
     border: none;
+    margin-bottom: 20px;
+    height: 20px;
   }
-
- .modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-}
-
-.modal-form {
-  background-color: white;
-  font-family: 'Montserrat', sans-serif;
-  position: absolute;
-  border-radius: 10px;
-  height: 620px;
-  width: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
- .close-x {
-   position: absolute;
-   top: 5px;
-   right: 5px;
-   cursor: pointer;
+ .form-header{
+   border-bottom: solid lightgray 1px;
+   font-size: 27px;
+   font-family: 'Montserrat', sans-serif;
+   padding-bottom: 20px;
  }
+
+ .form-input{
+  border: solid lightgray 1px;
+  background-color: white;
+  color: lightgray;
+  height: 40px;
+  padding-left: 20px;
+  border-radius: 2px;
+ }
+

@@ -12,18 +12,18 @@ class Greeting extends React.Component {
         if (this.props.currentUser) {
             
             return (
-                <div>
-                    <h1>Welcome, {this.props.currentUser.first_name}!</h1>
-                    <button onClick={this.props.logout.bind(this)}>Log Out</button>
-                </div>
+                    <div>
+                        <h1>Welcome, {this.props.currentUser.first_name}!</h1>
+                        <button onClick={this.props.logout.bind(this)}>Log Out</button>
+                    </div>
             )
         } else {
             
             return (
-                <div>
-                    <button onClick={() => this.props.openModal('signup')}> Sign Up</button>
-                    <button onClick={() => this.props.openModal('login')}> Log In </button>
-                </div>
+                    <div>
+                        <button className="log-in-btn" onClick={() => this.props.openModal('login')}> Sign in </button>
+                        <button className="sign-up-btn" onClick={() => this.props.openModal('signup')}> Sign up</button>
+                    </div>
             )
         }
 
