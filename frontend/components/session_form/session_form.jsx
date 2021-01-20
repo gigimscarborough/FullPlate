@@ -24,7 +24,8 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        const errors = this.props.errors.errors.map((error) => (<li>error</li>))
+        // debugger
+        const errorList = this.props.errors.map((error) => (<li>error</li>))
 
         const loginRender = () =>  (
             <div>
@@ -42,7 +43,7 @@ class SessionForm extends React.Component {
                 <p>New To FullPlate? {this.props.otherForm}</p>
                 </form>
                 <ul>
-                    {errors}
+                    {errorList}
                 </ul>
             </div>
         )
@@ -73,7 +74,7 @@ class SessionForm extends React.Component {
                 <p>Already Have An Account? {this.props.otherForm}</p>
                 </form>
                 <ul>
-                    {errors}
+                    {errorList}
                 </ul>
             </div>
         )

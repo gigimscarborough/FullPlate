@@ -11,7 +11,7 @@ class Modal extends React.Component {
         : this.props.modal === 'login' ? <LoginFormContainer /> : <SignupFormContainer />
 
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-background" onClick={this.props.closeModal}>
             <div className="modal-form" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
