@@ -9,7 +9,7 @@ import Modal from './modal'
 const App = () => (
     
     <div>
-        {/* <Modal /> */}
+        <Modal />
         <header>
             <h1>FullPlate</h1>
             <GreetingContainer/>

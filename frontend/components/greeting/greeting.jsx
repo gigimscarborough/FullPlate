@@ -8,7 +8,9 @@ class Greeting extends React.Component {
     }
 
     render() {
+        
         if (this.props.currentUser) {
+            
             return (
                 <div>
                     <h1>Welcome, {this.props.currentUser.first_name}!</h1>
@@ -16,6 +18,7 @@ class Greeting extends React.Component {
                 </div>
             )
         } else {
+            
             return (
                 <div>
                     <Link to="/signup"> Sign Up</Link>
