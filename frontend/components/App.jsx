@@ -14,8 +14,8 @@ const App = () => (
             <h1>FullPlate</h1>
             <GreetingContainer/>
         </header>
-        <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} />
+        {/* <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} /> */}
         <Route exact path="/" />
     </div>
 );

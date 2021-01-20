@@ -4,22 +4,23 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../components/session_form/login_form_container';
 import SignupFormContainer from '../components/session_form/signup_form_container'
 
-class Modal extends React.Component {
-  
-    render(){
-    const component = !this.props.modal ? null 
-        : this.props.modal === 'login' ? <LoginFormContainer /> : <SignupFormContainer />
 
+function Modal({ modal, closeModal }) {
+    let component;
+    if (!modal) {
+        return null;
+    } else {
+        component = modal === 'login' ? <LoginFormContainer /> : <SignupFormContainer />
+    }
+  
     return (
-        <div className="modal-background" onClick={this.props.closeModal}>
+        <div className="modal-background" onClick={closeModal}>
             <div className="modal-form" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
         </div>
     );
-    }
 }
-
 
 
 const mapStateToProps = state => {

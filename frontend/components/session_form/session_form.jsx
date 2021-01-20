@@ -23,14 +23,19 @@ class SessionForm extends React.Component {
         )
     }
 
+
+
     render() {
         // debugger
-        const errorList = this.props.errors.map((error) => (<li>error</li>))
+        const errorList = this.props.errors.map((error, i) => (<li key={i}>{error}</li>))
 
         const loginRender = () =>  (
-            <div>
+            <div className="login-form-container">
+                <form onSubmit={this.handleSubmit} className="login-form-box">
                 <h1>Please sign in</h1>
-                <form onSubmit={this.handleSubmit}>
+                <div onClick={this.props.closeModal} className="close-x">X</div>
+                    <br/>
+                    <div className="login-form">
                     <label> Email
                     <input type="text" onChange={this.handleInput('email')} />
                     </label>
@@ -39,21 +44,23 @@ class SessionForm extends React.Component {
                     <input type="password" onChange={this.handleInput('password')} />
                     </label>
                     <br/>
-                    <button >Submit</button>
-                <p>New To FullPlate? {this.props.otherForm}</p>
-                </form>
+                    <button className="form-btn">Submit</button>
+                </div>
                 <ul>
                     {errorList}
                 </ul>
-            </div>
+                <p>New To FullPlate? {this.props.otherForm}</p>
+                </form>
+             </div>
         )
 
         const signupRender = () =>  (
-            <div>
-                <h1>Welcome to FullPlate!</h1>
-                <form onSubmit={this.handleSubmit}>
-                    
+             <div className="login-form-container">
+                 <form onSubmit={this.handleSubmit} className="login-form-box">
+                    <h1>Welcome to FullPlate!</h1>
+                    <div onClick={this.props.closeModal} className="close-x">X</div>
                     <br/>
+                    <div className="login-form">
                     <label> Email
                     <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
                     </label>
@@ -70,13 +77,14 @@ class SessionForm extends React.Component {
                     <input type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} />
                     </label>
                     <br />
-                    <button>Submit</button>
+                    </div>
+                    <ul>
+                        {errorList}
+                    </ul>
+                    <button className="form-btn">Submit</button>
                 <p>Already Have An Account? {this.props.otherForm}</p>
-                </form>
-                <ul>
-                    {errorList}
-                </ul>
-            </div>
+                 </form>
+             </div>
         )
         
         return this.props.formType === 'login' ? loginRender() : signupRender()
