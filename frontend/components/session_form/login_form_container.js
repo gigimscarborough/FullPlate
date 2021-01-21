@@ -1,7 +1,7 @@
 import SessionForm from './session_form'
 import React from 'react'
 import { connect } from 'react-redux'
-import { login } from '../../actions/session_actions'
+import { login, removeErrors } from '../../actions/session_actions'
 import { openModal, closeModal } from '../../actions/modal_actions'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -20,7 +20,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             Create An Account
         </a>
     ),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    removeErrors: () => dispatch(removeErrors())
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm)

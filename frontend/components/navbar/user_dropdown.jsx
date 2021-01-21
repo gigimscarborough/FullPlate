@@ -7,8 +7,10 @@ class UserDropdown extends React.Component {
 
         return(
             <div>
-            <div id="user-dropdown" className="user-dropdown-active">
-            <h2 id="user-greeting">Hello, {this.props.currentUser.first_name}!</h2>
+            <div className="user-dropdown">
+                    <div id="user-greeting-div">
+                    <h2 id="user-greeting">Hello, {this.props.currentUser.first_name}!</h2>
+                </div>
             <ul>
                 <li><Link to={`/users/${this.props.currentUser.id}`}>My Profile</Link></li>
                 <li><Link to={`/users/${this.props.currentUser.id}`}>My Dining History</Link></li>

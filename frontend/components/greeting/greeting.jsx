@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import UserDropdown from '../navbar/user_dropdown_container'
+import ClickUserDropdown from '../navbar/click_user_dropdown'
+import ClickUpcomingDropdown from '../navbar/click_upcoming_dropdown'
+import ClickNotificationDropdown from '../navbar/click_notification'
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -8,9 +10,6 @@ class Greeting extends React.Component {
 
     }
 
-    // toggleUserDropdown(){
-    //     const userDropdown = document.getElementById('user-dropdown')
-    // }
 
     render() {
         
@@ -19,11 +18,12 @@ class Greeting extends React.Component {
             return (
                     <ul className="logged-links">
                         <li>
-                        <i className="far fa-user-circle"></i>
-                            <UserDropdown/>
+                            <ClickUserDropdown/>
                         </li>
-                        <li><i className="far fa-calendar"></i></li>
-                        <li><i className="far fa-bell"></i></li>
+                        <li>
+                            <ClickUpcomingDropdown/>
+                        </li>
+                        <li><ClickNotificationDropdown/></li>
                         <Link className="search-icon lsearch" to="/"><img src={window.search_icon} /></Link>
                         {/* <h1>Welcome, {this.props.currentUser.first_name}!</h1>
                         <button onClick={this.props.logout.bind(this)}>Log Out</button> */}

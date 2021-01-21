@@ -7,15 +7,17 @@ import AuthRoute from '../util/route_util'
 import Modal from './modal'
 import SplashNavBar from '../components/navbar/splash_navbar'
 import UserShowContainer from './user/user_show'
+import Search from './search/search'
+import Landing from './landing'
 
 const App = () => (
     
     <div>
         <Modal />
         <header>
-            <SplashNavBar/>
+
         </header>
-        <Route exact path="/" />
+        <Route exact path="/" component={Landing}/>
         <Route exact path="/users/:userId" component={UserShowContainer}/>
     </div>
 );

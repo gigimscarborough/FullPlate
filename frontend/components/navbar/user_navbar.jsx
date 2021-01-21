@@ -1,13 +1,12 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import GreetingContainer from '../greeting/greeting_container'
+import { Link } from 'react-router-dom'
+
 import MainNavBar from './main_navbar'
-import UserNavBar from './user_navbar'
 
-class SplashNavBar extends React.Component{
+class UserNavBar extends React.Component {
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <MainNavBar />
                 <div className="logo-nav">
@@ -15,7 +14,7 @@ class SplashNavBar extends React.Component{
                         <Link className="logo" to="/"><img src={window.logo} /></Link>
                     </div>
                     <ul className="logo-link-list">
-                        <GreetingContainer/>
+                        <li><i class="far fa-calendar-alt"></i></li>
                     </ul>
                 </div>
             </div>
@@ -23,4 +22,4 @@ class SplashNavBar extends React.Component{
     }
 }
 
-export default SplashNavBar
+export default UserNavBar

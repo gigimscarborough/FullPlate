@@ -13,6 +13,7 @@ const sessionReducer = (state={ id: null}, action) => {
             
             newState.id = null
             return newState
+        
         default: return state
     }
 }
