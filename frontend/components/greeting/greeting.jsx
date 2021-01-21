@@ -12,7 +12,7 @@ class Greeting extends React.Component {
         if (this.props.currentUser) {
             
             return (
-                    <div>
+                    <div className="logged-links">
                         <h1>Welcome, {this.props.currentUser.first_name}!</h1>
                         <button onClick={this.props.logout.bind(this)}>Log Out</button>
                     </div>
@@ -20,9 +20,10 @@ class Greeting extends React.Component {
         } else {
             
             return (
-                    <div>
-                        <button className="log-in-btn" onClick={() => this.props.openModal('login')}> Sign in </button>
+                    <div className="not-logged-links">
                         <button className="sign-up-btn" onClick={() => this.props.openModal('signup')}> Sign up</button>
+                        <button className="log-in-btn" onClick={() => this.props.openModal('login')}> Sign in </button>
+                        <Link className="search-icon" to="/"><img src={window.search_icon} /></Link>
                     </div>
             )
         }
