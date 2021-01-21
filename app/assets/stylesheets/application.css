@@ -60,6 +60,16 @@
  
   .not-logged-links{
     margin-right: 35px;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .logged-links{
+    margin-right: 35px;
+    display: flex;
+    align-items: center;
+
   }
 
   .search-icon > img {
@@ -68,10 +78,28 @@
 
   }
   .search-icon{
+
     padding-left: 15px;
+
+  }
+  .lsearch{
+
+    border-left: solid lightgray 1px;
   }
 
-  
+  .far{
+    font-size: 20px;
+    color: black;
+    margin: 10px;
+  }
+
+  .fa-user-circle{
+    font-size: 29px;
+  }
+  .fa-bell{
+    padding-right: 15px;
+  }
+
   .logo-div{
     border-right: solid lightgray 1px;
     transform: scale(.72);
@@ -143,7 +171,7 @@
   
   .log-in-btn {
     height: 35px;
-    width: 70px;
+    width: 72px;
     font-size: 12px;
     color: black;
     background-color: white;
@@ -157,7 +185,7 @@
   
   .sign-up-btn {
     height: 35px;
-    width: 70px;
+    width: 72px;
     font-size: 12px;
     color: white;
     background-color: #247F9E;
