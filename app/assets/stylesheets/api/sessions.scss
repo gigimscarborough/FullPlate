@@ -1,3 +1,361 @@
 // Place all the styles related to the api::sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top-nav{
+    height: 25px;
+    left: 0;
+    right: 0;
+    background-color: rgb(244, 246, 248);
+  }
+
+  .nav-link-list{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 100px;
+  }
+
+  .nav-link-list a{
+    text-decoration: none;
+    color:rgb(51, 50, 50);
+    font-size: 12px;
+    padding: 0px 20px;
+  }
+
+  .logo-nav{
+    margin-top: 13px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: solid lightgray 1px;
+    padding-bottom: 15px;
+
+  }
+ 
+  .not-logged-links{
+    margin-right: 35px;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .logged-links{
+    margin-right: 35px;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .search-icon > img {
+    width: 22px;
+    height: 20px;
+
+  }
+  .search-icon{
+
+    padding-left: 15px;
+
+  }
+  .lsearch{
+
+    border-left: solid lightgray 1px;
+  }
+  
+  .far{
+    font-size: 20px;
+    color: black;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .fa-user-circle{
+    font-size: 29px;
+  }
+  .fa-bell{
+    padding-right: 15px;
+  }
+  
+  .fa-calendar-alt{
+    color:lightgray;
+  }
+
+  .logo-div{
+    border-right: solid lightgray 1px;
+    transform: scale(.72);
+    margin-right: auto;
+    
+  }
+
+  .logo{
+    height: 30px;
+    margin-right: 3px;
+  }
+
+  .logo-link-list{
+    display: flex;
+
+  }
+
+ .login-form-container {
+  position: relative;
+   display: flex;
+   justify-content: center;
+   
+ }
+
+ .login-form {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+ }
+
+ .login-form-box { 
+   background: white;
+   position: relative;
+   top: 50px;
+   width: 350px;
+   height: 500px;
+ }
+
+ 
+ .modal-background {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 10;
+  }
+  
+  .modal-form {
+    background-color: white;
+    font-family: 'Commissioner', sans-serif;
+    position: absolute;
+    border-radius: 10px;
+    height: 675px;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .close-x {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+  }
+  
+  .log-in-btn {
+    height: 35px;
+    width: 72px;
+    font-size: 12px;
+    color: black;
+    background-color: white;
+    border: solid lightgray 1px;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    margin: 3px;
+    cursor: pointer;
+
+  }
+  
+  .sign-up-btn {
+    height: 35px;
+    width: 72px;
+    font-size: 12px;
+    color: white;
+    background-color: #247F9E;
+    border: solid blue 1px;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    margin: 3px;
+    cursor: pointer;
+  } 
+  
+  .switch-form {
+    font-weight: bold;
+    color:  #B22222;
+    cursor: pointer;
+  }
+
+  .switch-form:hover {
+    color:  #8d1b1b;
+    transition: 0.3s;
+  }
+  
+  .form-btn{
+    display: flex;
+   justify-content: center;
+   border-radius: 3px;
+    background-color: #B22222;
+    color: white;
+    font-family: 'Commissioner', sans-serif;
+    font-size: 20px;
+    border: none;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    cursor: pointer;
+  }
+  .form-btn:hover{
+    background-color:  #8d1b1b;
+    transition: 0.3s;
+  }
+
+ .form-header{
+   border-bottom: solid lightgray 1px;
+   font-size: 27px;
+   font-family: 'Montserrat', sans-serif;
+   padding-bottom: 20px;
+   font-weight: bold;
+ }
+
+ .error-list{
+   color: #B22222;
+   font-weight: bold;
+ }
+ .form-input{
+  border: solid lightgray 1px;
+  background-color: white;
+  color: black;
+  height: 40px;
+  padding-left: 20px;
+  border-radius: 2px;
+  font-weight: 10;
+ }
+
+ #user-logout{
+   color: #B22222;
+   cursor: pointer;
+   /* padding-left: 10px; */
+}
+#user-logout:hover{
+   color:black;
+   /* padding-left: 10px; */
+}
+ 
+/* .user-dropdown{
+  display: none;
+} */
+.user-dropdown li:hover {
+  background-color:  rgb(244, 246, 248);
+  transition: 0.2s;
+}
+.user-dropdown a:hover {
+  background-color: rgb(244, 246, 248);
+  transition: 0.2s;
+}
+.user-dropdown li {
+  list-style: none;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-top: 5px
+
+}
+.user-dropdown a {
+  text-decoration: none;
+  color: black;
+}
+
+.user-dropdown{
+  display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 3;
+  width: 300px;
+  right: 175px;
+  border-radius: 4px;
+}
+
+#user-greeting{
+  font-weight: bold;
+  font-size: 15px;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  margin-top: 15px;
+  padding-left: 10px;
+}
+
+#user-greeting{
+  border-bottom: solid lightgray 1px;
+}
+
+.upcoming-dropdown{
+  display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 3;
+  width: 300px;
+  right: 130px;
+  border-radius: 4px;
+  margin: 5px;
+}
+.upcoming-dropdown h2{
+  font-weight: bold;
+  font-size: 15px;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  margin-top: 15px;
+  padding-left: 10px;
+}
+
+.upcoming-dropdown p{
+  font-size: 13px;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  margin-top: 15px;
+  padding-left: 10px;
+}
+
+.notification-dropdown{
+  display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 3;
+  width: 300px;
+  right: 85px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.notification-dropdown h2{
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 15px;
+  padding-left: 10px;
+  padding-bottom: 25px;
+}
+
+.notification-dropdown p{
+  font-weight: bold;
+  padding-top: 15px;
+  text-align: center;
+  padding-bottom: 40px;
+  font-size: 14px;
+  padding-right: 25px;
+  padding-left: 25px;
+  letter-spacing: 1.5px;
+  line-height: 1.8;
+
+}
+.bell-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#bell-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+
+.error-input{
+  border: solid #B22222 3px;
+}
