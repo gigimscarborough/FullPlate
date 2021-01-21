@@ -29,11 +29,51 @@
     font-size: 50px;
   }
   
-  .top-border{
+  .top-nav{
     height: 25px;
     left: 0;
     right: 0;
-    color: lightgray
+    background-color: rgb(222, 222, 223)
+  }
+
+  .nav-link-list{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 100px;
+  }
+
+  .nav-link-list a{
+    text-decoration: none;
+    color:rgb(51, 50, 50);
+    font-size: 12px;
+    padding: 0px 20px;
+  }
+
+  .logo-nav{
+    margin-top: 25px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+
+  }
+
+  
+  .logo-div{
+    border-right: solid lightgray 1px;
+    transform: scale(.8);
+    margin-right: auto;
+    
+  }
+
+  .logo{
+    height: 30px;
+    margin-right: 3px;
+  }
+
+  .logo-link-list{
+    display: flex;
+
   }
 
  .login-form-container {
@@ -89,7 +129,7 @@
   }
   
   .sign-up-btn {
-    height: 30px;
+    height: 35px;
     width: 75px;
     font-size: 13px;
     color: black;
@@ -97,10 +137,13 @@
     border: solid lightgray 1px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;
+    margin: 3px;
+    cursor: pointer;
+
   }
   
   .log-in-btn {
-    height: 30px;
+    height: 35px;
     width: 75px;
     font-size: 13px;
     color: white;
@@ -108,6 +151,8 @@
     border: solid blue 1px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;
+    margin: 3px;
+    cursor: pointer;
   } 
   
   .switch-form {
@@ -122,9 +167,10 @@
     background-color: #B22222;
     color: white;
     font-family: 'Commissioner', sans-serif;
+    font-size: 20px;
     border: none;
     margin-bottom: 20px;
-    height: 20px;
+    padding: 15px 0;
   }
  .form-header{
    border-bottom: solid lightgray 1px;
@@ -140,5 +186,6 @@
   height: 40px;
   padding-left: 20px;
   border-radius: 2px;
+  font-weight: 10;
  }
 

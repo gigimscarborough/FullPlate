@@ -66,11 +66,11 @@ class SessionForm extends React.Component {
                     <br />
                         <input type="password" className="form-input" type="text"value={this.state.password} placeholder="Password*"onChange={this.handleInput('password')} />
                     <br />
-                    </div>
                     <ul>
                         {errorList}
                     </ul>
                     <button className="form-btn">Create Account</button>
+                    </div>
                 <p>Already Have An Account? {this.props.otherForm}</p>
                  </form>
              </div>
