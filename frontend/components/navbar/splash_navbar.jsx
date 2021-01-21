@@ -4,6 +4,7 @@ import GreetingContainer from '../greeting/greeting_container'
 import MainNavBar from './main_navbar'
 
 class SplashNavBar extends React.Component{
+    
     render(){
         return(
             <div>

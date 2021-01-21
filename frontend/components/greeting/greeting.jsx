@@ -8,6 +8,10 @@ class Greeting extends React.Component {
 
     }
 
+    // toggleUserDropdown(){
+    //     const userDropdown = document.getElementById('user-dropdown')
+    // }
+
     render() {
         
         if (this.props.currentUser) {
@@ -15,7 +19,7 @@ class Greeting extends React.Component {
             return (
                     <ul className="logged-links">
                         <li>
-                        <i onClick={this.props.logout.bind(this)} className="far fa-user-circle"></i>
+                        <i className="far fa-user-circle"></i>
                             <UserDropdown/>
                         </li>
                         <li><i className="far fa-calendar"></i></li>
