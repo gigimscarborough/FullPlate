@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom'
 import AuthRoute from '../util/route_util'
 import Modal from './modal'
 import SplashNavBar from '../components/navbar/splash_navbar'
+import UserShowContainer from './user/user_show'
 
 const App = () => (
     
@@ -14,10 +15,11 @@ const App = () => (
         <header>
             <SplashNavBar/>
         </header>
-        {/* <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} /> */}
         <Route exact path="/" />
+        <Route exact path="/users/:userId" component={UserShowContainer}/>
     </div>
 );
 
 export default App;
+        {/* <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} /> */}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import UserDropdown from '../navbar/user_dropdown_container'
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -12,14 +13,17 @@ class Greeting extends React.Component {
         if (this.props.currentUser) {
             
             return (
-                    <div className="logged-links">
-                        <Link onClick={this.props.logout.bind(this)}><i class="far fa-user-circle"></i></Link>
-                        <Link><i class="far fa-calendar"></i></Link>
-                        <Link><i class="far fa-bell"></i></Link>
+                    <ul className="logged-links">
+                        <li>
+                        <i onClick={this.props.logout.bind(this)} className="far fa-user-circle"></i>
+                            <UserDropdown/>
+                        </li>
+                        <li><i className="far fa-calendar"></i></li>
+                        <li><i className="far fa-bell"></i></li>
                         <Link className="search-icon lsearch" to="/"><img src={window.search_icon} /></Link>
                         {/* <h1>Welcome, {this.props.currentUser.first_name}!</h1>
                         <button onClick={this.props.logout.bind(this)}>Log Out</button> */}
-                    </div>
+                    </ul>
             )
         } else {
             
