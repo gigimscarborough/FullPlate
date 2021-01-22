@@ -8,4 +8,4 @@
 
 require 'open-uri'
 
-User.create({email: "demo@demo.com", password: "demo1234", first_name: "Demo", last_name: "User", dining_city_id: 1})
+User.create({email: "demo@demo.com", password: "demo1234", first_name: "Demo", last_name: "User", dining_city: 1})

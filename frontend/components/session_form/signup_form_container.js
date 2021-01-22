@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
         password: "",
         first_name: "",
         last_name: "",
-        dining_city_id: 1
+        dining_city: ""
     }
 })
 

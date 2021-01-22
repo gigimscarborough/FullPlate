@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_002926) do
+ActiveRecord::Schema.define(version: 2021_01_22_215734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,19 +36,8 @@ ActiveRecord::Schema.define(version: 2021_01_20_002926) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "cities", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "state", null: false
-    t.string "country", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_cities_on_name"
-    t.index ["state"], name: "index_cities_on_state"
-  end
-
   create_table "restaurants", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "city_id", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
     t.text "description", null: false
@@ -59,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_002926) do
     t.text "website_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_restaurants_on_city_id"
+    t.string "city", null: false
     t.index ["cuisine_type"], name: "index_restaurants_on_cuisine_type"
     t.index ["name"], name: "index_restaurants_on_name"
     t.index ["price_range"], name: "index_restaurants_on_price_range"
@@ -69,11 +58,11 @@ ActiveRecord::Schema.define(version: 2021_01_20_002926) do
     t.string "email", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.integer "dining_city_id", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "dining_city", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end

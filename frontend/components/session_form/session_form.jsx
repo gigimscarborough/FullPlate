@@ -115,6 +115,9 @@ class SessionForm extends React.Component {
                             <li>{this.handleErrors('Password')}</li>
                         </ul>
                     <br />
+                    {/* dining location select
+                        make a select and options for 5 cities
+                        when user selects a city the users city dining key will be populated with the name of the city*/}
                     <button className="form-btn">Create Account</button>
                     </div>
                 <p>Already have an account? {this.props.otherForm}</p>
