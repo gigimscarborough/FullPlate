@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+
+User.create({email: "demo@demo.com", password: "demo1234" first_name: "Demo", last_name: "User", dining_city_id: 1})

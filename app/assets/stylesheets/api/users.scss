@@ -146,3 +146,21 @@
   font-weight: bold;
   padding-left: 20px;
 }
+.user-links{
+background-color: white;
+border-bottom: solid lightgray 1px;
+}
+
+.user-links a{
+text-decoration: none;
+color: #247F9E
+}
+
+.user-links a:hover{
+border-bottom: solid black 1px;
+color: black
+}
+
+.active-user-link{
+
+}
