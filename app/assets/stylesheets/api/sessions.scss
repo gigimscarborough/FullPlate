@@ -108,6 +108,9 @@
    display: flex;
    justify-content: center;
    flex-direction: column;
+   border-bottom: solid lightgray 1px;
+   padding-bottom: 10px;
+   margin-bottom: 10px;
  }
 
  .login-form-box { 
