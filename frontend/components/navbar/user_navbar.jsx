@@ -2,10 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import MainNavBar from './main_navbar'
+import ClickUserUpcomingDropdown from './click_user_upcoming_dropdown'
+import ClickGreetingDropdown from './click_greeting_dropdown'
+import UserHeaderNavBar from './user_header_navbar'
 
 class UserNavBar extends React.Component {
-
+    
     render() {
+
         return (
             <div>
                 <MainNavBar />
@@ -13,10 +17,12 @@ class UserNavBar extends React.Component {
                     <div className='logo-div'>
                         <Link className="logo" to="/"><img src={window.logo} /></Link>
                     </div>
-                    <ul className="logo-link-list">
-                        <li><i class="far fa-calendar-alt"></i></li>
+                    <ul className="user-link-list">
+                        <ClickUserUpcomingDropdown/>
+                        <ClickGreetingDropdown logout={this.props.logout} currentUser={this.props.currentUser}/>
                     </ul>
                 </div>
+                <UserHeaderNavBar currentUser={this.props.currentUser}/>
             </div>
         )
     }

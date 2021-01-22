@@ -1,3 +1,148 @@
 // Place all the styles related to the api::users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-nav{
+  margin-top: 13px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: solid lightgray 1px;
+  padding-bottom: 15px;
+}
+.user-div{
+  border-right: solid lightgray 1px;
+  transform: scale(.72);
+  margin-right: auto;
+  
+}
+
+.user-link-list{
+  display: flex;
+}
+
+.uu-dropdown{
+    display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 4;
+  width: 180px;
+  right: 10px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.uu-dropdown h2{
+    color: gray;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  border-bottom: solid lightgray 2px;
+}
+
+.uu-dropdown p{
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  padding-right: 25px;
+  padding-left: 10px;
+
+
+}
+
+.greeting-dropdown li:hover {
+  background-color:  rgb(244, 246, 248);
+  transition: 0.15s;
+  color: black;
+}
+.greeting-dropdown a:hover {
+  background-color: rgb(244, 246, 248);
+  transition: 0.15s;
+  color: black;
+}
+
+.greeting-dropdown li {
+  list-style: none;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-top: 5px;
+  color: dimgray;
+  font-weight: bold;
+}
+.greeting-dropdown a {
+  text-decoration: none;
+  color: dimgray;
+  font-weight: bold;
+}
+
+.greeting-dropdown{
+  display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 3;
+  width: 200px;
+  right: 20px;
+  border-radius: 4px;
+  margin-top: 25px;
+}
+
+#greeting-header-div{
+  border-bottom: solid lightgray 1px;
+  padding-top: 10px;
+  font-size: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.greeting{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 18px;
+  padding-left: 15px;
+  width: 120px;
+  border-left: solid lightgray 1px;
+  cursor: pointer;
+}
+
+.greeting li{
+  font-size: 15px;
+  padding-top: 12px;
+}
+
+.greeting-angle{
+  color:gray;
+  font-size: 14px;
+}
+
+.user-header{
+  border-bottom: solid lightgray 1px;
+}
+.user-header *{
+  padding-left: 15px;
+}
+.user-header h2{
+  font-size: 37px;
+  font-weight: bold;
+  padding-top: 15px;
+  cursor: pointer;
+}
+.user-header h2:hover{
+  color:#B22222;
+}
+
+.user-header p{
+  color: dimgray;
+  padding-bottom: 15px;
+  padding-top: 5px;
+  font-weight: bold;
+  padding-left: 20px;
+}

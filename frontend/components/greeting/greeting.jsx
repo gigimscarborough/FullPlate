@@ -25,8 +25,6 @@ class Greeting extends React.Component {
                         </li>
                         <li><ClickNotificationDropdown/></li>
                         <Link className="search-icon lsearch" to="/"><img src={window.search_icon} /></Link>
-                        {/* <h1>Welcome, {this.props.currentUser.first_name}!</h1>
-                        <button onClick={this.props.logout.bind(this)}>Log Out</button> */}
                     </ul>
             )
         } else {

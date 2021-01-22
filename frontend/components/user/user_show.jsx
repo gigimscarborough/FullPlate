@@ -1,12 +1,13 @@
 import React from 'react'
-import MainNavBar from '../navbar/main_navbar'
+import UserNavBar from '../navbar/user_navbar'
 
 class UserShow extends React.Component{
 
     render(){
+
         return(
         <div>
-            <MainNavBar/>
+            <UserNavBar logout={this.props.logout} currentUser={this.props.currentUser}/>
             
         </div>
 

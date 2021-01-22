@@ -3,7 +3,7 @@ import UserDropdown from './user_dropdown'
 import { logout } from '../../actions/session_actions'
 
 const mSTP = (state) => {
-
+    
     return { currentUser: state.entities.users[state.session.id] }
 }
 

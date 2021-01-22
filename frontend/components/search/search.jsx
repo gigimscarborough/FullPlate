@@ -3,7 +3,7 @@ import React from 'react'
 class Search extends React.Component{
     render(){
         return(
-            <div classname="splash-image-div">
+            <div className="splash-image-div">
                 <img className="splash-image" src={window.splash}/>
             </div>
         )

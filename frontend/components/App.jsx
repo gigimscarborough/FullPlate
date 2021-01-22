@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom'
 import AuthRoute from '../util/route_util'
 import Modal from './modal'
 import SplashNavBar from '../components/navbar/splash_navbar'
-import UserShowContainer from './user/user_show'
+import UserShowContainer from './user/user_show_container'
 import Search from './search/search'
 import Landing from './landing'
 
@@ -23,5 +23,3 @@ const App = () => (
 );
 
 export default App;
-        {/* <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} /> */}
