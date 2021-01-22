@@ -61,7 +61,7 @@ class SessionForm extends React.Component {
                     
                     const loginRender = () =>  (
                         <div className="login-form-container">
-                            <div onClick={this.props.closeModal} className="close-x">X</div>
+                            {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                             <form onSubmit={this.handleSubmit} className="login-form-box">
                                 <h1 className="form-header">Please sign in</h1>
                                 <br/>
@@ -74,9 +74,15 @@ class SessionForm extends React.Component {
                                         <input type="text" className="form-input" type="password" placeholder="Password" onChange={this.handleInput('password')} />
                                         <br/>
                                         <button type="text" className="form-btn">Sign In</button>
-                                        <span onClick={this.demo} type="text"className="form-btn demo-btn">Sign In With Demo Account</span>
+                                        <span onClick={this.demo} type="text"className="form-btn demo-btn">Demo User</span>
                                     </div>
-                                <p>New To FullPlate? {this.props.otherForm}</p>
+                                <p className="contact-p">Don't want to complete the form?</p>
+                                    <div className="contact-div">
+                                    <a href="https://github.com/gigimscarborough"><div>Continue to my <i className="fab fa-github"></i> GitHub</div></a>
+                                    <a href="https://linkedin.com/in/gigimscarborough"><div>Continue to my <i className="fab fa-linkedin"></i> LinkedIn</div></a>
+                                    <a href="https://angel.co/u/gigi-scarborough"><div>Continue to my <i className="fab fa-angellist"></i> AngelList</div></a>
+                                    </div>
+                                <p>New to FullPlate? {this.props.otherForm}</p>
                             </form>
                         </div>
                         
@@ -84,7 +90,7 @@ class SessionForm extends React.Component {
 
         const signupRender = () =>  (
              <div className="login-form-container">
-                    <div onClick={this.props.closeModal} className="close-x">X</div>
+                    {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                  <form onSubmit={this.handleSubmit} className="login-form-box">
                     <h1 className="form-header">Welcome to FullPlate!</h1>
                     <br/>
@@ -111,7 +117,7 @@ class SessionForm extends React.Component {
                     <br />
                     <button className="form-btn">Create Account</button>
                     </div>
-                <p>Already Have An Account? {this.props.otherForm}</p>
+                <p>Already have an account? {this.props.otherForm}</p>
                  </form>
              </div>
         )
