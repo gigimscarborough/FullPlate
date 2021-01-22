@@ -7,8 +7,8 @@ import ClickGreetingDropdown from './click_greeting_dropdown'
 import UserHeaderNavBar from './user_header_navbar'
 
 class UserNavBar extends React.Component {
-    
     render() {
+
 
         return (
             <div>

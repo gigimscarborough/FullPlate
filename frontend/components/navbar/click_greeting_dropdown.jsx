@@ -7,6 +7,7 @@ class ClickGreetingDropdown extends React.Component {
         super(props)
         this.state = { clicked: false }
         this.whenClicked = this.whenClicked.bind(this)
+
     }
 
     whenClicked(e) {
@@ -15,6 +16,7 @@ class ClickGreetingDropdown extends React.Component {
     }
 
     render() {
+
         return (
             <div className="greeting" onClick={this.whenClicked}>
                 <p>
