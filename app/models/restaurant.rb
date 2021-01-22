@@ -3,6 +3,6 @@ class Restaurant < ApplicationRecord
 
     has_many_attached :images
 
-    belongs_to :city
+    belongs_to :city,
     class_name: :City
 end
