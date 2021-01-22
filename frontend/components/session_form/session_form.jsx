@@ -69,9 +69,9 @@ class SessionForm extends React.Component {
                                     {errorList}
                                 </ul>
                                     <div className="login-form">
-                                        <input type="text" className="form-input" type="text" placeholder="E-mail Address*" onChange={this.handleInput('email')} />
+                                        <input type="text" className="form-input" type="text" placeholder="Email" onChange={this.handleInput('email')} />
                                         <br/>
-                                        <input type="text" className="form-input" type="password" placeholder="Password*" onChange={this.handleInput('password')} />
+                                        <input type="text" className="form-input" type="password" placeholder="Password" onChange={this.handleInput('password')} />
                                         <br/>
                                         <button type="text" className="form-btn">Sign In</button>
                                         <span onClick={this.demo} type="text"className="form-btn demo-btn">Sign In With Demo Account</span>
@@ -89,22 +89,22 @@ class SessionForm extends React.Component {
                     <h1 className="form-header">Welcome to FullPlate!</h1>
                     <br/>
                     <div className="login-form">
-                        <input type="text" className={`form-input ${this.toggleClass('Email')}` } type="text" value={this.state.email} placeholder="E-mail Address*" onChange={this.handleInput('email')} />
-                        <ul className="error-list">
-                            <li>{this.handleErrors('Email')}</li>
-                        </ul>
-                    <br />
-                        <input type="text" className={`form-input ${this.toggleClass('First')}`} type="text" value={this.state.first_name} placeholder="First Name*" onChange={this.handleInput('first_name')} />
+                        <input type="text" className={`form-input ${this.toggleClass('First')}`} type="text" value={this.state.first_name} placeholder="First Name *" onChange={this.handleInput('first_name')} />
                         <ul className="error-list">
                             <li>{this.handleErrors('First')}</li>
                         </ul>
                     <br />
-                        <input type="text" className={`form-input ${this.toggleClass('Last')}`} type="text" value={this.state.last_name} placeholder="Last Name*" onChange={this.handleInput('last_name')} />
+                        <input type="text" className={`form-input ${this.toggleClass('Last')}`} type="text" value={this.state.last_name} placeholder="Last Name *" onChange={this.handleInput('last_name')} />
                         <ul className="error-list">
                             <li>{this.handleErrors('Last')}</li>
                         </ul>
                     <br />
-                        <input type="password" className={`form-input ${this.toggleClass('Password')}`} value={this.state.password} placeholder="Password*"onChange={this.handleInput('password')} />
+                        <input type="text" className={`form-input ${this.toggleClass('Email')}` } type="text" value={this.state.email} placeholder="Enter email *" onChange={this.handleInput('email')} />
+                        <ul className="error-list">
+                            <li>{this.handleErrors('Email')}</li>
+                        </ul>
+                    <br />
+                        <input type="password" className={`form-input ${this.toggleClass('Password')}`} value={this.state.password} placeholder="Enter password *"onChange={this.handleInput('password')} />
                         <ul className="error-list">
                             <li>{this.handleErrors('Password')}</li>
                         </ul>

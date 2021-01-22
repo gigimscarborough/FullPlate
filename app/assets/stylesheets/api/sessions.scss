@@ -229,6 +229,11 @@
   font-weight: 10;
  }
 
+ .form-input::placeholder{
+  font-family: 'Amiko', sans-serif;
+  font-size: 14px;
+ }
+
  #user-logout{
    color: #B22222;
    cursor: pointer;
@@ -365,6 +370,6 @@
 
 }
 .error-input::placeholder{
-  color: #da7272
-
+  color: hsl(0, 58%, 65%);
+  
 }
