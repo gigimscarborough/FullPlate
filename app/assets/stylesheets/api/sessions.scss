@@ -134,7 +134,7 @@
   
   .modal-form {
     background-color: white;
-    font-family: 'Commissioner', sans-serif;
+    font-family: 'Amiko', sans-serif;
     position: absolute;
     border-radius: 10px;
     height: 675px;
@@ -195,7 +195,7 @@
    border-radius: 3px;
     background-color: #B22222;
     color: white;
-    font-family: 'Commissioner', sans-serif;
+    font-family: 'Amiko', sans-serif;
     font-size: 20px;
     border: none;
     margin-bottom: 20px;
@@ -210,7 +210,7 @@
  .form-header{
    border-bottom: solid lightgray 1px;
    font-size: 27px;
-   font-family: 'Montserrat', sans-serif;
+   font-family: 'Amiko', sans-serif;
    padding-bottom: 20px;
    font-weight: bold;
  }
@@ -362,4 +362,9 @@
 
 .error-input{
   border: solid #B22222 3px;
+
+}
+.error-input::placeholder{
+  color: #da7272
+
 }
