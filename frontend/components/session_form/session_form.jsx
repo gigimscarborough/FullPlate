@@ -115,7 +115,7 @@ class SessionForm extends React.Component {
                             <li>{this.handleErrors('Password')}</li>
                         </ul>
                     <br />
-                        <select onChange={this.handleInput('dining_city')}>
+                        <select className="form-select" onChange={this.handleInput('dining_city')}>
                             <option>Primary Dining Location *</option>
                             <option value="New York">New York</option>
                             <option value="Los Angeles">Los Angeles</option>

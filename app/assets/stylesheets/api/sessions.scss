@@ -252,6 +252,24 @@ background-color: white;
   font-size: 13px;
  }
 
+ .form-select{
+  border: solid lightgray 1px;
+  background-color: white;
+ color: dimgray;
+  height: 50px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Amiko', sans-serif;
+ }
+
+ .form-select:focus{
+background-color: white;
+ outline: solid lightgray 2px;
+ }
+
+
  #user-logout{
    color: #B22222;
    cursor: pointer;
