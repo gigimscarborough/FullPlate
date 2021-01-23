@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_215734) do
+ActiveRecord::Schema.define(version: 2021_01_23_234153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,14 +41,13 @@ ActiveRecord::Schema.define(version: 2021_01_22_215734) do
     t.string "address", null: false
     t.string "phone_number", null: false
     t.text "description", null: false
-    t.time "opening_time", null: false
-    t.time "closing_time", null: false
     t.string "price_range", null: false
     t.string "cuisine_type", null: false
     t.text "website_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "city", null: false
+    t.string "operation_hours", null: false
     t.index ["cuisine_type"], name: "index_restaurants_on_cuisine_type"
     t.index ["name"], name: "index_restaurants_on_name"
     t.index ["price_range"], name: "index_restaurants_on_price_range"
