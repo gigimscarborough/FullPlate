@@ -1,7 +1,7 @@
 import * as RestaurantAPIUtil from '../util/restaurant_util'
 
 export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS'
-export const RECEIVE_RESTAURANTS = 'RECEIVE_RESTAURANTS'
+export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANT'
 export const SEARCH_RESTAURANTS = 'SEARCH_RESTAURANTS'
 
 const receiveAllRestaurants = (restaurants) => ({
@@ -10,7 +10,7 @@ const receiveAllRestaurants = (restaurants) => ({
 
 })
 
-const receiveRestaurant = (restaurants) => ({
+const receiveRestaurant = (restaurant) => ({
     type: RECEIVE_RESTAURANT,
     restaurant
 })
@@ -28,11 +28,11 @@ export const fetchRestaurants = () => dispatch =>(
 )
 
 export const fetchRestaurant = (restaurantId) => dispatch => (
-    RestaurantAPIUtil.fetchRestaurants(restaurantId)
+    RestaurantAPIUtil.fetchRestaurant(restaurantId)
         .then(restaurant => dispatch(receiveRestaurant(restaurant)))
 )
 
-export const searchRestaurant = (search) => dispatch => (
+export const searchRestaurants = (search) => dispatch => (
     RestaurantAPIUtil.searchRestaurants(search)
         .then(searchResult => dispatch(receiveSearchedRestaurants(searchResult)))
 )

@@ -60,6 +60,7 @@ class SessionForm extends React.Component {
                 const errorList = this.props.errors.map((error, i) => (<li key={i}>{error}</li>))
                     
                     const loginRender = () =>  (
+                        <div className="modal-form" onClick={e => e.stopPropagation()}>
                         <div className="login-form-container">
                             {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                             <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -85,10 +86,11 @@ class SessionForm extends React.Component {
                                 <p>New to FullPlate? {this.props.otherForm}</p>
                             </form>
                         </div>
-                        
+                        </div>
                     )
 
         const signupRender = () =>  (
+            <div className="modal-form" onClick={e => e.stopPropagation()}>
              <div className="login-form-container">
                     {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                  <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -128,6 +130,7 @@ class SessionForm extends React.Component {
                 <p>Already have an account? {this.props.otherForm}</p>
                  </form>
              </div>
+            </div>
         )
         
         return this.props.formType === 'login' ? loginRender() : signupRender()

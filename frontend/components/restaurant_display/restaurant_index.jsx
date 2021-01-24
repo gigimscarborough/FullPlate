@@ -1,0 +1,46 @@
+import React from 'react'
+import {Link} from 'react-router-dom'
+
+class RestaurantIndex extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+    componentDidMount(){
+        this.props.fetchRestaurants()
+    }
+
+    render(){
+        
+        const restaurants = this.props.restaurants.map(restaurant => (
+                <Link  key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
+                <div className="restaurant-icon">
+                <img src={restaurant.photoUrls[0]}></img>
+                    <div className="res-info">
+                        <h2>{restaurant.name}</h2>
+                    </div>
+                </div>
+                </Link>
+            ))
+        
+
+        return(
+            <div>
+                <h2 className="about-fp">Whenever, wherever you're hungry - find it on FullPlate</h2>
+                <div className="about-div">
+                    <div><div className="about-lunch"></div><h2>Lunch is on us</h2><p>Switch up your boring lunch routine today.</p></div>
+                    <div><div className="about-date"></div><h2>Make date night a breeze</h2><p>Never stress about getting a table again.</p></div>
+                    <div><div className="about-global"></div><h2>Sample the globe</h2><p>Find exotic picks in your own backyard.</p></div>
+                    <div><div className="about-corona"></div><h2>Dine safely with our partners</h2><p>Support local restaurants committed to keeping you safe.</p></div>
+                </div>
+                <div className="res-header">
+                <h2>Restaurants Nearby</h2>
+                </div>
+                {restaurants}
+            </div>
+
+        )
+    }
+}
+
+export default RestaurantIndex

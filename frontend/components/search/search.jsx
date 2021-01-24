@@ -1,5 +1,5 @@
 import React from 'react'
-import ReservationSearchForm from './reservation_form'
+import ReservationSearchForm from './reservation_search_form'
 import SearchForm from './search_form'
 
 class Search extends React.Component{

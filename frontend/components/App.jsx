@@ -9,6 +9,7 @@ import SplashNavBar from '../components/navbar/splash_navbar'
 import UserShowContainer from './user/user_show_container'
 import Search from './search/search'
 import Landing from './landing'
+import RestaurantShowContainer from '../components/restaurant_show/restaurant_show_container'
 
 const App = () => (
     
@@ -18,6 +19,7 @@ const App = () => (
 
         </header>
         <Route exact path="/" component={Landing}/>
+        <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
     </div>
 );

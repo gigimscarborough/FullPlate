@@ -19,3 +19,5 @@ def search
 
     render 'api/restaurants/index'
 end
+
+end

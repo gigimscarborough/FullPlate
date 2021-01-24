@@ -24,7 +24,7 @@ class Greeting extends React.Component {
                             <ClickUpcomingDropdown/>
                         </li>
                         <li><ClickNotificationDropdown/></li>
-                        <Link className="search-icon lsearch" to="/"><img src={window.search_icon} /></Link>
+                        <li onClick={() => this.props.openModal('search')}className="search-icon lsearch"><img src={window.search_icon} /></li>
                     </ul>
             )
         } else {
@@ -33,7 +33,7 @@ class Greeting extends React.Component {
                     <div className="not-logged-links">
                         <button className="sign-up-btn" onClick={() => this.props.openModal('signup')}> Sign up</button>
                         <button className="log-in-btn" onClick={() => this.props.openModal('login')}> Sign in </button>
-                        <Link className="search-icon" to="/"><img src={window.search_icon} /></Link>
+                        <li onClick={() => this.props.openModal('search')} className="search-icon lsearch"><img src={window.search_icon} /></li>
                     </div>
             )
         }

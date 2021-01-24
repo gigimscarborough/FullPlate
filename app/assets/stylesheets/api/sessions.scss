@@ -63,8 +63,8 @@
 
   }
   .lsearch{
-
-    border-left: solid lightgray 1px;
+    cursor: pointer;
+  
   }
   
   .far{
@@ -134,7 +134,7 @@
    bottom: 0;
    right: 0;
    left: 0;
-   background: rgba(0, 0, 0, 0.7);
+   background: rgba(0, 0, 0, 0.35);
    z-index: 10;
   }
   
@@ -157,7 +157,7 @@
   .close-x {
     position: absolute;
     top: 15px;
-    left: 15px;
+    right: 15px;
     cursor: pointer;
   }
   

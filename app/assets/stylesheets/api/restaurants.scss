@@ -1,3 +1,235 @@
 // Place all the styles related to the api::restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.res-header{
+    border-bottom: solid lightgray 1px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+
+}
+.res-header h2{
+    font-size: 21px;
+    font-weight: bold;
+    padding-top: 25px;
+    padding-bottom: 20px;
+
+}
+
+
+.restaurant-icon{
+    border: solid lightgray 1px;
+    border-radius: 3px;
+    height: 245px;
+    width: 230px;
+    text-decoration: none;
+    
+}
+
+.restaurant-icon img{
+    height: 130px;
+    width: 230px;
+}
+
+.restaurant-icon h2{
+    padding: 7px;
+    font-weight: bold;
+    
+    
+}
+
+
+#res-link{
+    text-decoration: none;
+    color:black;
+
+}
+#res-link:hover{
+
+}
+
+
+.about-div{
+    display: flex;
+    justify-content: center;
+
+}
+
+.about-div div{
+    width: 232px;
+    margin-right: 20px;
+}
+.about-div h2{
+    margin-top: 10px;
+    font-weight: bold;
+}
+.about-div p{
+    font-size: 14px;
+    line-height: 1.5;
+    padding-top: 5px;
+}
+.about-fp{
+    font-size: 21px;
+    margin-top: 50px;
+    margin-bottom: 24px;
+    font-weight: bold;
+}
+
+.about-lunch{
+    background-image: image_url('lunch.jpg');
+    height: 115px;
+    width: 230px;
+    border-radius: 4px;
+}
+.about-date{
+    background-image: image_url('date_night.jpg');
+    height: 115px;
+    width: 230px;
+    border-radius: 4px;
+}
+.about-global{
+    background-image: image_url('global.jpg');
+    background-size: cover;
+    height: 115px;
+    width: 230px;
+    border-radius: 4px;
+}
+.about-corona{
+    background-image: image_url('coronavirus.jpg');
+    height: 115px;
+    width: 230px;
+    border-radius: 4px;
+}
+
+.rsearch{
+    padding-right:20px;
+    padding-top: 8px;
+    border-left: none;
+    cursor: pointer;
+}
+
+.res-modal{
+    background-color: white;
+    font-family: 'Amiko', sans-serif;
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    top: 24px;
+}
+.res-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.search-modal-header{
+  color: black;
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: center;
+  
+}
+.search-modal-header h1{
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.search-modal-container{
+    position: relative;
+   display: flex;
+   justify-content: center;
+    align-items: center;
+   width: 100%;
+   height: 100%;
+}
+
+#search-modal-form{
+  background-color: white;
+  width: 500px;
+  height: 48px;
+  display:flex;
+  justify-content: center;
+  border-radius: 4px;
+  border: solid lightgray 1px;
+  margin-right: 15px;
+
+}
+
+
+#search-modal-div{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 520px;
+
+}
+
+.modal-search-bar{
+  background-color: white;
+    height: 48px;
+    width: 345px;
+    font-size: 15px;
+    border-radius: 4px;
+    margin-right: 12px;
+    border: solid lightgray 1px;
+}
+
+.modal-search-bar input{
+  font-family: 'Amiko', sans-serif;
+    height: 38px;
+    width: 300px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 10px;
+
+}
+.modal-search-bar input:focus{
+  outline: none;
+}
+.modal-search-bar input::placeholder{
+  color: rgb(138, 136, 136);
+  font-weight: 520;
+  font-size: 15px;
+}
+
+.modal-search-bar img{
+  width: 19px;
+  height: 19px;
+  padding-left: 10px;
+  margin-top: 13px;
+
+}
+
+.modal-search-input{
+  background-color:white;
+  height: 40px;
+  border:none;
+  border-right: solid lightgray 1px;
+  font-size: 15px;
+  font-family: 'Amiko', sans-serif;
+  padding-right: 15px;
+  padding-left: 5px;
+  margin-top: 3px;
+  
+}
+.modal-search-select{
+  background-color:white;
+  height: 40px;
+  border: none;
+  font-size: 15px;
+  padding-left: 5px;
+  padding-right: 13px;
+  font-family: 'Amiko', sans-serif;
+  padding-top: 5px;
+  margin-top: 3px;
+}
+
+.modal-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+}

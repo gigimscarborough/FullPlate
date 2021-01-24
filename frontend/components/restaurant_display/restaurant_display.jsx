@@ -1,4 +1,5 @@
 import React from 'react'
+import RestaurantIndexContainer from './restaurant_index_container'
 
 class RestaurantDisplay extends React.Component{
     
@@ -10,6 +11,7 @@ class RestaurantDisplay extends React.Component{
                 <div className="display-location">
                     <p>It looks like you're in {location}. </p>
                 </div>
+                <RestaurantIndexContainer/>
             </div>
         )
     }
