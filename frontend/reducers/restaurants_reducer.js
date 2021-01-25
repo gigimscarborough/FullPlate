@@ -1,4 +1,4 @@
-import {RECEIVE_ALL_RESTAURANTS, RECEIVE_RESTAURANT} from '../actions/restaurant_actions'
+import { RECEIVE_ALL_RESTAURANTS, RECEIVE_RESTAURANT, SEARCH_RESTAURANTS} from '../actions/restaurant_actions'
 
 const restaurantsReducer = (state={}, action) => {
     Object.freeze(state)
@@ -10,6 +10,9 @@ const restaurantsReducer = (state={}, action) => {
         case RECEIVE_RESTAURANT:
             newState[action.restaurant.id] = action.restaurant
             return newState
+        case SEARCH_RESTAURANTS:
+            return action.searchResult
+
         default: return state
     }
 }

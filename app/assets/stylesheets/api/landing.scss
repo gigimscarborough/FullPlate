@@ -6,7 +6,7 @@
 
 .background-img{
   background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), image_url('food_wine.jpg');
- 
+  background-position: bottom;
   background-size: cover;
   height: 470px;
   width: 100%;

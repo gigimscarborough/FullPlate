@@ -4,6 +4,12 @@ export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS'
 export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANT'
 export const SEARCH_RESTAURANTS = 'SEARCH_RESTAURANTS'
 
+
+export const receiveSearchedRestaurants = (searchResult) => ({
+    type: SEARCH_RESTAURANTS,
+    searchResult
+})
+
 const receiveAllRestaurants = (restaurants) => ({
     type: RECEIVE_ALL_RESTAURANTS,
     restaurants
@@ -15,10 +21,6 @@ const receiveRestaurant = (restaurant) => ({
     restaurant
 })
 
-const receiveSearchedRestaurant = (searchResult) => ({
-    type: RECEIVE_RESTAURANT,
-    searchResult
-})
 
 
 

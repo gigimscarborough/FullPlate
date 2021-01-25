@@ -8,7 +8,7 @@ import ClickGreetingDropdown from './click_greeting_dropdown'
 
 class RestaurantShowNavBar extends React.Component {
     render() {
-
+        
         if (this.props.currentUser){
 
             return (
@@ -23,6 +23,20 @@ class RestaurantShowNavBar extends React.Component {
                         <ClickGreetingDropdown logout={this.props.logout} currentUser={this.props.currentUser} />
                             <li onClick={() => this.props.openModal('search')} className="search-icon rsearch"><img src={window.search_icon} /></li>
                     </ul>
+                </div>
+                <div className="res-loc-nav">
+                    <Link to="/">Home</Link>
+                    <div className="arrow"></div>
+                    <p>United States</p>
+                    <div className="arrow"></div>
+                    <p>{this.props.restaurant.city}</p>
+                </div>
+                <div className="res-nav-div">
+                    <img className="res-img-nav" src={this.props.restaurant.photoUrls}/>
+                        <button className="res-fav-btn">
+                            <i className="far fa-bookmark"></i>
+                            Add To Favorites
+                        </button>
                 </div>
             </div>
             )
@@ -42,7 +56,23 @@ class RestaurantShowNavBar extends React.Component {
                             <Link className="search-icon" to="/"><img src={window.search_icon} /></Link>
                         </div>
                     </div>
+
+                        <div className="res-loc-nav">
+                            <Link to="/">Home</Link>
+                            <div className="arrow"></div>
+                            <p>United States</p>
+                            <div className="arrow"></div>
+                            <p>{this.props.restaurant.city}</p>
+                        </div>
+                        <div className="res-nav-div">
+                            <img className="res-img-nav" src={this.props.restaurant.photoUrls} />
+                            <button className="res-fav-btn">
+                                <i className="far fa-bookmark"></i>
+                            Add To Favorites
+                        </button>
+                        </div>
                 </div>
+                
             )
         }
     }

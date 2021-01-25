@@ -1,0 +1,102 @@
+.search-page-nav{
+    background-image: image_url('wood.jpg');
+    background-size: 100% 350px;;
+    width: 100%;
+    height: 75px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sp-form{
+background-color: white;
+  width: 460px;
+  height: 40px;
+  display:flex;
+  justify-content: center;
+  border-radius: 4px;
+  border: solid lightgray 1px;
+  margin-right: 15px;  
+}
+
+.sp-input{
+background-color:white;
+  height: 35px;
+  border:none;
+  border-right: solid lightgray 1px;
+  font-size: 15px;
+  font-family: 'Amiko', sans-serif;
+  padding-right: 15px;
+  padding-left: 5px;
+margin-top:5px;
+}
+
+
+
+.sp-select{
+  background-color:white;
+  height: 35px;
+  border: none;
+  font-size: 15px;
+  padding-left: 5px;
+  padding-right: 13px;
+  font-family: 'Amiko', sans-serif;
+  padding-top: 5px;
+  margin-top: 3px;  
+}
+
+#sp-form-div{
+display:flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 500px;
+}
+
+.sp-search-bar{
+    background-color: white;
+    height: 40px;
+    width: 305px;
+    font-size: 15px;
+    border-radius: 4px;
+    border: solid lightgray 1px;
+    display: flex;
+    align-items: center;
+}
+.sp-search-bar input{
+  font-family: 'Amiko', sans-serif;
+    height: 30px;
+    width: 260px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 10px;
+ 
+
+}
+.sp-search-bar input:focus{
+  outline: none;
+}
+.sp-search-bar input::placeholder{
+  color: rgb(138, 136, 136);
+  font-weight: 520;
+  font-size: 15px;
+}
+
+.sp-search-bar img{
+  width: 19px;
+  height: 19px;
+  padding-left: 10px;
+}
+
+
+.sp-form-btn{
+        border-radius: 3px;
+    background-color: #B22222;
+    color: white;
+    font-family: 'Amiko', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    height: 40px;
+    width: 125px;
+}

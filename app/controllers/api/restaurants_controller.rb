@@ -12,10 +12,22 @@ def show
     render 'api/restaurants/show'
 end
 
-def search
-    search = params[:search]
+# def search
+#     # debugger
+#     search = params[:search][:search]
   
-    @restaurants = Restaurant.where('name ILIKE :search OR location ILIKE :search OR cuisine_type ILIKE :search OR city ILIKE :search', {search: "%#{search}%"})
+
+#     @restaurants = Restaurant.where('name ILIKE :search OR cuisine_type ILIKE :search OR city ILIKE :search', {search: "%#{search}%"})
+
+#     render 'api/restaurants/index'
+# end
+
+def search
+
+    search = params[:search]
+    
+    
+    @restaurants = Restaurant.where('name ILIKE :search OR cuisine_type ILIKE :search OR city ILIKE :search', {search: "%#{search}%"})
 
     render 'api/restaurants/index'
 end

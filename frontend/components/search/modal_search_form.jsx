@@ -4,6 +4,8 @@ class ModalSearchForm extends React.Component {
 
 
     render() {
+
+        
         return (
 
             <div id="search-modal-div">

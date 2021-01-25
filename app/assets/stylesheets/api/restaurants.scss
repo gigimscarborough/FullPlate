@@ -103,7 +103,7 @@
 }
 
 .rsearch{
-    padding-right:20px;
+    padding-right:30px;
     padding-top: 8px;
     border-left: none;
     cursor: pointer;
@@ -233,3 +233,288 @@
     align-items: center;
     margin-top: 45px;
 }
+.res-loc-nav{
+  display:flex;
+  align-items: center;
+  background-color: white;
+  height: 30px;
+  border-bottom: solid lightgray 1px;;
+  font-size: 11px;
+  padding-left: 25px;
+}
+.res-loc-nav a{
+  text-decoration: none;
+  color: #247F9E
+
+}
+
+.arrow{
+  margin-top: 1px;
+  height: 24px;
+  width: 18px;
+  border: solid lightgray;
+  border-width: 0 1px 1px 0;
+  transform: rotate(-45deg);
+  margin-left: -13px;
+  margin-right: 15px;
+}
+
+.res-img-nav{
+  height: 330px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.res-nav-div{
+  position: relative;
+  display: flex;
+
+}
+
+.res-fav-btn{
+position: absolute;
+z-index: 3;
+right: 30px;
+background-color: white;
+width: 220px;
+height:45px;
+top: 30px;
+font-size: 12px;
+}
+
+.res-fav-btn i{
+cursor: auto;
+}
+.res-fav-btn:hover{
+border: solid#B22222 2px; 
+}
+
+.res-fav-btn:focus{
+outline: none; 
+}
+
+.res-content-div{
+
+  display: flex;
+  width: 100%;
+  height: 800px;
+  justify-content: center;
+}
+
+.rest-info-div{
+  margin-top: -50px;
+  background-color: white;
+  margin-left: 20px;
+
+  width: 650px;
+
+    z-index: 3;
+    right: 0px;
+
+}
+
+.reserve-div{
+  margin-top:-50px;
+  background-color: white;
+  width: 300px;
+ 
+  z-index: 3;
+  margin-left: 35px;
+
+}
+
+.rest-olinks{
+  display: flex;
+  position: sticky;
+  height: 49px;
+  border-bottom: solid lightgray 1px;
+  margin:0 10px;
+  align-items: center;
+  font-size: 13px;
+  top: 0;
+  background-color: white;
+}
+.rest-olinks p{
+  padding-right: 20px;
+}
+
+.rest-name{
+  display: flex;
+  align-items:center;
+  font-size: 32px;
+  font-weight: bold;
+  border-bottom: solid lightgray 1px;
+  margin: 0 10px;
+  height: 120px;
+}
+
+.rest-intro-div{
+  display: flex;
+
+  height: 40px;
+  align-items: center;
+  padding-top: 10px;
+  margin: 0 10px;
+}
+.rest-intro-div p {
+font-size: 13px;
+margin-right: 10px;
+margin-left: 2px;
+font-weight:bold;
+}
+
+.rest-intro-div i{
+  height: 20px;
+z-index: -1;
+}
+
+.cmnt{
+  transform: scaleX(-1);
+  font-size: 12px;
+
+}
+
+#revs{
+  margin-left: -8px;
+  
+}
+
+.rest-desc{
+  margin-left: 10px;
+  display: flex;
+  font-size: 14px;
+  margin-top: 30px;
+  align-items: center;
+  margin-bottom: 30px;
+
+}
+
+.rest-ph{
+  margin-bottom: 50px;
+}
+
+.rest-ph h2{
+  margin: 0 10px;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight:bold;
+}
+
+.rest-photos{
+  margin: 0 10px;
+  height: 280px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.photo-c1{
+  height: 280px;
+  width: 154px;
+  border: solid white 1px;
+}
+.photo-r1{
+  height: 137px;
+  width: 154px;
+  border: solid white 1px;
+}
+.photo-c2{
+  width:302px;
+  height:280px;
+  border: solid white 1px;
+}
+
+.photo-r1 img{
+  height: 137px;
+  width: 154px;
+  object-fit: cover;
+}
+.photo-c2 img{
+  width:302px;
+  height:280px;
+  object-fit: cover;
+}
+
+.res-menu{
+  margin: 0 10px;
+  font-size: 22px;
+  margin-bottom: 35px;
+  border-bottom: solid lightgray 1px;
+  padding-bottom: 15px;
+  margin-top: 10px;
+
+}
+
+.res-menu h2{
+  border-bottom: solid lightgray 1px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.res-menu p{
+font-size: 14px;
+padding-top: 10px;
+padding-bottom: 10px;
+font-weight: bold;
+}
+
+.res-revs{
+  margin: 0 10px;
+  font-size: 22px;
+  margin-bottom: 15px;
+
+}
+.res-revs h2{
+  border-bottom: solid lightgray 1px;
+  padding-bottom: 15px;
+  margin-bottom:15px;
+  font-weight: bold;
+
+}
+.res-revs p{
+font-size: 14px;
+font-weight: bold;
+
+}
+
+.res-rating{
+  display:flex;
+  margin-top:15px;
+  margin-left: 15px;
+ 
+}
+
+.rate-div{
+display:flex;
+flex-direction: column;
+border-left: solid lightgray 1px;
+justify-content: center;
+align-items:center;
+padding-left: 10px;
+padding-right:10px
+
+}
+.rate-div-f{
+  display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding-right:10px;
+}
+.rate-div p{
+font-size: 13px;
+
+}
+.rate-div-f p{
+  font-size: 13px;
+}
+.rate-div span{
+font-size: 16px;
+
+}
+.rate-div-f span{
+  font-size: 16px;
+}
+

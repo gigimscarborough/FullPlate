@@ -5,9 +5,6 @@ class ReservationModalForm extends React.Component {
         super(props)
     }
 
-    test(e) {
-        console.log(e.target.value.toISOString())
-    }
 
     render() {
 
@@ -28,7 +25,7 @@ class ReservationModalForm extends React.Component {
         return (
 
             <div id="search-modal-form">
-                <input className="modal-search-input" type="date" defaultValue={`${year}-${month}-${date}`} onChange={this.test.bind(this)} />
+                <input className="modal-search-input" type="date" defaultValue={`${year}-${month}-${date}`} />
                 <input className="modal-search-input" type="time" defaultValue={`${hours}:${minutes}`} />
                 <select className="modal-search-select">
                     {options}
