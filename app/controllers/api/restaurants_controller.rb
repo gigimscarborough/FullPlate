@@ -13,7 +13,7 @@ def show
 end
 
 # def search
-#     # debugger
+
 #     search = params[:search][:search]
   
 

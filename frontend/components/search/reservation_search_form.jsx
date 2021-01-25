@@ -5,9 +5,7 @@ class ReservationSearchForm extends React.Component{
         super(props)
     }
 
-    test(e){
-        console.log(e.target.value.toISOString())
-    }
+
 
     render(){
 
