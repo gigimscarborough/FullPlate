@@ -15,12 +15,13 @@ class SearchPage extends React.Component {
 
     render() {
 
-     debugger
+        const first = 0
+     
 
         const restaurants = this.props.restaurants.map(restaurant => 
             <div className="rests-main">
                 <div className="sp-img">
-                    <Link to={`/restaurants/${restaurant.id}`}><img src={restaurant.photoUrls} /></Link>
+                    <Link to={`/restaurants/${restaurant.id}`}><img src={restaurant.photoUrls[first]} /></Link>
                 </div>
                 <div className="sp-info">
                     <Link to={`/restaurants/${restaurant.id}`}><h2>{restaurant.name}</h2></Link>

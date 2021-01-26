@@ -50,7 +50,7 @@ class SearchPageNav extends React.Component {
             options.push(<option key={i} value={1} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
         }
 
-        debugger
+        
 
         return (
             <div>

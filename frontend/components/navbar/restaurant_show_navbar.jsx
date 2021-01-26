@@ -8,7 +8,13 @@ import ClickGreetingDropdown from './click_greeting_dropdown'
 
 class RestaurantShowNavBar extends React.Component {
     render() {
+        debugger
+        const restaurant = this.props.restaurant;
+        if (typeof restaurant === "undefined"){
+            debugger
+            return null;
         
+        }
         if (this.props.currentUser){
 
             return (
@@ -32,7 +38,7 @@ class RestaurantShowNavBar extends React.Component {
                     <p>{this.props.restaurant.city}</p>
                 </div>
                 <div className="res-nav-div">
-                    <img className="res-img-nav" src={this.props.restaurant.photoUrls}/>
+                    <img className="res-img-nav" src={this.props.restaurant.photoUrls[0]}/>
                         <button className="res-fav-btn">
                             <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites
@@ -67,7 +73,7 @@ class RestaurantShowNavBar extends React.Component {
                             <p>{this.props.restaurant.neighborhood}</p>
                         </div>
                         <div className="res-nav-div">
-                            <img className="res-img-nav" src={this.props.restaurant.photoUrls} />
+                            <img className="res-img-nav" src={this.props.restaurant.photoUrls[0]} />
                             <button className="res-fav-btn">
                                 <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites

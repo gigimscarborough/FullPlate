@@ -7,17 +7,31 @@ class ShowContent extends React.Component {
     }
 
     render() {
+        const restaurant = this.props.restaurant;
+        if (typeof restaurant === "undefined") {
+            debugger
+            return null;
+
+        }
+
         const priceRange = this.props.restaurant.price_range === "$$" ? "$30 and under"
-            : this.props.restaurant.price_range === "$$$" ? "$31 to $50" : "$50 and over"
-
+        : this.props.restaurant.price_range === "$$$" ? "$31 to $50" : "$50 and over"
+        
         const menu = !this.props.restaurant.website_url ? "Sorry, this restaurant has not yet provided a menu"
-            : <div><i className=" url-icon fas fa-external-link-alt"></i><a className="menu-url" href={this.props.restaurant.website_url}>Visit this restaurant's website to view the full menu</a></div>
-
+        : <div><i className=" url-icon fas fa-external-link-alt"></i><a className="menu-url" href={this.props.restaurant.website_url}>Visit this restaurant's website to view the full menu</a></div>
+        
         // const photos = this.props.restaurant.photoUrls.length === 1 ? "1 Photo" 
         // : this.props.restaurant.photoUrls.length > 1 ? `${this.props.restaurant.photoUrls.length} Photos` : "No Photos"
-
+        
         // const operatingHours = 
-
+        
+        const first = 0
+        const second = 1
+        const third = 2
+        const fourth = 3
+        const fifth = 4
+        
+        debugger
         return (
             <div className="res-content-div">
                 <div className="rest-info-div">
@@ -44,21 +58,21 @@ class ShowContent extends React.Component {
                         <div className="rest-photos">
                             <div className="photo-c1">
                                 <div className="photo-r1">
-                                    <img src={this.props.restaurant.photoUrls} />
+                                    <img src={this.props.restaurant.photoUrls[first]} />
                                 </div>
                                 <div className="photo-r1">
-                                    <img src={this.props.restaurant.photoUrls} />
+                                    <img src={this.props.restaurant.photoUrls[second]} />
                                 </div>
                             </div >
                             <div className="photo-c2">
-                                <img src={this.props.restaurant.photoUrls} />
+                                <img src={this.props.restaurant.photoUrls[third]} />
                             </div>
                             <div className="photo-c1">
                                 <div className="photo-r1">
-                                    <img src={this.props.restaurant.photoUrls} />
+                                    <img src={this.props.restaurant.photoUrls[fourth]} />
                                 </div>
                                 <div className="photo-r1">
-                                    <img src={this.props.restaurant.photoUrls} />
+                                    <img src={this.props.restaurant.photoUrls[fifth]} />
                                 </div>
                             </div>
                             <div>
@@ -114,7 +128,16 @@ class ShowContent extends React.Component {
                     <div className="rs-details">
                         <div className="rs-nei-det">
                             <div className="rs-nei-icn">
-                                <i class="fas fa-city"></i>
+                                <i className="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div className="rs-nei-p">
+                                <p>Address</p>
+                                <p>{this.props.restaurant.address}</p>
+                            </div>
+                        </div>
+                        <div className="rs-nei-det">
+                            <div className="rs-nei-icn">
+                                <i className="fas fa-city"></i>
                             </div>
                             <div className="rs-nei-p">
                                 <p>Neighborhood</p>
@@ -123,7 +146,16 @@ class ShowContent extends React.Component {
                         </div>
                         <div className="rs-nei-det">
                             <div className="rs-nei-icn">
-                                <i class="far fa-clock"></i>
+                                <i className="fas fa-phone-alt"></i>
+                            </div>
+                            <div className="rs-nei-p">
+                                <p>Phone number</p>
+                                <p>{this.props.restaurant.phone_number}</p>
+                            </div>
+                        </div>
+                        <div className="rs-nei-det">
+                            <div className="rs-nei-icn">
+                                <i className="far fa-clock"></i>
                             </div>
                             <div className="rs-nei-p">
                                 <p>Hours of operation</p>
@@ -132,7 +164,7 @@ class ShowContent extends React.Component {
                         </div>
                         <div className="rs-nei-det">
                             <div className="rs-nei-icn">
-                                <i class="fas fa-utensils"></i>
+                                <i className="fas fa-utensils"></i>
                             </div>
                             <div className="rs-nei-p">
                                 <p>Cuisine Type</p>
@@ -141,7 +173,7 @@ class ShowContent extends React.Component {
                         </div>
                         <div className="rs-nei-det">
                             <div className="rs-nei-icn">
-                                <i class="fas fa-concierge-bell"></i>
+                                <i className="fas fa-concierge-bell"></i>
                             </div>
                             <div className="rs-nei-p">
                                 <p>Dining Style</p>
@@ -150,7 +182,7 @@ class ShowContent extends React.Component {
                         </div>
                         <div className="rs-nei-det">
                             <div className="rs-nei-icn">
-                                <i class="fas fa-tshirt"></i>
+                                <i className="fas fa-tshirt"></i>
                             </div>
                             <div className="rs-nei-p">
                                 <p>Dress Code</p>

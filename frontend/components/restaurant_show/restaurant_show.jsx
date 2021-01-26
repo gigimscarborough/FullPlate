@@ -7,21 +7,26 @@ class RestaurantShow extends React.Component{
     constructor(props){
         super(props)
 
-        this.state = {restaurant: {}}
+        // tprops = {restaurant: {}}
     }
 
     componentDidMount(){
-        this.props.fetchRestaurant(this.props.match.params.restaurantId)
-        .then(payload => this.setState({restaurant: payload.restaurant}))
+        debugger
+        this.props.fetchRestaurant(this.props.match.params.restaurantId);
+        // .then(payload => {
+        //     debugger
+        //     return thisprops({restaurant: payload.restaurant})
+        // })
   }
 
     render(){
+        debugger
         return(
             <div>
  
             <Modal/>
-            <RestaurantShowNavBar restaurant={this.state.restaurant} openModal={this.props.openModal} logout={this.props.logout} currentUser={this.props.currentUser}/>
-                <RestaurantShowContent restaurant={this.state.restaurant}/>
+            <RestaurantShowNavBar restaurant={this.props.restaurant} openModal={this.props.openModal} logout={this.props.logout} currentUser={this.props.currentUser}/>
+                <RestaurantShowContent restaurant={this.props.restaurant}/>
             </div>
 
         )

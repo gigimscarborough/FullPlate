@@ -11,19 +11,28 @@ require 'open-uri'
 User.create({email: "demo@demo.com", password: "demo1234", first_name: "Demo", last_name: "User", dining_city: "New York"})
 
 r2 = Restaurant.create(
-    name: 'Hunan Counter',
-    address: '96 3rd Ave',
-    phone_number: '(718) 567-8765',
-    description: 'A wide selection of spicy dishes sure to make you sweat',
+    name: 'Buddakan NY',
+    address: '75 9th Ave New York, NY 10011',
+    phone_number: '(212) 989-2245',
+    description: 'The surreal atmosphere of this awe-inspiring restaurant in the Meatpacking district of Manhattan combines the serenity of Asia with the flamboyance of 16th century Paris. The menu features fanciful interpretations of Chinese dishes and delights even the most discriminating palates.',
     operation_hours: "09:00-22:00",
-    price_range: '$$',
+    price_range: '$$$$',
     cuisine_type: 'Chinese',
     city: 'New York',
-    dining_style: "Casual Dining",
-    dress_code: "Casual Dress",
+    dining_style: "Casual Elegant",
+    dress_code: "Smart Casual",
     noise_level: "Moderate",
-    neighborhood: "Flushing"
+    neighborhood: "Meatpacking District",
+    website_url: "http://www.buddakannyc.com/"
 )
 
-f1 = open('../restaurant_photos/1.jpg')
+f1 = open('../restaurant_photos/buddakan/1.jpg')
+f2 = open('../restaurant_photos/buddakan/2.jpg')
+f3 = open('../restaurant_photos/buddakan/3.jpg')
+f4 = open('../restaurant_photos/buddakan/4.jpg')
+f5 = open('../restaurant_photos/buddakan/5.jpg')
 r2.photos.attach(io: f1, filename: '1.jpg')
+r2.photos.attach(io: f2, filename: '2.jpg')
+r2.photos.attach(io: f3, filename: '3.jpg')
+r2.photos.attach(io: f4, filename: '4.jpg')
+r2.photos.attach(io: f5, filename: '5.jpg')

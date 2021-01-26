@@ -204,10 +204,18 @@ display:flex;
 }
 
 .dols2{
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   padding-left: 7px;
+  width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+}
+#nei{
+
 }
 
 .g-dol2{
@@ -216,6 +224,7 @@ display:flex;
 
 .dols2 p{
   margin-right: 5px;
+  text-overflow: ellipsis;
 }
 .dols2 div{
 margin-right: 5px;

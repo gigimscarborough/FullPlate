@@ -32,7 +32,7 @@ class RestaurantIndex extends React.Component {
                         <div className="dols2">
                         <p>{restaurant.cuisine_type} &bull;</p>
                             {restaurant.price_range === "$$" ? <div className="dols-in2"><span>$$</span><span className="g-dol2">$$</span></div> : restaurant.price_range === "$$$" ? <div className="dols-in2"><span>$$$</span><span className="g-dol2">$</span></div> : <div className="dols-in2"><span>$$$$</span></div>}
-                            <p>&bull; {restaurant.neighborhood}</p>
+                            <p id="nei">&bull; {restaurant.neighborhood}</p>
                         </div>
                     </div>
                 </div>
