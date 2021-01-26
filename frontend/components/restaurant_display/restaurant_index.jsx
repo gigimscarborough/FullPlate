@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 class RestaurantIndex extends React.Component {
     constructor(props) {
@@ -7,15 +7,16 @@ class RestaurantIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchRestaurants()
+        this.props.fetchRestaurants();
     }
 
     render() {
+        const first = 0;
 
         const restaurants = this.props.restaurants.map(restaurant => (
             <Link key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
                 <div className="restaurant-icon">
-                    <img src={restaurant.photoUrls[0]}></img>
+                    <img src={restaurant.photoUrls[first]}></img>
                     <div className="res-info">
                         <h2>{restaurant.name}</h2>
                     </div>

@@ -1,14 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import {openModal} from '../../actions/modal_actions'
-import MainNavBar from './main_navbar'
-import ClickUserUpcomingDropdown from './click_user_upcoming_dropdown'
-import ClickGreetingDropdown from './click_greeting_dropdown'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {openModal} from '../../actions/modal_actions';
+import MainNavBar from './main_navbar';
+import ClickUserUpcomingDropdown from './click_user_upcoming_dropdown';
+import ClickGreetingDropdown from './click_greeting_dropdown';
 
 
 class RestaurantShowNavBar extends React.Component {
     render() {
    
+        const first = 0;
+
         const restaurant = this.props.restaurant;
         if (typeof restaurant === "undefined"){
 
@@ -38,7 +40,7 @@ class RestaurantShowNavBar extends React.Component {
                     <p>{this.props.restaurant.city}</p>
                 </div>
                 <div className="res-nav-div">
-                    <img className="res-img-nav" src={this.props.restaurant.photoUrls[0]}/>
+                    <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]}/>
                         <button className="res-fav-btn">
                             <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites
@@ -73,7 +75,7 @@ class RestaurantShowNavBar extends React.Component {
                             <p>{this.props.restaurant.neighborhood}</p>
                         </div>
                         <div className="res-nav-div">
-                            <img className="res-img-nav" src={this.props.restaurant.photoUrls[0]} />
+                            <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]} />
                             <button className="res-fav-btn">
                                 <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites
