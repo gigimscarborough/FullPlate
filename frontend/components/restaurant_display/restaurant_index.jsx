@@ -53,7 +53,9 @@ class RestaurantIndex extends React.Component {
                 <div className="res-header">
                     <h2>Restaurants Nearby</h2>
                 </div>
-                {restaurants}
+                <div className="res-icon-cont">
+                    {restaurants}   
+                </div>
             </div>
 
         )
