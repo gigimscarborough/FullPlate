@@ -17,7 +17,7 @@ class ClickNotificationDropdown extends React.Component {
     render() {
         return (
             <div>
-                <i onClick={this.whenClicked} className="far fa-bell"></i>
+                <i onClick={this.whenClicked} className="far2 far fa-bell"></i>
                 {this.state.clicked ? <NotificationDropdown /> : null}
             </div>
         )

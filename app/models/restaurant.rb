@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-    validates :name, :address, :city, :phone_number, :description, :operation_hours, :price_range, :cuisine_type, presence: true
+    validates :name, :address, :city, :phone_number, :description, :operation_hours, :price_range, :cuisine_type, :neighborhood, :noise_level, :dining_style, :dress_code, presence: true
 
     has_many_attached :photos
 

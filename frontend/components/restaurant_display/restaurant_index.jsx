@@ -1,30 +1,46 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-class RestaurantIndex extends React.Component{
-    constructor(props){
+class RestaurantIndex extends React.Component {
+    constructor(props) {
         super(props)
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchRestaurants()
     }
 
-    render(){
-        
+    render() {
+
         const restaurants = this.props.restaurants.map(restaurant => (
-                <Link  key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
+            <Link key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
                 <div className="restaurant-icon">
-                <img src={restaurant.photoUrls[0]}></img>
+                    <img src={restaurant.photoUrls[0]}></img>
                     <div className="res-info">
                         <h2>{restaurant.name}</h2>
                     </div>
+                    <span className="icn-strs">
+                        <i className="fas fa-star ifpst"></i>
+                        <i className="fas fa-star ifpst"></i>
+                        <i className="fas fa-star ifpst"></i>
+                        <i className="fas fa-star ifpst"></i>
+                        <i className="fas fa-star-half ifpstr"></i>
+                        <i className="fas fa-star-half fpstl"></i>
+                        <p>{Math.floor(Math.random() * 75)} reviews</p>
+                    </span>
+                    <div>
+                        <div className="dols2">
+                        <p>{restaurant.cuisine_type} &bull;</p>
+                            {restaurant.price_range === "$$" ? <div className="dols-in2"><span>$$</span><span className="g-dol2">$$</span></div> : restaurant.price_range === "$$$" ? <div className="dols-in2"><span>$$$</span><span className="g-dol2">$</span></div> : <div className="dols-in2"><span>$$$$</span></div>}
+                            <p>&bull; {restaurant.neighborhood}</p>
+                        </div>
+                    </div>
                 </div>
-                </Link>
-            ))
-        
+            </Link>
+        ))
 
-        return(
+
+        return (
             <div>
                 <h2 className="about-fp">Whenever, wherever you're hungry - find it on FullPlate</h2>
                 <div className="about-div">
@@ -34,7 +50,7 @@ class RestaurantIndex extends React.Component{
                     <div><div className="about-corona"></div><h2>Dine safely with our partners</h2><p>Support local restaurants committed to keeping you safe.</p></div>
                 </div>
                 <div className="res-header">
-                <h2>Restaurants Nearby</h2>
+                    <h2>Restaurants Nearby</h2>
                 </div>
                 {restaurants}
             </div>

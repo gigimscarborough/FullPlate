@@ -100,3 +100,126 @@ display:flex;
     height: 40px;
     width: 125px;
 }
+
+.sp-ctnt{
+  background-color:white;
+}
+.sp-ctnt-in{
+  background-color:white;
+  margin: 0 190px;
+}
+
+.sp-header{
+  border-bottom: solid lightgray 1px;
+}
+.sp-header h2{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 13px;
+}
+.rests-main{
+  display: flex;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: solid lightgray 1px;
+}
+
+.sp-img img{
+  height: 200px;
+  width: 200px;
+  border-radius: 3px;
+  object-fit: cover;
+
+}
+
+.sp-info{
+  margin-left: 12px;
+  text-decoration: none;
+}
+.sp-info  a{
+  color: #247F9E;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom:10px
+}
+.sp-info > span{
+  display: flex;
+  align-items: center;
+  margin-top: 9px;
+}
+.sp-info p{
+  font-size: 14px;
+  padding-left: 3px;
+  margin-top: 4px;
+}
+
+.fpst{
+  color: rgb(226, 187, 10);
+
+}
+.fpstr{
+  color: rgb(226, 187, 10);
+
+}
+.fpstl{
+ color: lightgray;
+ transform: scaleX(-1);
+ margin-left: -18px;
+}
+
+.g-dol{
+  color: lightgray;
+}
+
+.dols{
+  display: flex;
+  align-items: center;
+  width: 300px;
+  margin-top: 10px;
+
+}
+.dols-in{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+
+
+}
+
+.dols p{
+  font-size:14px;
+  display: flex;
+
+}
+
+.dols div{
+  margin-top: 4px;
+}
+
+.fp-book{
+  font-weight: bold;
+  font-size: 10px;
+  margin-top: 12px;
+  margin-left: -3px
+}
+
+.dols2{
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+}
+
+.g-dol2{
+  color: lightgray;
+}
+
+.dols2 p{
+  margin-right: 5px;
+}
+.dols2 div{
+margin-right: 5px;
+}
+
+
+

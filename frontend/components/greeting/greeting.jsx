@@ -33,7 +33,7 @@ class Greeting extends React.Component {
                     <div className="not-logged-links">
                         <button className="sign-up-btn" onClick={() => this.props.openModal('signup')}> Sign up</button>
                         <button className="log-in-btn" onClick={() => this.props.openModal('login')}> Sign in </button>
-                        <li onClick={() => this.props.openModal('search')} className="search-icon lsearch"><img src={window.search_icon} /></li>
+                        <li onClick={() => this.props.openModal('search')} className="search-icon ssearch"><img src={window.search_icon} /></li>
                     </div>
             )
         }

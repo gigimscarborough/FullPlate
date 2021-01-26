@@ -17,7 +17,7 @@ class ClickUpcomingDropdown extends React.Component {
     render() {
         return (
             <div>
-                <i onClick={this.whenClicked} className="far fa-calendar"></i>
+                <i onClick={this.whenClicked} className="far2 far fa-calendar"></i>
                 {this.state.clicked ? <UpcomingDropdown /> : null}
             </div>
         )

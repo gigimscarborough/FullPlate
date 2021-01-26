@@ -8,9 +8,9 @@
 
 require 'open-uri'
 
-User.create!({email: "demo@demo.com", password: "demo1234", first_name: "Demo", last_name: "User", dining_city: "New York"})
+User.create({email: "demo@demo.com", password: "demo1234", first_name: "Demo", last_name: "User", dining_city: "New York"})
 
-r2 = Restaurant.create!(
+r2 = Restaurant.create(
     name: 'Hunan Counter',
     address: '96 3rd Ave',
     phone_number: '(718) 567-8765',
@@ -19,6 +19,10 @@ r2 = Restaurant.create!(
     price_range: '$$',
     cuisine_type: 'Chinese',
     city: 'New York',
+    dining_style: "Casual Dining",
+    dress_code: "Casual Dress",
+    noise_level: "Moderate",
+    neighborhood: "Flushing"
 )
 
 f1 = open('../restaurant_photos/1.jpg')

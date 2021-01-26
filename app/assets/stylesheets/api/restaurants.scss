@@ -24,16 +24,24 @@
     height: 245px;
     width: 230px;
     text-decoration: none;
+    cursor: pointer;
     
+}
+.restaurant-icon:hover{
+  transform: translateY(-5px);
+  transition: 0.3s;
+  box-shadow: 0 2px 6px  
 }
 
 .restaurant-icon img{
     height: 130px;
     width: 230px;
+    object-fit: cover;
+
 }
 
 .restaurant-icon h2{
-    padding: 7px;
+    padding: 10px 7px;
     font-weight: bold;
     
     
@@ -43,11 +51,10 @@
 #res-link{
     text-decoration: none;
     color:black;
+    cursor: pointer;
 
 }
-#res-link:hover{
 
-}
 
 
 .about-div{
@@ -317,9 +324,9 @@ outline: none;
   margin-top:-50px;
   background-color: white;
   width: 300px;
- 
   z-index: 3;
   margin-left: 35px;
+
 
 }
 
@@ -464,16 +471,18 @@ font-weight: bold;
   margin: 0 10px;
   font-size: 22px;
   margin-bottom: 15px;
+  padding-bottom: 30px;
+  border-bottom: solid lightgray 1px;;
 
 }
 .res-revs h2{
   border-bottom: solid lightgray 1px;
   padding-bottom: 15px;
-  margin-bottom:15px;
+  margin-bottom:25px;
   font-weight: bold;
 
 }
-.res-revs p{
+.res-rev-p{
 font-size: 14px;
 font-weight: bold;
 
@@ -482,7 +491,8 @@ font-weight: bold;
 .res-rating{
   display:flex;
   margin-top:15px;
-  margin-left: 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
  
 }
 
@@ -518,3 +528,207 @@ font-size: 16px;
   font-size: 16px;
 }
 
+.icn-strs{
+  display: flex;
+  margin-left: 7px;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.ifpst{
+  color:#B22222;
+}
+.ifpstr{
+  color:#B22222;
+}
+
+.icn-strs p{
+margin-left: 10px;
+margin-top: 7px;
+font-size: 14px;
+
+}
+
+.res-nl{
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.nl-bars{
+font-size: 14px;
+}
+
+.res-nl p:first-of-type{
+font-weight: bold;
+padding-left: 10px;
+padding-right: 3px
+}
+.res-nl p{
+font-size: 12px;
+color:gray;
+}
+
+.icn-strs2{
+  display: flex;
+margin-top: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ifpst2{
+  color:#B22222;
+font-size:15px;
+}
+.ifpstr2{
+  color:#B22222;
+  font-size:15px;
+}
+
+.icn-strs2 p{
+margin-left: 10px;
+margin-top: 7px;
+font-size: 13px;
+
+}
+
+.fpstl2{
+ color: lightgray;
+ transform: scaleX(-1);
+ margin-left: -17px;
+ font-size:15px;
+}
+
+.res-tu{
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+
+}
+.res-tu i {
+  display: flex;
+  align-items: center;
+font-size: 17px;
+}
+
+.res-tu p {
+color: gray;
+font-size: 12px;
+}
+
+.res-tu p:first-of-type {
+font-weight: bold;
+padding-left: 10px;
+}
+
+.res-wid{
+  padding: 15px;
+  position: sticky;
+  top: 0px;
+  box-shadow: 3px 3px 8px gray;
+  background-color: white;
+}
+
+.wid-head-div{
+  border-bottom: solid lightgray 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.wid-head-div h2{
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.wid-lbl{
+  font-size: 12px;
+  
+
+}
+
+.wid-sel{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.wid-sel select{
+  height: 35px;
+  width: 100%;
+  border: none;
+  border-bottom: solid lightgray 1px;
+  margin-top: 5px;
+  font-family: 'Amiko', sans-serif;
+}
+
+.wid-dt{
+  display: flex;
+  align-items: center;
+}
+.wid-dt select{
+  height: 35px;
+  border: none;
+  border-bottom: solid lightgray 1px;
+  margin-top: 5px;
+  font-family: 'Amiko', sans-serif;
+  
+}
+.wid-dt input{
+  border:none;
+  height: 35px;
+font-family: 'Amiko', sans-serif;
+border-bottom: solid lightgray 1px;
+padding-top: 4px;
+}
+
+.wid-btn{
+  background-color: #B22222;
+  color: white;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 50px;
+  font-size: 15px;
+}
+.wid-btn:focus{
+  outline: solid blue 1px;
+}
+.wid-form{
+  border-bottom: solid lightgray 1px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.rs-details{
+  margin-top: 40px;
+  padding-left: 5px;
+}
+
+.rs-nei-det{
+  display:flex;
+  margin-bottom: 10px;
+ 
+}
+
+.rs-nei-det p{
+  display: flex;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.rs-nei-det p:first-of-type{
+  font-weight:bold;
+}
+.rs-nei-p{
+  padding-left: 7px;
+  line-height: 1.4;
+}
+
+.rs-nei-icn i{
+ height: 25px;
+ width: 25px;
+}

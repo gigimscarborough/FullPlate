@@ -34,7 +34,7 @@ class RestaurantShowNavBar extends React.Component {
                 <div className="res-nav-div">
                     <img className="res-img-nav" src={this.props.restaurant.photoUrls}/>
                         <button className="res-fav-btn">
-                            <i className="far fa-bookmark"></i>
+                            <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites
                         </button>
                 </div>
@@ -63,11 +63,13 @@ class RestaurantShowNavBar extends React.Component {
                             <p>United States</p>
                             <div className="arrow"></div>
                             <p>{this.props.restaurant.city}</p>
+                            <div className="arrow"></div>
+                            <p>{this.props.restaurant.neighborhood}</p>
                         </div>
                         <div className="res-nav-div">
                             <img className="res-img-nav" src={this.props.restaurant.photoUrls} />
                             <button className="res-fav-btn">
-                                <i className="far fa-bookmark"></i>
+                                <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites
                         </button>
                         </div>

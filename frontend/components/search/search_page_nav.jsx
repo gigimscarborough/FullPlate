@@ -50,6 +50,7 @@ class SearchPageNav extends React.Component {
             options.push(<option key={i} value={1} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
         }
 
+        debugger
 
         return (
             <div>
@@ -57,8 +58,8 @@ class SearchPageNav extends React.Component {
                     <Link to="/">Home</Link>
                     <div className="arrow"></div>
                     <p>United States</p>
-                    <div className="arrow"></div>
-                    <p>{this.props.currentUser.dining_city}</p>
+                    <div className=""></div>
+                    <p>{!this.props.currentUser ? "test" : this.props.currentUser.dining_city}</p>
                 </div>
                 <form onSubmit={this.handleSubmit}>
                 <div className="search-page-nav">
