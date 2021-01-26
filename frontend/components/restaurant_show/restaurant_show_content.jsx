@@ -9,7 +9,7 @@ class ShowContent extends React.Component {
     render() {
         const restaurant = this.props.restaurant;
         if (typeof restaurant === "undefined") {
-            debugger
+
             return null;
 
         }
@@ -31,7 +31,7 @@ class ShowContent extends React.Component {
         const fourth = 3
         const fifth = 4
         
-        debugger
+    
         return (
             <div className="res-content-div">
                 <div className="rest-info-div">

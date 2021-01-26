@@ -8,10 +8,10 @@ import ClickGreetingDropdown from './click_greeting_dropdown'
 
 class RestaurantShowNavBar extends React.Component {
     render() {
-        debugger
+   
         const restaurant = this.props.restaurant;
         if (typeof restaurant === "undefined"){
-            debugger
+
             return null;
         
         }

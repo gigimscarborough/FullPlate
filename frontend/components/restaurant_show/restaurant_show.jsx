@@ -7,20 +7,17 @@ class RestaurantShow extends React.Component{
     constructor(props){
         super(props)
 
-        // tprops = {restaurant: {}}
+      
     }
 
     componentDidMount(){
-        debugger
+        
         this.props.fetchRestaurant(this.props.match.params.restaurantId);
-        // .then(payload => {
-        //     debugger
-        //     return thisprops({restaurant: payload.restaurant})
-        // })
+    
   }
 
     render(){
-        debugger
+      
         return(
             <div>
  
