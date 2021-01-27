@@ -6,6 +6,8 @@ class ShowContent extends React.Component {
         super(props)
     }
 
+    
+
     render() {
         const restaurant = this.props.restaurant;
         if (typeof restaurant === "undefined") {

@@ -14,7 +14,7 @@ class ResSearchModal extends React.Component {
             keyword: "",
             date: "",
             time: "",
-            guestCount: ""
+            guest_count: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
 
@@ -68,7 +68,7 @@ class ResSearchModal extends React.Component {
                             <div id="search-modal-form">
                                     <input className="modal-search-input" type="date" defaultValue={`${year}-${month}-${date}`} onChange={this.handleChange('date')}/>
                                     <input className="modal-search-input" type="time" defaultValue={`${hours}:${minutes}`} onChange={this.handleChange('time')} />
-                                    <select className="modal-search-select" onChange={this.handleChange('guestCount')}>
+                                    <select className="modal-search-select" onChange={this.handleChange('guest_count')}>
                                     {options}
                                 </select>
                             </div>

@@ -8,6 +8,7 @@ import Search from './search/search'
 import Landing from './landing'
 import RestaurantShowContainer from '../components/restaurant_show/restaurant_show_container'
 import SearchPageContainter from './search/search_page_container'
+import ReservationFormContainer from './reservations/reservation_form_container'
 
 
 
@@ -21,6 +22,7 @@ const App = () => (
         <Route exact path="/" component={Landing}/>
         <Route exact path="/search" component={SearchPageContainter} />
         <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
+        <Route exact path="/restaurants/:restaurantId/reserve" component={ReservationFormContainer} />
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
     </div>
 );

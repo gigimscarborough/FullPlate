@@ -1,10 +1,31 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
+import {sendForm} from '../../actions/search_actions'
+import {withRouter} from 'react-router-dom'
 
 class ReservationWidget extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = this.props.resSearch
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
 
+    handleChange(type) {
+        return (e) => (
+            this.setState({ [type]: e.currentTarget.value })
+        )
+
+    }
+
+    handleSubmit(e){
+        e.preventDefault()
+        this.props.sendForm(this.state)
+        this.props.history.push(`/restaurants/${this.props.match.params.restaurantId}/reserve`)
+
+    }
  
     render() {
         const dateToday = new Date()
@@ -72,20 +93,20 @@ class ReservationWidget extends React.Component {
                 </div >
                 <div className="wid-form">
                     <div className="wid-body">
-                        <form>
+                        <form onSubmit={this.handleSubmit}>
                             <div className="wid-sel">
                                 <label className="wid-lbl">Party Size
-                                <select  >
+                                <select onChange={this.handleChange('guest_count')}>
                                     {options}
                                 </select>
                                 </label>
                             </div>
                             <div className="wid-dt">
                                 <label className="wid-lbl">Date
-                                    <input type="date" defaultValue={`${year}-${month}-${date}`} />
+                                    <input type="date" defaultValue={`${year}-${month}-${date}`} onChange={this.handleChange('date')}/>
                                 </label>
                                 <label className="wid-lbl">Time
-                                <select  >
+                                <select onChange={this.handleChange('time')} >
                                         {timeOptionsAm}
                                         {timeOptionsPm}
                                 </select>
@@ -100,4 +121,14 @@ class ReservationWidget extends React.Component {
     }
 }
 
-export default ReservationWidget
+
+
+const mSTP = (state) => ({
+    resSearch: state.ui.search
+})
+
+const mDTP = (state) => ({
+    sendForm: (form) => dispatch(sendForm(form)),
+})
+
+export default withRouter(connect(mSTP, mDTP)(ReservationWidget))

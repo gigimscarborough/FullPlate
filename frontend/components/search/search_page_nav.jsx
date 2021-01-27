@@ -14,7 +14,7 @@ class SearchPageNav extends React.Component {
             keyword: "",
             date: "",
             time: "",
-            guestCount: ""
+            guest_count: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
 
@@ -66,7 +66,7 @@ class SearchPageNav extends React.Component {
                     <div id="sp-form">
                             <input className="sp-input" type="date" defaultValue={`${year}-${month}-${date}`} onChange={this.handleChange('date')} />
                             <input className="sp-input" type="time" defaultValue={`${hours}:${minutes}`} onChange={this.handleChange('time')}/>
-                            <select className="sp-select" onChange={this.handleChange('guestCount')}>
+                            <select className="sp-select" onChange={this.handleChange('guest_count')}>
                             {options}
                         </select>
                     </div>

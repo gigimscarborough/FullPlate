@@ -17,6 +17,13 @@ class ClickGreetingDropdown extends React.Component {
 
     render() {
 
+        const currentUser = this.props.currentUser;
+        if (typeof currentUser === "undefined") {
+
+            return null;
+
+        } 
+
         return (
             <div className="greeting" onClick={this.whenClicked}>
                 <p>

@@ -15,7 +15,7 @@ class Search extends React.Component {
             keyword: "",
             date: "",
             time: "",
-            guestCount: ""
+            guest_count: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -61,7 +61,7 @@ class Search extends React.Component {
                     <div id="splash-search-form">
                         <input className="splash-search-input" type="date" defaultValue={`${year}-${month}-${date}`} onChange={this.handleChange('date')}/>
                         <input className="splash-search-input" type="time" defaultValue={`${hours}:${minutes}`} onChange={this.handleChange('time')}/>
-                        <select className="splash-search-select" onChange={this.handleChange('guestCount')}>
+                        <select className="splash-search-select" onChange={this.handleChange('guest_count')}>
                             {options}
                         </select>
                     </div>

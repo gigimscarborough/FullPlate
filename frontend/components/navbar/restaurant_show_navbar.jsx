@@ -38,6 +38,8 @@ class RestaurantShowNavBar extends React.Component {
                     <p>United States</p>
                     <div className="arrow"></div>
                     <p>{this.props.restaurant.city}</p>
+                    <div className="arrow"></div>
+                    <p>{this.props.restaurant.neighborhood}</p>
                 </div>
                 <div className="res-nav-div">
                     <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]}/>
