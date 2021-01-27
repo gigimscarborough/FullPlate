@@ -10,13 +10,14 @@ import { timers } from 'jquery'
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
-        this.time = 5
+        this.time = 300
         this.setTimer = this.setTimer.bind(this)
         this.thisTime = setInterval(this.setTimer, 1000)
     }
 
     componentDidMount() {
         this.props.fetchRestaurant(this.props.match.params.restaurantId)
+        
 
       this.thisTime
     }
@@ -45,10 +46,17 @@ class ReservationForm extends React.Component {
             return null;
 
         }
+        
+        const resSearch = this.props.resSearch
+
+        if (typeof resSearch === "undefined") {
+
+            return null;
+
+        }
         const first = 0
-
     
-
+        debugger
 
 
         return (
@@ -81,10 +89,10 @@ class ReservationForm extends React.Component {
                                 <img src={this.props.restaurant.photoUrls[first]} />
                             </div>
                             <div className="rdiv-b">
-                                <h2>{this.props.restaurant.name}</h2>
+                                <Link to={`/restaurants/${this.props.restaurant.id}`}></Link><h2>{this.props.restaurant.name}</h2>
                                 <div className="rdiv-dets">
                                     <p><i class="far fa-calendar"></i>{this.props.resSearch.date}</p>
-                                    <p><i class="far fa-clock"></i>{this.props.resSearch.time}</p>
+                                    {/* <p><i class="far fa-clock"></i>{this.props.resSearch.time.split(":").slice(0,2)}</p> */}
                                     <p><i class="far fa-user"></i>{this.props.resSearch.guest_count === 1 ? "1 person" : `${this.props.resSearch.guest_count} people`}</p>
                                 </div>
                             </div>

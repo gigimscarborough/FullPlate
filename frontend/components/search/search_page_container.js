@@ -1,11 +1,11 @@
 import {connect} from 'react-redux'
 import SearchPage from './search_page'
 import { searchRestaurants } from '../../actions/restaurant_actions'
-import { sendForm } from '../../actions/search_actions'
+import { sendForm, clearForm } from '../../actions/search_actions'
 
 
 const mSTP = (state) => {
-
+    debugger
     return { 
     restaurants: Object.values(state.entities.restaurants),
     search: state.ui.search,
@@ -15,7 +15,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => ({
     searchRestaurants: (keyword) => dispatch(searchRestaurants(keyword)),
-    sendForm: (form) => dispatch(sendForm(form))
+    sendForm: (form) => dispatch(sendForm(form)),
+    clearForm: () => dispatch(clearForm())
 })
 
 export default connect(mSTP, mDTP)(SearchPage)

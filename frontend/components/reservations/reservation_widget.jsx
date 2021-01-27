@@ -37,8 +37,8 @@ class ReservationWidget extends React.Component {
 
         let options = []
 
-        for (let i = 1; i <= 20; i++) {
-            options.push(<option key={i} value={1}>For {i}</option>)
+        for (let i = 2; i <= 20; i++) {
+            options.push(<option key={i} value={i}>For {i}</option>)
         }
 
 
@@ -78,6 +78,11 @@ class ReservationWidget extends React.Component {
             time.length === 4 ? <option value={`0${time}:00`}>{time} PM</option> : <option value={`${time}:00`}>{time} PM</option>
         ))
 
+        const currentHour = dateToday.getHours() 
+
+        let currentOption = dateToday.getMinutes() > 15 && dateToday.getMinutes() < 45 ? <option selected value={`${(hours + 1) % 24}:30:00`}>{`${(currentHour + 1) % 12}:30`} {((currentHour + 1) / 12) > 1 ? `PM` : `AM`}</option> : <option selected value={`${(hours + 1) % 24}:00:00`}>{`${(currentHour + 1) % 12}:00`} {((currentHour + 1) / 12) > 1 ? `PM` : `AM`}</option>
+         
+
         
 
 
@@ -97,6 +102,7 @@ class ReservationWidget extends React.Component {
                             <div className="wid-sel">
                                 <label className="wid-lbl">Party Size
                                 <select onChange={this.handleChange('guest_count')}>
+                                    <option key={1} value={1} selected>For 1</option>
                                     {options}
                                 </select>
                                 </label>
@@ -107,6 +113,7 @@ class ReservationWidget extends React.Component {
                                 </label>
                                 <label className="wid-lbl">Time
                                 <select onChange={this.handleChange('time')} >
+                                        {currentOption}
                                         {timeOptionsAm}
                                         {timeOptionsPm}
                                 </select>

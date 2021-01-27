@@ -10,12 +10,29 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount() {
+        debugger
         this.props.searchRestaurants(this.props.search.keyword)
+
+    }
+
+    componentDidUpdate(prevProps) {
+        debugger
+        if (this.props.search.keyword !== prevProps.search.keyword) {
+            debugger
+            this.props.clearForm()
+        }
+
     }
 
     render() {
 
         const first = 0
+
+        const resSearch = this.props.search
+
+        if (typeof resSearch === "undefined"){
+            return null
+        }
      
 
         const restaurants = this.props.restaurants.map(restaurant => 
@@ -57,8 +74,9 @@ class SearchPage extends React.Component {
                     <div className="sp-ctnt-in">
                         <div className="sp-header">
                             <h2>
-                                {searchLength} available in {!this.props.currentUser ? "test" : this.props.currentUser.dining_city}
+                                You searched for "{this.props.search.keyword}" in {this.props.currentUser.dining_city}
                             </h2>
+                            <p></p>
                         </div>
                         {restaurants}
                     </div>

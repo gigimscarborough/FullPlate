@@ -1,4 +1,4 @@
-import { SEARCH_FORM } from '../actions/search_actions'
+import { CLEAR_FORM, SEARCH_FORM } from '../actions/search_actions'
 
 
 const searchReducer = (state = {}, action) => {
