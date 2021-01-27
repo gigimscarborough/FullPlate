@@ -193,6 +193,29 @@ height: 44px;
 margin-bottom: 10px;;
 }
 
-input[type="checkbox"]:checked {
-  
+.timer{
+    display:flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 13px;
 }
+
+.time-up{
+    
+    background-color: rgb(243, 223, 223);
+    width:100%;
+    padding: 12px 0 10px 20px;
+    border-radius: 3px;
+    
+}
+.time{
+    background-color:#d7eef5;
+    padding: 12px 0 10px 20px;
+    width:100%;
+     border-radius: 3px;
+}
+
+#tb{
+    font-weight: bold;
+}
+

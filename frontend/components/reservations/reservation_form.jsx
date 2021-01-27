@@ -4,15 +4,37 @@ import ClickUserUpcomingDropdown from '../navbar/click_greeting_dropdown'
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown'
 import { Link } from 'react-router-dom'
 import { openModal } from '../../actions/modal_actions'
+import { timers } from 'jquery'
 
 
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
+        this.time = 5
+        this.setTimer = this.setTimer.bind(this)
+        this.thisTime = setInterval(this.setTimer, 1000)
     }
 
     componentDidMount() {
         this.props.fetchRestaurant(this.props.match.params.restaurantId)
+
+      this.thisTime
+    }
+
+    setTimer(){
+        const minutes = Math.floor(this.time / 60);
+        let seconds = this.time % 60;
+        const timer = document.getElementById('timer')
+        
+        if (this.time > 0){
+            seconds = seconds < 10 ? `0`+ seconds : seconds
+            timer.innerHTML = `We're holding this table for you for <span id="tb">${minutes}:${seconds} minutes</span> `
+            this.time--
+
+        } else {
+            timer.innerHTML = `You can still try to complete your reservation, but this table may no longer be available.`
+            timer.classList.remove('time')
+        }
     }
 
     render() {
@@ -25,10 +47,8 @@ class ReservationForm extends React.Component {
         }
         const first = 0
 
-        const timer = setInterval(() => {
-            let mins = 5
-            let seconds = 60
-        })
+    
+
 
 
         return (
@@ -68,6 +88,9 @@ class ReservationForm extends React.Component {
                                     <p><i class="far fa-user"></i>{this.props.resSearch.guest_count === 1 ? "1 person" : `${this.props.resSearch.guest_count} people`}</p>
                                 </div>
                             </div>
+                        </div>
+                        <div className="timer">
+                            <span id="timer" className="time-up time "></span>
                         </div>
                         <div className="dd">
                             <p>Diner Details</p>
