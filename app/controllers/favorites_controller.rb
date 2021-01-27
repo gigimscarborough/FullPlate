@@ -1,6 +1,0 @@
-class FavoritesController < ApplicationController
-
-
-end
-
-
