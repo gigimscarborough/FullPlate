@@ -10,7 +10,7 @@ import { timers } from 'jquery'
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
-        this.time = 5
+        this.time = 300
         this.setTimer = this.setTimer.bind(this)
         this.thisTime = setInterval(this.setTimer, 1000)
         this.handleSubmit = this.handleSubmit.bind(this)
