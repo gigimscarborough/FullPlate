@@ -1,5 +1,6 @@
 import React from 'react'
 import ReservationWidget from '../reservations/reservation_widget'
+import {HashLink as Link} from 'react-router-hash-link'
 
 class ShowContent extends React.Component {
     constructor(props) {
@@ -36,17 +37,25 @@ class ShowContent extends React.Component {
     
         return (
             <div className="res-content-div">
-                <div className="rest-info-div">
+                <div className="rest-info-div" id="r-ov-link">
                     <div className="rest-olinks">
-                        <p>Overview</p>
-                        <p>Photos</p>
-                        <p>Menu</p>
-                        <p>Reviews</p>
+                        <Link to={`/restaurants/${this.props.restaurant.id}/#r-ov-link`}><p>Overview</p></Link>
+                        <Link to={`/restaurants/${this.props.restaurant.id}/#r-ph-link`}><p>Photos</p></Link>
+                        <Link to={`/restaurants/${this.props.restaurant.id}/#r-menu-link`}><p>Menu</p></Link>
+                        <Link to={`/restaurants/${this.props.restaurant.id}/#r-reviews-link`}><p>Reviews</p></Link>
                     </div>
                     <div className="rest-name">
                         <h1>{this.props.restaurant.name}</h1>
                     </div>
                     <div className="rest-intro-div">
+                        <span className="icn-strs3">
+                            <i className="fas fa-star ifpst"></i>
+                            <i className="fas fa-star ifpst"></i>
+                            <i className="fas fa-star ifpst"></i>
+                            <i className="fas fa-star ifpst"></i>
+                            <i className="fas fa-star-half ifpstr"></i>
+                            <i className="fas fa-star-half fpstl"></i>
+                        </span>
                         <p>Rating</p>
                         <i className="cmnt  far2 far fa-comment-alt"></i><p id="revs">Reviews</p>
                         <i className="fas fa-money-bill"></i><p>{priceRange}</p>
@@ -55,8 +64,8 @@ class ShowContent extends React.Component {
                     <div className="rest-desc">
                         {this.props.restaurant.description}
                     </div>
-                    <div className="rest-ph">
-                        <h2>Photos</h2>
+                    <div className="rest-ph" id="r-ph-link">
+                        <a ><h2>Photos</h2></a>
                         <div className="rest-photos">
                             <div className="photo-c1">
                                 <div className="photo-r1">
@@ -82,11 +91,11 @@ class ShowContent extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="res-menu">
+                    <div id="r-menu-link" className="res-menu">
                         <h2>Menu</h2>
                         <p>{menu}</p>
                     </div>
-                    <div className="res-revs">
+                    <div className="res-revs" id="r-reviews-link">
                         <h2>What People Are Saying</h2>
                         <p className="res-rev-p">Overall Ratings and reviews</p>
                         <span className="icn-strs2">
@@ -126,7 +135,7 @@ class ShowContent extends React.Component {
                     </div>
                 </div>
                 <div className="reserve-div">
-                    <ReservationWidget />
+                    <ReservationWidget search={this.props.search}/>
                     <div className="rs-details">
                         <div className="rs-nei-det">
                             <div className="rs-nei-icn">

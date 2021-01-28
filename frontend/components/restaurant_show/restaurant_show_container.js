@@ -8,7 +8,8 @@ import {openModal} from '../../actions/modal_actions'
 const mSTP = (state, ownProps) => {
     return{
     restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    search: state.ui.search
 }}
 
 

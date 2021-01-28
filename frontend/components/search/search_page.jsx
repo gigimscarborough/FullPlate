@@ -10,31 +10,40 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+ 
         this.props.searchRestaurants(this.props.search.keyword)
 
     }
 
     componentDidUpdate(prevProps) {
-        debugger
+
         if (this.props.search.keyword !== prevProps.search.keyword) {
-            debugger
-            this.props.clearForm()
+   
+            this.props.searchRestaurants(this.props.search.keyword)
         }
 
     }
 
     render() {
-
+   
+        debugger
         const first = 0
 
         const resSearch = this.props.search
 
         if (typeof resSearch === "undefined"){
+      
             return null
         }
-     
 
+        // const currentUser = this.props.currentUser.dining_city
+
+        // if (typeof currentUser === "undefined") {
+
+        //     return null
+        // }
+     
+ 
         const restaurants = this.props.restaurants.map(restaurant => 
             <div className="rests-main">
                 <div className="sp-img">
@@ -69,14 +78,14 @@ class SearchPage extends React.Component {
         return (
             <div>
                 <SplashNavBar />
-                <SearchPageNav sendForm={this.props.sendForm} searchRestaurants={this.props.searchRestaurants} currentUser={this.props.currentUser} />
+                <SearchPageNav  search={this.props.search} sendForm={this.props.sendForm} searchRestaurants={this.props.searchRestaurants} currentUser={this.props.currentUser} />
                 <div className="sp-ctnt">
                     <div className="sp-ctnt-in">
                         <div className="sp-header">
                             <h2>
-                                You searched for "{this.props.search.keyword}" in {this.props.currentUser.dining_city}
+                                You searched for "{this.props.search.keyword}" in {!this.props.currentUser ? "New York" : this.props.currentUser.dining_city}
                             </h2>
-                            <p></p>
+                            <p>Search result for "{this.props.search.keyword}"</p>
                         </div>
                         {restaurants}
                     </div>

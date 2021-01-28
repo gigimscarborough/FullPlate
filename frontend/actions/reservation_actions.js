@@ -1,7 +1,7 @@
 import * as ReservationAPIUtil from '../util/reservation_util'
 
 export const RECEIVE_ALL_RESERVATIONS = 'RECEIVE_ALL_RESERVATIONS'
-export const RECEIVE_RESERVATION = 'RECEIVE_RESERVATION'
+export const RECEIVE_RESERVATION = ''
 export const REMOVE_RESERVATION = 'REMOVE_RESERVATION'
 export const RECEIVE_RESERVATION_ERRORS = 'RECEIVE_RESERVATION_ERRORS'
 export const REMOVE_RESERVATION_ERRORS = 'REMOVE_RESERVATION_ERRORS'
@@ -42,11 +42,19 @@ export const fetchReservations = () => dispatch => (
         errors => dispatch(receiveErrors(errors.responseJSON)))
 )
 
-export const createReservation = (reservation) => dispatch => (
-    ReservationAPIUtil.createReservation(reservation)
-        .then(reservation => dispatch(receiveReservation(reservation)), 
-        errors => dispatch(receiveErrors(errors.responseJSON)))
-)
+export const createReservation = (reservation) => dispatch => {
+    debugger
+    return ReservationAPIUtil.createReservation(reservation)
+        .then(reservation => {
+            debugger
+            return dispatch(receiveReservation(reservation))
+        }, 
+        errors => {
+            debugger
+            return dispatch(receiveErrors(errors.responseJSON))
+        }
+        )
+}
 
 export const updateReservation = (reservation) => dispatch => (
     ReservationAPIUtil.updateReservation(reservation)

@@ -71,9 +71,21 @@ padding-bottom: 20px;
 }
 
 .rdiv-dets{
-    display:flex;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
+
+.rdiv-dets p{
+
+    justify-content: space-between;
+    padding-right: 35px;
+}
+.rdiv-dets i{
+    padding-right: 10px;
+}
+
 .dd{
     margin-top: 15px;
     margin-bottom: 20px;
@@ -91,6 +103,7 @@ color: red;
 font-weight: bold;
 cursor: pointer;
 }
+
 .det-si2{
 color: red;
 font-weight: bold;

@@ -5,7 +5,7 @@ import { sendForm, clearForm } from '../../actions/search_actions'
 
 
 const mSTP = (state) => {
-    debugger
+
     return { 
     restaurants: Object.values(state.entities.restaurants),
     search: state.ui.search,
@@ -16,7 +16,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => ({
     searchRestaurants: (keyword) => dispatch(searchRestaurants(keyword)),
     sendForm: (form) => dispatch(sendForm(form)),
-    clearForm: () => dispatch(clearForm())
+
 })
 
 export default connect(mSTP, mDTP)(SearchPage)

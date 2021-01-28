@@ -5,13 +5,15 @@ export const fetchReservations = () => (
     })
 )
 
-export const createReservation = (reservation) => (
-    $.ajax({
+export const createReservation = (reservation) => {
+    debugger
+    return $.ajax({
         method: "POST",
         url: "/api/reservations",
         data: { reservation }
     })
-)
+
+}
 export const updateReservation = (reservation) => (
     $.ajax({
         method: "PATCH",

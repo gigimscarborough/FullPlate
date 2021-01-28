@@ -21,17 +21,32 @@ background-color: white;
 
 .sp-input{
 background-color:white;
-  height: 35px;
+  height: 37px;
   border:none;
   border-right: solid lightgray 1px;
   font-size: 15px;
   font-family: 'Amiko', sans-serif;
-  padding-right: 15px;
+  padding-right: 10px;
   padding-left: 5px;
-margin-top:5px;
+  margin-top:3px;
+  width: 150px;
 }
 
+.sp-select-time{
+  display:flex;
+  position: relative;
+  border-right: solid lightgray 1px;
+  align-items: center;
+}
 
+.sp-select-time i{
+  position: absolute;
+  right:0;
+  background-color:white;
+  padding-right: 15px;
+  padding-top: 1px;
+
+}
 
 .sp-select{
   background-color:white;
@@ -39,10 +54,11 @@ margin-top:5px;
   border: none;
   font-size: 15px;
   padding-left: 5px;
-  padding-right: 13px;
+  padding-right: 35px;
   font-family: 'Amiko', sans-serif;
-  padding-top: 5px;
+ 
   margin-top: 3px;  
+  
 }
 
 #sp-form-div{
@@ -113,10 +129,17 @@ display:flex;
   border-bottom: solid lightgray 1px;
 }
 .sp-header h2{
-  padding-top: 40px;
+  padding-top: 35px;
+  padding-bottom: 30px;
+  font-size: 21px;
+}
+
+.sp-header p{
+
   padding-bottom: 40px;
   font-size: 13px;
 }
+
 .rests-main{
   display: flex;
   padding-top: 16px;

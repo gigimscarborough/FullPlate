@@ -1,1 +1,1 @@
-json.partial! 'api/reservation/reservation', reservation: @reservation
+json.partial! 'api/reservations/reservation', reservation: @reservation
