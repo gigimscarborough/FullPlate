@@ -26,7 +26,7 @@ class SearchPage extends React.Component {
 
     render() {
    
-        debugger
+        
         const first = 0
 
         const resSearch = this.props.search

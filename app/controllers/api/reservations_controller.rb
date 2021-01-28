@@ -14,7 +14,7 @@ class Api::ReservationsController < ApplicationController
     
     def create
 
-     debugger
+     
         @reservation = Reservation.new(reservation_params)
             
 

@@ -43,14 +43,14 @@ export const fetchReservations = () => dispatch => (
 )
 
 export const createReservation = (reservation) => dispatch => {
-    debugger
+    
     return ReservationAPIUtil.createReservation(reservation)
         .then(reservation => {
-            debugger
+            
             return dispatch(receiveReservation(reservation))
         }, 
         errors => {
-            debugger
+            
             return dispatch(receiveErrors(errors.responseJSON))
         }
         )

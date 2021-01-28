@@ -43,7 +43,7 @@ class ReservationForm extends React.Component {
     }
 
     // componentDidUpdate(prevProps){
-    //     debugger
+    //     
     //     if (prevProps.restaurant !== this.props.restaurant){
 
     //         this.props.fetchRestaurant(this.props.match.params.restaurantId)
@@ -53,22 +53,22 @@ class ReservationForm extends React.Component {
 
 
     setTimer(){
-        debugger
+        
         let minutes;
         let seconds;
         const timer =  document.getElementById('timer');
         if (timer === null) return null;
         seconds = this.time % 60 < 10 ? `0` + this.time % 60 : this.time % 60;
         minutes = Math.floor(this.time / 60);
-        debugger
+        
         // for (let i = this.time; i >= 0; i--){
         timer.innerHTML = `We're holding this table for you for <span id="tb">${minutes}:${seconds} minutes</span> `
         this.time -= 1
             if (this.time === 0 ){
                 timer.innerHTML = `You can still try to complete your reservation, but this table may no longer be available.`
-                debugger
+                
                 clearInterval(this.thisTime);
-                debugger
+                
                 this.time = 300;
                 timer.classList.remove('time');
             }
