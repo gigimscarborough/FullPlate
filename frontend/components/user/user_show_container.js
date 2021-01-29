@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import UserShow from './user_show'
 import { logout } from '../../actions/session_actions'
 import {fetchReservations, deleteReservation} from '../../actions/reservation_actions'
-import { fetchRestaurant, fetchAllRestaurants } from '../../actions/restaurant_actions'
+import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_actions'
 
 
 const mSTP = (state, ownProps) => {
@@ -15,7 +15,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => ({
     logout: () => dispatch(logout()),
     fetchReservations: () => dispatch(fetchReservations()),
-    fetchAllRestaurants: () => dispatch(fetchAllRestaurants()),
+    fetchRestaurants: () => dispatch(fetchRestaurants()),
     fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
     deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId))
 })

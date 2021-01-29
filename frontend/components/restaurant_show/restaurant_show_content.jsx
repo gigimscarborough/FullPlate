@@ -39,10 +39,18 @@ class ShowContent extends React.Component {
             <div className="res-content-div">
                 <div className="rest-info-div" id="r-ov-link">
                     <div className="rest-olinks">
-                        <Link to={`/restaurants/${this.props.restaurant.id}/#r-ov-link`}><p>Overview</p></Link>
-                        <Link to={`/restaurants/${this.props.restaurant.id}/#r-ph-link`}><p>Photos</p></Link>
-                        <Link to={`/restaurants/${this.props.restaurant.id}/#r-menu-link`}><p>Menu</p></Link>
-                        <Link to={`/restaurants/${this.props.restaurant.id}/#r-reviews-link`}><p>Reviews</p></Link>
+                        <div className="lnk-cnt">
+                            <Link to={`/restaurants/${this.props.restaurant.id}/#r-ov-link`}><p>Overview</p></Link>
+                        </div >
+                        <div className="lnk-cnt">
+                            <Link to={`/restaurants/${this.props.restaurant.id}/#r-ph-link`}><p>Photos</p></Link>
+                        </div>
+                        <div className="lnk-cnt">
+                            <Link to={`/restaurants/${this.props.restaurant.id}/#r-menu-link`}><p>Menu</p></Link>
+                        </div>
+                        <div className="lnk-cnt">
+                            <Link to={`/restaurants/${this.props.restaurant.id}/#r-reviews-link`}><p>Reviews</p></Link>
+                        </div>
                     </div>
                     <div className="rest-name">
                         <h1>{this.props.restaurant.name}</h1>
