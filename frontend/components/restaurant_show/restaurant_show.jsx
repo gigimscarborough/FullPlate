@@ -21,7 +21,7 @@ class RestaurantShow extends React.Component{
     render(){
       
         return(
-            <div>
+            <div className="show-tl">
  
             <Modal/>
             <RestaurantShowNavBar restaurant={this.props.restaurant} openModal={this.props.openModal} logout={this.props.logout} currentUser={this.props.currentUser}/>

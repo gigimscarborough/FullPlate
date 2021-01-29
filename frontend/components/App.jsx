@@ -15,7 +15,7 @@ import Footer from './footer/footer'
 
 const App = () => (
     
-    <div>
+    <div className="app-div">
         <Modal />
         <header>
 
@@ -25,7 +25,7 @@ const App = () => (
         <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
         <Route exact path="/restaurants/:restaurantId/reserve" component={ReservationFormContainer} />
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
-    <div>
+    <div className="outer-div">
     <Footer/>
     </div>
     </div>
