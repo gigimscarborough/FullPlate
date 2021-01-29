@@ -377,13 +377,27 @@ outline: none;
   background-color: white;
 }
 .rest-olinks a{
-  padding-right: 20px;
+
   text-decoration: none;
   color: black;
+  text-align: center;
 }
+
 .rest-olinks a:hover{
   color: #B22222;
   border-bottom: solid #B22222, 2px;
+}
+
+.lnk-cnt{
+  height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  margin-right: 40px;
+}
+.lnk-cnt:hover{
+  border-bottom: solid #B22222 2px;
+  color:#B22222;
 }
 
 .rest-name{
@@ -434,7 +448,7 @@ z-index: -1;
   margin-top: 30px;
   align-items: center;
   margin-bottom: 30px;
-  line-height: 1.4;
+  line-height: 1.5;
 
 }
 
