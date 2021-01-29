@@ -54,7 +54,19 @@ class RestaurantIndex extends React.Component {
                     <h2>Restaurants Nearby</h2>
                 </div>
                 <div className="res-icon-cont">
-                    {restaurants}   
+                    {restaurants.slice(0, 5)}   
+                </div>
+                <div className="res-header">
+                    <h2>Most Popular</h2>
+                </div>
+                <div className="res-icon-cont">
+                    {restaurants.reverse().slice(0, 5)}
+                </div>
+                <div className="res-header">
+                    <h2>Top Rated</h2>
+                </div>
+                <div className="res-icon-cont">
+                    {restaurants.slice(3, 6).concat(restaurants.reverse().slice(3, 5))}
                 </div>
             </div>
 

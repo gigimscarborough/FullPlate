@@ -49,13 +49,13 @@ export const createReservation = (reservation) => dispatch => {
             
             return dispatch(receiveReservation(reservation))
         }, 
-        errors => {
-            
-            return dispatch(receiveErrors(errors.responseJSON))
-        }
         )
-}
-
+    }
+    
+    // errors => {
+        
+    //     return dispatch(receiveErrors(errors.responseJSON))
+    // }
 export const updateReservation = (reservation) => dispatch => (
     ReservationAPIUtil.updateReservation(reservation)
         .then(reservation => dispatch(receiveReservation(reservation)), 

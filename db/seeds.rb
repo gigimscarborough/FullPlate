@@ -134,7 +134,7 @@ r6 = Restaurant.create!(
     description: "The name GAONNURI represents our placement in what we believe is the center of the world, both physically and figuratively. Located in the heart of New York City, a city that represents the intersection of the finest cuisines and eclectic cultures, GAONNURI seeks to gather people of all backgrounds to share in a traditional Korean dining experience. We hope that the authenticity of the food
     and the enjoyment of the dining experience will invite patrons for generations to come. Thank you for allowing us to invite and serve you in our own culinary center.",
     price_range: '$$$$',
-    cuisine_type: 'American',
+    cuisine_type: 'Korean',
     city: 'New York',
     operation_hours: "5:00pm-10:00pm",
     dining_style: "Elegant Dining",
