@@ -13,7 +13,7 @@ User.destroy_all
 
 User.create({email: "demo@demo.com", password: "demo1234", first_name: "Demo", last_name: "User", dining_city: "New York"})
 
-r2 = Restaurant.create(
+r2 = Restaurant.create!(
     name: 'Buddakan NY',
     address: '75 9th Ave New York, NY 10011',
     phone_number: '(212) 989-2245',
@@ -41,7 +41,7 @@ r2.photos.attach(io: f4, filename: '4.jpg')
 r2.photos.attach(io: f5, filename: '5.jpg')
 
 
-r3 = Restaurant.create(
+r3 = Restaurant.create!(
     name: 'Tao Downtown',
     address: '92 9th Avenue New York, NY 10011',
     phone_number: '(212) 888-2724',
@@ -71,7 +71,7 @@ r3.photos.attach(io: f10, filename: '5.jpg')
 
 
 
-r4 = Restaurant.create(
+r4 = Restaurant.create!(
     name: 'La Grande Boucherie',
     address: '145 W 53rd St New York, NY 10019',
     phone_number: '(212) 510-7714',
@@ -98,7 +98,7 @@ r4.photos.attach(io: f13, filename: '3.jpg')
 r4.photos.attach(io: f14, filename: '4.jpg')
 r4.photos.attach(io: f15, filename: '5.jpg')
 
-r5 = Restaurant.create(
+r5 = Restaurant.create!(
     name: "NOMO Kitchen",
     address: '9 Crosby Street New York, NY 10013',
     phone_number: '(646) 218-6449',
@@ -106,6 +106,7 @@ r5 = Restaurant.create(
     price_range: '$$$',
     cuisine_type: 'American',
     city: 'New York',
+    operation_hours: "11:00-22:00",
     dining_style: "Casual Elegant",
     dress_code: "Smart Casual",
     noise_level: "Moderate",
@@ -126,7 +127,7 @@ r5.photos.attach(io: f30, filename: '5.jpg')
 
 
 
-r6 = Restaurant.create(
+r6 = Restaurant.create!(
     name: "GAONNURI",
     address: '1250 Broadway 39th Floor New York, NY 10001',
     phone_number: '(212) 971-9045',
@@ -135,6 +136,7 @@ r6 = Restaurant.create(
     price_range: '$$$$',
     cuisine_type: 'American',
     city: 'New York',
+    operation_hours: "5:00pm-10:00pm",
     dining_style: "Elegant Dining",
     dress_code: "Business Casual",
     noise_level: "Moderate",
@@ -155,7 +157,7 @@ r6.photos.attach(io: f25, filename: '5.jpg')
 
 
 
-r7 = Restaurant.create(
+r7 = Restaurant.create!(
     name: "Lamia's Fish Market",
     address: '145 W 53rd St New York, NY 10019',
     phone_number: '(212) 777-3650',
@@ -163,6 +165,7 @@ r7 = Restaurant.create(
     price_range: '$$$',
     cuisine_type: 'Seafood',
     city: 'New York',
+    operation_hours: "11:00-22:00",
     dining_style: "Casual Elegant",
     dress_code: "Smart Casual",
     noise_level: "Moderate",
