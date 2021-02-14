@@ -130,6 +130,8 @@ class ReservationForm extends React.Component {
                 <div className="logo-nav">
                     <div className='logo-div'>
                         <Link className="logo" to="/"><img src={window.logo} /></Link>
+                        <div className="copy-r">&copy;</div>
+                        <div className="logo-border2"></div>
                     </div>
                     <ul className="user-link-list">
                         <ClickUserUpcomingDropdown />

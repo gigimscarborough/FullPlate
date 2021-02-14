@@ -16,8 +16,8 @@ class ClickUserDropdown extends React.Component{
 
     render(){
         return(
-            <div>
-                <i onClick={this.whenClicked} className=" far2 far fa-user-circle"></i>
+            <div id="user-c">
+                <i onClick={this.whenClicked} className=" far2 far fa-user"></i>
                 {this.state.clicked ? <UserDropdown/> : null}
             </div>
         )

@@ -8,6 +8,7 @@ class UpcomingDropdown extends React.Component {
         return (
             <div>
                 <div className="upcoming-dropdown">
+                <div className="pointer"></div>
                     <h2>Upcoming Reservations</h2>
                     <p>You have no upcoming reservations!</p>
                 </div>

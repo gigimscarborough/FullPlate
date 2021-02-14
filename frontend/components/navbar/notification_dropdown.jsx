@@ -8,6 +8,7 @@ class NotificationDropdown extends React.Component {
         return (
             <div>
                 <div className="notification-dropdown">
+                    <div className="pointer"></div>
                     <h2>Notifications</h2>
                     <div className="bell-div">
                         <img id="bell-img" src={window.bell} />

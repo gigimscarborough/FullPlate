@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import {sendForm} from '../../actions/search_actions'
+import { openModal } from '../../actions/modal_actions'
 import {withRouter} from 'react-router-dom'
 
 class ReservationWidget extends React.Component {
@@ -37,8 +38,13 @@ class ReservationWidget extends React.Component {
 
     handleSubmit(e){
         e.preventDefault()
-        this.props.sendForm(this.state)
-        this.props.history.push(`/restaurants/${this.props.match.params.restaurantId}/reserve`)
+        if (this.props.currentUser){
+
+            this.props.sendForm(this.state)
+            this.props.history.push(`/restaurants/${this.props.match.params.restaurantId}/reserve`)
+        } else {
+            this.props.openModal('login')
+        }
 
     }
  
@@ -208,11 +214,13 @@ class ReservationWidget extends React.Component {
 
 
 const mSTP = (state) => ({
-    search: state.ui.search
+    search: state.ui.search,
+    currentUser: state.entities.users[state.session.id]
 })
 
 const mDTP = (state) => ({
     sendForm: (form) => dispatch(sendForm(form)),
+    openModal: modal => dispatch(openModal(modal))
 })
 
 export default withRouter(connect(mSTP, mDTP)(ReservationWidget))

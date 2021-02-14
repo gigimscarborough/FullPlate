@@ -5,13 +5,13 @@ class SessionForm extends React.Component {
     constructor(props) {
 
         super(props)
-        this.state = this.props.user ;
+        this.state = this.props.user;
         this.handleSubmit = this.handleSubmit.bind(this)
         this.demo = this.demo.bind(this)
-    
+
     }
 
-    componentDidMount(){
+    componentDidMount() {
         if (Boolean(this.props.errors.length)) {
             this.props.removeErrors()
         }
@@ -21,7 +21,7 @@ class SessionForm extends React.Component {
             this.props.removeErrors()
         }
     }
-    
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -35,104 +35,109 @@ class SessionForm extends React.Component {
         return (e) => (
             this.setState(
                 { [type]: e.currentTarget.value })
-                )
+        )
     }
-            
-    handleErrors(type){
-                
+
+    handleErrors(type) {
+
         return this.props.errors.filter(error => error.includes(type))
     }
 
-    toggleClass(type){
+    toggleClass(type) {
         return !this.handleErrors(type).length ? "" : "error-input"
 
     }
 
-    demo(e){
+    demo(e) {
         e.stopPropagation()
-        this.props.action({email: "demo@demo.com", password: "demo1234" })
-        .then(() => this.props.closeModal());
+        this.props.action({ email: "demo@demo.com", password: "demo1234" })
+            .then(() => this.props.closeModal());
     }
-            
-            
-            
-            render() {
-                const errorList = this.props.errors.map((error, i) => (<li key={i}>{error}</li>))
-                    
-                    const loginRender = () =>  (
-                        <div className="modal-form" onClick={e => e.stopPropagation()}>
-                        <div className="login-form-container">
-                            {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
-                            <form onSubmit={this.handleSubmit} className="login-form-box">
-                                <h1 className="form-header">Please sign in</h1>
-                                <br/>
-                                <ul className="error-list">
-                                    {errorList}
-                                </ul>
-                                    <div className="login-form">
-                                        <input type="text" className="form-input" type="text" placeholder="Email" onChange={this.handleInput('email')} />
-                                        <br/>
-                                        <input type="text" className="form-input" type="password" placeholder="Password" onChange={this.handleInput('password')} />
-                                        <br/>
-                                        <button type="text" className="form-btn">Sign In</button>
-                                        <span onClick={this.demo} type="text"className="form-btn demo-btn">Demo User</span>
-                                    </div>
-                                <p className="contact-p">Don't want to complete the form?</p>
-                                    <div className="contact-div">
-                                    <a href="https://github.com/gigimscarborough"><div>Continue to my <i className="fab fa-github"></i> GitHub</div></a>
-                                    <a href="https://linkedin.com/in/gigimscarborough"><div>Continue to my <i className="fab fa-linkedin"></i> LinkedIn</div></a>
-                                    <a href="https://angel.co/u/gigi-scarborough"><div>Continue to my <i className="fab fa-angellist"></i> AngelList</div></a>
-                                    </div>
-                                <p>New to FullPlate? {this.props.otherForm}</p>
-                            </form>
-                        </div>
-                        </div>
-                    )
 
-        const signupRender = () =>  (
+
+
+    render() {
+        const errorList = this.props.errors.map((error, i) => (<li key={i}>{error}</li>))
+
+        const loginRender = () => (
             <div className="modal-form" onClick={e => e.stopPropagation()}>
-             <div className="login-form-container">
+                <div className="login-form-container">
                     {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
-                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <h1 className="form-header">Welcome to FullPlate!</h1>
-                    <br/>
-                    <div className="login-form">
-                        <input type="text" className={`form-input ${this.toggleClass('First')}`} type="text" value={this.state.first_name} placeholder="First Name *" onChange={this.handleInput('first_name')} />
+                    <form onSubmit={this.handleSubmit} className="login-form-box">
+                        <h1 className="form-header">Please sign in</h1>
+                        <br />
                         <ul className="error-list">
-                            <li>{this.handleErrors('First')}</li>
+                            {errorList}
                         </ul>
-                    <br />
-                        <input type="text" className={`form-input ${this.toggleClass('Last')}`} type="text" value={this.state.last_name} placeholder="Last Name *" onChange={this.handleInput('last_name')} />
-                        <ul className="error-list">
-                            <li>{this.handleErrors('Last')}</li>
-                        </ul>
-                    <br />
-                        <input type="text" className={`form-input ${this.toggleClass('Email')}` } type="text" value={this.state.email} placeholder="Enter email *" onChange={this.handleInput('email')} />
-                        <ul className="error-list">
-                            <li>{this.handleErrors('Email')}</li>
-                        </ul>
-                    <br />
-                        <input type="password" className={`form-input ${this.toggleClass('Password')}`} value={this.state.password} placeholder="Enter password *"onChange={this.handleInput('password')} />
-                        <ul className="error-list">
-                            <li>{this.handleErrors('Password')}</li>
-                        </ul>
-                    <br />
-                        <select className="form-select" onChange={this.handleInput('dining_city')}>
-                            <option>Primary Dining Location *</option>
-                            <option value="New York">New York</option>
-                            <option value="Los Angeles">Los Angeles</option>
-                            <option value="San Francisco">San Francisco</option>
-                            <option value="Chicago">Chicago</option>
-                            <option value="Miami">Miami</option>
-                        </select>
-                    <button className="form-btn">Create Account</button>
-                    </div>
-                <p>Already have an account? {this.props.otherForm}</p>
-                 </form>
-             </div>
+                        <div className="login-form">
+                            <input type="text" className="form-input" type="text" placeholder="Email" onChange={this.handleInput('email')} />
+                            <br />
+                            <input type="text" className="form-input" type="password" placeholder="Password" onChange={this.handleInput('password')} />
+                            <br />
+                            <button type="text" className="form-btn">Sign In</button>
+                            <span onClick={this.demo} type="text" className="form-btn demo-btn">Demo User</span>
+                        </div>
+                        <p className="contact-p">Don't want to complete the form?</p>
+                        <div className="contact-div">
+                            <a href="https://github.com/gigimscarborough"><div>Continue to my <i className="fab fa-github"></i> GitHub</div></a>
+                            <a href="https://linkedin.com/in/gigimscarborough"><div>Continue to my <i className="fab fa-linkedin"></i> LinkedIn</div></a>
+                            <a href="https://angel.co/u/gigi-scarborough"><div>Continue to my <i className="fab fa-angellist"></i> AngelList</div></a>
+                        </div>
+                        <p>New to FullPlate? {this.props.otherForm}</p>
+                    </form>
+                </div>
             </div>
         )
-        
+
+        const signupRender = () => (
+            <div className="modal-form" onClick={e => e.stopPropagation()}>
+                <div className="login-form-container">
+                    {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
+                    <form onSubmit={this.handleSubmit} className="login-form-box">
+                        <h1 className="form-header">Welcome to FullPlate!</h1>
+                        <br />
+                        <div className="login-form">
+                            <input type="text" className={`form-input ${this.toggleClass('First')}`} type="text" value={this.state.first_name} placeholder="First Name *" onChange={this.handleInput('first_name')} />
+                            <ul className="error-list">
+                                <li>{this.handleErrors('First')}</li>
+                            </ul>
+                            <br />
+                            <input type="text" className={`form-input ${this.toggleClass('Last')}`} type="text" value={this.state.last_name} placeholder="Last Name *" onChange={this.handleInput('last_name')} />
+                            <ul className="error-list">
+                                <li>{this.handleErrors('Last')}</li>
+                            </ul>
+                            <br />
+                            <input type="text" className={`form-input ${this.toggleClass('Email')}`} type="text" value={this.state.email} placeholder="Enter email *" onChange={this.handleInput('email')} />
+                            <ul className="error-list">
+                                <li>{this.handleErrors('Email')}</li>
+                            </ul>
+                            <br />
+                            <input type="password" className={`form-input ${this.toggleClass('Password')}`} value={this.state.password} placeholder="Enter password *" onChange={this.handleInput('password')} />
+                            <ul className="error-list">
+                                <li>{this.handleErrors('Password')}</li>
+                            </ul>
+                            <br />
+                            <div className="f-sel-div">
+                            <select className={`form-select ${this.toggleClass('Password')}`} onChange={this.handleInput('dining_city')}>
+                                <option selected disabled>Primary Dining Location *</option>
+                                <option value="New York">New York</option>
+                                <option value="Los Angeles">Los Angeles</option>
+                                <option value="San Francisco">San Francisco</option>
+                                <option value="Chicago">Chicago</option>
+                                <option value="Miami">Miami</option>
+                            </select>
+                            <ul className="error-list">
+                                <li>{this.handleErrors('Dining')}</li>
+                            </ul>
+                            </div>
+                            <button className="form-btn">Create Account</button>
+                        </div>
+                        <p>Already have an account? {this.props.otherForm}</p>
+                    </form>
+                </div>
+            </div>
+        )
+
         return this.props.formType === 'login' ? loginRender() : signupRender()
     }
 

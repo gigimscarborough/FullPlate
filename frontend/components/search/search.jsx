@@ -142,7 +142,7 @@ class Search extends React.Component {
                                 <i class="far fa-clock"></i>
                             </div>
                             <select className="splash-search-select" onChange={this.handleChange('guest_count')}>
-                                <option key={1} value={1} selected>1 person</option>
+                                <option key={1} value={1} selected>1 Person</option>
                                 {options}
                             </select>
                         </div>

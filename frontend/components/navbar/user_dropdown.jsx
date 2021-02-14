@@ -8,6 +8,7 @@ class UserDropdown extends React.Component {
         return(
             <div>
             <div className="user-dropdown">
+                    <div className="pointer"></div>
                     <div id="user-greeting-div">
                     <h2 id="user-greeting">Hello, {this.props.currentUser.first_name}!</h2>
                 </div>

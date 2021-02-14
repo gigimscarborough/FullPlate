@@ -97,6 +97,9 @@ font-size:35px;
     justify-content: center;
   
 }
+.ftr-link:hover i:first-of-type{
+    color: white;
+}
 .ftr-links a{
     position: relative;
     display: flex;

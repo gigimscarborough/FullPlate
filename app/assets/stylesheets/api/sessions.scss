@@ -34,7 +34,7 @@
     align-items: center;
     justify-content: flex-end;
     border-bottom: solid lightgray 1px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 
   }
  
@@ -69,6 +69,9 @@
   }
 
   .lsearch{
+    height: 34px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
     border-left: solid lightgray 1px;
     
@@ -81,8 +84,17 @@
     cursor: pointer;
   }
   
-  .fa-user-circle{
-    font-size: 29px;
+
+  #user-c{
+    height: 33px;
+    width: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid lightgray 1px;
+    border-radius: 50px;
+    background-color: rgb(244, 246, 248);
+    margin-right: 6px;
   }
   .fa-bell{
     padding-right: 15px;
@@ -93,15 +105,33 @@
   }
 
   .logo-div{
-    border-right: solid lightgray 1px;
-    transform: scale(.72);
+    display: flex;
+    // border-right: solid lightgray 1px;
+    transform: scale(.7);
     margin-right: auto;
+    align-items: center;
     
   }
 
+
   .logo{
-    height: 30px;
-    margin-right: 3px;
+    margin-right: 9px;
+  }
+  .copy-r{
+    position: absolute;
+    margin-left: 192.5px;
+    font-size: 8px;
+    margin-top: -11px;
+    color: dimgray
+  }
+  .logo-border{
+    height: 35px;
+    border-left:solid lightgray 1px;
+  }
+  .logo-border2{
+    height: 77px;
+    border-left:solid lightgray 1px;
+    margin-top: -5px;
   }
 
   .logo-link-list{
@@ -236,7 +266,7 @@
    color: #B22222;
    font-weight: bold;
    font-size: 14px;
-   padding-bottom: 6px;
+   padding-top: 6px;
  }
  .form-input{
   
@@ -258,13 +288,18 @@ background-color: white;
   font-family: 'Amiko', sans-serif;
   font-size: 13px;
  }
+ .f-sel-div{
+   display:flex;
+   flex-direction: column;
+   margin-bottom: 15px;
+ }
 
  .form-select{
   border: solid lightgray 1px;
   background-color: white;
  color: dimgray;
   height: 50px;
-  margin-bottom: 20px;
+  
   border-radius: 2px;
   padding-left: 20px;
   padding-right: 20px;
@@ -318,8 +353,20 @@ background-color: white;
   border: solid lightgray 1px;
   z-index: 3;
   width: 300px;
-  right: 175px;
+  right: 163px;
   border-radius: 4px;
+  margin-top: 29px;
+}
+.pointer{
+  position: absolute;
+  background-color: white;
+  border-top: solid lightgray 1px;
+  border-left: solid lightgray 1px;
+  height: 14px;
+  width: 14px;
+  margin-top:-8px;
+  margin-left: 275px;
+  transform: rotate(45deg);
 }
 
 #user-greeting{
@@ -334,6 +381,7 @@ background-color: white;
 
 
 
+
 .upcoming-dropdown{
   display: block;
   position: absolute;
@@ -341,9 +389,10 @@ background-color: white;
   border: solid lightgray 1px;
   z-index: 3;
   width: 300px;
-  right: 130px;
+  right: 116px;
   border-radius: 4px;
   margin: 5px;
+  margin-top: 3px;
 }
 .upcoming-dropdown h2{
   font-weight: bold;
@@ -362,6 +411,7 @@ background-color: white;
   padding-left: 10px;
 }
 
+
 .notification-dropdown{
   display: block;
   position: absolute;
@@ -369,9 +419,10 @@ background-color: white;
   border: solid lightgray 1px;
   z-index: 3;
   width: 300px;
-  right: 85px;
+  right: 78px;
   border-radius: 4px;
   margin: 5px;
+  margin-top: 7px;
 }
 
 .notification-dropdown h2{
@@ -448,5 +499,6 @@ transition: 0.05s;
 }
 .contact-div i{
 padding-left: 6px;
+margin-top: -3px;
 
 }

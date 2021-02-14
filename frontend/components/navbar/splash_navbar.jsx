@@ -13,6 +13,8 @@ class SplashNavBar extends React.Component{
                 <div className="logo-nav">
                     <div className='logo-div'>
                         <Link className="logo" to="/"><img src={window.logo} /></Link>
+                        <div className="copy-r">&copy;</div>
+                        <div className="logo-border"></div>
                     </div>
                     <ul className="logo-link-list">
                         <GreetingContainer/>

@@ -29,7 +29,7 @@ class ClickGreetingDropdown extends React.Component {
                 <p>
                     Hi, {this.props.currentUser.first_name}
                 </p>
-                    <i className="fas fa-angle-down greeting-angle"></i>
+                    <div className="greeting-angle"></div>
                 {this.state.clicked ? <GreetingDropdown logout={this.props.logout} currentUser={this.props.currentUser}/> : null}
             </div>
         )
