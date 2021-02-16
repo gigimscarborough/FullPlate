@@ -7,6 +7,7 @@ import {fetchRestaurant} from '../../actions/restaurant_actions'
 
 
 const mSTP = (state, ownProps) => {
+    
     return {restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
         currentUser: state.entities.users[state.session.id],
         search: state.ui.search

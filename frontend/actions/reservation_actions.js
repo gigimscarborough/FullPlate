@@ -39,7 +39,8 @@ const removeReservationErrors = () => ({
 export const fetchReservations = () => dispatch => (
     ReservationAPIUtil.fetchReservations()
         .then(reservations => dispatch(receiveAllReservations(reservations)), 
-        errors => dispatch(receiveErrors(errors.responseJSON)))
+        // errors => dispatch(receiveErrors(errors.responseJSON))
+        )
 )
 
 export const createReservation = (reservation) => dispatch => {

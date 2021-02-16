@@ -232,3 +232,198 @@ margin-bottom: 10px;;
     font-weight: bold;
 }
 
+.up-res-hold{
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  height: 100%;
+  padding: 25px 10vw;
+}
+.up-res-r{
+  width: 50vw;
+  margin-right: 5vw;
+
+}
+
+.up-res-l{
+  width: 25vw;
+
+}
+
+.up-res-conf{
+  box-shadow: 0px 1px 1px lightgray;
+  width: 100%;
+border-radius: 0 0 5px 5px;
+  
+
+}
+.res-conf-head{
+  height: 75px;
+  background-color: rgb(92, 187, 147);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.res-check i:first-of-type{
+  color:white;
+  font-size: 50px;
+}
+
+.res-check i:last-of-type{
+  position: absolute;
+  color:  rgb(92, 187, 147);
+  font-size: 30px;
+}
+
+.res-check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.res-check-i{
+color:white;
+font-weight: bold;
+}
+.res-check-i p:last-of-type{
+font-size:12px;
+margin-top: 5px;
+}
+
+.res-conf-inf{
+  box-sizing: border-box;
+  width:100%;
+  height: 300px;
+  padding: 10px 10px;
+  border-bottom: solid lightgray 1px;
+}
+
+.conf-rest{
+    display:flex;
+
+}
+#u-conf-pic{
+  height: 105px;
+  width: 105px;
+  margin-right: 10px;
+}
+
+.conf-rest-inf{
+    display:flex;
+    flex-direction: column;
+    margin-top: 4px;
+  
+}
+
+.conf-rest-inf span{
+   
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.conf-rest-inf span p{
+    font-size: 15px;
+    margin: 4px 0 0 0;
+}
+.conf-rest-inf span p:last-of-type{
+    font-size: 15px;
+    margin: 6px 0 0 0;
+}
+.conf-rest-inf h3{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 17px;
+    font-weight: bold;
+     margin-bottom: 9px;
+}
+
+#conf-cal{
+height: 19px;
+width: 16px;
+margin-right: 10px;
+}
+
+#conf-ppl{
+height:16px;
+width: 16px;
+margin-right: 10px;
+}
+.conf-links a{
+    color: #247F9E;
+    font-size: 15px;
+   
+}
+
+.conf-links{
+    display: flex;
+    margin-top: 4px;
+}
+
+.conf-links div{
+    height: 14px;
+    border-right: solid lightgray 1px;
+    margin-top: -3px;
+}
+
+.conf-links a:first-of-type{
+   padding-right: 12px;
+
+   
+}
+.conf-links a:last-of-type{
+   margin-left: 12px;
+   
+}
+
+.going p{
+    font-size: 14px;
+    margin: 26px 0 0 17px;
+}
+.going-t{
+    display:flex;
+    margin-top: 15px;
+
+}
+
+.going-g{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+
+
+
+.going-c{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:16px 16px 8px 16px;
+}
+.going-c i{
+    font-size:50px;
+    color: #bb61cf;
+}
+
+.going-c span{
+    position: absolute;
+    color:white;
+    font-weight: none;
+
+}
+
+.going-g > span{
+    font-size: 13px;
+    font-weight: none;
+    margin-top: 5px;
+}
+.going-g > span:last-of-type{
+    color:gray;
+}
+
+.res-conf-btm{
+    height:85px;
+    width: 100%;
+   
+}

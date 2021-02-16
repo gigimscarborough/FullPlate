@@ -32,6 +32,7 @@ class ReservationForm extends React.Component {
             special_request: "",
             occasion: "",
         }
+        
     }
 
     componentDidMount() {
@@ -87,6 +88,7 @@ class ReservationForm extends React.Component {
         e.preventDefault()
         this.props.createReservation(this.state)
         this.props.history.push(`/users/${this.props.currentUser.id}`)
+        // .then(() => window.location.reload())
         
     }
 

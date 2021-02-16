@@ -9,6 +9,7 @@ const mSTP = (state, ownProps) => {
 
     return { currentUser: state.entities.users[state.session.id],
             reservations: Object.values(state.entities.reservations),
+            restaurants: state.entities.restaurants
     }
 }
 

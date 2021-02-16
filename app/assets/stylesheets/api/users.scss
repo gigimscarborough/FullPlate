@@ -227,10 +227,12 @@ color: black;
   
 }
 .show-u-tbs div{
-  margin-bottom:15px;
- 
+  margin-bottom:12px;
+
  
 }
+
+
 .show-u-tbs {
   width: 100%;
   
@@ -243,22 +245,19 @@ color: black;
 }
 
 
-.us-ur{
+.usdiv{
 background-color: white;
+  -webkit-border-radius: 5px 5px 5px 5px;
+border-radius: 5px 5px 5px 5px; 
+box-shadow: 0px 2px 2px lightgray;
 }
 
-.us-sr{
-background-color: white;
-}
-
-.us-up{
-background-color: white;
-}
 .sep{
   height:75px;
   border-bottom: solid lightgray 1px;
   display: flex;
   align-items: center;
+
 }
 .btm{
   background-color:white;
@@ -273,8 +272,19 @@ background-color: white;
 }
 .reservation-it{
   margin-bottom: 10px;
+  display: flex;
+  border-bottom: solid lightgray 1px;
+  padding-bottom: 30px;
+  padding-left: 20px;
   
 }
+
+.reservation-it:last-of-type{
+ border-bottom: none;
+
+}
+
+
 .iter{
   font-size: 14px;
 flex-direction:column;
@@ -282,5 +292,88 @@ background-color:white;
   min-height: 75px;
   display:flex;
   justify-content: center;
-  padding-left: 20px;
+
+  -webkit-border-radius: 5px 5px 5px 5px;
+border-radius: 5px 5px 5px 5px; 
+  margin-top: 20px;
+
 }
+
+.btm{
+
+  -webkit-border-radius: 13px 13px 13px 13px;
+border-radius: 13px 13px 13px 13px; 
+}
+
+#u-res-pic{
+  height: 90px;
+  width: 90px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+.u-res-info-div{
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.u-res-info-div span{
+    margin: 0;
+    color:dimgray;
+}
+
+.u-res-name span{
+    margin: 0;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+}
+.u-res-name a{
+    text-decoration: none;
+}
+   
+
+.edit-res{
+  text-decoration: none;
+  color:  #247F9E;
+ 
+}
+.edit-res a{
+  text-decoration: none;
+ margin-right: 10px;
+ cursor:pointer;
+   color:  #247F9E;
+
+
+}
+
+.edit-res a:hover{
+ margin-right: 10px;
+ color: #19596f;
+
+}
+
+.past-hold{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.fav-me{
+  color: #B22222;
+  margin-left: 12px;
+  cursor: pointer;
+  display:flex
+}
+.fav-me i{
+  margin-right: 5px;
+}
+.fav-me span{
+  color: #B22222;
+}
+
+.fav-me:hover span{
+  color: #8d1b1b;
+}
+

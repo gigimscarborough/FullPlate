@@ -7,11 +7,11 @@ class RestaurantShow extends React.Component{
     constructor(props){
         super(props)
 
-      
+        
     }
 
     componentDidMount(){
-        
+       
         this.props.fetchRestaurant(this.props.match.params.restaurantId);
         
         window.scrollTo(0,0)
