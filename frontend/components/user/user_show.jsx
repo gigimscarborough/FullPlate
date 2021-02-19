@@ -118,7 +118,17 @@ class UserShow extends React.Component {
 
         if (Object.values(this.props.restaurants) <= 0) {
             return null
-        } else {
+        } 
+        
+        if (typeof this.props.restaurants === 'undefined'){
+            return null
+        }
+
+        if (typeof this.props.reservations === 'undefined') {
+            return null
+        }
+        
+        else {
 
 
 
