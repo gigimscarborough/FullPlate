@@ -11,9 +11,9 @@ class UserShow extends React.Component {
         this.pastRes = this.pastRes.bind(this)
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchRestaurants()
-        // this.props.fetchReservations()
+        this.props.fetchReservations()
 
     }
 
@@ -39,7 +39,7 @@ class UserShow extends React.Component {
                             </div>
                             <div>
                                 <span >
-                                    {new Date(reservations[i].reservation_datetime).toLocaleDateString()} at {new Date(reservations[i].reservation_datetime).toLocaleTimeString()}.
+                                    {new Date(reservations[i].reservation_datetime).toLocaleDateString()} at {new Date(reservations[i].reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date(reservations[i].reservation_datetime).toLocaleTimeString().split(" ")[1]}.
                                 </span>
 
                             </div>
@@ -109,10 +109,12 @@ class UserShow extends React.Component {
         return resList
     }
 
+    
 
 
 
     render() {
+        debugger
 
         if (Object.values(this.props.restaurants) <= 0) {
             return null

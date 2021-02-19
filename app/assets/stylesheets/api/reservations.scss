@@ -238,25 +238,26 @@ margin-bottom: 10px;;
   width: 100%;
   display: flex;
   height: 100%;
-  padding: 25px 10vw;
+  padding: 25px 12vw;
   padding-bottom: 100px;
-  
+  background-color: #f4f6f8;
 }
 .up-res-r{
   width: 50vw;
-  margin-right: 5vw;
+  margin-right: 3vw;
 
 }
 
 .up-res-l{
-  width: 25vw;
+  width: 23vw;
 
 }
 
 .up-res-conf{
   box-shadow: 0px 1px 1px lightgray;
   width: 100%;
-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 10px;
   
 
 }
@@ -299,6 +300,8 @@ margin-top: 5px;
   height: 300px;
   padding: 10px 10px;
   border-bottom: solid lightgray 1px;
+background-color: white;
+
 }
 
 .conf-rest{
@@ -353,8 +356,16 @@ width: 16px;
 margin-right: 10px;
 }
 .conf-links a{
+    text-decoration: none;
     color: #247F9E;
     font-size: 15px;
+    cursor: pointer;
+
+   
+}
+.conf-links a:hover{
+    color:  #B22222;
+    
    
 }
 
@@ -377,6 +388,10 @@ margin-right: 10px;
 .conf-links a:last-of-type{
    margin-left: 12px;
    
+}
+.going{
+    background-color: white;
+
 }
 
 .going p{
@@ -428,5 +443,344 @@ margin-right: 10px;
 .res-conf-btm{
     height:85px;
     width: 100%;
+    background-color: white;
+
    
+}
+
+.res-conf-updt{
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 1px 1px lightgray;
+  width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 25px;
+
+}
+
+.res-conf-updt img{
+    height: 35px;
+    width: 30px;
+    margin-right: 15px;
+}
+
+.res-conf-updt p{
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.res-conf-updt span{
+    font-size: 12px;
+    font-weight: bold;
+    
+    
+}
+#imp-inf{
+margin-top: 5px;
+}
+
+.res-conf-updt p:first-of-type{
+    font-size: 14px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.res-conf-head2{
+    display:flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.res-conf-head2 h2{
+    font-size: 18px;
+    font-weight: bold;
+}
+.res-conf-updt select{
+    width: 100%;
+    height: 50px;
+    border: solid lightgray 1px;
+    font-family: 'Amiko', sans-serif;
+    border-radius: 3px;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: 0;
+    margin-bottom: 15px;
+}
+
+.res-conf-updt select:focus{
+outline: none;
+
+}
+
+#restext textarea{
+    box-sizing: border-box;
+     width: 80%;
+    height: 50px;
+    border-style: none;
+    resize:none;
+    margin: 5px 15px;
+    width: 100%;
+    font-size: 15px;
+    font-family: 'Amiko', sans-serif;
+   background-color:transparent;
+   font-weight:100;
+   line-height: 1.7;
+
+}
+#restext textarea:focus{
+    outline: none;
+
+    
+    
+}
+#restext textarea::placeholder{
+    color:gray;
+
+    
+    
+}
+#restext{
+    padding: 5px 5px;
+    border: solid lightgray 1px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+#restext-btn{
+    
+    display:none;
+    justify-content: flex-end;
+    width: 100%;
+    
+    
+}
+
+#restext-btn button{
+
+    background-color: #247F9E;
+    color: white;
+    border: none;
+    width: 90px;
+    height: 35px;
+    font-size: 12px;
+    cursor: pointer;
+
+}
+#restext-btn button:focus{
+    outline:none;
+    
+}
+
+.member-sin{
+    box-sizing:border-box;
+    box-shadow: 0px 1px 1px lightgray;
+  width: 100%;
+    border-radius: 0 0 5px 5px;
+    height:170px;
+    background-color: white;
+    padding: 25px;
+    display: flex;
+    align-items: flex-start;
+
+}
+.mem-c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    
+}
+
+.mem-c i{
+ font-size:70px;
+ color: #e69384;
+
+}
+.mem-c span{
+    font-size: 25px;
+ position: absolute;
+    color:white;
+    font-weight: none;
+
+}
+
+.mem-inf{
+    display:flex;
+    flex-direction: column;
+    margin-top: 3px;
+}
+
+.mem-inf img{
+    height: 16px;
+    width: 14px;
+    margin-right: 16px;
+
+}
+
+.mem-inf span:first-of-type{
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+}
+.mem-inf span{
+    font-size: 15px;
+   color: gray;
+   margin-bottom: 15px;
+}
+.mem-inf i{
+   width: 17px;
+   height: 16px;
+   transform: scaleX(-1);
+   color: black;
+   margin-right: 10px;
+}
+
+.res-mod-hold{
+    margin: 40px 15vw;
+    min-height: 62vh;
+    
+}
+.res-mod-div{
+    width: 60%;
+    min-width: 500px;
+    
+}
+
+.your-res{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.your-res-inf{
+    display: flex;
+    border-bottom: solid lightgray 1px;
+    margin: 22px 0;
+    padding-bottom: 15px;;
+}
+.your-res-inf img{
+    display: flex;
+    height: 65px;
+    width:65px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.your-res-icn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.your-res-icn > span{
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
+.your-res-icn > div{
+    display: flex;
+    margin-bottom: 4px;
+    
+}
+.your-res-icn  i{
+font-size: 18px; 
+margin-right: 10px;
+
+}
+
+.mod-icn{
+    margin-right: 35px;
+}
+.mod-icn span{
+font-size: 15px;
+}
+
+.mod-res{
+    font-size: 15px;
+    font-weight: 100;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.mod-res-div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.mod-res-sel{
+    background-color:white;
+    height:45px;
+    border: solid lightgray 1px;
+    border-radius: 3px;
+    width: 75%;
+    min-width: 75%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mod-res-div button{
+    background-color: #B22222;
+    color:white;
+    border: none;
+    height: 45px;
+    width: 22%;
+    font-weight: bold;
+}
+
+.mod-date{
+    display: flex;
+    box-sizing: border-box;
+    height:100%;
+    border: none;
+    font-family: 'Amiko', sans-serif;
+    cursor: pointer;
+}
+
+.mod-date input{
+   height: 100%;
+  border: none;
+    outline: none;
+}
+.mod-time{
+    box-sizing: border-box;
+    height:100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Amiko', sans-serif;
+    justify-content: flex-end;
+}
+
+.mod-time i{
+    background-color: white;
+    position: absolute;
+}
+.mod-time select{
+   height: 100%;
+  border: none;
+    outline: none;
+}
+.mod-guest{
+    box-sizing: border-box;
+    height:100%;
+    display: flex;
+     align-items: center;
+    border: none;
+    font-family: 'Amiko', sans-serif;
+    cursor: pointer;
+    justify-content: flex-end;
+    
+}
+.mod-guest i{
+    background-color: white;
+    position: absolute;
+}
+.mod-guest select{
+   height: 100%;
+   border: none;
+outline: none;
 }
