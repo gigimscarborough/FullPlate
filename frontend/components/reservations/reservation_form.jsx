@@ -5,6 +5,7 @@ import ClickGreetingDropdown from '../navbar/click_greeting_dropdown'
 import { Link } from 'react-router-dom'
 import { openModal } from '../../actions/modal_actions'
 import { timers } from 'jquery'
+import { fetchReservations } from '../../util/reservation_util'
 
 
 class ReservationForm extends React.Component {
@@ -21,7 +22,7 @@ class ReservationForm extends React.Component {
         }
 
         this.state = {
-            restaurant_id: this.props.restaurant.id,
+            restaurant_id: this.props.restaurant ? this.props.restaurant.id : null,
             guest_id: this.props.currentUser.id,
             guest_count: this.props.search.guest_count,
             reservation_datetime: this.dateTime,
@@ -87,7 +88,9 @@ class ReservationForm extends React.Component {
 
         e.preventDefault()
         this.props.createReservation(this.state)
+        .then(() => this.props.fetchUser(this.props.currentUser.id))
         .then(() => this.props.history.push(`/users/${this.props.currentUser.id}`))
+        // .then(() => this.props.fetchReservations())
         // .then(() => window.location.reload())
         
     }
@@ -119,12 +122,14 @@ class ReservationForm extends React.Component {
 
         // }
     
-        const currentHour = this.props.search.time.split(":")
+        const currentHour =  this.props.search.time.split(":") 
 
         const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12
 
         let currentOption = `${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `pm` : `am`}`
 
+        let resDate = new Date(this.props.search.date)
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
 
         return (
             <div>
@@ -160,7 +165,7 @@ class ReservationForm extends React.Component {
                             <div className="rdiv-b">
                                 <Link to={`/restaurants/${this.props.restaurant.id}`}></Link><h2>{this.props.restaurant.name}</h2>
                                 <div className="rdiv-dets">
-                                    <p><i class="far fa-calendar"></i>{new Date(this.props.search.date).toDateString()}</p>
+                                    <p><i class="far fa-calendar"></i>{resDate.toDateString()}</p>
                                     <p><i class="far fa-clock"></i>{currentOption}</p>
                                     <p><i class="far fa-user"></i>{this.props.search.guest_count === 1 ? "1 person" : `${this.props.search.guest_count} people`}</p>
                                 </div>

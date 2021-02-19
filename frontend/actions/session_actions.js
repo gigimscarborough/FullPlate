@@ -4,6 +4,7 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS'
 export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS'
+export const REFRESH_USER = 'REFRESH_USER'
 
 const receiveCurrentUser = (currentUser) => {
    
@@ -23,6 +24,11 @@ const receiveErrors = (errors) => ({
 
 const removeSessionErrors = () => ({
     type: REMOVE_SESSION_ERRORS
+})
+
+const refreshUser = (currentUser) => ({
+    type: REFRESH_USER,
+    currentUser
 })
 
 export const login = (user) => dispatch => (
@@ -47,4 +53,15 @@ export const signup = (user) => dispatch => (
 
 export const removeErrors = () => dispatch => (
         dispatch(removeSessionErrors())
+)
+
+export const fetchUser = (userId) => dispatch => (
+   
+// {
+
+    SessionApiUtil.fetchUser(userId)
+
+        .then(user => dispatch(refreshUser(user)))
+       
+// }
 )

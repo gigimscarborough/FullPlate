@@ -3,6 +3,8 @@ import UserShow from './user_show'
 import { logout } from '../../actions/session_actions'
 import {fetchReservations, deleteReservation} from '../../actions/reservation_actions'
 import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_actions'
+import { fetchUser } from '../../actions/session_actions'
+
 
 
 const mSTP = (state, ownProps) => {
@@ -18,7 +20,10 @@ const mDTP = (dispatch) => ({
     fetchReservations: () => dispatch(fetchReservations()),
     fetchRestaurants: () => dispatch(fetchRestaurants()),
     fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
-    deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId))
+    deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
+    
+
 })
 
 

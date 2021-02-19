@@ -18,7 +18,7 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = (dispatch) => ({
-    updateReservation: (reservation) => dispatch(updateReservation(reservation)),
+    deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
     fetchRestaurants: (restaurantId) => dispatch(fetchRestaurants(restaurantId)),
     openModal: modal => dispatch(openModal(modal)),
     logout: () => dispatch(logout())

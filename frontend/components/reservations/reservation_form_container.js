@@ -1,9 +1,10 @@
 import {connect} from 'react-redux'
-import {createReservation} from '../../actions/reservation_actions'
+import {createReservation, fetchReservations} from '../../actions/reservation_actions'
 import {openModal} from '../../actions/modal_actions'
 import ReservationForm from './reservation_form'
 import {logout} from '../../actions/session_actions'
 import {fetchRestaurant} from '../../actions/restaurant_actions'
+import { fetchUser } from '../../actions/session_actions'
 
 
 const mSTP = (state, ownProps) => {
@@ -18,7 +19,11 @@ const mDTP = (dispatch) => ({
     openModal: (modal) => dispatch(openModal(modal)),
     createReservation: (reservation) => dispatch(createReservation(reservation)),
     logout: () => dispatch(logout()),
-    fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId))
+    fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
+    fetchReservations: () => dispatch(fetchReservations()),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
+    
+    
 })
 
 

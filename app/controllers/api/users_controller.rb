@@ -1,5 +1,15 @@
 class Api::UsersController < ApplicationController
 
+    def show
+        
+        @user = User.find(params[:id])
+        
+        @user.reservations.reload
+        
+        render 'api/users/show'
+
+    end
+
     def create
         @user = User.new(user_params)
 
