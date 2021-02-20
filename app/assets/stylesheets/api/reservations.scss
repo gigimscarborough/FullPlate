@@ -729,22 +729,52 @@ font-size: 15px;
     height: 45px;
     width: 22%;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.mod-res-div button:hover{
+background-color:  #8d1b1b;
+    transition: 0.4s;
 }
 
 .mod-date{
     display: flex;
+    align-items: center;
     box-sizing: border-box;
     height:100%;
     border: none;
     font-family: 'Amiko', sans-serif;
     cursor: pointer;
 }
+.mod-date-s{
+    position: absolute;
+   background-color: white;
+   width: 110px;
+    font-size: 15px;
+    margin-left: 15px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
 
 .mod-date input{
    height: 100%;
   border: none;
     outline: none;
+    font-family: 'Amiko', sans-serif;
+    padding: 0 10px;
+    cursor: pointer;
+    color:transparent;
+    margin-left: 15px;
+    width: 123px;
+   
 }
+   
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+
+
 .mod-time{
     box-sizing: border-box;
     height:100%;
@@ -753,17 +783,29 @@ font-size: 15px;
     cursor: pointer;
     font-family: 'Amiko', sans-serif;
     justify-content: flex-end;
+    padding: 0 10px;
+
+
 }
 
 .mod-time i{
     background-color: white;
     position: absolute;
+    cursor: pointer;
+    margin-right: 5px;
 }
+
 .mod-time select{
    height: 100%;
+   width: 105px;
   border: none;
     outline: none;
-}
+    font-size: 15px;
+font-family: 'Amiko', sans-serif;
+   cursor: pointer;
+   margin-right: 5px;
+} 
+
 .mod-guest{
     box-sizing: border-box;
     height:100%;
@@ -773,14 +815,41 @@ font-size: 15px;
     font-family: 'Amiko', sans-serif;
     cursor: pointer;
     justify-content: flex-end;
+    padding: 0 10px;
     
 }
 .mod-guest i{
     background-color: white;
     position: absolute;
+    cursor: pointer;
+    margin-right: 5px;
+
 }
+
 .mod-guest select{
    height: 100%;
    border: none;
 outline: none;
+font-family: 'Amiko', sans-serif;
+font-size: 15px;
+width: 115px;
+cursor: pointer;
+margin-right: 5px;
+
+
+}
+
+.g-bord{
+    border-left: solid lightgray 1px;
+    height: 100%;
+    width: 1px;
+}
+
+.cancel-head{
+    height: 120px;
+    border-bottom: solid lightgray 1px;
+}
+.cancel-body{
+    background-color:#f4f6f8;
+    height: 70vh;
 }

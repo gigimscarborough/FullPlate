@@ -214,7 +214,7 @@ class ViewReservation extends React.Component {
                                             <div class="conf-links">
                                                 <Link to={{pathname: `/reservations/${this.reservation().id}/update`}}>Modify</Link>
                                                 <div></div>
-                                                <a>Cancel</a>
+                                                <Link to={{ pathname: `/reservations/${this.reservation().id}/delete` }}><a>Cancel</a></Link>
                                             </div>
                                         </div>
                                     </div>

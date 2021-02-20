@@ -11,6 +11,7 @@ import { fetchReservations } from '../../util/reservation_util'
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
+        this.search = this.props.search
         this.time = 300
         this.setTimer = this.setTimer.bind(this)
         this.thisTime = setInterval(this.setTimer, 1000)
@@ -21,6 +22,18 @@ class ReservationForm extends React.Component {
             clearInterval(this.thisTime)
         }
 
+        // this.state = {
+        //     restaurant_id: this.props.restaurant ? this.props.restaurant.id : null,
+        //     guest_id: this.props.currentUser.id,
+        //     guest_count: this.props.search.guest_count,
+        //     reservation_datetime: this.dateTime,
+        //     email: this.props.currentUser.email,
+        //     first_name: this.props.currentUser.first_name,
+        //     last_name: this.props.currentUser.last_name,
+        //     phone_number: "",
+        //     special_request: "",
+        //     occasion: "",
+        // }
         this.state = {
             restaurant_id: this.props.restaurant ? this.props.restaurant.id : null,
             guest_id: this.props.currentUser.id,
@@ -33,12 +46,17 @@ class ReservationForm extends React.Component {
             special_request: "",
             occasion: "",
         }
-        
     }
 
     componentDidMount() {
         this.props.fetchRestaurant(this.props.match.params.restaurantId)
 
+        if (Object.values(this.props.search).length) {
+            window.localStorage.setItem('savedSearch', JSON.stringify(this.props.search))
+
+        } else {
+            this.search = JSON.parse(window.localStorage.getItem('savedSearch'))
+        }
 
     //   thi
     this.thisTime
@@ -99,6 +117,7 @@ class ReservationForm extends React.Component {
 
     render() {
 
+        debugger
         const restaurant = this.props.restaurant;
         if (typeof restaurant === "undefined") {
 
@@ -106,7 +125,12 @@ class ReservationForm extends React.Component {
 
         }
         
-        const resSearch = this.props.search
+        const resSearch = this.search
+        // const resSearch = this.props.search
+
+        if (!Object.values(resSearch).length){
+            return null
+        }
 
         if (typeof resSearch === "undefined") {
 
@@ -122,13 +146,15 @@ class ReservationForm extends React.Component {
 
         // }
     
-        const currentHour =  this.props.search.time.split(":") 
+        // const currentHour =  this.props.search.time.split(":") 
+        const currentHour =  this.search.time.split(":") 
 
         const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12
 
         let currentOption = `${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `pm` : `am`}`
 
-        let resDate = new Date(this.props.search.date)
+        let resDate = new Date(this.search.date)
+        // let resDate = new Date(this.props.search.date)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
 
         return (
@@ -167,7 +193,7 @@ class ReservationForm extends React.Component {
                                 <div className="rdiv-dets">
                                     <p><i class="far fa-calendar"></i>{resDate.toDateString()}</p>
                                     <p><i class="far fa-clock"></i>{currentOption}</p>
-                                    <p><i class="far fa-user"></i>{this.props.search.guest_count === 1 ? "1 person" : `${this.props.search.guest_count} people`}</p>
+                                    <p><i class="far fa-user"></i>{this.search.guest_count === 1 ? "1 person" : `${this.search.guest_count} people`}</p>
                                 </div>
                             </div>
                         </div>

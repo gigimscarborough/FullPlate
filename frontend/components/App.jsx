@@ -11,6 +11,7 @@ import SearchPageContainter from './search/search_page_container'
 import ReservationFormContainer from './reservations/reservation_form_container'
 import ViewReservationContainer from './reservations/view_reservation_container'
 import UpdateReservationContainer from './reservations/update_reservation_container'
+import DeleteReservationContainer from './reservations/delete_reservation_container'
 import Footer from './footer/footer'
 
 
@@ -29,6 +30,7 @@ const App = () => (
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
         <ProtectedRoute exact path="/reservations/:reservationId/view" component={ViewReservationContainer} />
         <Route exact path="/reservations/:reservationId/update" component={UpdateReservationContainer} />
+        <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} />
     <div className="outer-div">
     <Footer/>
     </div>

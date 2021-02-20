@@ -10,7 +10,7 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount() {
- 
+        
         this.props.searchRestaurants(this.props.search.keyword)
 
     }

@@ -3,7 +3,7 @@ import MainNavBar from '../navbar/main_navbar';
 import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown';
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown';
 import { Link } from 'react-router-dom'
-import { updateReservation } from '../../util/reservation_util';
+
 
 class UpdateReservation extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class UpdateReservation extends React.Component {
             restaurant_id: this.reservation().restaurant_id,
             special_request: this.reservation().special_request,
             time: new Date(this.reservation().reservation_datetime).toTimeString(),
-            // date: 
+            date: this.reservation().reservation_datetime.split("T")[0]
         }
 
     }
@@ -136,21 +136,35 @@ class UpdateReservation extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        this.props.updateReservation(this.state)
+
+        let form = {
+            email: this.state.email,
+            first_name: this.state.first_name,
+            guest_count: this.state.guest_name,
+            guest_id: this.state.guest_id,
+            id: this.state.id,
+            last_name: this.state.last_name,
+            occasion: this.state.occasion,
+            phone_number: this.state.guest_name,
+            reservation_datetime: this.state.date + " " + this.state.time,
+            restaurant_id: this.state.restaurant_id,
+            special_request: this.state.special_request,
+        }
+        this.props.updateReservation(form)
     }
 
 
     render() {
 
 
-        debugger
         let options = []
-
+        
         for (let i = 1; i <= 20; i++) {
-            options.push(this.reservation().guest_count === i ? <option selected key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option> : <option key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
+            options.push(this.reservation().guest_count === i ? <option selected key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option> : <option key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
         }
-
+        
         const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+        debugger
 
         if (Object.values(this.props.restaurants).length <= 0) {
             return null
@@ -187,10 +201,10 @@ class UpdateReservation extends React.Component {
                                 <div className="mod-res-div">
                                     <div className="mod-res-sel">
                                         <div className="mod-date">
-                                            <input type="date" onChange={this.handleChange('date')} />
-
+                                            <input type="date"  onChange={this.handleChange('date')} />
+                                            <div className="mod-date-s">{new Date(this.state.date).toLocaleDateString(undefined, format).split(", ").slice(1).join(", ")}</div>
                                         </div>
-
+                                        <div className="g-bord"></div>
                                         <div className="mod-time">
                                             <select onChange={this.handleChange('time')} >
                                                 {`${new Date(this.reservation().reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.reservation().reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `12:00 AM` ? < option selected value={`00:00:00`}> 12:00 AM</option > : < option value={`00:00:00`}> 12:00 AM</option >}
@@ -244,6 +258,7 @@ class UpdateReservation extends React.Component {
                                             </select>
                                             <i class="far fa-clock"></i>
                                         </div>
+                                        <div className="g-bord"></div>
                                         <div className="mod-guest">
                                             <select onChange={this.handleChange('guest_count')}>
                                             {options}

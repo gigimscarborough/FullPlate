@@ -49,7 +49,7 @@ class UserShow extends React.Component {
                             <div className="edit-res">
                                 <Link to={`/reservations/${reservations[i].id}/view`}><a>View</a></Link>
                                 <Link to={`/reservations/${reservations[i].id}/view`}><a>Modify</a></Link>
-                                <a>Cancel</a>
+                                <Link to={{ pathname: `/reservations/${reservations[i].id}/delete` }}><a>Cancel</a></Link>
                             </div>
                             <div>
 
@@ -114,7 +114,7 @@ class UserShow extends React.Component {
 
 
     render() {
-        debugger
+       
 
         if (Object.values(this.props.restaurants) <= 0) {
             return null
