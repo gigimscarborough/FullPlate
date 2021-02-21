@@ -164,7 +164,7 @@ class UpdateReservation extends React.Component {
         }
         
         const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
-        debugger
+   
 
         if (Object.values(this.props.restaurants).length <= 0) {
             return null

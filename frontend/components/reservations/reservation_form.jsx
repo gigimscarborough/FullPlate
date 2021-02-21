@@ -117,7 +117,6 @@ class ReservationForm extends React.Component {
 
     render() {
 
-        debugger
         const restaurant = this.props.restaurant;
         if (typeof restaurant === "undefined") {
 

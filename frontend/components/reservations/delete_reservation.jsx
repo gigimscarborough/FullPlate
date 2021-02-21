@@ -13,6 +13,7 @@ class DeleteReservation extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.deleted = false
         this.res = this.restaurant()
+        this.reserve = this.reservation()
     }
 
     componentDidMount() {
@@ -20,9 +21,11 @@ class DeleteReservation extends React.Component {
 
         if (this.restaurant()) {
             window.localStorage.setItem('savedRest', JSON.stringify(this.restaurant()))
+            window.localStorage.setItem('savedReserve', JSON.stringify(this.reservation()))
 
         } else {
             this.res = JSON.parse(window.localStorage.getItem('savedRest'))
+            this.reserve = JSON.parse(window.localStorage.getItem('savedReserve'))
         }
     }
 
@@ -129,7 +132,7 @@ class DeleteReservation extends React.Component {
             return(
                 <div>
                     {this.navBar()}
-                    <CancelConf currentUser={this.props.currentUser} restaurant={this.res} restaurants={this.props.restaurants}/>
+                    <CancelConf sendForm={this.props.sendForm} currentUser={this.props.currentUser} reservation={this.reserve} restaurant={this.res} restaurants={this.props.restaurants}/>
                 </div>
             )
         } else {

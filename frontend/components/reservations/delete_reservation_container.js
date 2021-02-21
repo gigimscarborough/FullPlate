@@ -5,6 +5,7 @@ import DeleteReservation from './delete_reservation'
 import { fetchRestaurants } from '../../actions/restaurant_actions'
 import { logout } from '../../actions/session_actions'
 import { fetchUser } from '../../actions/session_actions'
+import {sendForm} from '../../actions/search_actions'
 
 
 const mSTP = (state, ownProps) => {
@@ -23,7 +24,8 @@ const mDTP = (dispatch) => ({
     fetchRestaurants: (restaurantId) => dispatch(fetchRestaurants(restaurantId)),
     openModal: modal => dispatch(openModal(modal)),
     logout: () => dispatch(logout()),
-    fetchUser: userId => dispatch(fetchUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId)),
+    sendForm: search => dispatch(sendForm(search))
 
 })
 

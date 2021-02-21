@@ -5,6 +5,14 @@ class CancelConf extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            keyword: "",
+            time: new Date(this.props.reservation.reservation_datetime).toTimeString(),
+            date: this.props.reservation.reservation_datetime.split("T")[0],
+            guest_count: this.props.reservation.guest_count
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
 
 
@@ -41,11 +49,112 @@ class CancelConf extends React.Component {
     ))
 
     return restaurants
-    }   
+    }
     
+    newSearch(){
+        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+
+        let options = []
+
+        for (let i = 1; i <= 20; i++) {
+            options.push(this.props.reservation.guest_count === i ? <option selected key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option> : <option key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
+        }
+        return(
+            <form onSubmit={this.handleSubmit}>
+            <div className="mod-res-div2">
+            <div className="mod-res-sel2">
+                <div className="mod-guest">
+                    <select onChange={this.handleChange('guest_count')}>
+                        {options}
+                    </select>
+                    <i class="far fa-user"></i>
+                </div>
+                <div className="g-bord"></div>
+                <div className="mod-date">
+                    <input type="date" onChange={this.handleChange('date')} />
+                    <div className="mod-date-s">{new Date(this.state.date).toLocaleDateString(undefined, format).split(", ").slice(1).join(", ")}</div>
+                </div>
+                <div className="g-bord"></div>
+                <div className="mod-time">
+                    <select onChange={this.handleChange('time')} >
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `12:00 AM` ? < option selected value={`00:00:00`}> 12:00 AM</option > : < option value={`00:00:00`}> 12:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `12:30 AM` ? < option selected value={`00:00:30`}> 12:30 AM</option > : < option value={`00:00:30`}> 12:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `1:00 AM` ? < option selected value={`01:00:00`}> 1:00 AM</option > : < option value={`01:00:00`}> 1:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `1:30 AM` ? < option selected value={`01:30:00`}> 1:30 AM</option > : < option value={`01:30:00`}> 1:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `2:00 AM` ? < option selected value={`02:00:00`}> 2:00 AM</option > : < option value={`02:00:00`}> 2:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `2:30 AM` ? < option selected value={`02:30:00`}> 2:30 AM</option > : < option value={`02:30:00`}> 2:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `3:00 AM` ? < option selected value={`03:00:00`}> 3:00 AM</option > : < option value={`03:00:00`}> 3:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `3:30 AM` ? < option selected value={`03:30:00`}> 3:30 AM</option > : < option value={`03:30:00`}> 3:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `4:00 AM` ? < option selected value={`04:00:00`}> 4:00 AM</option > : < option value={`04:00:00`}> 4:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `4:30 AM` ? < option selected value={`04:30:00`}> 4:30 AM</option > : < option value={`04:30:00`}> 4:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `5:00 AM` ? < option selected value={`05:00:00`}> 5:00 AM</option > : < option value={`05:00:00`}> 5:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `5:30 AM` ? < option selected value={`05:30:00`}> 5:30 AM</option > : < option value={`05:30:00`}> 5:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `6:00 AM` ? < option selected value={`06:00:00`}> 6:00 AM</option > : < option value={`06:00:00`}> 6:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `6:30 AM` ? < option selected value={`06:30:00`}> 6:30 AM</option > : < option value={`06:30:00`}> 6:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `7:00 AM` ? < option selected value={`07:00:00`}> 7:00 AM</option > : < option value={`07:00:00`}> 7:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `7:30 AM` ? < option selected value={`07:30:00`}> 7:30 AM</option > : < option value={`07:30:00`}> 7:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `8:00 AM` ? < option selected value={`08:00:00`}> 8:00 AM</option > : < option value={`08:00:00`}> 8:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `8:30 AM` ? < option selected value={`08:30:00`}> 8:30 AM</option > : < option value={`08:30:00`}> 8:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `9:00 AM` ? < option selected value={`09:00:00`}> 9:00 AM</option > : < option value={`09:00:00`}> 9:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `9:30 AM` ? < option selected value={`09:30:00`}> 9:30 AM</option > : < option value={`09:30:00`}> 9:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `10:00 AM` ? < option selected value={`10:00:00`}> 10:00 AM</option > : < option value={`10:00:00`}> 10:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `10:30 AM` ? < option selected value={`10:30:00`}> 10:30 AM</option > : < option value={`10:30:00`}> 10:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `11:00 AM` ? < option selected value={`11:00:00`}> 11:00 AM</option > : < option value={`11:00:00`}> 11:00 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `11:30 AM` ? < option selected value={`11:30:00`}> 11:30 AM</option > : < option value={`11:30:00`}> 11:30 AM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `12:00 PM` ? < option selected value={`12:00:00`}> 12:00 PM</option > : < option value={`12:00:00`}> 12:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `12:30 PM` ? < option selected value={`12:30:00`}> 12:30 PM</option > : < option value={`12:30:00`}> 12:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `1:00 PM` ? < option selected value={`13:00:00`}> 1:00 PM</option > : < option value={`13:00:00`}> 1:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `1:30 PM` ? < option selected value={`13:30:00`}> 1:30 PM</option > : < option value={`13:30:00`}> 1:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `2:00 PM` ? < option selected value={`14:00:00`}> 2:00 PM</option > : < option value={`14:00:00`}> 2:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `2:30 PM` ? < option selected value={`14:30:00`}> 2:30 PM</option > : < option value={`14:30:00`}> 2:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `3:00 PM` ? < option selected value={`15:00:00`}> 3:00 PM</option > : < option value={`15:00:00`}> 3:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `3:30 PM` ? < option selected value={`15:30:00`}> 3:30 PM</option > : < option value={`15:30:00`}> 3:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `4:00 PM` ? < option selected value={`16:00:00`}> 4:00 PM</option > : < option value={`16:00:00`}> 4:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `4:30 PM` ? < option selected value={`16:30:00`}> 4:30 PM</option > : < option value={`16:30:00`}> 4:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `5:00 PM` ? < option selected value={`17:00:00`}> 5:00 PM</option > : < option value={`17:00:00`}> 5:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `5:30 PM` ? < option selected value={`17:30:00`}> 5:30 PM</option > : < option value={`17:30:00`}> 5:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `6:00 PM` ? < option selected value={`18:00:00`}> 6:00 PM</option > : < option value={`18:00:00`}> 6:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `6:30 PM` ? < option selected value={`18:30:00`}> 6:30 PM</option > : < option value={`18:30:00`}> 6:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `7:00 PM` ? < option selected value={`19:00:00`}> 7:00 PM</option > : < option value={`19:00:00`}> 7:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `7:30 PM` ? < option selected value={`19:30:00`}> 7:30 PM</option > : < option value={`19:30:00`}> 7:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `8:00 PM` ? < option selected value={`20:00:00`}> 8:00 PM</option > : < option value={`20:00:00`}> 8:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `8:30 PM` ? < option selected value={`20:30:00`}> 8:30 PM</option > : < option value={`20:30:00`}> 8:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `9:00 PM` ? < option selected value={`21:00:00`}> 9:00 PM</option > : < option value={`21:00:00`}> 9:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `9:30 PM` ? < option selected value={`21:30:00`}> 9:30 PM</option > : < option value={`21:30:00`}> 9:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `10:00 PM` ? < option selected value={`22:00:00`}> 10:00 PM</option > : < option value={`22:00:00`}> 10:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `10:30 PM` ? < option selected value={`22:30:00`}> 10:30 PM</option > : < option value={`22:30:00`}> 10:30 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `11:00 PM` ? < option selected value={`23:00:00`}> 11:00 PM</option > : < option value={`23:00:00`}> 11:00 PM</option >}
+                        {`${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} ${new Date(this.props.reservation.reservation_datetime).toLocaleTimeString().split(" ").slice(1)}` === `11:30 PM` ? < option selected value={`23:30:00`}> 11:30 PM</option > : < option value={`23:30:00`}> 11:30 PM</option >}
+                    </select>
+                    <i class="far fa-clock"></i>
+                </div>
+            </div>
+                    <div className="cncl-search-bar" >
+                        <img src={window.search_icon} />
+                        <input type="text" placeholder="Location or Restaurant" onChange={this.handleChange('keyword')} />
+                    </div>
+            <button>Let's go</button>
+        </div>
+        </form>
+        )
+    } 
+    
+    handleChange(type) {
+        return (e) => (
+            this.setState({ [type]: e.currentTarget.value })
+        )
+
+    }
+
+    handleSubmit(e) {
+
+        e.preventDefault()
+        this.props.sendForm(this.state)
+        // this.props.searchRestaurants(this.state.keyword)
+        this.props.history.push("/search")
+    }
     render() {
         debugger
-        
         const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
 
 
@@ -72,8 +181,9 @@ class CancelConf extends React.Component {
                                 {this.restaurants().slice(1, 5)}
                             </div>
                         </div>
-                        <div className="cncl-list">
+                        <div className="cncl-new">
                             <h2>Make a new reservation</h2>
+                            {this.newSearch()}
                         </div>
                     </div>
                 </div>
