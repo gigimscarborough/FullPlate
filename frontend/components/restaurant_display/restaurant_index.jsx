@@ -13,6 +13,7 @@ class RestaurantIndex extends React.Component {
     render() {
         const first = 0;
 
+        
         const restaurants = this.props.restaurants.map(restaurant => (
             <Link key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
                 <div className="restaurant-icon">

@@ -12,10 +12,18 @@ class DeleteReservation extends React.Component {
         this.restaurant = this.restaurant.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.deleted = false
+        this.res = this.restaurant()
     }
 
     componentDidMount() {
         this.props.fetchRestaurants()
+
+        if (this.restaurant()) {
+            window.localStorage.setItem('savedRest', JSON.stringify(this.restaurant()))
+
+        } else {
+            this.res = JSON.parse(window.localStorage.getItem('savedRest'))
+        }
     }
 
     reservation() {
@@ -50,6 +58,9 @@ class DeleteReservation extends React.Component {
             }
         }
 
+        
+
+        // this.res = res[0]
         return res[0]
 
     }
@@ -107,7 +118,7 @@ class DeleteReservation extends React.Component {
 
     render(){
         
-
+       
         const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
 
 
@@ -118,7 +129,7 @@ class DeleteReservation extends React.Component {
             return(
                 <div>
                     {this.navBar()}
-                    <CancelConf currentUser={this.props.currentUser} restaurant={this.restaurant()} restaurants={this.props.restaurants}/>
+                    <CancelConf currentUser={this.props.currentUser} restaurant={this.res} restaurants={this.props.restaurants}/>
                 </div>
             )
         } else {

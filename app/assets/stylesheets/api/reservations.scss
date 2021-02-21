@@ -940,3 +940,109 @@ margin-right: 5px;
     background-color:  #8d1b1b;
     transition: 0.4s;
 }
+
+
+.cncld-body{
+    display: flex;
+    justify-content: center;
+}
+.cncld-main{
+    width: 65vw;
+    min-width: 973px;
+    display:flex;
+    flex-direction: column;
+}
+
+.cncld-head{
+    margin-top: 60px;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.cncld-txt{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.cncld-takeout{
+    box-sizing: border-box;
+    border: solid lightgray 1px;
+    height: 95px;
+    width: 750px;
+   border-radius: 3px;
+   margin-bottom: 70px;
+   padding: 13px;
+   display:flex;
+   justify-content: space-between;
+
+}
+
+.cncld-takeout span img{
+    height:32px;
+    width: 32px;
+    margin-right: 10px;
+
+}
+.cncld-takeout span p{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.cncld-takeout span{
+    display:flex;
+    align-items: center;
+}
+
+.cncld-takeout div{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cncld-takeout div:last-of-type{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.cncld-takeout div > p{
+    font-size: 13px;
+}
+
+.cncld-takeout a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #B22222;
+    color: white;
+    border-radius: 3px;
+    width: 170px;
+    text-decoration: none;
+    font-size: 12px;
+    height: 30px;
+}
+.cncld-takeout a:hover{
+    background-color:  #8d1b1b;
+    transition: 0.4s;
+}
+
+.cncl-del > h2{
+ font-size: 20px;
+ font-weight: bold;
+ border-bottom: solid lightgray 1px;
+ padding-bottom: 20px;
+ margin-bottom: 15px;
+}
+.cncl-list{
+    display: flex;
+    margin-bottom: 35px;
+}
+.cncl-list a{
+    text-decoration: none;
+    color: black;
+    margin-right: 15px;
+}
+
