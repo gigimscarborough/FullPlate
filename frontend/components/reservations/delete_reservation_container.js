@@ -4,6 +4,7 @@ import { openModal } from '../../actions/modal_actions'
 import DeleteReservation from './delete_reservation'
 import { fetchRestaurants } from '../../actions/restaurant_actions'
 import { logout } from '../../actions/session_actions'
+import { fetchUser } from '../../actions/session_actions'
 
 
 const mSTP = (state, ownProps) => {
@@ -21,7 +22,8 @@ const mDTP = (dispatch) => ({
     deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
     fetchRestaurants: (restaurantId) => dispatch(fetchRestaurants(restaurantId)),
     openModal: modal => dispatch(openModal(modal)),
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    fetchUser: userId => dispatch(fetchUser(userId))
 
 })
 

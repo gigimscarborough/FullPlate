@@ -3,10 +3,63 @@ import MainNavBar from '../navbar/main_navbar'
 import {Link} from 'react-router-dom'
 import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown';
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown';
+import CancelConf from './cancel_conf'
 
 class DeleteReservation extends React.Component {
     constructor(props) {
         super(props)
+        this.reservation = this.reservation.bind(this)
+        this.restaurant = this.restaurant.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.deleted = false
+    }
+
+    componentDidMount() {
+        this.props.fetchRestaurants()
+    }
+
+    reservation() {
+
+        const reservations = this.props.reservations
+        const resId = this.props.match.params.reservationId
+        const res = []
+
+
+        for (let i = 0; i < reservations.length; i++) {
+            if (reservations[i].id === parseInt(resId)) {
+                res.push(reservations[i])
+            }
+        }
+
+        return res[0]
+    }
+
+    restaurant() {
+        if (!this.reservation()){
+            return null
+        }
+        const restaurants = this.props.restaurants
+        const resId = this.reservation().restaurant_id
+        const res = []
+
+
+        for (let i = 0; i < restaurants.length; i++) {
+
+            if (restaurants[i].id === resId) {
+                res.push(restaurants[i])
+            }
+        }
+
+        return res[0]
+
+    }
+
+    handleSubmit(e){
+        e.preventDefault()
+
+        this.props.deleteReservation(this.reservation().id)
+        .then(() => this.props.fetchUser(this.props.currentUser.id))
+           this.deleted = true;
     }
 
     navBar() {
@@ -53,20 +106,62 @@ class DeleteReservation extends React.Component {
     }
 
     render(){
+        
+
+        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+
+
+        // if (this.props.restaurants.length <= 0) {
+        if (Object.values(this.props.restaurants).length <= 0) {
+        return null
+        } else if (!this.reservation()){
+            return(
+                <div>
+                    {this.navBar()}
+                    <CancelConf currentUser={this.props.currentUser} restaurant={this.restaurant()} restaurants={this.props.restaurants}/>
+                </div>
+            )
+        } else {
         return(
             <div>
                 {this.navBar()}
                 <div className="cancel-head">
                     <div>
-                        Cancel Reservation
+                        Cancel Your Reservation
                     </div>
                 </div>
                 <div className="cancel-body">
-
+                    <div className="c-body-div">
+                        <div className="c-div-top">
+                            <img src={this.restaurant().photoUrls[0]} alt=""/>
+                            <div className="c-div-inf">
+                                <div>
+                                    <span>GUESTS</span>
+                                    <span>{this.reservation().guest_count > 1 ? `${this.reservation().guest_count} people` : `${this.reservation().guest_count} person`}</span>
+                                </div>
+                                <div>
+                                    <span>DATE</span>
+                                    <span>{new Date(this.reservation().reservation_datetime).toLocaleDateString(undefined, format)}</span>
+                                </div>
+                                <div>
+                                    <span>TIME</span>
+                                    <span>{new Date(this.reservation().reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date(this.reservation().reservation_datetime).toLocaleTimeString().split(" ")[1]}</span>
+                                </div>
+                                <div>
+                                    <span>RESTAURANT</span>
+                                    <Link to={{ pathname: `/restaurants/${this.restaurant().id}`}}>{this.restaurant().name}</Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="c-div-btm">
+                            <button onClick={this.handleSubmit}>Cancel Reservation</button>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         )
+        }
     }
 }
 export default DeleteReservation
