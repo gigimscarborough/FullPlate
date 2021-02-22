@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class CancelConf extends React.Component {
     constructor(props) {
@@ -191,4 +193,17 @@ class CancelConf extends React.Component {
         
     }
 }
-export default CancelConf
+// export default CancelConf
+
+const mSTP = (state, ownProps) => {
+
+    return {
+
+    }
+}
+
+const mDTP = (dispatch) => ({
+
+})
+
+export default withRouter(connect(mSTP, mDTP)(CancelConf))

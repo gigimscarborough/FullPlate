@@ -63,7 +63,8 @@ class SearchPageNav extends React.Component {
         let options = []
 
         for (let i = 1; i <= 20; i++) {
-            options.push(<option key={i} value={1} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
+            
+            options.push(this.props.search.guest_count == i ? <option selected key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option> : <option key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option>)
         }
 
 
@@ -115,7 +116,7 @@ class SearchPageNav extends React.Component {
 
             // ((currentHour) / 12) >= 1 ? `PM` : `AM`
         
-
+            debugger
         return (
             <div>
                 <div className="res-loc-nav">

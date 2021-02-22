@@ -60,7 +60,7 @@ class Search extends React.Component {
         let options = []
 
         for (let i = 1; i <= 20; i++) {
-            options.push(<option key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
+            options.push(<option key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option>)
         }
 
         const currentHour = this.state.time.split(":")
@@ -75,8 +75,9 @@ class Search extends React.Component {
 
         // let currentOption = dateToday.getMinutes() >= 0 && dateToday.getMinutes() < 30 ? <option selected value={this.state.time}>{`${(currentHour + 1) % 12}:00`} {((currentHour + 1) / 12) > 1 ? `PM` : `AM`}</option> : <option selected value={this.state.time}>{`${(currentHour + 1) % 12}:30`} {((currentHour + 1) / 12) > 1 ? `PM` : `AM`}</option>
 
-
+        
         return (
+        
             <form onSubmit={this.handleSubmit} >
                 <div className="background-img">
                     <div className="search-header">
@@ -142,7 +143,7 @@ class Search extends React.Component {
                                 <i class="far fa-clock"></i>
                             </div>
                             <select className="splash-search-select" onChange={this.handleChange('guest_count')}>
-                                <option key={1} value={1} selected>1 Person</option>
+                                <option key={1} value={1} selected>1 person</option>
                                 {options}
                             </select>
                         </div>

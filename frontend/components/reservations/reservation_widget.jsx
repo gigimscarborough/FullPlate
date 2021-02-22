@@ -69,7 +69,7 @@ class ReservationWidget extends React.Component {
         let options = []
 
         for (let i = 2; i <= 20; i++) {
-            options.push(<option key={i} value={i}>For {i}</option>)
+            options.push(this.props.search.guest_count == i ? <option selected key={i} value={i}>For {i}</option> : <option key={i} value={i}>For {i}</option>)
         }
 
 
