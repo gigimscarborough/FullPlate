@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_003221) do
+ActiveRecord::Schema.define(version: 2021_02_22_220248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,22 @@ ActiveRecord::Schema.define(version: 2021_01_27_003221) do
     t.index ["cuisine_type"], name: "index_restaurants_on_cuisine_type"
     t.index ["name"], name: "index_restaurants_on_name"
     t.index ["price_range"], name: "index_restaurants_on_price_range"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.integer "guest_id", null: false
+    t.text "body", null: false
+    t.datetime "visited", null: false
+    t.integer "food_rating", null: false
+    t.integer "service_rating", null: false
+    t.integer "ambience_rating", null: false
+    t.integer "value_rating", null: false
+    t.integer "overall_rating", null: false
+    t.float "rating", null: false
+    t.boolean "would_recommend", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
