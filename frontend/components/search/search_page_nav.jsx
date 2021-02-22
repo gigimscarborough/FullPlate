@@ -116,7 +116,7 @@ class SearchPageNav extends React.Component {
 
             // ((currentHour) / 12) >= 1 ? `PM` : `AM`
         
-            debugger
+          
         return (
             <div>
                 <div className="res-loc-nav">

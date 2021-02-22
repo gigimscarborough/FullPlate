@@ -156,7 +156,7 @@ class CancelConf extends React.Component {
         this.props.history.push("/search")
     }
     render() {
-        debugger
+    
         const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
 
 

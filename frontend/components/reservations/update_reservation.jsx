@@ -3,6 +3,7 @@ import MainNavBar from '../navbar/main_navbar';
 import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown';
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown';
 import { Link } from 'react-router-dom'
+import UpdateReservationNext from './update_reservation_next'
 
 
 class UpdateReservation extends React.Component {
@@ -13,6 +14,7 @@ class UpdateReservation extends React.Component {
         this.reservation = this.reservation.bind(this)
         this.restaurant = this.restaurant.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.modified = true
 
         this.state = {
             email: this.reservation().email,
@@ -140,7 +142,7 @@ class UpdateReservation extends React.Component {
         let form = {
             email: this.state.email,
             first_name: this.state.first_name,
-            guest_count: this.state.guest_name,
+            guest_count: this.state.guest_count,
             guest_id: this.state.guest_id,
             id: this.state.id,
             last_name: this.state.last_name,
@@ -151,12 +153,16 @@ class UpdateReservation extends React.Component {
             special_request: this.state.special_request,
         }
         this.props.updateReservation(form)
+        .then(() => this.props.fetchUser(this.props.currentUser.id))
+        // .then(() => 
+        this.modified = true
+        // )
     }
 
 
     render() {
 
-
+ 
         let options = []
         
         for (let i = 1; i <= 20; i++) {
@@ -168,7 +174,15 @@ class UpdateReservation extends React.Component {
 
         if (Object.values(this.props.restaurants).length <= 0) {
             return null
-        } else {
+        } 
+        if(this.modified === true){
+            return (
+                <div>
+                    {this.navBar()}
+                    <UpdateReservationNext currentUser={this.props.currentUser} openModal={this.props.openModal} restaurant={this.restaurant()} reservation={this.reservation()}/>
+                </div>
+                )
+        }else {
 
             return (
                 <div>

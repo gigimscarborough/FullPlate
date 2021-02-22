@@ -730,6 +730,7 @@ font-size: 15px;
     width: 22%;
     font-weight: bold;
     cursor: pointer;
+    outline:none;
 }
 
 .mod-res-div button:hover{
@@ -1130,3 +1131,40 @@ background-color:  #8d1b1b;
 
 }
 
+.up-next-hold{
+    padding: 40px 205px;
+    font-size: 15px;
+}
+
+.up-next-hold h4{
+    font-weight: bolder;
+}
+
+.mod-div-c{
+background-color: white;
+display: flex;
+height: 100%;
+padding-bottom: 50px;
+}
+
+.c-dd-input{
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.c-dd-input input{
+    width: 260px;
+    font-family: 'Amiko', sans-serif;
+    height: 42px;
+    border: solid lightgray 1px;
+    border-radius: 3px;
+    padding-left: 10px;
+    color: gray
+
+}
+.c-dd-input input:first-of-type:hover{
+    border: solid black 1px;
+}
