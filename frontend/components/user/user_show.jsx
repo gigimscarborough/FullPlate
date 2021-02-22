@@ -21,17 +21,23 @@ class UserShow extends React.Component {
         const today = new Date()
         const allRests = Object.values(this.props.restaurants)
         const rests = this.props.currentUser.reserved_restaurants
+
+        
         const reservations = this.props.currentUser.reservations.filter(res => new Date(res.reservation_datetime) > today)
         const resList = []
         
-        
+        debugger
+
         for (let i = 0; i < reservations.length; i++) {
-            
+            let resDate = new Date(reservations[i].reservation_datetime)
+            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+
             resList.push(
                 (
                     <div className="reservation-it">
                         <div>
-                            <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link>
+                            {/* <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link> */}
+                            <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={ window.salmonplate } alt="" /></Link>
                         </div>
                         <div className="u-res-info-div">
                             <div class="u-res-name">
@@ -39,7 +45,7 @@ class UserShow extends React.Component {
                             </div>
                             <div>
                                 <span >
-                                    {new Date(reservations[i].reservation_datetime).toLocaleDateString()} at {new Date(reservations[i].reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date(reservations[i].reservation_datetime).toLocaleTimeString().split(" ")[1]}.
+                                    {new Date(reservations[i].reservation_datetime).toLocaleDateString()} at {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]}.
                                 </span>
 
                             </div>
@@ -67,6 +73,8 @@ class UserShow extends React.Component {
         const today = new Date()
         const allRests = Object.values(this.props.restaurants)
         const rests = this.props.currentUser.reserved_restaurants
+    
+
         const reservations = this.props.currentUser.reservations.filter(res => new Date(res.reservation_datetime) < today)
         const resList = []
 
@@ -77,7 +85,8 @@ class UserShow extends React.Component {
 
                     <div className="reservation-it">
                         <div>
-                            <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link>
+                            {/* <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link> */}
+                            <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link>
                         </div>
                         <div className="u-res-info-div">
                             <div class="u-res-name">

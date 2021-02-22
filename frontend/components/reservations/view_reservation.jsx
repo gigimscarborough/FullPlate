@@ -184,6 +184,10 @@ class ViewReservation extends React.Component {
         // const restPhoto = this.props.restaurants.filter(rest => (rest.id === reservation.restaurant_id))[0].photoUrls[0]
         const dateJ = new Date(this.props.currentUser.created_at)
 
+        let resDate = new Date(this.reservation().reservation_datetime)
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+
+
         if (Object.values(this.props.restaurants).length <= 0) {
             return null
         } else{
@@ -206,10 +210,11 @@ class ViewReservation extends React.Component {
                                 </div>
                                 <div className="res-conf-inf">
                                     <div className="conf-rest">
-                                        <img id="u-conf-pic" src={this.restaurant().photoUrls[0]} alt="" />
+                                        {/* <img id="u-conf-pic" src={this.restaurant().photoUrls[0]} alt="" /> */}
+                                        <img id="u-conf-pic" src={window.salmonplate} alt="" />
                                         <div className="conf-rest-inf">
                                             <h3>{this.restaurant().name} </h3>
-                                            <span><img id="conf-cal" src={window.rescal} /><p>{new Date(this.reservation().reservation_datetime).toLocaleDateString(undefined, format)}, {new Date(this.reservation().reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date(this.reservation().reservation_datetime).toLocaleTimeString().split(" ")[1]} </p> </span>
+                                            <span><img id="conf-cal" src={window.rescal} /><p>{new Date(this.reservation().reservation_datetime).toLocaleDateString(undefined, format)}, {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]} </p> </span>
                                             <span><img id="conf-ppl" src={window.resppl} /><p>{this.reservation().guest_count > 1 ? `${this.reservation().guest_count} people` : `${this.reservation().guest_count} person`}</p></span>
                                             <div class="conf-links">
                                                 <Link to={{pathname: `/reservations/${this.reservation().id}/update`}}>Modify</Link>
@@ -244,12 +249,13 @@ class ViewReservation extends React.Component {
                                 </div>
                                 <form onSubmit={this.handleSubmit}>
                                 <select onChange={this.handleChange('occasion')}>
-                                    <option value="" selected>Select an occasion (optional)</option>
-                                    <option value="Birthday">Birthday</option>
-                                    <option value="Annniversary">Anniversary</option>
-                                    <option value="Date Night">Date Night</option>
-                                    <option value="Business Meal">Business Meal</option>
-                                    <option value="Celebration">Celebration</option>
+                                        {this.state.occasion === "" ? <option value="" disabled selected>Select an occasion (optional)</option> : <option value="" disabled>Select an occasion (optional)</option>}
+                                        {this.state.occasion === "Birthday" ? <option selected value="Birthday">Birthday</option> : <option value="Birthday">Birthday</option>}
+                                        {this.state.occasion === "Annniversary" ? <option selected value="Annniversary">Annniversary</option> : <option value="Annniversary">Annniversary</option>}
+                                        {this.state.occasion === "Date Night" ? <option selected value="Date Night">Date Night</option> : <option value="Date Night">Date Night</option>}
+                                        {this.state.occasion === "Business Meal" ? <option selected value="Business Meal">Business Meal</option> : <option value="Business Meal">Business Meal</option>}
+                                        {this.state.occasion === "Celebration" ? <option selected value="Celebration">Celebration</option> : <option value="Celebration">Celebration</option>}
+                                    
                                 </select>
                                 <div onClick={() => this.textarea()} id="restext">
                                         <textarea id="text-a" onChange={this.handleChange('special_request')} defaultValue={this.reservation().special_request ? this.reservation().special_request : null} placeholder={!this.reservation().special_request ? `Add a special request (optional)` : null}></textarea>

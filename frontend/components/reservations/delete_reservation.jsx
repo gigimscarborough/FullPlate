@@ -124,7 +124,11 @@ class DeleteReservation extends React.Component {
        
         const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
 
-
+     
+            let resDate = this.reservation() ? new Date(this.reservation().reservation_datetime) : null
+        resDate = resDate ? new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000) :null
+   
+        debugger
         // if (this.props.restaurants.length <= 0) {
         if (Object.values(this.props.restaurants).length <= 0) {
         return null
@@ -147,7 +151,8 @@ class DeleteReservation extends React.Component {
                 <div className="cancel-body">
                     <div className="c-body-div">
                         <div className="c-div-top">
-                            <img src={this.restaurant().photoUrls[0]} alt=""/>
+                            {/* <img src={this.restaurant().photoUrls[0]} alt=""/> */}
+                            <img src={window.salmonplate} alt=""/>
                             <div className="c-div-inf">
                                 <div>
                                     <span>GUESTS</span>
@@ -159,7 +164,7 @@ class DeleteReservation extends React.Component {
                                 </div>
                                 <div>
                                     <span>TIME</span>
-                                    <span>{new Date(this.reservation().reservation_datetime).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date(this.reservation().reservation_datetime).toLocaleTimeString().split(" ")[1]}</span>
+                                    <span>{resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]}</span>
                                 </div>
                                 <div>
                                     <span>RESTAURANT</span>

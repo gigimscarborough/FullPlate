@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class UpdateReservationNext extends React.Component {
     constructor(props) {
@@ -8,7 +10,7 @@ class UpdateReservationNext extends React.Component {
         this.time = 300
         this.setTimer = this.setTimer.bind(this)
         this.thisTime = setInterval(this.setTimer, 1000)
-        // this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
 
         // this.dateTime = this.props.search.date + " " + this.props.search.time
         if (this.time === 0) {
@@ -28,6 +30,7 @@ class UpdateReservationNext extends React.Component {
         //     occasion: "",
         // }
         this.state = {
+            id: this.props.reservation.id,
             restaurant_id: this.props.reservation.restaurant_id,
             guest_id: this.props.reservation.guest_id,
             guest_count: this.props.reservation.guest_count,
@@ -36,6 +39,8 @@ class UpdateReservationNext extends React.Component {
             phone_number: this.props.reservation.phone_number ? this.props.reservation.phone_number : "",
             special_request: this.props.reservation.special_request ? this.props.reservation.special_request : "",
             occasion: this.props.reservation.occasion ? this.props.reservation.occasion : "",
+            date: this.props.reservation.date,
+            time: this.props.reservation.time
         }
     }
 
@@ -53,6 +58,9 @@ class UpdateReservationNext extends React.Component {
         this.thisTime
     }
 
+    componentWillUnmount(){
+        clearInterval(this.thisTime)
+    }
 
 
     setTimer() {
@@ -85,27 +93,56 @@ class UpdateReservationNext extends React.Component {
 
     }
 
+    handleSubmit(e){
+        e.preventDefault()
+
+        let form = {
+            email: this.state.email,
+            first_name: this.state.first_name,
+            guest_count: this.state.guest_count,
+            guest_id: this.state.guest_id,
+            id: this.state.id,
+            last_name: this.state.last_name,
+            occasion: this.state.occasion,
+            phone_number: this.state.guest_name,
+            reservation_datetime: this.state.date + " " + this.state.time,
+            restaurant_id: this.state.restaurant_id,
+            special_request: this.state.special_request,
+        }
+        this.props.updateReservation(form)
+            .then(() => this.props.fetchUser(this.props.currentUser.id))
+            .then(() => this.props.history.push(`/reservations/${this.props.reservation.id}/view`))
+    }
+
     render() {
+        debugger
         let resDate = new Date(this.props.reservation.reservation_datetime)
         // let resDate = new Date(this.props.search.date)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
 
+        let resTime = new Date(this.state.date + " " + this.state.time)
+        // let resDate = new Date(this.props.search.date)
+        // resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
+
+
+        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
 
         return (
             <div className="up-next-hold">
                 <h4>Modify your reservation</h4>
                 <div className="mod-div-c">
-                    <div className="reserve-div-l">
+                    <div className="mod-div-l">
                         <div className="rdiv-img">
-                            <div className="rdiv-a">
-                                <img src={this.props.restaurant.photoUrls[0]} />
+                            <div className="mdiv-a">
+                                {/* <img src={this.props.restaurant.photoUrls[0]} /> */}
+                                <img src={window.salmonplate} />
                             </div>
                             <div className="rdiv-b">
                                 <Link to={`/restaurants/${this.props.restaurant.id}`}></Link><h2>{this.props.restaurant.name}</h2>
                                 <div className="rdiv-dets">
-                                    <p><i class="far fa-calendar"></i>{resDate.toDateString()}</p>
-                                    <p><i class="far fa-clock"></i>{resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1] === 'AM' ? 'am' : 'pm'}</p>
-                                    <p><i class="far fa-user"></i>{this.state.guest_count === 1 ? "1 person" : `${this.state.guest_count} people`}</p>
+                                    <p><i class="far fa-calendar"></i>{resDate.toLocaleDateString(undefined, format).split(", ").slice(0, 2).join(", ")}</p>
+                                    <p><i class="far fa-clock"></i>{resTime.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resTime.toLocaleTimeString().split(" ")[1] === 'AM' ? 'am' : 'pm'}</p>
+                                    <p><i class="far fa-user"></i>{this.props.reservation.guest_count === 1 ? "1 person" : `${this.props.reservation.guest_count} people`}</p>
                                 </div>
                             </div>
                         </div>
@@ -113,28 +150,28 @@ class UpdateReservationNext extends React.Component {
                             <span id="timer" className="time-up time "></span>
                         </div>
                         <div className="dd">
-                            <p>Diner Details</p>
+                            <p>Diner details</p>
                         </div>
                         <div className="det-cu">
                             <span>{this.props.currentUser.first_name}  {this.props.currentUser.last_name}</span >
                         </div>
-                        <form >
+                        <form onSubmit={this.handleSubmit}>
                             <div className="c-dd-input">
                                 <input onChange={this.handleChange('phone_number')} type="text" placeholder="Phone Number" />
                                 <input type="text" placeholder="Email" value={this.props.currentUser.email} disabled />
                             </div>
-                            <div className="dd-select">
-                                <div className="dd-sel-cont">
+                            <div className="c-dd-select">
+                                <div className="c-dd-sel-cont">
                                     <select onChange={this.handleChange('occasion')}>
-                                        <option value="" disabled selected>Select an occasion (optional)</option>
-                                        <option value="Birthday">Birthday</option>
-                                        <option value="Annniversary">Anniversary</option>
-                                        <option value="Date Night">Date Night</option>
-                                        <option value="Business Meal">Business Meal</option>
-                                        <option value="Celebration">Celebration</option>
+                                        {this.state.occasion === "" ? <option value="" disabled selected>Select an occasion (optional)</option> : <option value="" disabled>Select an occasion (optional)</option>}
+                                        {this.state.occasion === "Birthday" ? <option selected value="Birthday">Birthday</option> : <option value="Birthday">Birthday</option>}
+                                        {this.state.occasion === "Annniversary" ? <option selected value="Annniversary">Annniversary</option> : <option value="Annniversary">Annniversary</option>}
+                                        {this.state.occasion === "Date Night" ? <option selected value="Date Night">Date Night</option> : <option value="Date Night">Date Night</option>}
+                                        {this.state.occasion === "Business Meal" ? <option selected value="Business Meal">Business Meal</option> : <option value="Business Meal">Business Meal</option>}
+                                        {this.state.occasion === "Celebration" ? <option selected value="Celebration">Celebration</option> : <option value="Celebration">Celebration</option>}
                                     </select>
                                 </div>
-                                <input onChange={this.handleChange('special_request')} type="text" placeholder="Add a special request (optional)" />
+                                <input onChange={this.handleChange('special_request')} type="text" defaultValue={this.state.special_request ? this.state.special_request : null} placeholder="Add a special request (optional)" />
                             </div>
                             <div className="chk-bx">
                                 <input type="checkbox" id="signup" />
@@ -156,4 +193,17 @@ class UpdateReservationNext extends React.Component {
 }
 
 
-export default UpdateReservationNext;
+// export default UpdateReservationNext;
+
+const mSTP = (state, ownProps) => {
+
+    return {
+
+    }
+}
+
+const mDTP = (dispatch) => ({
+
+})
+
+export default withRouter(connect(mSTP, mDTP)(UpdateReservationNext))
