@@ -30,11 +30,17 @@
   margin-bottom: 15px;
 }
 
+.restaurant-display-hold{
+  display: flex;
+  justify-content: center;
+}
 
 .restaurant-display{
 background-color: white;
  padding: 0px 30px;
  padding-bottom: 100px;
+ width:1220px;
+ min-width: 1220px;
 }
 
 .display-location{
