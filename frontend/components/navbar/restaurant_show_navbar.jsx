@@ -7,6 +7,49 @@ import ClickGreetingDropdown from './click_greeting_dropdown';
 
 
 class RestaurantShowNavBar extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.handleFav = this.handleFav.bind(this)
+    }
+
+    bookmark(){
+
+        const favs = Object.values(this.props.currentUser.favorites).filter(favorite => favorite.restaurant_id === this.props.restaurant.id)[0]
+        debugger
+        if (!favs){
+            return(
+                <button onClick={() => this.props.createFavorite({ user_id: this.props.currentUser.id, restaurant_id: this.props.restaurant.id }).then(() => this.props.fetchUser(this.props.currentUser.id))} className="res-fav-btn">
+                    <i className=" far2 far fa-bookmark"></i>
+                            Add To Favorites
+                </button>
+            )
+        } else{
+            return (
+                <button onClick={() => this.props.deleteFavorite(favs.id).then(() => this.props.fetchUser(this.props.currentUser.id))} className="res-fav-btn">
+                    <i className="fas2 fas fa-bookmark"></i>
+                            Restaurant saved!
+                </button>
+            )
+        }
+
+    }
+
+    handleFav(e){
+        e.preventDefault()
+
+        const favs = this.props.currentUser.favorites.filter(favorite => favorite.restaurant_id === this.props.restaurant.id)[0]
+
+        if (!favs){
+            this.props.createFavorite({ user_id: this.props.currentUser.id, restaurant_id: this.props.restaurant.id})
+                .then(() => this.props.fetchUser(this.props.currentUser.id))
+        } else{
+            this.props.deleteFavorite(favs.id)
+                .then(() => this.props.fetchUser(this.props.currentUser.id))
+        }
+    }
+
     render() {
    
         const first = 0;
@@ -17,6 +60,8 @@ class RestaurantShowNavBar extends React.Component {
             return null;
         
         }
+
+       debugger
         if (this.props.currentUser){
 
             return (
@@ -46,10 +91,11 @@ class RestaurantShowNavBar extends React.Component {
                 <div className="res-nav-div">
                     {/* <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]}/> */}
                     <img className="res-img-nav" src={window.salmonplate}/>
-                        <button className="res-fav-btn">
+                        {/* <button className="res-fav-btn">
                             <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites
-                        </button>
+                        </button> */}
+                        {this.bookmark()}
                 </div>
             </div>
             )
@@ -84,10 +130,11 @@ class RestaurantShowNavBar extends React.Component {
                         <div className="res-nav-div">
                             {/* <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]} /> */}
                             <img className="res-img-nav" src={window.salmonplate} />
-                            <button className="res-fav-btn">
+                            {/* <button className="res-fav-btn">
                                 <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites
-                        </button>
+                        </button> */}
+                        {/* {this.bookmark()} */}
                         </div>
                 </div>
                 

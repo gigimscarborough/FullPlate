@@ -191,9 +191,9 @@ class ReservationForm extends React.Component {
                             <div className="rdiv-b">
                                 <Link to={`/restaurants/${this.props.restaurant.id}`}></Link><h2>{this.props.restaurant.name}</h2>
                                 <div className="rdiv-dets">
-                                    <p><i class="far fa-calendar"></i>{resDate.toDateString()}</p>
-                                    <p><i class="far fa-clock"></i>{currentOption}</p>
-                                    <p><i class="far fa-user"></i>{this.search.guest_count === 1 ? "1 person" : `${this.search.guest_count} people`}</p>
+                                    <p><i className="far fa-calendar"></i>{resDate.toDateString()}</p>
+                                    <p><i className="far fa-clock"></i>{currentOption}</p>
+                                    <p><i className="far fa-user"></i>{this.search.guest_count === 1 ? "1 person" : `${this.search.guest_count} people`}</p>
                                 </div>
                             </div>
                         </div>

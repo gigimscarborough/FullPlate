@@ -40,7 +40,7 @@ class UserShow extends React.Component {
                             <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={ window.salmonplate } alt="" /></Link>
                         </div>
                         <div className="u-res-info-div">
-                            <div class="u-res-name">
+                            <div className="u-res-name">
                                 <Link to={`/restaurants/${reservations[i].restaurant_id}`}><span>{rests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].name}</span></Link>
                             </div>
                             <div>
@@ -89,10 +89,10 @@ class UserShow extends React.Component {
                             <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link>
                         </div>
                         <div className="u-res-info-div">
-                            <div class="u-res-name">
+                            <div className="u-res-name">
                                 <Link to={`/restaurants/${reservations[i].restaurant_id}`}><span>{rests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].name}</span></Link>
                             </div>
-                            <div class="u-res-name">
+                            <div className="u-res-name">
                                 <span >
                                     {new Date(reservations[i].reservation_datetime).toLocaleDateString()}
                                 </span>
@@ -102,7 +102,7 @@ class UserShow extends React.Component {
                                 <span>{reservations[i].guest_count === 1 ? "Table for 1 person." : `Table for ${reservations[i].guest_count} people.`}</span>
                             </div >
                             <div className="fav-me">
-                                <i class="far fa-bookmark"></i>
+                                <i className="far fa-bookmark"></i>
                                 <span>Save this restaurant</span>
                             </div>
                             <div>

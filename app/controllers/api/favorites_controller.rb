@@ -7,7 +7,7 @@ class Api::FavoritesController < ApplicationController
             
 
         if @favorite.save
-            
+            render 'api/favorites/show'
         else
             render json: ['Favorite unable to be created'], status: 404
         end 
@@ -23,7 +23,7 @@ class Api::FavoritesController < ApplicationController
 
     private 
     def favorite_params
-        params.require(:favorites).permit(:user_id, :restaurant_id)
+        params.require(:favorite).permit(:user_id, :restaurant_id)
     end
 
 end

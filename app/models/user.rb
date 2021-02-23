@@ -8,11 +8,16 @@ class User < ApplicationRecord
     attr_reader :password
 
     has_many :favorites,
+    foreign_key: :user_id,
     class_name: :Favorite
 
     has_many :reservations,
     foreign_key: :guest_id,
     class_name: :Reservation
+
+    has_many :reviews,
+    foreign_key: :guest_id,
+    class_name: :Review
 
     has_many :reserved_restaurants,
     through: :reservations,

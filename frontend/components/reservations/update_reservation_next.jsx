@@ -140,9 +140,9 @@ class UpdateReservationNext extends React.Component {
                             <div className="rdiv-b">
                                 <Link to={`/restaurants/${this.props.restaurant.id}`}></Link><h2>{this.props.restaurant.name}</h2>
                                 <div className="rdiv-dets">
-                                    <p><i class="far fa-calendar"></i>{resDate.toLocaleDateString(undefined, format).split(", ").slice(0, 2).join(", ")}</p>
-                                    <p><i class="far fa-clock"></i>{resTime.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resTime.toLocaleTimeString().split(" ")[1] === 'AM' ? 'am' : 'pm'}</p>
-                                    <p><i class="far fa-user"></i>{this.props.reservation.guest_count === 1 ? "1 person" : `${this.props.reservation.guest_count} people`}</p>
+                                    <p><i className="far fa-calendar"></i>{resDate.toLocaleDateString(undefined, format).split(", ").slice(0, 2).join(", ")}</p>
+                                    <p><i className="far fa-clock"></i>{resTime.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resTime.toLocaleTimeString().split(" ")[1] === 'AM' ? 'am' : 'pm'}</p>
+                                    <p><i className="far fa-user"></i>{this.props.reservation.guest_count === 1 ? "1 person" : `${this.props.reservation.guest_count} people`}</p>
                                 </div>
                             </div>
                         </div>

@@ -2,13 +2,13 @@ class Api::ReservationsController < ApplicationController
     def index
         @reservations = Reservation.all
 
-        render json: 'api/reservations/index'
+        render 'api/reservations/index'
     end
 
     def show
         @reservation = Reservation.find(params[:id])
 
-        render json: 'api/reservations/show'
+        render 'api/reservations/show'
 
     end
     

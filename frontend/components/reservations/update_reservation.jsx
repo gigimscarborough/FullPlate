@@ -214,15 +214,15 @@ class UpdateReservation extends React.Component {
                                     <span>{this.restaurant().name}</span>
                                     <div>
                                         <div className="mod-icn">
-                                            <i class="far fa-calendar"></i>
+                                            <i className="far fa-calendar"></i>
                                             <span>{resDate.toLocaleDateString(undefined, format).split(", ").slice(0, 2).join(", ")} </span>
                                         </div>
                                         <div className="mod-icn">
-                                            <i class="far fa-clock"></i>
+                                            <i className="far fa-clock"></i>
                                             <span>{resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1] === 'AM' ? 'am' : 'pm'}</span>
                                         </div>
                                         <div className="mod-icn">
-                                            <i class="far fa-user"></i>
+                                            <i className="far fa-user"></i>
                                             <span>{this.reservation().guest_count > 1 ? `${this.reservation().guest_count} people` : `${this.reservation().guest_count} person`}</span>
                                         </div>
                                     </div>
@@ -288,14 +288,14 @@ class UpdateReservation extends React.Component {
                                                 {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `11:00 PM` ? < option selected value={`23:00:00`}> 11:00 PM</option > : < option value={`23:00:00`}> 11:00 PM</option >}
                                                 {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `11:30 PM` ? < option selected value={`23:30:00`}> 11:30 PM</option > : < option value={`23:30:00`}> 11:30 PM</option >}
                                             </select>
-                                            <i class="far fa-clock"></i>
+                                            <i className="far fa-clock"></i>
                                         </div>
                                         <div className="g-bord"></div>
                                         <div className="mod-guest">
                                             <select onChange={this.handleChange('guest_count')}>
                                             {options}
                                             </select>
-                                            <i class="far fa-user"></i>
+                                            <i className="far fa-user"></i>
                                         </div>
                                     </div>
                                     <button>Find a new table</button>

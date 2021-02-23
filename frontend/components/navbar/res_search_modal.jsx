@@ -139,7 +139,7 @@ class ResSearchModal extends React.Component {
                                         < option value={`23:00:00`}> 11:00 PM</option >
                                         < option value={`23:30:00`}> 11:30 PM</option >
                                     </select>
-                                        <i class="far fa-clock"></i>
+                                        <i className="far fa-clock"></i>
                                     </div>
                                     <select className="modal-search-select" onChange={this.handleChange('guest_count')}>
                                         <option key={1} value="1" >1 Person</option>

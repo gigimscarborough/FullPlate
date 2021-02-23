@@ -4,11 +4,18 @@ class Restaurant < ApplicationRecord
     has_many_attached :photos
 
     has_many :favorites,
+    foreign_key: :restaurant_id,
     class_name: :Favorite
 
     has_many :reservations,
+    primary_key: :id,
     foreign_key: :restaurant_id,
     class_name: :Reservation
+
+    has_many :reviews,
+    primary_key: :id,
+    foreign_key: :restaurant_id,
+    class_name: :Review
 
 
 

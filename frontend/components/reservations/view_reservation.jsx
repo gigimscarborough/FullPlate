@@ -168,9 +168,9 @@ class ViewReservation extends React.Component {
     confirmBtn(){
         const btn = document.getElementById('sub-btn')
 
-        btn.innerHTML = '<i class=" btn-spin fas fa-spinner"></i>'
+        btn.innerHTML = '<i className=" btn-spin fas fa-spinner"></i>'
         setTimeout(() => {
-            btn.innerHTML = '<i class="btn-check fas fa-check"></i>'
+            btn.innerHTML = '<i className="btn-check fas fa-check"></i>'
         },2000)
     }
 
@@ -216,7 +216,7 @@ class ViewReservation extends React.Component {
                                             <h3>{this.restaurant().name} </h3>
                                             <span><img id="conf-cal" src={window.rescal} /><p>{new Date(this.reservation().reservation_datetime).toLocaleDateString(undefined, format)}, {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]} </p> </span>
                                             <span><img id="conf-ppl" src={window.resppl} /><p>{this.reservation().guest_count > 1 ? `${this.reservation().guest_count} people` : `${this.reservation().guest_count} person`}</p></span>
-                                            <div class="conf-links">
+                                            <div className="conf-links">
                                                 <Link to={{pathname: `/reservations/${this.reservation().id}/update`}}>Modify</Link>
                                                 <div></div>
                                                 <Link to={{ pathname: `/reservations/${this.reservation().id}/delete` }}><a>Cancel</a></Link>
@@ -228,7 +228,7 @@ class ViewReservation extends React.Component {
                                         <div className="going-t">
                                             <div className="going-g">
                                                 <div className="going-c">
-                                                    <i class="fas fa-circle"></i>
+                                                    <i className="fas fa-circle"></i>
                                                     <span>{this.props.currentUser.first_name.split("")[0]}{this.props.currentUser.last_name.split("")[0]}</span>
                                                 </div>
                                                 <span>{this.props.currentUser.first_name} {this.props.currentUser.last_name.split("")[0]}</span>
@@ -274,14 +274,14 @@ class ViewReservation extends React.Component {
                         <div className="up-res-l">
                             <div className="member-sin">
                                 <div className="mem-c">
-                                    <i class="fas fa-circle"></i>
+                                    <i className="fas fa-circle"></i>
                                     <span>{this.props.currentUser.first_name.split("")[0]}{this.props.currentUser.last_name.split("")[0]}</span>
                                 </div>
                                 <div className="mem-inf">
                                     <span>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</span>
                                     <span>Joined in {dateJ.toLocaleDateString(undefined, format).split(" ")[1]} {dateJ.toLocaleDateString(undefined, format).split(" ")[3]}</span>
                                     <span><img src={window.loc} />{this.props.currentUser.dining_city} Area</span>
-                                    <span><i class="far fa-comment-alt"></i> 0 reviews</span>
+                                    <span><i className="far fa-comment-alt"></i> 0 reviews</span>
                                 </div>
 
                             </div>

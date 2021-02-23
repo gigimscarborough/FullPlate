@@ -73,7 +73,7 @@ class CancelConf extends React.Component {
                     <select onChange={this.handleChange('guest_count')}>
                         {options}
                     </select>
-                    <i class="far fa-user"></i>
+                    <i className="far fa-user"></i>
                 </div>
                 <div className="g-bord"></div>
                 <div className="mod-date">
@@ -132,7 +132,7 @@ class CancelConf extends React.Component {
                         {`${resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resDate.toLocaleTimeString().split(" ").slice(1)}` === `11:00 PM` ? < option selected value={`23:00:00`}> 11:00 PM</option > : < option value={`23:00:00`}> 11:00 PM</option >}
                         {`${resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resDate.toLocaleTimeString().split(" ").slice(1)}` === `11:30 PM` ? < option selected value={`23:30:00`}> 11:30 PM</option > : < option value={`23:30:00`}> 11:30 PM</option >}
                     </select>
-                    <i class="far fa-clock"></i>
+                    <i className="far fa-clock"></i>
                 </div>
             </div>
                     <div className="cncl-search-bar" >
