@@ -128,7 +128,7 @@ class DeleteReservation extends React.Component {
             let resDate = this.reservation() ? new Date(this.reservation().reservation_datetime) : null
         resDate = resDate ? new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000) :null
    
-        debugger
+    
         // if (this.props.restaurants.length <= 0) {
         if (Object.values(this.props.restaurants).length <= 0) {
         return null

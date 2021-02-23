@@ -77,9 +77,24 @@ class UserShow extends React.Component {
 
         const reservations = this.props.currentUser.reservations.filter(res => new Date(res.reservation_datetime) < today)
         const resList = []
+        const favs = this.props.currentUser.favorites
 
         for (let i = 0; i < reservations.length; i++) {
 
+            const thisFav = favs.filter(fav => fav.restaurant_id === reservations[i].restaurant_id)[0]
+
+            const favBtn = !thisFav ? (
+                <div onClick={() => this.props.createFavorite({ user_id: this.props.currentUser.id, restaurant_id: reservations[i].restaurant_id }).then(() => this.props.fetchUser(this.props.currentUser.id))} className="fav-me">
+                    <i className="far fa-bookmark"></i>
+                    <span>Save this restaurant</span>
+                </div>
+            ) : (
+                    <div onClick={() => this.props.deleteFavorite(thisFav.id).then(() => this.props.fetchUser(this.props.currentUser.id))}className="fav-me">
+                        <i className="fas fa-bookmark"></i>
+                        <span>Restaurant saved</span>
+                    </div>
+                )
+                debugger
             resList.push(
                 (
 
@@ -101,10 +116,11 @@ class UserShow extends React.Component {
                             <div>
                                 <span>{reservations[i].guest_count === 1 ? "Table for 1 person." : `Table for ${reservations[i].guest_count} people.`}</span>
                             </div >
-                            <div className="fav-me">
+                            {/* <div className="fav-me">
                                 <i className="far fa-bookmark"></i>
                                 <span>Save this restaurant</span>
-                            </div>
+                            </div> */}
+                            {favBtn}
                             <div>
 
                             </div>

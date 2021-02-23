@@ -3,6 +3,7 @@ import UserShow from './user_show'
 import { logout } from '../../actions/session_actions'
 import {fetchReservations, deleteReservation} from '../../actions/reservation_actions'
 import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_actions'
+import { createFavorite, deleteFavorite } from '../../actions/favorite_actions'
 import { fetchUser } from '../../actions/session_actions'
 
 
@@ -21,7 +22,9 @@ const mDTP = (dispatch) => ({
     fetchRestaurants: () => dispatch(fetchRestaurants()),
     fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
     deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    createFavorite: favorite => dispatch(createFavorite(favorite)),
+    deleteFavorite: favoriteId => dispatch(deleteFavorite(favoriteId))
     
 
 })

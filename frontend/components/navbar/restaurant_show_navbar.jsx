@@ -17,7 +17,7 @@ class RestaurantShowNavBar extends React.Component {
     bookmark(){
 
         const favs = Object.values(this.props.currentUser.favorites).filter(favorite => favorite.restaurant_id === this.props.restaurant.id)[0]
-        debugger
+   
         if (!favs){
             return(
                 <button onClick={() => this.props.createFavorite({ user_id: this.props.currentUser.id, restaurant_id: this.props.restaurant.id }).then(() => this.props.fetchUser(this.props.currentUser.id))} className="res-fav-btn">
@@ -61,7 +61,7 @@ class RestaurantShowNavBar extends React.Component {
         
         }
 
-       debugger
+      
         if (this.props.currentUser){
 
             return (

@@ -187,7 +187,7 @@ class UpdateReservation extends React.Component {
         // // let resDate = new Date(this.props.search.date)
         // sDate = new Date(resState.getTime() + resState.getTimezoneOffset() * 60000)
         
-        debugger
+ 
 
         if (Object.values(this.props.restaurants).length <= 0) {
             return null

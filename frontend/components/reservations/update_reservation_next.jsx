@@ -115,7 +115,7 @@ class UpdateReservationNext extends React.Component {
     }
 
     render() {
-        debugger
+     
         let resDate = new Date(this.props.reservation.reservation_datetime)
         // let resDate = new Date(this.props.search.date)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
