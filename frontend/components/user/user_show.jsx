@@ -27,7 +27,7 @@ class UserShow extends React.Component {
         const reservations = this.props.currentUser.reservations.filter(res => new Date(res.reservation_datetime) > today)
         const resList = []
 
-        debugger
+    
 
         for (let i = 0; i < reservations.length; i++) {
             let resDate = new Date(reservations[i].reservation_datetime)
@@ -95,7 +95,7 @@ class UserShow extends React.Component {
                         <span>Restaurant saved</span>
                     </div>
                 )
-            debugger
+       
             resList.push(
                 (
 
