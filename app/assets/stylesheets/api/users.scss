@@ -365,6 +365,24 @@ border-radius: 13px 13px 13px 13px;
   width: 100%;
 }
 
+.fav-hold{
+margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid lightgray 1px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  align-items: center;
+}
+.fav-hold:last-of-type{
+ border-bottom: none;
+}
+
+.fav-it{
+
+  display: flex;
+}
+
 .fav-me{
   color: #B22222;
   margin-left: 12px;
@@ -381,4 +399,61 @@ border-radius: 13px 13px 13px 13px;
 .fav-me:hover span{
   color: #8d1b1b;
 }
+#rem-fav{
+  color: #B22222;
+  cursor: pointer;
+  display:flex;
+  margin-bottom: 5px;
+}
+#rem-fav > i{
+  margin-right: 5px;
+
+}
+#rem-fav > span{
+  color: dimgray;
+  font-size: 13px;
+}
+
+#rem-fav:hover > span{
+  color:#B22222;
+}
+.icn-strs4{
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+ 
+}
+
+.ffpst{
+  color: rgb(231, 165, 89);
+
+}
+.ffpstr{
+  color: rgb(231, 165, 89);
+
+}
+.ffpstl{
+ color: lightgray;
+ transform: scaleX(-1);
+ margin-left: -19.5px;
+}
+
+.fav-det{
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.fav-det > span:first-of-type{
+  margin-right: 5px;
+}
+.fav-det > span:last-of-type{
+  margin-left: 5px;
+}
+#fav-brdr{
+  width:1px;
+  height: 14px;
+  border-right:solid black 1px;
+  margin-bottom: 0px;
+}
+
 
