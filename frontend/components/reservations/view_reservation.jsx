@@ -214,7 +214,7 @@ class ViewReservation extends React.Component {
                                         <img id="u-conf-pic" src={window.salmonplate} alt="" />
                                         <div className="conf-rest-inf">
                                             <h3>{this.restaurant().name} </h3>
-                                            <span><img id="conf-cal" src={window.rescal} /><p>{new Date(this.reservation().reservation_datetime).toLocaleDateString(undefined, format)}, {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]} </p> </span>
+                                            <span><img id="conf-cal" src={window.rescal} /><p>{resDate.toLocaleDateString(undefined, format)}, {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]} </p> </span>
                                             <span><img id="conf-ppl" src={window.resppl} /><p>{this.reservation().guest_count > 1 ? `${this.reservation().guest_count} people` : `${this.reservation().guest_count} person`}</p></span>
                                             <div className="conf-links">
                                                 <Link to={{pathname: `/reservations/${this.reservation().id}/update`}}>Modify</Link>

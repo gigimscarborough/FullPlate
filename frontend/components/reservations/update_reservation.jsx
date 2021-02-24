@@ -143,7 +143,7 @@ class UpdateReservation extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-
+        
         let form = {
             email: this.state.email,
             first_name: this.state.first_name,
@@ -153,10 +153,11 @@ class UpdateReservation extends React.Component {
             last_name: this.state.last_name,
             occasion: this.state.occasion,
             phone_number: this.state.guest_name,
-            reservation_datetime: this.state.date + " " + this.state.time,
+            reservation_datetime: this.state.date + " " + this.state.time.split(" ")[0],
             restaurant_id: this.state.restaurant_id,
             special_request: this.state.special_request,
         }
+        debugger
         this.props.updateReservation(form)
         .then(() => this.props.fetchUser(this.props.currentUser.id))
         // .then(() => 
@@ -234,7 +235,7 @@ class UpdateReservation extends React.Component {
                                     <div className="mod-res-sel">
                                         <div className="mod-date">
                                             <input type="date"  onChange={this.handleChange('date')} />
-                                            <div className="mod-date-s">{resState.toLocaleDateString(undefined, format).split(", ").slice(1).join(", ")}</div>
+                                            <div className="mod-date-s">{new Date(this.state.reservation_datetime).toLocaleDateString(undefined, format).split(", ").slice(1).join(", ")}</div>
                                         </div>
                                         <div className="g-bord"></div>
                                         <div className="mod-time">

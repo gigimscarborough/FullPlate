@@ -46,7 +46,7 @@ class UserShow extends React.Component {
                             </div>
                             <div>
                                 <span >
-                                    {new Date(reservations[i].reservation_datetime).toLocaleDateString()} at {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]}.
+                                    {resDate.toLocaleDateString()} at {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]}.
                                 </span>
 
                             </div>
@@ -74,13 +74,16 @@ class UserShow extends React.Component {
         const today = new Date()
         const allRests = Object.values(this.props.restaurants)
         const rests = this.props.currentUser.reserved_restaurants
-
-
+        
+        
         const reservations = this.props.currentUser.reservations.filter(res => new Date(res.reservation_datetime) < today)
         const resList = []
         const favs = this.props.currentUser.favorites
+        debugger
 
         for (let i = 0; i < reservations.length; i++) {
+            let resDate = new Date(reservations[i].reservation_datetime)
+            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
 
             const thisFav = favs.filter(fav => fav.restaurant_id === reservations[i].restaurant_id)[0]
 
@@ -110,7 +113,7 @@ class UserShow extends React.Component {
                             </div>
                             <div className="u-res-name">
                                 <span >
-                                    {new Date(reservations[i].reservation_datetime).toLocaleDateString()}
+                                    {resDate.toLocaleDateString()}
                                 </span>
 
                             </div>
@@ -284,7 +287,7 @@ class UserShow extends React.Component {
                                     </div>
                                     <div className="btm">
                                         <div className="past-hold">
-                                            {this.savedRests() === 0 ? <p>You have no favorite restaurants to show on this list.</p> : this.savedRests()}
+                                            {this.savedRests().length === 0 ? <p>You have no favorite restaurants to show on this list.</p> : this.savedRests()}
                                         </div>
                                     </div>
                                 </div >

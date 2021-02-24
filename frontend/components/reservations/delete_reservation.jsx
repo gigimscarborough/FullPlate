@@ -160,7 +160,7 @@ class DeleteReservation extends React.Component {
                                 </div>
                                 <div>
                                     <span>DATE</span>
-                                    <span>{new Date(this.reservation().reservation_datetime).toLocaleDateString(undefined, format)}</span>
+                                    <span>{resDate.toLocaleDateString(undefined, format)}</span>
                                 </div>
                                 <div>
                                     <span>TIME</span>

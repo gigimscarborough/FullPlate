@@ -122,7 +122,7 @@ class UpdateReservationNext extends React.Component {
 
         let resTime = new Date(this.state.date + " " + this.state.time)
         // let resDate = new Date(this.props.search.date)
-        // resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
+        resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
 
 
         const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
@@ -140,9 +140,9 @@ class UpdateReservationNext extends React.Component {
                             <div className="rdiv-b">
                                 <Link to={`/restaurants/${this.props.restaurant.id}`}></Link><h2>{this.props.restaurant.name}</h2>
                                 <div className="rdiv-dets">
-                                    <p><i className="far fa-calendar"></i>{resDate.toLocaleDateString(undefined, format).split(", ").slice(0, 2).join(", ")}</p>
-                                    <p><i className="far fa-clock"></i>{resTime.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resTime.toLocaleTimeString().split(" ")[1] === 'AM' ? 'am' : 'pm'}</p>
-                                    <p><i className="far fa-user"></i>{this.props.reservation.guest_count === 1 ? "1 person" : `${this.props.reservation.guest_count} people`}</p>
+                                    <p><i className="far fa-calendar"></i>{new Date(this.props.reservation.reservation_datetime).toLocaleDateString(undefined, format).split(", ").slice(0, 2).join(", ")}</p>
+                                    <p><i className="far fa-clock"></i>{new Date(this.state.date + " " + this.state.time).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date(this.state.date + " " + this.state.time).toLocaleTimeString().split(" ")[1] === 'AM' ? 'am' : 'pm'}</p>
+                                    <p><i className="far fa-user"></i>{this.props.reservation.guest_count == 1 ? "1 person" : `${this.props.reservation.guest_count} people`}</p>
                                 </div>
                             </div>
                         </div>
