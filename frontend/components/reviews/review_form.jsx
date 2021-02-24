@@ -109,11 +109,12 @@ class ReviewForm extends React.Component {
                             <span className="rate-exp">Reservation made on {resDate.toLocaleDateString()}</span>
                             <div className="rate-sel-div">
                                 <div className="rate-overall">
-                                    <span>Overall</span> 
+                                    <span>Overall</span>
                                     <Rating
                                         emptySymbol="fa fa-star-o fa-2x"
                                         fullSymbol="fa fa-star fa-2x"
                                     />
+
 
                                 </div>
 
