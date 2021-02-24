@@ -24,7 +24,12 @@ class UserShow extends React.Component {
         const rests = this.props.currentUser.reserved_restaurants
 
 
-        const reservations = this.props.currentUser.reservations.filter(res => new Date(res.reservation_datetime) > today)
+        const reservations = this.props.currentUser.reservations.filter(function(res) {
+            let resTime = new Date(res.reservation_datetime)
+            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
+
+            return resTime > today
+        })
         const resList = []
 
     
@@ -76,7 +81,11 @@ class UserShow extends React.Component {
         const rests = this.props.currentUser.reserved_restaurants
         
         
-        const reservations = this.props.currentUser.reservations.filter(res => new Date(res.reservation_datetime) < today)
+        const reservations = this.props.currentUser.reservations.filter(function(res) {
+            let resTime = new Date(res.reservation_datetime) 
+            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
+            
+            return resTime < today})
         const resList = []
         const favs = this.props.currentUser.favorites
         debugger
