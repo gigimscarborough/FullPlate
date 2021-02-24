@@ -235,7 +235,8 @@ color: black;
 
 
 .show-u-tbs {
-  width: 100%;
+  width: 850px;
+  min-width: 600px;
   
 }
 .show-u-tbs h1{
@@ -277,6 +278,7 @@ box-shadow: 0px 2px 2px lightgray;
   border-bottom: solid lightgray 1px;
   padding-bottom: 30px;
   padding-left: 20px;
+  margin-top: 5px;
   
 }
 
@@ -370,9 +372,9 @@ margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   border-bottom: solid lightgray 1px;
-  padding-bottom: 30px;
-  padding-left: 20px;
-  align-items: center;
+  padding: 5px 20px 0 20px;
+  // padding-left: 20px;
+
 }
 .fav-hold:last-of-type{
  border-bottom: none;
@@ -391,6 +393,7 @@ margin-bottom: 10px;
 }
 .fav-me i{
   margin-right: 5px;
+  font-size: 15px;
 }
 .fav-me span{
   color: #B22222;
@@ -407,6 +410,7 @@ margin-bottom: 10px;
 }
 #rem-fav > i{
   margin-right: 5px;
+  font-size: 15px;
 
 }
 #rem-fav > span{
@@ -420,7 +424,7 @@ margin-bottom: 10px;
 .icn-strs4{
   display: flex;
   align-items: center;
-  font-size: 17px;
+  font-size: 16px;
  
 }
 
@@ -435,7 +439,7 @@ margin-bottom: 10px;
 .ffpstl{
  color: lightgray;
  transform: scaleX(-1);
- margin-left: -19.5px;
+ margin-left: -18px;
 }
 
 .fav-det{
@@ -455,5 +459,21 @@ margin-bottom: 10px;
   border-right:solid black 1px;
   margin-bottom: 0px;
 }
+
+#fav-reserve{
+  background-color: #B22222;
+  color: white;
+  height: 45px;
+  width: 130px;
+  font-family: 'Amiko', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+  margin-top: 25px;
+}
+#fav-reserve:hover{
+ background-color:  #8d1b1b;
+    transition: 0.4s;
+  }
 
 

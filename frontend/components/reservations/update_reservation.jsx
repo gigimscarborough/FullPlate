@@ -209,7 +209,7 @@ class UpdateReservation extends React.Component {
                             <span className="your-res">Your current reservation</span>
                             <div className="your-res-inf">
                                 {/* <img src={this.restaurant().photoUrls[0]} alt="" /> */}
-                                <img src={this.window.salmonplate} alt="" />
+                                <img src={window.salmonplate} alt="" />
                                 <div className="your-res-icn">
                                     <span>{this.restaurant().name}</span>
                                     <div>

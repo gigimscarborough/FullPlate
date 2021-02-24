@@ -173,7 +173,7 @@ class UserShow extends React.Component {
 
                         </div>
                     </div>
-                     <button id="fav-reserve">Reserve Now</button>
+                    <Link to={`/restaurants/${theseFavs[i].id}`}><button id="fav-reserve">Reserve Now</button></Link>
 
                  </div>
             )
