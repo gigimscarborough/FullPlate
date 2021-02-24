@@ -385,12 +385,18 @@ margin-bottom: 10px;
   display: flex;
 }
 
+.fav-me-div{
+  display: flex;
+}
+
 .fav-me{
   color: #B22222;
   margin-left: 12px;
   cursor: pointer;
-  display:flex
+  display:flex;
+  text-decoration: none;
 }
+
 .fav-me i{
   margin-right: 5px;
   font-size: 15px;

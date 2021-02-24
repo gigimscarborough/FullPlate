@@ -102,23 +102,24 @@ class UserShow extends React.Component {
                     <span>Save this restaurant</span>
                 </div>
             ) : (
-                    <div onClick={() => this.props.deleteFavorite(thisFav.id).then(() => this.props.fetchUser(this.props.currentUser.id))} className="fav-me">
+                <div onClick={() => this.props.deleteFavorite(thisFav.id).then(() => this.props.fetchUser(this.props.currentUser.id))} className="fav-me">
                         <i className="fas fa-bookmark"></i>
                         <span>Restaurant saved</span>
                     </div>
                 )
-       
-            resList.push(
-                (
-
-                    <div key={i} className="reservation-it">
+            const resRest = rests.filter(rest => (rest.id === reservations[i].restaurant_id))[0]
+                
+                resList.push(
+                    (
+                        
+                        <div key={i} className="reservation-it">
                         <div>
                             {/* <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link> */}
                             <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link>
                         </div>
                         <div className="u-res-info-div">
                             <div className="u-res-name">
-                                <Link to={`/restaurants/${reservations[i].restaurant_id}`}><span>{rests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].name}</span></Link>
+                                <Link to={`/restaurants/${reservations[i].restaurant_id}`}><span>{resRest.name}</span></Link>
                             </div>
                             <div className="u-res-name">
                                 <span >
@@ -133,7 +134,13 @@ class UserShow extends React.Component {
                                 <i className="far fa-bookmark"></i>
                                 <span>Save this restaurant</span>
                             </div> */}
+                                <div className="fav-me-div">
+                                <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/review` }} className="fav-me">
+                            <i class="far fa-comment-alt"></i>
+                            <span>Write Review</span>
+                            </Link>
                             {favBtn}
+                            </div>
                             <div>
 
                             </div>

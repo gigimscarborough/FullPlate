@@ -1,3 +1,56 @@
 // Place all the styles related to the api::reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.review-hold-div{
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.review-main-div{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 600px;
+    min-width: 600px;
+}
+
+.review-main-div h3{
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.page-dots{
+    display: flex;
+}
+
+.d-dot{
+    height:8px;
+    width: 8px;
+    background-color: #B22222;
+    border-radius: 50px;
+    margin: 0 5px;
+}
+.l-dot{
+    height:8px;
+    width: 8px;
+    background-color: #eb9a9a;
+    border-radius: 50px;
+    margin: 0 5px;
+}
+
+.rate-exp{
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: none;
+}
+
+.rate-sel-div{
+    margin-top: 50px;
+}

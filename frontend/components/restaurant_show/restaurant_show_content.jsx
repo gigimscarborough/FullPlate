@@ -149,6 +149,7 @@ class ShowContent extends React.Component {
                             <p> would reccommend it to a friend</p>
                         </div>
                     </div>
+                        
                 </div>
                 <div className="reserve-div">
                     <ReservationWidget search={this.props.search}/>
