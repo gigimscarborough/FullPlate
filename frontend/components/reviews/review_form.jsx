@@ -9,13 +9,18 @@ class ReviewForm extends React.Component {
     constructor(props) {
         super(props)
 
-        
+
         this.state = {
+            would_recommend: null,
             overall_rating: null,
             food_rating: null,
             service_rating: null,
             ambience_rating: null,
             value_rating: null,
+            body: "",
+            visited: this.reservation().reservation_datetime.split("T")[0],
+            restaurant_id: this.reservation().restaurant_id,
+            guest_id: this.reservation().guest_id,
             page: 2
         }
         this.handleRating = this.handleRating.bind(this)
@@ -48,14 +53,14 @@ class ReviewForm extends React.Component {
         // if (this.state[type] === 5){
         //     return "Outstanding"
         // } 
-         return this.state[type] === 5 ?  "Outstanding" : this.state[type] === 4 ? "Very Good" : this.state[type] === 3 ? "Good" : this.state[type] === 3 ? "Fair" : this.state[type] === 3 ? "Poor" : " "
+        return this.state[type] === 5 ? "Outstanding" : this.state[type] === 4 ? "Very Good" : this.state[type] === 3 ? "Good" : this.state[type] === 3 ? "Fair" : this.state[type] === 3 ? "Poor" : " "
 
     }
 
-    nextAvail(){
+    nextAvail() {
         const next = document.getElementById('next-btn-1')
 
-        if (this.state.overall_rating && this.state.food_rating && this.state.service_rating && this.state.ambience_rating && this.state.value_rating){
+        if (this.state.overall_rating && this.state.food_rating && this.state.service_rating && this.state.ambience_rating && this.state.value_rating) {
             next.style.cursor = "pointer";
             next.style.backgroundColor = "#B22222";
             // next.classList.add('next-btn-1-hov')
@@ -70,14 +75,49 @@ class ReviewForm extends React.Component {
         }
     }
 
-    handleNext(e){
-        e.preventDefault()
-        if (this.state.overall_rating && this.state.food_rating && this.state.service_rating && this.state.ambience_rating && this.state.value_rating) {
+    handleNext(num) {
+        
+        if (this.state.overall_rating && this.state.food_rating && this.state.service_rating && this.state.ambience_rating && this.state.value_rating && num === 1) {
             this.state.page = 2
         }
-        
+
         debugger
 
+    }
+
+    handleChange(type) {
+        return (e) => (
+            this.setState({ [type]: e.currentTarget.value })
+        )
+    }
+
+    handleBool(type){
+        const yes = document.getElementById('rec-bool-y');
+        const no = document.getElementById('rec-bool-n');
+
+        if(type === 'y'){
+            yes.classList.add('fa-dot-circle');
+            yes.classList.add('fas');
+            no.classList.remove('fa-dot-circle');
+            no.classList.remove('fas');
+            yes.classList.remove('fa-circle');
+            yes.classList.remove('far');
+            no.classList.add('fa-circle');
+            no.classList.add('far');
+            this.setState({ [type]: e.currentTarget.value });
+        }
+    
+        if (type === 'n') {
+            no.classList.add('fa-dot-circle');
+            no.classList.add('fas');
+            yes.classList.remove('fa-dot-circle');
+            yes.classList.remove('fas');
+            no.classList.remove('fa-circle');
+            no.classList.remove('far');
+            yes.classList.add('fa-circle');
+            yes.classList.add('far');
+            this.setState({ [type]: e.currentTarget.value });
+        }
     }
 
     navBar() {
@@ -126,7 +166,7 @@ class ReviewForm extends React.Component {
 
 
     render() {
-        
+
 
         let resDate = new Date(this.reservation().reservation_datetime)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
@@ -219,7 +259,7 @@ class ReviewForm extends React.Component {
                                 </div>
 
                             </div>
-                                <button id="next-btn-1" className="" onClick={this.handleNext}>Next{this.nextAvail()}</button>
+                            <button id="next-btn-1" className="" onClick={() => this.handleNext(1)}>Next{this.nextAvail()}</button>
                         </div>
                     </div>
 
@@ -230,7 +270,7 @@ class ReviewForm extends React.Component {
             )
         }
 
-        if (this.state.page === 2){
+        if (this.state.page === 2) {
             return (
                 <div>
                     {this.navBar()}
@@ -247,8 +287,28 @@ class ReviewForm extends React.Component {
                                 Write a review
                             </h3>
                             <span className="rate-exp">Help diners decide where to eat. Remember to keep it short, simple and specific.</span>
-                            <div>
-                                <span></span>
+                            <div className="wr-review">
+                                <span><i class="far fa-question-circle"></i> Need help?</span>
+                                <textarea onChange={this.handleChange('body')} placeholder="Your review must be at least 50 characters"></textarea>
+                                <div>
+                                    <span>Minimum 50 characters</span>
+                                    <span><p>{this.state.body.split("").length}</p> &nbsp; / 2000 characters</span>
+                                </div>
+                            </div>
+                            <div className="rec-bool">
+                                <span>Would you recommend {this.props.restaurant.name} to a friend?</span>
+                                <span>
+                                    <span class="r-bool" >
+                                        <i id="rec-bool-y" class="far fa-circle" onClick={() => this.handleBool('y')}></i> <span>Yes</span>
+                                    </span>
+                                    <span>
+                                        <i id="rec-bool-n" class="far fa-circle " onClick={() => this.handleBool('n')}></i> <span>No</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <div className="rev-pg">
+                                <button>Back</button>
+                                <button>Next</button>
                             </div>
                         </div>
                     </div>
