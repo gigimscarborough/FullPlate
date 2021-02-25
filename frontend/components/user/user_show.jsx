@@ -88,7 +88,7 @@ class UserShow extends React.Component {
             return resTime < today})
         const resList = []
         const favs = this.props.currentUser.favorites
-        debugger
+    
 
         for (let i = 0; i < reservations.length; i++) {
             let resDate = new Date(reservations[i].reservation_datetime)

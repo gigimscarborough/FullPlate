@@ -157,7 +157,7 @@ class UpdateReservation extends React.Component {
             restaurant_id: this.state.restaurant_id,
             special_request: this.state.special_request,
         }
-        debugger
+        
         this.props.updateReservation(form)
         .then(() => this.props.fetchUser(this.props.currentUser.id))
         // .then(() => 
