@@ -5,6 +5,7 @@ import ClickGreetingDropdown from '../navbar/click_greeting_dropdown';
 import { Link } from 'react-router-dom';
 import Rating from 'react-rating';
 import { openModal } from '../../actions/modal_actions';
+import { fetchUser } from '../../util/session_api_util';
 
 class ReviewForm extends React.Component {
     constructor(props) {
@@ -257,6 +258,7 @@ class ReviewForm extends React.Component {
         }
      
         this.props.createReview(form)
+        .then(() => this.props.fetchUser(this.props.currentUser.id))
         .then(() => this.props.history.push({
             pathname: `/restaurants/${this.reservation().restaurant_id}/reservations/${this.reservation().id}/review/confirm`, 
             state: { restaurant : this.props.restaurant}}))

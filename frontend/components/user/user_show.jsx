@@ -1,6 +1,9 @@
 import React from 'react'
 import UserNavBar from '../navbar/user_navbar'
 import { HashLink as Link } from 'react-router-hash-link'
+import Rating from 'react-rating';
+import ReactStars from 'react-stars';
+// import ReactStars from 'react-rating-stars-component';
 
 class UserShow extends React.Component {
 
@@ -24,7 +27,7 @@ class UserShow extends React.Component {
         const rests = this.props.currentUser.reserved_restaurants
 
 
-        const reservations = this.props.currentUser.reservations.filter(function(res) {
+        const reservations = this.props.currentUser.reservations.filter(function (res) {
             let resTime = new Date(res.reservation_datetime)
             resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
 
@@ -32,7 +35,7 @@ class UserShow extends React.Component {
         })
         const resList = []
 
-    
+
 
         for (let i = 0; i < reservations.length; i++) {
             let resDate = new Date(reservations[i].reservation_datetime)
@@ -79,16 +82,18 @@ class UserShow extends React.Component {
         const today = new Date()
         const allRests = Object.values(this.props.restaurants)
         const rests = this.props.currentUser.reserved_restaurants
-        
-        
-        const reservations = this.props.currentUser.reservations.filter(function(res) {
-            let resTime = new Date(res.reservation_datetime) 
+
+
+        const reservations = this.props.currentUser.reservations.filter(function (res) {
+            let resTime = new Date(res.reservation_datetime)
             resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
-            
-            return resTime < today})
+
+            return resTime < today
+        })
         const resList = []
         const favs = this.props.currentUser.favorites
-    
+        const reviews = this.props.currentUser.reviews
+
 
         for (let i = 0; i < reservations.length; i++) {
             let resDate = new Date(reservations[i].reservation_datetime)
@@ -102,17 +107,112 @@ class UserShow extends React.Component {
                     <span>Save this restaurant</span>
                 </div>
             ) : (
-                <div onClick={() => this.props.deleteFavorite(thisFav.id).then(() => this.props.fetchUser(this.props.currentUser.id))} className="fav-me">
+                    <div onClick={() => this.props.deleteFavorite(thisFav.id).then(() => this.props.fetchUser(this.props.currentUser.id))} className="fav-me">
                         <i className="fas fa-bookmark"></i>
                         <span>Restaurant saved</span>
                     </div>
                 )
+
             const resRest = rests.filter(rest => (rest.id === reservations[i].restaurant_id))[0]
-                
-                resList.push(
-                    (
-                        
-                        <div key={i} className="reservation-it">
+
+            const thisRev = reviews.filter(review => review.reservation_id === reservations[i].id)[0]
+            const revBtn = !thisRev ? (
+                <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/review` }} className="fav-me">
+                    <i className="far fa-comment-alt"></i>
+                    <span>Write Review</span>
+                </Link>
+            ) : (
+                    <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/review` }} className="fav-me">
+                        <i className="far fa-comment-alt"></i>
+                        <span>Edit Review</span>
+                    </Link>
+                )
+            const revDet = thisRev ? (
+                <div className="us-revdet">
+                    <h4>
+                        On {new Date(thisRev.created_at).toLocaleDateString()} you wrote
+                    </h4>
+                    <span className="us-revbody">
+                        {thisRev.body}
+                    </span>
+                    <span className="rtngs-sec">
+                        <span className="rtngs-sin">
+                            <span>OVERALL</span>
+                            <ReactStars
+                                className="past-stars"
+                                id="past-str"
+                                count={5}
+                                value={thisRev.overall_rating}
+                                color1={'lightgray'}
+                                color2={'rgb(231, 165, 89)'}
+                                size={17}
+                                edit={false}
+                            />
+                        </span>
+                        <span className="rtngs-sin">
+                            <span>FOOD</span>
+                            <ReactStars
+                                className="past-stars"
+                                id="past-str"
+                                count={5}
+                                value={thisRev.food_rating}
+                                color1={'lightgray'}
+                                color2={'rgb(231, 165, 89)'}
+                                size={17}
+                                edit={false}
+                            />
+                        </span>
+                        <span className="rtngs-sin">
+                            <span>SERVICE</span>
+                            <ReactStars
+                                className="past-stars"
+                                id="past-str"
+                                count={5}
+                                value={thisRev.service_rating}
+                                color1={'lightgray'}
+                                color2={'rgb(231, 165, 89)'}
+                                size={17}
+                                edit={false}
+                            />
+                        </span>
+                    </span>
+                    <span className="rtngs-sec">
+                        <span className="rtngs-sin">
+                            <span>AMBIENCE</span>
+                            <ReactStars
+                                className="past-stars"
+                                id="past-str"
+                                count={5}
+                                value={thisRev.ambience_rating}
+                                color1={'lightgray'}
+                                color2={'rgb(231, 165, 89)'}
+                                size={17}
+                                edit={false}
+                            />
+                        </span>
+                        <span className="rtngs-sin">
+                            <span>VALUE</span>
+                            <ReactStars
+                                className="past-stars"
+                                id="past-str"
+                                count={5}
+                                value={thisRev.value_rating}
+                                color1={'lightgray'}
+                                color2={'rgb(231, 165, 89)'}
+                                size={17}
+                                edit={false}
+                            />
+                        </span>
+                    </span>
+                </div>
+            ) : null
+
+            debugger
+
+            resList.push(
+                (
+
+                    <div key={i} className="reservation-it">
                         <div>
                             {/* <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link> */}
                             <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link>
@@ -130,20 +230,16 @@ class UserShow extends React.Component {
                             <div>
                                 <span>{reservations[i].guest_count === 1 ? "Table for 1 person." : `Table for ${reservations[i].guest_count} people.`}</span>
                             </div >
-                            {/* <div className="fav-me">
-                                <i className="far fa-bookmark"></i>
-                                <span>Save this restaurant</span>
-                            </div> */}
-                                <div className="fav-me-div">
-                                <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/review` }} className="fav-me">
+                            <div className="fav-me-div">
+                                {/* <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/review` }} className="fav-me">
                             <i className="far fa-comment-alt"></i>
                             <span>Write Review</span>
-                            </Link>
-                            {favBtn}
+                            </Link> */}
+                                {revBtn}
+                                {favBtn}
                             </div>
-                            <div>
+                            {revDet}
 
-                            </div>
                         </div>
 
                     </div>
@@ -165,7 +261,7 @@ class UserShow extends React.Component {
         for (let i = 0; i < theseFavs.length; i++) {
             favsList.push(
                 <div key={i} className="fav-hold">
-                    <div  className="fav-it">
+                    <div className="fav-it">
                         <div>
                             {/* <Link to={`/restaurants/${theseFavs[i].id}`}><img id="u-res-pic" src={theseFavs[i].photoUrls[0]} alt="" /></Link> */}
                             <Link to={`/restaurants/${theseFavs[i].id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link>
@@ -194,7 +290,7 @@ class UserShow extends React.Component {
                     </div>
                     <Link to={`/restaurants/${theseFavs[i].id}`}><button id="fav-reserve">Reserve Now</button></Link>
 
-                 </div>
+                </div>
             )
 
         }
