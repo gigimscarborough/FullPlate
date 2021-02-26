@@ -15,8 +15,8 @@ class Api::ReviewsController < ApplicationController
     
     def create
 
-     
         @review = Review.new(review_params)
+        
             
 
         if @review.save
@@ -47,6 +47,6 @@ class Api::ReviewsController < ApplicationController
 
     private 
     def review_params
-        params.require(:review).permit(:restaurant_id, :guest_id, :body, :visited, :food_rating, :service_rating, :ambience_rating, :value_rating, :overall_rating, :rating, :would_recommend)
+        params.require(:review).permit(:restaurant_id, :guest_id, :body, :visited, :food_rating, :service_rating, :ambience_rating, :value_rating, :overall_rating, :rating, :would_recommend, :nickname)
     end
 end

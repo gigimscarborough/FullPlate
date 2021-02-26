@@ -84,7 +84,7 @@ class ReviewForm extends React.Component {
 
         const next = document.getElementById('next-btn-2')
 
-        if (this.state.body && this.state.would_recommend !== null) {
+        if ((this.state.body && (this.state.body.length > 49 && this.state.body.length < 2001)) && this.state.would_recommend !== null) {
             next.style.cursor = "pointer";
             next.style.backgroundColor = "#B22222";
             // next.classList.add('next-btn-1-hov')
@@ -224,7 +224,7 @@ class ReviewForm extends React.Component {
         let form = {
             guest_id: this.reservation().guest_id,
             restaurant_id: this.reservation().restaurant_id,
-            nickname: this.props.currentUser.first_name + this.props.currentUser.last_name.split("")[0],
+            nickname: this.state.nickname,
             visited: this.reservation().reservation_datetime.split("T")[0],
             overall_rating: this.state.overall_rating,
             food_rating: this.state.food_rating,
@@ -235,8 +235,9 @@ class ReviewForm extends React.Component {
             body: this.state.body,
             would_recommend: this.state.would_recommend
         }
-
+        debugger
         this.props.createReview(form)
+        .then(() => this.props.history.push('/reviews/confirm'))
 
     }
 
