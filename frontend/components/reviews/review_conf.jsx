@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import MainNavBar from '../navbar/main_navbar'
 import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown'
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown'
@@ -10,11 +10,11 @@ class ReviewConf extends React.Component {
         super(props)
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchRestaurants()
     }
 
-    navBar(){
+    navBar() {
         return (
             <div>
                 <MainNavBar />
@@ -32,12 +32,29 @@ class ReviewConf extends React.Component {
         )
     }
 
-    render(){
+    render() {
         return (
             <div>
                 {this.navBar()}
-                <div className=>
-
+                <div className="rev-conf-hold">
+                    <div className="rev-conf-main">
+                        <div className="rev-conf-thanks">
+                            <img src={window.raterev} />
+                            <div>
+                                <h2>
+                                    Thanks for your review!
+                                </h2>
+                                <span>
+                                    Sharing your feedback helps other diners.
+                                </span>
+                            </div>
+                        </div>
+                        <div className="rev-conf-rests">
+                            <h2>
+                                Restaurants you may also like
+                            </h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
@@ -63,5 +80,5 @@ const mDTP = (dispatch) => ({
     openModal: (modal) => dispatch(openModal(modal)),
 })
 
-export default connect(mSTP, mDTP)(ReviewConf) 
+export default connect(mSTP, mDTP)(ReviewConf)
 

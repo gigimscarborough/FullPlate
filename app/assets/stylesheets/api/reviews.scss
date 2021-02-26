@@ -558,3 +558,47 @@ box-sizing: border-box;
 .pn-body > span:last-of-type > span{
     color: #B22222
 }
+
+.rev-conf-hold{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.rev-conf-main{
+    margin: 0 90px;
+     width: 100%;
+    
+}
+
+.rev-conf-thanks{
+    width: 100%;
+    margin: 100px 0 90px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.rev-conf-thanks img{
+    height: 150px;
+    width: 150px;
+    margin-right: 35px;
+}
+.rev-conf-thanks h2{
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.rev-conf-thanks span{
+    font-size: 14px;
+    color: rgb(49, 49, 49);
+}
+
+.rev-conf-rests{
+    font-size: 21px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: solid lightgray 1px;
+}
