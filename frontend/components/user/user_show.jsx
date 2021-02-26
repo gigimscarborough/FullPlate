@@ -136,7 +136,7 @@ class UserShow extends React.Component {
                             </div> */}
                                 <div className="fav-me-div">
                                 <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/review` }} className="fav-me">
-                            <i class="far fa-comment-alt"></i>
+                            <i className="far fa-comment-alt"></i>
                             <span>Write Review</span>
                             </Link>
                             {favBtn}

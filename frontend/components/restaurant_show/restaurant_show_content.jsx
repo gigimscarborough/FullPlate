@@ -21,7 +21,7 @@ class ShowContent extends React.Component {
         : this.props.restaurant.price_range === "$$$" ? "$31 to $50" : "$50 and over"
         
         const menu = !this.props.restaurant.website_url ? "Sorry, this restaurant has not yet provided a menu"
-        : <div><i className=" url-icon fas fa-external-link-alt"></i><a className="menu-url" href={this.props.restaurant.website_url}>Visit this restaurant's website to view the full menu</a></div>
+            : <div id="rms"><i className=" url-icon fas fa-external-link-alt"></i><a className="menu-url" href={this.props.restaurant.website_url}>Visit this restaurant's website to view the full menu</a></div>
         
         // const photos = this.props.restaurant.photoUrls.length === 1 ? "1 Photo" 
         // : this.props.restaurant.photoUrls.length > 1 ? `${this.props.restaurant.photoUrls.length} Photos` : "No Photos"
@@ -109,7 +109,7 @@ class ShowContent extends React.Component {
                     </div>
                     <div id="r-menu-link" className="res-menu">
                         <h2>Menu</h2>
-                        <p>{menu}</p>
+                        <span>{menu}</span>
                     </div>
                     <div className="res-revs" id="r-reviews-link">
                         <h2>What People Are Saying</h2>

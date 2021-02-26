@@ -4,7 +4,7 @@ import React from 'react'
 const PrivateNote = ({ closeModal }) => (
     <div>
         <div className="pn-modal" onClick={e => e.stopPropagation()}>
-            <i onClick={closeModal} class="fas fa-times rh-close"></i>
+            <i onClick={closeModal} className="fas fa-times rh-close"></i>
             <div className="pn-body">
                 <h2>
                     Send a private note

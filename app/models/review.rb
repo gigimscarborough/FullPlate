@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-    validates :restaurant_id, :guest_id, :body, :visited, :food_rating, :service_rating, :ambience_rating, :value_rating, :overall_rating, :rating, :would_recommend, presence:true
+    validates :restaurant_id, :guest_id, :body, :visited, :food_rating, :service_rating, :ambience_rating, :value_rating, :overall_rating, :rating, :would_recommend, :nickname, :reservation_id, presence:true
     
     
     belongs_to :user,

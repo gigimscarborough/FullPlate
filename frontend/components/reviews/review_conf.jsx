@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import MainNavBar from '../navbar/main_navbar'
 import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown'
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown'
+import AlsoRests from './also_rests'
 
 class ReviewConf extends React.Component {
     constructor(props) {
@@ -33,6 +34,7 @@ class ReviewConf extends React.Component {
     }
 
     render() {
+ 
         return (
             <div>
                 {this.navBar()}
@@ -53,6 +55,7 @@ class ReviewConf extends React.Component {
                             <h2>
                                 Restaurants you may also like
                             </h2>
+                            <AlsoRests restaurants={this.props.restaurants} restaurantId={this.props.match.params.restaurantId}/>
                         </div>
                     </div>
                 </div>

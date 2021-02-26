@@ -4,7 +4,7 @@ import React from 'react'
 const PrivateNote = ({closeModal}) => (
     <div>
         <div className="rev-help" onClick={e => e.stopPropagation()}>
-            <i onClick={closeModal} class="fas fa-times rh-close"></i>
+            <i onClick={closeModal} className="fas fa-times rh-close"></i>
             <div className="rh-body">
                 <h2>
                     Review guidelines

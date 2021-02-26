@@ -29,7 +29,7 @@ const App = () => (
         <Route exact path="/search" component={SearchPageContainter} />
         <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
         <ProtectedRoute exact path="/restaurants/:restaurantId/reservations/:reservationId/review" component={ReviewFormContainer} />
-        <ProtectedRoute exact path="/reviews/confirm" component={ReviewConfContainer} />
+        <ProtectedRoute exact path="/restaurants/:restaurantId/reservations/:reservationId/review/confirm" component={ReviewConfContainer} />
         <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={ReservationFormContainer} />
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
         <ProtectedRoute exact path="/reservations/:reservationId/view" component={ViewReservationContainer} />

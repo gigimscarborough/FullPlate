@@ -24,6 +24,7 @@ class ReviewForm extends React.Component {
             visited: this.reservation().reservation_datetime.split("T")[0],
             restaurant_id: this.reservation().restaurant_id,
             guest_id: this.reservation().guest_id,
+            reservation_id: this.reservation().id,
             page: 1
         }
         this.handleRating = this.handleRating.bind(this)
@@ -63,40 +64,58 @@ class ReviewForm extends React.Component {
     }
 
     nextAvail() {
-        const next = document.getElementById('next-btn-1')
+        // const next = document.getElementById('next-btn-1')
 
         if (this.state.overall_rating && this.state.food_rating && this.state.service_rating && this.state.ambience_rating && this.state.value_rating) {
-            next.style.cursor = "pointer";
-            next.style.backgroundColor = "#B22222";
-            // next.classList.add('next-btn-1-hov')
-            next.addEventListener("mouseenter", (e) => {
-                next.style.backgroundColor = "#8d1b1b";
-                next.style.transition = "0.4s";
-            })
-            next.addEventListener("mouseleave", (e) => {
-                next.style.backgroundColor = "#B22222";
-                next.style.transition = "0.4s";
-            })
+            // next.style.cursor = "pointer";
+            // next.style.backgroundColor = "#B22222";
+            // // next.classList.add('next-btn-1-hov')
+            // next.addEventListener("mouseenter", (e) => {
+            //     next.style.backgroundColor = "#8d1b1b";
+            //     next.style.transition = "0.4s";
+            // })
+            // next.addEventListener("mouseleave", (e) => {
+            //     next.style.backgroundColor = "#B22222";
+            //     next.style.transition = "0.4s";
+            // })
+            return(
+
+                <button id="next-btn-1" className="next-btn-1-hov" onClick={() => this.handleNext(1)}>Next</button>
+                )
+        } else {
+            return(
+
+                <button className="next-btn-1-hov">Next</button>
+            )
         }
     }
 
     nextAvail2() {
 
-        const next = document.getElementById('next-btn-2')
+        // const next = document.getElementById('next-btn-2')
 
         if ((this.state.body && (this.state.body.length > 49 && this.state.body.length < 2001)) && this.state.would_recommend !== null) {
-            next.style.cursor = "pointer";
-            next.style.backgroundColor = "#B22222";
-            // next.classList.add('next-btn-1-hov')
-            next.addEventListener("mouseenter", (e) => {
-                next.style.backgroundColor = "#8d1b1b";
-                next.style.transition = "0.4s";
-            })
-            next.addEventListener("mouseleave", (e) => {
-                next.style.backgroundColor = "#B22222";
-                next.style.transition = "0.4s";
-            })
-        }
+            // next.style.cursor = "pointer";
+            // next.style.backgroundColor = "#B22222";
+            // // next.classList.add('next-btn-1-hov')
+            // next.addEventListener("mouseenter", (e) => {
+            //     next.style.backgroundColor = "#8d1b1b";
+            //     next.style.transition = "0.4s";
+
+            // })
+            // next.addEventListener("mouseleave", (e) => {
+                //     next.style.backgroundColor = "#B22222";
+                //     next.style.transition = "0.4s";
+                // })
+                return(
+
+                    <button id="next-btn-2" onClick={() => this.handleNext(2)}>Next</button>
+                )
+            } else {
+            return (
+                <button>Next</button>
+            )
+            }
 
     }
 
@@ -224,6 +243,7 @@ class ReviewForm extends React.Component {
         let form = {
             guest_id: this.reservation().guest_id,
             restaurant_id: this.reservation().restaurant_id,
+            reservation_id: this.state.reservation_id,
             nickname: this.state.nickname,
             visited: this.reservation().reservation_datetime.split("T")[0],
             overall_rating: this.state.overall_rating,
@@ -235,14 +255,16 @@ class ReviewForm extends React.Component {
             body: this.state.body,
             would_recommend: this.state.would_recommend
         }
-        debugger
+     
         this.props.createReview(form)
-        .then(() => this.props.history.push('/reviews/confirm'))
+        .then(() => this.props.history.push({
+            pathname: `/restaurants/${this.reservation().restaurant_id}/reservations/${this.reservation().id}/review/confirm`, 
+            state: { restaurant : this.props.restaurant}}))
 
     }
 
     navBar() {
-        debugger
+    
         if (this.props.currentUser) {
             return (
                 <div>
@@ -290,7 +312,7 @@ class ReviewForm extends React.Component {
     render() {
 
 
-        debugger
+    
         let resDate = new Date(this.reservation().reservation_datetime)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
 
@@ -380,7 +402,7 @@ class ReviewForm extends React.Component {
                                 </div>
 
                             </div>
-                            <button id="next-btn-1" className="" onClick={() => this.handleNext(1)}>Next{this.nextAvail()}</button>
+                            {this.nextAvail()}
                         </div>
                     </div>
 
@@ -408,8 +430,9 @@ class ReviewForm extends React.Component {
                             </h3>
                             <span className="rate-exp">Help diners decide where to eat. Remember to keep it short, simple and specific.</span>
                             <div className="wr-review">
-                                <span onClick={() => this.props.openModal('rev-help')}><i class="far fa-question-circle"></i> Need help?</span>
-                                <textarea onChange={this.handleChange('body')} placeholder="Your review must be at least 50 characters"></textarea>
+                                <span onClick={() => this.props.openModal('rev-help')}><i className="far fa-question-circle"></i> Need help?</span>
+                                <textarea onChange={this.handleChange('body')} defaultValue={this.state.body ? this.state.body : null} placeholder="Your review must be at least 50 characters"></textarea>
+                                 
                                 <div>
                                     <span>Minimum 50 characters</span>
                                     <span><p>{this.state.body.length}</p> &nbsp; / 2000 characters</span>
@@ -418,17 +441,18 @@ class ReviewForm extends React.Component {
                             <div className="rec-bool">
                                 <span>Would you recommend {this.props.restaurant.name} to a friend?</span>
                                 <span>
-                                    <span class="r-bool" >
-                                        <i id="rec-bool-y" class="fas fa-dot-circle fa-dot-circle2" onClick={() => this.handleBool('y')}></i> <span>Yes</span>
+                                    <span className="r-bool" >
+                                        <i id="rec-bool-y" className="fas fa-dot-circle fa-dot-circle2" onClick={() => this.handleBool('y')}></i> <span>Yes</span>
                                     </span>
                                     <span>
-                                        <i id="rec-bool-n" class="far fa-circle" onClick={() => this.handleBool('n')}></i> <span>No</span>
+                                        <i id="rec-bool-n" className="far fa-circle" onClick={() => this.handleBool('n')}></i> <span>No</span>
                                     </span>
                                 </span>
                             </div>
                             <div className="rev-pg">
                                 <button onClick={() => this.handleBack(1)}>Back</button>
-                                <button id="next-btn-2" onClick={() => this.handleNext(2)}>Next{this.nextAvail2()}</button>
+                                {this.nextAvail2()}
+                                
                             </div>
                         </div>
                     </div>
@@ -461,15 +485,15 @@ class ReviewForm extends React.Component {
                             <span className="nn-char-c"><p>{this.state.nickname.length}</p>&nbsp;<p>/ 24 characters</p></span>
                             <span className="pm-rest">Do you want to send a private note to {this.props.restaurant.name}?</span>
                             <div id="pm-resp" className="pm-resp">
-                                <span class="pm-bool" >
+                                <span className="pm-bool" >
                                     <span >
-                                        <i id="pm-bool-y" class="far fa-circle" onClick={() => this.handlePM('y')}></i> <span>Yes</span>
+                                        <i id="pm-bool-y" className="far fa-circle" onClick={() => this.handlePM('y')}></i> <span>Yes</span>
                                     </span>
                                     <span >
-                                        <i id="pm-bool-n" class="fas fa-dot-circle fa-dot-circle2 " onClick={() => this.handlePM('n')}></i> <span>No</span>
+                                        <i id="pm-bool-n" className="fas fa-dot-circle fa-dot-circle2 " onClick={() => this.handlePM('n')}></i> <span>No</span>
                                     </span>
                                 </span>
-                                <span onClick={() => this.props.openModal('private')}><i class="far fa-question-circle"></i> What is a private note?</span>
+                                <span onClick={() => this.props.openModal('private')}><i className="far fa-question-circle"></i> What is a private note?</span>
                             </div>
                             <div id="pm-text" className="pm-body">
 
