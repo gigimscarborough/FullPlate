@@ -14,7 +14,7 @@ class ReviewForm extends React.Component {
         this.state = {
             pm: "",
             nickname: this.props.currentUser.first_name + this.props.currentUser.last_name.split("")[0],
-            would_recommend: null,
+            would_recommend: true,
             overall_rating: null,
             food_rating: null,
             service_rating: null,
@@ -24,7 +24,7 @@ class ReviewForm extends React.Component {
             visited: this.reservation().reservation_datetime.split("T")[0],
             restaurant_id: this.reservation().restaurant_id,
             guest_id: this.reservation().guest_id,
-            page: 2
+            page: 1
         }
         this.handleRating = this.handleRating.bind(this)
         this.handleNext = this.handleNext.bind(this)
@@ -418,10 +418,10 @@ class ReviewForm extends React.Component {
                                 <span>Would you recommend {this.props.restaurant.name} to a friend?</span>
                                 <span>
                                     <span class="r-bool" >
-                                        <i id="rec-bool-y" class="far fa-circle" onClick={() => this.handleBool('y')}></i> <span>Yes</span>
+                                        <i id="rec-bool-y" class="fas fa-dot-circle fa-dot-circle2" onClick={() => this.handleBool('y')}></i> <span>Yes</span>
                                     </span>
                                     <span>
-                                        <i id="rec-bool-n" class="far fa-circle " onClick={() => this.handleBool('n')}></i> <span>No</span>
+                                        <i id="rec-bool-n" class="far fa-circle" onClick={() => this.handleBool('n')}></i> <span>No</span>
                                     </span>
                                 </span>
                             </div>
@@ -465,7 +465,7 @@ class ReviewForm extends React.Component {
                                         <i id="pm-bool-y" class="far fa-circle" onClick={() => this.handlePM('y')}></i> <span>Yes</span>
                                     </span>
                                     <span >
-                                        <i id="pm-bool-n" class="far fa-circle " onClick={() => this.handlePM('n')}></i> <span>No</span>
+                                        <i id="pm-bool-n" class="fas fa-dot-circle fa-dot-circle2 " onClick={() => this.handlePM('n')}></i> <span>No</span>
                                     </span>
                                 </span>
                                 <span onClick={() => this.props.openModal('private')}><i class="far fa-question-circle"></i> What is a private note?</span>

@@ -12,7 +12,7 @@ function Modal({ modal, closeModal }) {
     if (!modal) {
         return null;
     } else {
-        component = modal === 'login' ? <LoginFormContainer /> : modal === 'signup' ? <SignupFormContainer /> : modal === 'private' ? <PrivateMessage /> : modal === 'rev-help' ? <ReviewHelp closeModal={closeModal}/> : <ResSearchModalContainer />
+        component = modal === 'login' ? <LoginFormContainer /> : modal === 'signup' ? <SignupFormContainer /> : modal === 'private' ? <PrivateMessage closeModal={closeModal}/> : modal === 'rev-help' ? <ReviewHelp closeModal={closeModal}/> : <ResSearchModalContainer  />
     }
   
     return (

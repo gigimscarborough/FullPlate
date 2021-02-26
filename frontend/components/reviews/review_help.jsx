@@ -35,7 +35,7 @@ const PrivateNote = ({closeModal}) => (
                         "I love the relaxed feel of this place – like a comfortable dining room in a friends home. I definitely would return to try more dishes. The lobster bisque was amazing and the Roasted Beet salad was refreshing. The table was split on the seabass – one person thought it was great, but another felt that the tastes didn't quite mesh. Everyone loved the flat iron steak. Service was well-timed and friendly, wines were affordable."
                     </span>
                 </div>
-
+               
             </div>
         </div>
     </div>
