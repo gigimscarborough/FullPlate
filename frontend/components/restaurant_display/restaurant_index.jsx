@@ -20,7 +20,7 @@ class RestaurantIndex extends React.Component {
         const restaurants = this.props.restaurants.map(restaurant => {
 
             let matches = this.props.reviews.filter(review => review.restaurant_id === restaurant.id)
-                debugger
+           
             // let count = 0
 
             // for (let i = 0; i < matches.length; i++) {

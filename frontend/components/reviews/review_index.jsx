@@ -74,11 +74,11 @@ class ReviewIndex extends React.Component {
     reviewsList() {
 
         const that = this
-        debugger
+  
         return this.reviews().map(review => {
             let initials = review.nickname.split("")
-            console.log(initials)
-            debugger
+   
+
             for (let i = 0; i < initials.length; i++) {
                 if (initials[i] !== initials[i].toUpperCase()) {
                     initials.splice(i, 1)

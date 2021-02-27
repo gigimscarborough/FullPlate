@@ -24,12 +24,12 @@ class ReviewStars extends React.Component {
         for (let i = 0; i < this.matches().length; i++) {
             count += this.matches()[i].overall_rating
         }
-        debugger
+  
         return Math.round((count / this.matches().length) * 10) / 10
     }
 
     render() {
-        debugger
+  
         if (this.props.reviews.length <= 0) {
             return null
         }

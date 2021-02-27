@@ -11,7 +11,7 @@ class EditReviewForm extends React.Component {
     constructor(props) {
         super(props)
 
-        debugger
+     
 
 
         this.state = {
@@ -339,7 +339,7 @@ class EditReviewForm extends React.Component {
             return null
         } 
         
-        debugger
+      
         if (this.state.page === 1) {
 
             return (

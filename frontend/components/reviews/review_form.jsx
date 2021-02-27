@@ -318,7 +318,7 @@ class ReviewForm extends React.Component {
 
     render() {
 
-        debugger
+ 
     
         let resDate = new Date(this.reservation().reservation_datetime)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)

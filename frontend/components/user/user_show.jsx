@@ -208,7 +208,7 @@ class UserShow extends React.Component {
                 </div>
             ) : null
 
-            debugger
+    
 
             resList.push(
                 (
