@@ -4,12 +4,14 @@ import RestaurantShow from './restaurant_show'
 import {logout, fetchUser} from '../../actions/session_actions'
 import {openModal} from '../../actions/modal_actions'
 import {createFavorite, deleteFavorite} from '../../actions/favorite_actions'
+import {fetchReviews} from '../../actions/review_actions'
 
 
 const mSTP = (state, ownProps) => {
 
     return{
     restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
+    reviews: state.entities.reviews,
     currentUser: state.entities.users[state.session.id],
     search: state.ui.search
 }}
@@ -21,7 +23,8 @@ const mDTP = (dispatch) => ({
     openModal: (modal) => dispatch(openModal(modal)),
     createFavorite: favorite => dispatch(createFavorite(favorite)),
     deleteFavorite: favoriteId => dispatch(deleteFavorite(favoriteId)),
-    fetchUser: userId => dispatch(fetchUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId)),
+    fetchReviews: () => dispatch(fetchReviews())
 })
 
 export default connect(mSTP, mDTP)(RestaurantShow) 

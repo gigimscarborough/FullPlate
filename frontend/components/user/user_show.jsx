@@ -143,7 +143,7 @@ class UserShow extends React.Component {
                                 id="past-str"
                                 count={5}
                                 value={thisRev.overall_rating}
-                                color1={'lightgray'}
+                                color1={'rgb(228, 224, 224)'}
                                 color2={'rgb(231, 165, 89)'}
                                 size={17}
                                 edit={false}
@@ -156,7 +156,7 @@ class UserShow extends React.Component {
                                 id="past-str"
                                 count={5}
                                 value={thisRev.food_rating}
-                                color1={'lightgray'}
+                                color1={'rgb(228, 224, 224)'}
                                 color2={'rgb(231, 165, 89)'}
                                 size={17}
                                 edit={false}
@@ -169,7 +169,7 @@ class UserShow extends React.Component {
                                 id="past-str"
                                 count={5}
                                 value={thisRev.service_rating}
-                                color1={'lightgray'}
+                                color1={'rgb(228, 224, 224)'}
                                 color2={'rgb(231, 165, 89)'}
                                 size={17}
                                 edit={false}
@@ -184,7 +184,7 @@ class UserShow extends React.Component {
                                 id="past-str"
                                 count={5}
                                 value={thisRev.ambience_rating}
-                                color1={'lightgray'}
+                                color1={'rgb(228, 224, 224)'}
                                 color2={'rgb(231, 165, 89)'}
                                 size={17}
                                 edit={false}
@@ -197,7 +197,7 @@ class UserShow extends React.Component {
                                 id="past-str"
                                 count={5}
                                 value={thisRev.value_rating}
-                                color1={'lightgray'}
+                                color1={'rgb(228, 224, 224)'}
                                 color2={'rgb(231, 165, 89)'}
                                 size={17}
                                 edit={false}

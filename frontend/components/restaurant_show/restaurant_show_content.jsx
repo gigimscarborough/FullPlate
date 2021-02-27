@@ -1,4 +1,5 @@
 import React from 'react'
+import ReviewIndex from '../reviews/review_index'
 import ReservationWidget from '../reservations/reservation_widget'
 import {HashLink as Link} from 'react-router-hash-link'
 
@@ -7,9 +8,12 @@ class ShowContent extends React.Component {
         super(props)
     }
 
-    
+    componentDidMount() {
+        this.props.fetchReviews()
+    }
 
     render() {
+       
         const restaurant = this.props.restaurant;
         if (typeof restaurant === "undefined") {
 
@@ -111,7 +115,7 @@ class ShowContent extends React.Component {
                         <h2>Menu</h2>
                         <span>{menu}</span>
                     </div>
-                    <div className="res-revs" id="r-reviews-link">
+                    {/* <div className="res-revs" id="r-reviews-link">
                         <h2>What People Are Saying</h2>
                         <p className="res-rev-p">Overall Ratings and reviews</p>
                         <span className="icn-strs2">
@@ -148,8 +152,8 @@ class ShowContent extends React.Component {
                             <p>87% of people &nbsp;</p>
                             <p> would reccommend it to a friend</p>
                         </div>
-                    </div>
-                        
+                    </div> */}
+                        <ReviewIndex reviews={this.props.reviews} restaurant={this.props.restaurant} fetchReviews={this.props.fetchReviews} restaurantId={this.props.restaurantId}/>
                 </div>
                 <div className="reserve-div">
                     <ReservationWidget search={this.props.search}/>
