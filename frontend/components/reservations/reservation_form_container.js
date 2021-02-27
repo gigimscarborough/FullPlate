@@ -7,11 +7,13 @@ import {fetchRestaurant} from '../../actions/restaurant_actions'
 import { fetchUser } from '../../actions/session_actions'
 
 
+
 const mSTP = (state, ownProps) => {
     
     return {restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
         currentUser: state.entities.users[state.session.id],
-        search: state.ui.search
+        search: state.ui.search,
+   
 }
 }
 
@@ -21,7 +23,8 @@ const mDTP = (dispatch) => ({
     logout: () => dispatch(logout()),
     fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
     fetchReservations: () => dispatch(fetchReservations()),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    
     
     
 })

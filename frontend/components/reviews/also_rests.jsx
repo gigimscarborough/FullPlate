@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import ReviewStars from './review_stars'
 
 class AlsoRests extends React.Component{
     constructor(props) {
@@ -22,7 +23,7 @@ class AlsoRests extends React.Component{
                     <div className="res-info">
                         <h2>{restaurant.name}</h2>
                     </div>
-                    <span className="icn-strs">
+                    {/* <span className="icn-strs">
                         <i className="fas fa-star ifpst"></i>
                         <i className="fas fa-star ifpst"></i>
                         <i className="fas fa-star ifpst"></i>
@@ -30,7 +31,8 @@ class AlsoRests extends React.Component{
                         <i className="fas fa-star-half ifpstr"></i>
                         <i className="fas fa-star-half fpstl"></i>
                         <p>{Math.floor(Math.random() * 75)} reviews</p>
-                    </span>
+                    </span> */}
+                    <ReviewStars fetchReviews={this.props.fetchReviews} reviews={this.props.reviews} restaurantId={restaurant.id}/>
                     <div>
                         <div className="dols2">
                             <p>{restaurant.cuisine_type} &bull;</p>
@@ -56,3 +58,4 @@ class AlsoRests extends React.Component{
 } 
 
 export default AlsoRests
+

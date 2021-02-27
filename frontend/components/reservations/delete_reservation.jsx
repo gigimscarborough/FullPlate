@@ -136,7 +136,7 @@ class DeleteReservation extends React.Component {
             return(
                 <div>
                     {this.navBar()}
-                    <CancelConf sendForm={this.props.sendForm} currentUser={this.props.currentUser} reservation={this.reserve} restaurant={this.res} restaurants={this.props.restaurants}/>
+                    <CancelConf reviews={this.props.reviews} fetchReviews={this.props.fetchReviews}  sendForm={this.props.sendForm} currentUser={this.props.currentUser} reservation={this.reserve} restaurant={this.res} restaurants={this.props.restaurants}/>
                 </div>
             )
         } else {

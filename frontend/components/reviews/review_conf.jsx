@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import MainNavBar from '../navbar/main_navbar'
 import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown'
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown'
+import {fetchReviews} from '../../actions/review_actions'
 import AlsoRests from './also_rests'
 
 class ReviewConf extends React.Component {
@@ -55,7 +56,7 @@ class ReviewConf extends React.Component {
                             <h2>
                                 Restaurants you may also like
                             </h2>
-                            <AlsoRests restaurants={this.props.restaurants} restaurantId={this.props.match.params.restaurantId}/>
+                            <AlsoRests reviews={this.props.reviews} fetchReviews={this.props.fetchReviews} restaurants={this.props.restaurants} restaurantId={this.props.match.params.restaurantId}/>
                         </div>
                     </div>
                 </div>
@@ -71,13 +72,14 @@ const mSTP = (state, ownProps) => {
     return {
         restaurants: state.entities.restaurants,
         currentUser: state.entities.users[state.session.id],
+        reviews: Object.values(state.entities.reviews)
 
     }
 }
 
 
 const mDTP = (dispatch) => ({
-    // fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
+    fetchReviews: () => dispatch(fetchReviews()),
     fetchRestaurants: () => dispatch(fetchRestaurants()),
     logout: () => dispatch(logout()),
     openModal: (modal) => dispatch(openModal(modal)),
