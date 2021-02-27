@@ -65,6 +65,12 @@ class ReviewIndex extends React.Component {
         return Math.round((rating / this.reviews().length) * 10) / 10
     }
 
+    percentRec(){
+        const approve = this.reviews().filter(review => review.would_recommend === true)
+
+        return Math.floor((approve.length / this.reviews().length) * 100)
+    }
+
     reviewsList() {
 
         const that = this
@@ -192,7 +198,7 @@ class ReviewIndex extends React.Component {
                             className="rev-stars"
                             id="past-str"
                             count={5}
-                            value={this.overallRating()}
+                            value={this.overallRating() ? this.overallRating() : 5 }
                             color1={'lightgray'}
                             color2={'#B22222'}
                             size={17}
@@ -204,21 +210,21 @@ class ReviewIndex extends React.Component {
                         <i className="fas fa-star ifpst2"></i>
                         <i className="fas fa-star-half ifpstr2"></i>
                         <i className="fas fa-star-half fpstl2"></i> */}
-                        <p>{this.overallRating()} overall based on average ratings</p>
+                        <p>{this.overallRating() ? this.overallRating() : 5} overall based on average ratings</p>
                     </span>
                     <div className="res-rating">
 
                         <div className="rate-div-f">
-                            <span>{this.foodRating()}</span><p>Food</p>
+                            <span>{this.foodRating() ? this.foodRating() : 5}</span><p>Food</p>
                         </div>
                         <div className="rate-div">
-                            <span>{this.serviceRating()}</span><p>Service</p>
+                            <span>{this.serviceRating() ? this.serviceRating() : 5}</span><p>Service</p>
                         </div>
                         <div className="rate-div">
-                            <span>{this.ambienceRating()}</span><p>Ambience</p>
+                            <span>{this.ambienceRating() ? this.ambienceRating() : 5}</span><p>Ambience</p>
                         </div>
                         <div className="rate-div">
-                            <span>{this.valueRating()}</span><p>Value</p>
+                            <span>{this.valueRating() ? this.valueRating() : 5}</span><p>Value</p>
                         </div>
                     </div>
                     <div className="res-nl">
@@ -228,7 +234,7 @@ class ReviewIndex extends React.Component {
                     </div>
                     <div className="res-tu">
                         <i className="far fa-thumbs-up"></i>
-                        <p>87% of people &nbsp;</p>
+                        <p>{this.percentRec() ? this.percentRec() : `100`}% of people &nbsp;</p>
                         <p> would reccommend it to a friend</p>
                     </div>
                 </div>

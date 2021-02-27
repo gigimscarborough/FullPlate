@@ -2,6 +2,7 @@ import React from 'react'
 import ReviewIndex from '../reviews/review_index'
 import ReservationWidget from '../reservations/reservation_widget'
 import {HashLink as Link} from 'react-router-hash-link'
+import ReactStars from 'react-stars'
 
 class ShowContent extends React.Component {
     constructor(props) {
@@ -10,6 +11,28 @@ class ShowContent extends React.Component {
 
     componentDidMount() {
         this.props.fetchReviews()
+    }
+
+    reviews(){
+        if (this.props.reviews) {
+
+            return Object.values(this.props.reviews).filter(review => review.restaurant_id == this.props.restaurant.id)
+        }
+    }
+
+    rating(){
+        if (this.props.reviews) {
+
+            const reviews = Object.values(this.props.reviews).filter(review => review.restaurant_id == this.props.restaurant.id)
+
+            let rating = 0
+
+            for (let i = 0; i < reviews.length; i++) {
+                rating += reviews[i].overall_rating
+            }
+
+            return Math.round((rating / reviews.length) * 10) / 10
+        }
     }
 
     render() {
@@ -61,15 +84,27 @@ class ShowContent extends React.Component {
                     </div>
                     <div className="rest-intro-div">
                         <span className="icn-strs3">
-                            <i className="fas fa-star ifpst"></i>
+                            {/* <i className="fas fa-star ifpst"></i>
                             <i className="fas fa-star ifpst"></i>
                             <i className="fas fa-star ifpst"></i>
                             <i className="fas fa-star ifpst"></i>
                             <i className="fas fa-star-half ifpstr"></i>
-                            <i className="fas fa-star-half fpstl"></i>
+                            <i className="fas fa-star-half fpstl"></i> */}
+                            <ReactStars
+                                className="rev-stars"
+                                id="past-str"
+                                count={5}
+                                value={this.rating() ? this.rating() : 5}
+                                color1={'lightgray'}
+                                color2={'#B22222'}
+                                size={17}
+                                edit={false}
+                            />
                         </span>
-                        <p>Rating</p>
-                        <i className="cmnt  far2 far fa-comment-alt"></i><p id="revs">Reviews</p>
+                        <p>
+                            {this.rating() ? this.rating() : 5}
+                        </p>
+                        <i className="cmnt  far3 far fa-comment-alt"></i><p id="revs">{this.reviews().length > 0 ? `${this.reviews().length} ` : `No `}Reviews</p>
                         <i className="fas fa-money-bill"></i><p>{priceRange}</p>
                         <i className="fas fa-utensils"></i><p>{this.props.restaurant.cuisine_type}</p>
                     </div>

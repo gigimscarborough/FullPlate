@@ -4,6 +4,7 @@ import { HashLink as Link } from 'react-router-hash-link'
 import Rating from 'react-rating';
 import ReactStars from 'react-stars';
 // import ReactStars from 'react-rating-stars-component';
+import FavStars from '../reviews/fav_stars'
 
 class UserShow extends React.Component {
 
@@ -122,7 +123,7 @@ class UserShow extends React.Component {
                     <span>Write Review</span>
                 </Link>
             ) : (
-                    <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/review` }} className="fav-me">
+                    <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/reviews/${thisRev.id}/edit` }} className="fav-me">
                         <i className="far fa-comment-alt"></i>
                         <span>Edit Review</span>
                     </Link>
@@ -275,12 +276,13 @@ class UserShow extends React.Component {
                                 <span>Remove from saved restaurants</span>
                             </div>
                             <span className="icn-strs4">
-                                <i className="fas fa-star ffpst"></i>
+                                {/* <i className="fas fa-star ffpst"></i>
                                 <i className="fas fa-star ffpst"></i>
                                 <i className="fas fa-star ffpst"></i>
                                 <i className="fas fa-star ffpst"></i>
                                 <i className="fas fa-star-half ffpstr"></i>
-                                <i className="fas fa-star-half ffpstl"></i>
+                                <i className="fas fa-star-half ffpstl"></i> */}
+                                <FavStars restaurantId={theseFavs[i].id} fetchReviews={this.props.fetchReviews} reviews={this.props.reviews}/>
                             </span>
                             <div className="fav-det">
                                 <span>{theseFavs[i].cuisine_type}</span> <div id="fav-brdr"></div><span>{theseFavs[i].neighborhood}</span>

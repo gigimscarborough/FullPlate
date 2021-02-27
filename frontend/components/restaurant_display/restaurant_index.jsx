@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReviewStars from '../reviews/review_stars'
+
 
 class RestaurantIndex extends React.Component {
     constructor(props) {
@@ -8,13 +10,26 @@ class RestaurantIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchRestaurants();
+        // this.props.fetchReviews()
     }
 
     render() {
         const first = 0;
-
         
-        const restaurants = this.props.restaurants.map(restaurant => (
+        
+        const restaurants = this.props.restaurants.map(restaurant => {
+
+            let matches = this.props.reviews.filter(review => review.restaurant_id === restaurant.id)
+                debugger
+            // let count = 0
+
+            // for (let i = 0; i < matches.length; i++) {
+            //     count += matches[i].overall_rating
+            // }
+            
+            // count =  Math.round((count / matches.length) * 10) / 10
+
+            return(
             <Link key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
                 <div className="restaurant-icon">
                     {/* <img src={restaurant.photoUrls[first]}></img> */}
@@ -22,15 +37,18 @@ class RestaurantIndex extends React.Component {
                     <div className="res-info">
                         <h2>{restaurant.name}</h2>
                     </div>
-                    <span className="icn-strs">
-                        <i className="fas fa-star ifpst"></i>
+                    {/* <span className="icn-strs"> */}
+                        {/* <i className="fas fa-star ifpst"></i>
                         <i className="fas fa-star ifpst"></i>
                         <i className="fas fa-star ifpst"></i>
                         <i className="fas fa-star ifpst"></i>
                         <i className="fas fa-star-half ifpstr"></i>
-                        <i className="fas fa-star-half fpstl"></i>
-                        <p>{Math.floor(Math.random() * 75)} reviews</p>
-                    </span>
+                        <i className="fas fa-star-half fpstl"></i> */}
+                        <ReviewStars 
+                        reviews={this.props.reviews} fetchReviews={this.props.fetchReviews} restaurantId={restaurant.id}
+                        />
+                        {/* <p>{matches.length} reviews</p> */}
+                    {/* </span> */}
                     <div>
                         <div className="dols2">
                         <p>{restaurant.cuisine_type} &bull;</p>
@@ -40,7 +58,7 @@ class RestaurantIndex extends React.Component {
                     </div>
                 </div>
             </Link>
-        ))
+        )})
 
 
         return (

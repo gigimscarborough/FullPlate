@@ -7,44 +7,43 @@ import Rating from 'react-rating';
 import { openModal } from '../../actions/modal_actions';
 import { fetchUser } from '../../util/session_api_util';
 
-class ReviewForm extends React.Component {
+class EditReviewForm extends React.Component {
     constructor(props) {
         super(props)
+
+        debugger
 
 
         this.state = {
             pm: "",
-            nickname: this.props.currentUser.first_name + this.props.currentUser.last_name.split("")[0],
-            would_recommend: true,
-            overall_rating: null,
-            food_rating: null,
-            service_rating: null,
-            ambience_rating: null,
-            value_rating: null,
-            body: "",
-            visited: this.reservation().reservation_datetime.split("T")[0],
-            restaurant_id: this.reservation().restaurant_id,
-            guest_id: this.reservation().guest_id,
-            reservation_id: this.reservation().id,
+            id: this.review().id,
+            nickname: this.review().nickname,
+            would_recommend: this.review().would_recommend,
+            overall_rating: this.review().overall_rating,
+            food_rating: this.review().food_rating,
+            service_rating: this.review().service_rating,
+            ambience_rating: this.review().ambience_rating,
+            value_rating: this.review().value_rating,
+            body: this.review().body,
+            visited: this.review().visited,
+            restaurant_id: this.review().restaurant_id,
+            guest_id: this.review().guest_id,
+            reservation_id: this.review().reservation_id,
             page: 1
         }
         this.handleRating = this.handleRating.bind(this)
         this.handleNext = this.handleNext.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.nextAvail3 = this.nextAvail3.bind(this)
+        this.review = this.review.bind(this)
 
 
     }
 
     componentDidMount() {
-
+            
+        // this.props.fetchReviews();
         this.props.fetchRestaurants();
-
-        if(this.props.fetchReviews){
-
-            this.props.fetchReviews();
-        }
-
     }
 
     reservation() {
@@ -52,6 +51,11 @@ class ReviewForm extends React.Component {
 
 
         return res[0];
+    }
+
+    review(){
+        const rev = this.props.reviews.filter(review => review.id === parseInt(this.props.match.params.reviewId))
+        return rev[0]
     }
 
     handleRating(type) {
@@ -84,12 +88,12 @@ class ReviewForm extends React.Component {
             //     next.style.backgroundColor = "#B22222";
             //     next.style.transition = "0.4s";
             // })
-            return(
+            return (
 
                 <button id="next-btn-1" className="next-btn-1-hov" onClick={() => this.handleNext(1)}>Next</button>
-                )
+            )
         } else {
-            return(
+            return (
 
                 <button className="next-btn-1-hov">Next</button>
             )
@@ -110,31 +114,31 @@ class ReviewForm extends React.Component {
 
             // })
             // next.addEventListener("mouseleave", (e) => {
-                //     next.style.backgroundColor = "#B22222";
-                //     next.style.transition = "0.4s";
-                // })
-                return(
+            //     next.style.backgroundColor = "#B22222";
+            //     next.style.transition = "0.4s";
+            // })
+            return (
 
-                    <button id="next-btn-2" onClick={() => this.handleNext(2)}>Next</button>
-                )
-            } else {
+                <button id="next-btn-2" onClick={() => this.handleNext(2)}>Next</button>
+            )
+        } else {
             return (
                 <button>Next</button>
             )
-            }
+        }
 
     }
 
     nextAvail3() {
 
-        
+
         // const next = document.getElementById('next-btn-3')
-        
-        
+
+
         if ((this.state.nickname && this.state.nickname.length < 25)
-        && (this.state.pm === "" || (this.state.pm.length > 49 && this.state.pm.length < 2001) )
+            && (this.state.pm === "" || (this.state.pm.length > 49 && this.state.pm.length < 2001))
         ) {
-            return(
+            return (
                 <button id="rev-sub" onClick={this.handleSubmit}>Submit your review </button>
 
             )
@@ -144,7 +148,7 @@ class ReviewForm extends React.Component {
 
             )
         }
-        
+
     }
 
     handleNext(num) {
@@ -243,15 +247,16 @@ class ReviewForm extends React.Component {
         }
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault()
 
         let form = {
-            guest_id: this.reservation().guest_id,
-            restaurant_id: this.reservation().restaurant_id,
+            id: this.state.id,
+            guest_id: this.state.guest_id,
+            restaurant_id: this.state.restaurant_id,
             reservation_id: this.state.reservation_id,
             nickname: this.state.nickname,
-            visited: this.reservation().reservation_datetime.split("T")[0],
+            visited: this.state.visited,
             overall_rating: this.state.overall_rating,
             food_rating: this.state.food_rating,
             service_rating: this.state.service_rating,
@@ -261,17 +266,18 @@ class ReviewForm extends React.Component {
             body: this.state.body,
             would_recommend: this.state.would_recommend
         }
-     
+
         this.props.action(form)
-        .then(() => this.props.fetchUser(this.props.currentUser.id))
-        .then(() => this.props.history.push({
-            pathname: `/restaurants/${this.reservation().restaurant_id}/reservations/${this.reservation().id}/review/confirm`, 
-            state: { restaurant : this.props.restaurant}}))
+            .then(() => this.props.fetchUser(this.props.currentUser.id))
+            .then(() => this.props.history.push({
+                pathname: `/restaurants/${this.reservation().restaurant_id}/reservations/${this.reservation().id}/review/confirm`,
+                state: { restaurant: this.props.restaurant }
+            }))
 
     }
 
     navBar() {
-    
+
         if (this.props.currentUser) {
             return (
                 <div>
@@ -318,15 +324,22 @@ class ReviewForm extends React.Component {
 
     render() {
 
-        debugger
-    
+        
         let resDate = new Date(this.reservation().reservation_datetime)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
-
+        
         if (typeof this.props.restaurant === 'undefined') {
             return null
         }
-
+        if (typeof this.props.reviews === 'undefined') {
+            return null
+        }
+        
+        if (Object.values(this.props.reviews).length <= 0) {
+            return null
+        } 
+        
+        debugger
         if (this.state.page === 1) {
 
             return (
@@ -430,7 +443,7 @@ class ReviewForm extends React.Component {
                                 <div className="l-dot"></div>
                                 <div className="d-dot"></div>
                                 <div className="l-dot"></div>
-                      
+
                             </div>
                             <h3>
                                 Write a review
@@ -439,7 +452,7 @@ class ReviewForm extends React.Component {
                             <div className="wr-review">
                                 <span onClick={() => this.props.openModal('rev-help')}><i className="far fa-question-circle"></i> Need help?</span>
                                 <textarea onChange={this.handleChange('body')} defaultValue={this.state.body ? this.state.body : null} placeholder="Your review must be at least 50 characters"></textarea>
-                                 
+
                                 <div>
                                     <span>Minimum 50 characters</span>
                                     <span><p>{this.state.body.length}</p> &nbsp; / 2000 characters</span>
@@ -459,7 +472,7 @@ class ReviewForm extends React.Component {
                             <div className="rev-pg">
                                 <button onClick={() => this.handleBack(1)}>Back</button>
                                 {this.nextAvail2()}
-                                
+
                             </div>
                         </div>
                     </div>
@@ -478,7 +491,7 @@ class ReviewForm extends React.Component {
                                 <div className="l-dot"></div>
                                 <div className="l-dot"></div>
                                 <div className="d-dot"></div>
-                           
+
                             </div>
                             <h3>
                                 What is your reviews nickname?
@@ -504,13 +517,13 @@ class ReviewForm extends React.Component {
                             </div>
                             <div id="pm-text" className="pm-body">
 
-                            <textarea onChange={this.handleChange('pm')} placeholder={`e.g. "Our server Gigi was very helpful and attentive all night. Please send her our thanks."`} >
+                                <textarea onChange={this.handleChange('pm')} placeholder={`e.g. "Our server Gigi was very helpful and attentive all night. Please send her our thanks."`} >
 
-                            </textarea>
-                            <span className="pm-leng">
-                                <span>Minimum 50 characters</span>
-                                <span><p>{this.state.pm.length}</p>&nbsp; / 2000 characters</span>
-                            </span>
+                                </textarea>
+                                <span className="pm-leng">
+                                    <span>Minimum 50 characters</span>
+                                    <span><p>{this.state.pm.length}</p>&nbsp; / 2000 characters</span>
+                                </span>
                             </div>
                             <div className="rev-pg">
                                 <button onClick={() => this.handleBack(2)}>Back</button>
@@ -527,4 +540,4 @@ class ReviewForm extends React.Component {
     }
 }
 
-export default ReviewForm
+export default EditReviewForm

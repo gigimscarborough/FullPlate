@@ -13,6 +13,7 @@ import ViewReservationContainer from './reservations/view_reservation_container'
 import UpdateReservationContainer from './reservations/update_reservation_container'
 import DeleteReservationContainer from './reservations/delete_reservation_container'
 import ReviewFormContainer from './reviews/review_form_container'
+import EditReviewContainer from './reviews/edit_review_container'
 import ReviewConfContainer from './reviews/review_conf'
 import Footer from './footer/footer'
 
@@ -29,6 +30,7 @@ const App = () => (
         <Route exact path="/search" component={SearchPageContainter} />
         <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
         <ProtectedRoute exact path="/restaurants/:restaurantId/reservations/:reservationId/review" component={ReviewFormContainer} />
+        <ProtectedRoute exact path="/restaurants/:restaurantId/reservations/:reservationId/reviews/:reviewId/edit" component={EditReviewContainer} />
         <ProtectedRoute exact path="/restaurants/:restaurantId/reservations/:reservationId/review/confirm" component={ReviewConfContainer} />
         <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={ReservationFormContainer} />
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
