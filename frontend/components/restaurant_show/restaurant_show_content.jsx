@@ -188,7 +188,7 @@ class ShowContent extends React.Component {
                             <p> would reccommend it to a friend</p>
                         </div>
                     </div> */}
-                        <ReviewIndex reviews={this.props.reviews} restaurant={this.props.restaurant} fetchReviews={this.props.fetchReviews} restaurantId={this.props.restaurantId}/>
+                        <ReviewIndex openModal={this.props.openModal} reviews={this.props.reviews} restaurant={this.props.restaurant} fetchReviews={this.props.fetchReviews} restaurantId={this.props.restaurantId}/>
                 </div>
                 <div className="reserve-div">
                     <ReservationWidget search={this.props.search}/>

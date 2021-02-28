@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactStars from 'react-stars';
+import { openModal } from '../../actions/modal_actions';
 
 class ReviewIndex extends React.Component {
     constructor(props) {
@@ -72,6 +73,7 @@ class ReviewIndex extends React.Component {
     }
 
     reviewsList() {
+        debugger
 
         const that = this
   
@@ -167,14 +169,11 @@ class ReviewIndex extends React.Component {
                             {review.body}
                         </span>
                         <div className="report-rev">
-                            <span>
+                            <span onClick={() => this.props.openModal('report')}>
                                 <i class="far fa-flag"></i>
                                 <span>Report</span>
                             </span>
                         </div>
-                    </div>
-                    <div className="report-bg">
-
                     </div>
                 </div>
             )

@@ -857,3 +857,88 @@ padding-top: 4px;
   width:97px;
 }
 
+.report-bg{
+  position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+  //  background: rgba(0, 0, 0, 0.35);
+   z-index: 17;
+}
+
+.report-modal{
+  box-sizing: border-box;
+    background-color: white;
+    font-family: 'Amiko', sans-serif;
+    position: absolute;
+    border-radius: 2px;
+    height: 350px;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+      box-shadow: 3px 3px 8px gray;
+}
+.report-head {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height:70px;
+border-bottom: solid lightgray 1px;
+
+}
+.report-head h2{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.report-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.report-body span{
+  font-size: 14px;
+  line-height: 1.6;
+
+}
+
+.report-body textarea{
+  font-size: 14px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 95px;
+  resize:none;
+  font-family: 'Amiko', sans-serif;
+  margin: 16px 0;
+  padding: 8px;
+}
+.report-body textarea::placeholder{
+  font-family: 'Amiko', sans-serif;
+}
+.report-body div{
+  display: flex;
+  justify-content: center;
+}
+.report-body div > button:first-of-type{
+  color:white;
+  height: 50px;
+  width:165px;
+  border:none;
+  background-color: #B22222;
+  margin-right: 15px;
+  cursor: pointer;
+  outline: none;
+}
+.report-body div > button:last-of-type{
+  height: 50px;
+    width:165px;
+    background-color: white;
+  border: solid lightgray 1px;
+  cursor: pointer;
+    outline: none;
+
+}
+

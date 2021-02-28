@@ -25,7 +25,7 @@ class RestaurantShow extends React.Component{
  
             <Modal/>
             <RestaurantShowNavBar fetchUser={this.props.fetchUser} createFavorite={this.props.createFavorite} deleteFavorite={this.props.deleteFavorite} restaurant={this.props.restaurant} openModal={this.props.openModal} logout={this.props.logout} currentUser={this.props.currentUser}/>
-                <RestaurantShowContent reviews={this.props.reviews} fetchReviews={this.props.fetchReviews} restaurantId={this.props.match.params.restaurantId} search={this.props.search} restaurant={this.props.restaurant}/>
+                <RestaurantShowContent reviews={this.props.reviews} fetchReviews={this.props.fetchReviews} restaurantId={this.props.match.params.restaurantId} search={this.props.search} restaurant={this.props.restaurant} openModal={this.props.openModal}/>
             </div>
 
         )
