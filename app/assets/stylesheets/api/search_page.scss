@@ -17,6 +17,7 @@ background-color: white;
   border-radius: 4px;
   border: solid lightgray 1px;
   margin-right: 15px;  
+  cursor: pointer;
 }
 
 .sp-input{
@@ -30,6 +31,7 @@ background-color:white;
   padding-left: 5px;
   margin-top:3px;
   width: 150px;
+  cursor:pointer;
 }
 
 .sp-select-time{
@@ -37,6 +39,7 @@ background-color:white;
   position: relative;
   border-right: solid lightgray 1px;
   align-items: center;
+  cursor: pointer;
 }
 
 .sp-select-time i{
@@ -56,9 +59,9 @@ background-color:white;
   padding-left: 5px;
   padding-right: 35px;
   font-family: 'Amiko', sans-serif;
- 
   margin-top: 3px;  
-  
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 #sp-form-div{
@@ -123,6 +126,7 @@ display:flex;
 
 .sp-ctnt{
   background-color:white;
+  min-height: 75vh;
 }
 .sp-ctnt-in{
   background-color:white;

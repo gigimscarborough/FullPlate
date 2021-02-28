@@ -84,12 +84,6 @@ class ShowContent extends React.Component {
                     </div>
                     <div className="rest-intro-div">
                         <span className="icn-strs3">
-                            {/* <i className="fas fa-star ifpst"></i>
-                            <i className="fas fa-star ifpst"></i>
-                            <i className="fas fa-star ifpst"></i>
-                            <i className="fas fa-star ifpst"></i>
-                            <i className="fas fa-star-half ifpstr"></i>
-                            <i className="fas fa-star-half fpstl"></i> */}
                             <ReactStars
                                 className="rev-stars"
                                 id="past-str"
@@ -150,44 +144,7 @@ class ShowContent extends React.Component {
                         <h2>Menu</h2>
                         <span>{menu}</span>
                     </div>
-                    {/* <div className="res-revs" id="r-reviews-link">
-                        <h2>What People Are Saying</h2>
-                        <p className="res-rev-p">Overall Ratings and reviews</p>
-                        <span className="icn-strs2">
-                            <i className="fas fa-star ifpst2"></i>
-                            <i className="fas fa-star ifpst2"></i>
-                            <i className="fas fa-star ifpst2"></i>
-                            <i className="fas fa-star ifpst2"></i>
-                            <i className="fas fa-star-half ifpstr2"></i>
-                            <i className="fas fa-star-half fpstl2"></i>
-                            <p>4.5 overall based on average ratings</p>
-                        </span>
-                        <div className="res-rating">
-
-                            <div className="rate-div-f">
-                                <span>4.9</span><p>Food</p>
-                            </div>
-                            <div className="rate-div">
-                                <span>4.6</span><p>Service</p>
-                            </div>
-                            <div className="rate-div">
-                                <span>4.3</span><p>Ambience</p>
-                            </div>
-                            <div className="rate-div">
-                                <span>4.3</span><p>Value</p>
-                            </div>
-                        </div>
-                        <div className="res-nl">
-                            <i className="fas fa-signal nl-bars"></i>
-                            <p>Noise &bull;</p>
-                            <p>{this.props.restaurant.noise_level}</p>
-                        </div>
-                        <div className="res-tu">
-                            <i className="far fa-thumbs-up"></i>
-                            <p>87% of people &nbsp;</p>
-                            <p> would reccommend it to a friend</p>
-                        </div>
-                    </div> */}
+                    
                         <ReviewIndex openModal={this.props.openModal} reviews={this.props.reviews} restaurant={this.props.restaurant} fetchReviews={this.props.fetchReviews} restaurantId={this.props.restaurantId}/>
                 </div>
                 <div className="reserve-div">

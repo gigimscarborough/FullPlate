@@ -23,15 +23,7 @@ class AlsoRests extends React.Component{
                     <div className="res-info">
                         <h2>{restaurant.name}</h2>
                     </div>
-                    {/* <span className="icn-strs">
-                        <i className="fas fa-star ifpst"></i>
-                        <i className="fas fa-star ifpst"></i>
-                        <i className="fas fa-star ifpst"></i>
-                        <i className="fas fa-star ifpst"></i>
-                        <i className="fas fa-star-half ifpstr"></i>
-                        <i className="fas fa-star-half fpstl"></i>
-                        <p>{Math.floor(Math.random() * 75)} reviews</p>
-                    </span> */}
+                   
                     <ReviewStars fetchReviews={this.props.fetchReviews} reviews={this.props.reviews} restaurantId={restaurant.id}/>
                     <div>
                         <div className="dols2">

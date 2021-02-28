@@ -142,10 +142,14 @@ class Search extends React.Component {
                                 </select>
                                 <i className="far fa-clock"></i>
                             </div>
+                            <div className="src-u">
+
                             <select className="splash-search-select" onChange={this.handleChange('guest_count')}>
                                 <option key={1} value={1} selected>1 person</option>
                                 {options}
                             </select>
+                            <i class="far fa-user"></i>
+                            </div>
                         </div>
                         <div id="splash-search-div">
                             <div className="splash-search-bar" >

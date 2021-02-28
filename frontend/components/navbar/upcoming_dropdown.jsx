@@ -13,13 +13,16 @@ class UpcomingDropdown extends React.Component {
         const today = new Date()
 
 
-        const reservations = this.props.reservations.filter(function (res) {
+        let reservations = this.props.reservations.filter(function (res) {
             let resTime = new Date(res.reservation_datetime)
             resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
             debugger
             return resTime > today
         })
 
+        reservations.sort((a, b) => {
+            return new Date(a.reservation_datetime) - new Date(b.reservation_datetime)
+        })
         debugger
         return reservations.map(reservation => {
 
@@ -78,7 +81,8 @@ class UpcomingDropdown extends React.Component {
                 <div className="upcoming-dropdown">
                     <div className="pointer"></div>
                     <h2>Upcoming Reservations</h2>
-                    {this.reservations()}
+                    {this.reservations().slice(0,4)}
+                    <Link to={`/users/${this.props.currentUser.id}`}>View all reservations</Link>
                 </div>
             </div>
         )

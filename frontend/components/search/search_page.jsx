@@ -59,6 +59,7 @@ class SearchPage extends React.Component {
                         <i className="fas fa-star fpst"></i>
                         <i className="fas fa-star-half fpstr"></i>
                         <i className="fas fa-star-half fpstl"></i>
+                        
                           <p>Awesome</p>
                     </span>
                     <div className="dols">

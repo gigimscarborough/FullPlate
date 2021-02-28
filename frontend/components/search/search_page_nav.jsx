@@ -184,10 +184,12 @@ class SearchPageNav extends React.Component {
                                 </select>
                             <i className="far fa-clock"></i>
                             </div>
-                          
+                            <div className="src-u">
                             <select className="sp-select" onChange={this.handleChange('guest_count')}>
                             {options}
                         </select>
+                                <i class="far fa-user"></i>
+                        </div>
                     </div>
                     <div id="sp-form-div">
                         <div className="sp-search-bar" >

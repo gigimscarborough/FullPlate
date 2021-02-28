@@ -1,6 +1,6 @@
 import React from 'react'
 import MainNavBar from '../navbar/main_navbar'
-import ClickUserUpcomingDropdown from '../navbar/click_greeting_dropdown'
+import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown'
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown'
 import { Link } from 'react-router-dom'
 import { openModal } from '../../actions/modal_actions'

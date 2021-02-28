@@ -141,10 +141,13 @@ class ResSearchModal extends React.Component {
                                     </select>
                                         <i className="far fa-clock"></i>
                                     </div>
+                                    <div className="src-u2">
                                     <select className="modal-search-select" onChange={this.handleChange('guest_count')}>
                                         <option key={1} value="1" >1 Person</option>
                                     {options}
                                 </select>
+                                        <i class="far fa-user"></i>
+                                    </div>
                             </div>
                             {/* <ReservationModalSearchForm /> */}
                             <div id="search-modal-div">

@@ -37,18 +37,11 @@ class RestaurantIndex extends React.Component {
                     <div className="res-info">
                         <h2>{restaurant.name}</h2>
                     </div>
-                    {/* <span className="icn-strs"> */}
-                        {/* <i className="fas fa-star ifpst"></i>
-                        <i className="fas fa-star ifpst"></i>
-                        <i className="fas fa-star ifpst"></i>
-                        <i className="fas fa-star ifpst"></i>
-                        <i className="fas fa-star-half ifpstr"></i>
-                        <i className="fas fa-star-half fpstl"></i> */}
+                    
                         <ReviewStars 
                         reviews={this.props.reviews} fetchReviews={this.props.fetchReviews} restaurantId={restaurant.id}
                         />
-                        {/* <p>{matches.length} reviews</p> */}
-                    {/* </span> */}
+                        
                     <div>
                         <div className="dols2">
                         <p>{restaurant.cuisine_type} &bull;</p>

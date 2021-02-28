@@ -69,10 +69,7 @@ z-index: 2;
 min-width: 1140px;
 
 }
-.splash-f-cont div{
-margin-right:15px;
 
-}
 
 
 .splash-search-input{
@@ -94,21 +91,44 @@ margin-right:15px;
   border: none;
   font-size: 15px;
   padding-left: 5px;
-  padding-right: 13px;
+  padding-right: 23px;
   font-family: 'Amiko', sans-serif;
-  padding-top: 5px;
-  margin-top: 3px;
   cursor:pointer;
+  margin-right: 10px;
+}
+.src-u{
+    cursor: pointer;
+      display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.src-u2{
+    cursor: pointer;
+      display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.src-u > i{
+position: absolute;
+font-size: 18px;
+background-color: white;
+margin-right: 10px;
+}
+.src-u2 > i{
+position: absolute;
+font-size: 18px;
+background-color: white;
+
 }
 
 #splash-search-form{
   background-color: white;
-  width: 550px;
+  width: 495px;
   height: 48px;
   display:flex;
-  justify-content: space-around;
   border-radius: 3px;
-
+  justify-content: space-around;
+  margin-right: 15px;
 }
 
 .splash-time-in{
@@ -164,9 +184,10 @@ margin-right:15px;
   align-items: center;
   background-color: white;
     height: 48px;
-    width:345px;
+    width:300px;
     font-size: 15px;
     border-radius: 3px;
+    margin-right: 15px;
  
 }
 .splash-search-bar input{

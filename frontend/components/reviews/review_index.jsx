@@ -206,12 +206,7 @@ class ReviewIndex extends React.Component {
                             size={17}
                             edit={false}
                         />
-                        {/* <i className="fas fa-star ifpst2"></i>
-                        <i className="fas fa-star ifpst2"></i>
-                        <i className="fas fa-star ifpst2"></i>
-                        <i className="fas fa-star ifpst2"></i>
-                        <i className="fas fa-star-half ifpstr2"></i>
-                        <i className="fas fa-star-half fpstl2"></i> */}
+                        
                         <p>{this.overallRating() ? this.overallRating() : 5} overall based on average ratings</p>
                     </span>
                     <div className="res-rating">

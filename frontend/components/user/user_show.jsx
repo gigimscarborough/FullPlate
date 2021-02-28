@@ -276,12 +276,7 @@ class UserShow extends React.Component {
                                 <span>Remove from saved restaurants</span>
                             </div>
                             <span className="icn-strs4">
-                                {/* <i className="fas fa-star ffpst"></i>
-                                <i className="fas fa-star ffpst"></i>
-                                <i className="fas fa-star ffpst"></i>
-                                <i className="fas fa-star ffpst"></i>
-                                <i className="fas fa-star-half ffpstr"></i>
-                                <i className="fas fa-star-half ffpstl"></i> */}
+                                
                                 <FavStars restaurantId={theseFavs[i].id} fetchReviews={this.props.fetchReviews} reviews={this.props.reviews}/>
                             </span>
                             <div className="fav-det">
