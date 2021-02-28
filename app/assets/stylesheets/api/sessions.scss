@@ -381,6 +381,17 @@ background-color: white;
   margin-left: 275px;
   transform: rotate(45deg);
 }
+#pointer{
+  position: absolute;
+  background-color: white;
+  border-top: solid lightgray 1px;
+  border-left: solid lightgray 1px;
+  height: 14px;
+  width: 14px;
+  margin-top:-8px;
+  margin-left: 275px;
+  transform: rotate(45deg);
+}
 
 #user-greeting{
   font-weight: bold;
@@ -403,7 +414,7 @@ background-color: white;
   z-index: 3;
   width: 300px;
   max-height: 450px;
-  overflow-y: auto;
+
   right: 116px;
   border-radius: 4px;
   margin: 5px;
@@ -426,7 +437,7 @@ background-color: white;
   padding-left: 10px;
 }
 
-.upcoming-dropdown > a {
+.uu-over > a {
 text-decoration: none;
   color: #B22222;
   font-size: 13px;
@@ -434,6 +445,10 @@ text-decoration: none;
   margin-top: 10px;
 }
 
+.uu-over{
+  overflow:scroll;
+  max-height: 420px;
+}
 .dd-res{
 display:flex;
 border-bottom: solid lightgray 1px;

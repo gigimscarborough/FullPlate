@@ -68,7 +68,7 @@ class UpcomingDropdown extends React.Component {
             return (
                 <div>
                     <div className="upcoming-dropdown">
-                        <div className="pointer"></div>
+                        <div id="pointer"></div>
                         <h2>Upcoming Reservations</h2>
                         <p>You have no upcoming reservations!</p>
                     </div>
@@ -79,10 +79,12 @@ class UpcomingDropdown extends React.Component {
         return (
             <div>
                 <div className="upcoming-dropdown">
-                    <div className="pointer"></div>
+                    <div id="pointer"></div>
                     <h2>Upcoming Reservations</h2>
+                    <div className="uu-over">
                     {this.reservations().slice(0,4)}
                     <Link to={`/users/${this.props.currentUser.id}`}>View all reservations</Link>
+                    </div>
                 </div>
             </div>
         )

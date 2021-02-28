@@ -1,7 +1,9 @@
-import React from 'react'
-import SplashNavBar from '../navbar/splash_navbar'
-import SearchPageNav from './search_page_nav'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import SplashNavBar from '../navbar/splash_navbar';
+import SearchPageNav from './search_page_nav';
+import {Link} from 'react-router-dom';
+import SearchStars from '../reviews/search_stars'
+import AvailTables from './avail_tables'
 
 class SearchPage extends React.Component {
 
@@ -53,14 +55,15 @@ class SearchPage extends React.Component {
                 <div className="sp-info">
                     <Link to={`/restaurants/${restaurant.id}`}><h2>{restaurant.name}</h2></Link>
                     <span>
-                        <i className="fas fa-star fpst"></i>
+                        {/* <i className="fas fa-star fpst"></i>
                         <i className="fas fa-star fpst"></i>
                         <i className="fas fa-star fpst"></i>
                         <i className="fas fa-star fpst"></i>
                         <i className="fas fa-star-half fpstr"></i>
                         <i className="fas fa-star-half fpstl"></i>
-                        
-                          <p>Awesome</p>
+
+                          <p>Awesome</p> */}
+                          <SearchStars fetchReviews={this.props.fetchReviews} reviews={this.props.reviews} restaurantId={restaurant.id}/>
                     </span>
                     <div className="dols">
                       
@@ -71,6 +74,7 @@ class SearchPage extends React.Component {
                     <div className="fp-book">
                         <p>Booked {Math.floor((Math.random() * 50))} times today</p>
                     </div>
+                    <AvailTables operation_hours={restaurant.operation_hours}/>
 
                 </div>
             </div>)
