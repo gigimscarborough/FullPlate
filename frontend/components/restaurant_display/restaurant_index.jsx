@@ -73,9 +73,13 @@ class RestaurantIndex extends React.Component {
                 <div className="res-header">
                     <h2>Restaurants Nearby</h2>
                 </div>
+                {/* <div className="slider-1">
+                    <div className="scroll-left1"></div> */}
                 <div className="res-icon-cont">
                     {restaurants.slice(0, 5)}   
                 </div>
+                    {/* <div className="scroll-right1"></div>
+                </div> */}
                 <div className="res-header">
                     <h2>Most Popular</h2>
                 </div>

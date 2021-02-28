@@ -173,6 +173,9 @@ class ReviewIndex extends React.Component {
                             </span>
                         </div>
                     </div>
+                    <div className="report-bg">
+
+                    </div>
                 </div>
             )
         }

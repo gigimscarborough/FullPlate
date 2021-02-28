@@ -16,6 +16,24 @@
     padding-bottom: 20px;
 
 }
+.slider-1{
+  display: flex;
+
+}
+.scroll-left1{
+    height:23px;
+  width: 23px;
+  border: solid lightgray 1px;
+  background-color: white;
+  z-index: 2; 
+}
+.scroll-right1{
+  height:23px;
+  width: 23px;
+  border: solid lightgray 1px;
+  background-color: white;
+  z-index: 2; 
+}
 
 
 .restaurant-icon{

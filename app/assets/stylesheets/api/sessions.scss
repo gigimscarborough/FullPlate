@@ -410,7 +410,7 @@ background-color: white;
 .upcoming-dropdown h2{
   font-weight: bold;
   font-size: 15px;
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
   margin-bottom: 0px;
   margin-top: 15px;
   padding-left: 10px;
@@ -420,10 +420,92 @@ background-color: white;
   font-size: 13px;
   padding-bottom: 20px;
   margin-bottom: 0px;
-  margin-top: 15px;
+  margin-top: 35px;
   padding-left: 10px;
 }
 
+.dd-res{
+display:flex;
+border-bottom: solid lightgray 1px;
+margin:0 20px 0 10px;
+padding: 15px 0;
+
+}
+.dd-res-l{
+  margin-right: 8px;
+}
+.dd-res-l > div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+background-color: rgb(36, 35, 48);
+border-radius: 30px;
+height: 33px;
+width:33px;
+}
+
+.dd-res-l > div > img{
+  margin-top: -2px;
+  height: 17px;
+  width:17px;
+}
+.dd-res-name{
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.dd-res-name a{
+  text-decoration: none;
+  color: black;
+
+}
+.dd-res-inf{
+  padding-left: 4px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.dd-res-inf > span{
+  align-items: center;
+  display: flex;
+  margin-bottom: 4px;
+
+}
+.dd-res-gc > img{
+  height:17px;
+  width:17px;
+  margin-right: 5px;
+}
+.dd-res-time > i{
+  font-size: 17px;
+  margin-right: 5px;
+}
+.dd-res-date > img{
+  height:17px;
+  width:17px;
+  margin-right: 5px;
+}
+.dd-res-links{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.dd-res-links a{
+  text-decoration: none;
+  color: #247F9E;
+  font-size: 13px;
+}
+.dd-res-links i{
+  color: lightgray;
+  font-size: 4px;
+  margin: 0 7px;
+}
+.dd-res-r > a{
+   text-decoration: none;
+  color: #B22222;
+  font-size: 13px;
+}
 
 .notification-dropdown{
   display: block;

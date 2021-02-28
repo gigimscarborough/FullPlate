@@ -23,9 +23,9 @@ class UserShow extends React.Component {
     }
 
     reservations() {
-        const today = new Date()
         const allRests = Object.values(this.props.restaurants)
         const rests = this.props.currentUser.reserved_restaurants
+        const today = new Date()
 
 
         const reservations = this.props.currentUser.reservations.filter(function (res) {
