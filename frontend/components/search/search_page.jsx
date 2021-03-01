@@ -9,11 +9,21 @@ class SearchPage extends React.Component {
 
     constructor(props) {
         super(props)
+
+        this.search = this.props.search
     }
 
     componentDidMount() {
         
         this.props.searchRestaurants(this.props.search.keyword)
+
+        if (Object.values(this.props.search).length) {
+            window.localStorage.setItem('savedSearch', JSON.stringify(this.props.search))
+
+        } else {
+            this.search = JSON.parse(window.localStorage.getItem('savedSearch'))
+        }
+
 
     }
 
@@ -23,6 +33,8 @@ class SearchPage extends React.Component {
    
             this.props.searchRestaurants(this.props.search.keyword)
         }
+
+       
 
     }
 
@@ -74,7 +86,7 @@ class SearchPage extends React.Component {
                     <div className="fp-book">
                         <p>Booked {Math.floor((Math.random() * 50))} times today</p>
                     </div>
-                    <AvailTables search={this.props.search} openModal={this.props.openModal} operation_hours={restaurant.operation_hours}/>
+                    <AvailTables search={this.search} openModal={this.props.openModal} operation_hours={restaurant.operation_hours}/>
 
                 </div>
             </div>)
