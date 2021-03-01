@@ -78,7 +78,7 @@ class UpcomingDropdown extends React.Component {
 
         return (
             <div>
-                <div className="upcoming-dropdown">
+                <div className="alt-upcoming-dropdown">
                     <div id="pointer"></div>
                     <h2>Upcoming Reservations</h2>
                     <div className="uu-over">

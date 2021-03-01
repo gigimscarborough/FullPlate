@@ -414,6 +414,20 @@ background-color: white;
   z-index: 3;
   width: 300px;
   max-height: 450px;
+
+  right: 116px;
+  border-radius: 4px;
+  margin: 5px;
+  margin-top: 3px;
+}
+.alt-upcoming-dropdown{
+  display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 3;
+  width: 300px;
+  max-height: 450px;
   min-height: 236px;
   right: 116px;
   border-radius: 4px;
@@ -428,8 +442,23 @@ background-color: white;
   margin-top: 15px;
   padding-left: 10px;
 }
+.alt-upcoming-dropdown h2{
+  font-weight: bold;
+  font-size: 15px;
+  // padding-bottom: 20px;
+  margin-bottom: 0px;
+  margin-top: 15px;
+  padding-left: 10px;
+}
 
 .upcoming-dropdown p{
+  font-size: 13px;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  margin-top: 35px;
+  padding-left: 10px;
+}
+.alt-upcoming-dropdown p{
   font-size: 13px;
   padding-bottom: 20px;
   margin-bottom: 0px;
