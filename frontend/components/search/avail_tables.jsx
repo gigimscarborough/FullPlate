@@ -1,4 +1,9 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+
+
 
 class AvailTables extends React.Component {
     constructor(props) {
@@ -67,6 +72,10 @@ class AvailTables extends React.Component {
 
     }
 
+
+    componentDidMount(){
+        this.props.searchRestaurants(this.props.search.keyword)
+    }
     
     
 
@@ -123,15 +132,43 @@ class AvailTables extends React.Component {
         return options
 
     }
-
+    
+    
+    handleSubmit(rTime) {
+        // e.preventDefault()
+        
+        if (this.props.currentUser) {
+            let form = {
+                date: this.props.search.date,
+                time: rTime,
+                guest_count:this.props.search.guest_count
+            }
+            this.props.sendForm(form)
+            this.props.history.push(`/restaurants/${this.props.restaurantId}/reserve`)
+        } else {
+            this.props.openModal('login')
+        }
+        
+    }
+    
     buttons() {
 
         let buttons = []
 
+        if (this.validTimes().length === 0){
+            buttons.push(
+                <div className='none-avail'>
+                <Link to={`/restaurants/${this.props.restaurantId}`}>Find next available</Link>
+                <span>At the moment, there's no online availability within 2.5 hours of your request. Do you have another time in mind?</span>
+                </div>
+            )
+
+        }else {
+
         for (let i = 0; i < this.tIndexes().length; i++) {
             if (this.validTimes().includes(this.times[this.tIndexes()[i]])) {
                 buttons.push(
-                    <button key={i} className="valid-t">{new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(" ")[1]}</button>
+                    <button key={i} className="valid-t" onClick={() => this.handleSubmit(this.times[this.tIndexes()[i]])}>{new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(" ")[1]}</button>
                 )
             } else {
                 buttons.push(
@@ -139,12 +176,10 @@ class AvailTables extends React.Component {
                 )
             }
         }
+    }
         return buttons
 
     }
-
-
-
 
     render() {
         debugger
@@ -161,4 +196,19 @@ class AvailTables extends React.Component {
     }
 }
 
-export default AvailTables;
+
+
+// export default AvailTables
+
+const mSTP = (state) => {
+
+
+}
+
+
+const mDTP = (dispatch) => ({
+   
+
+})
+
+export default withRouter(connect(mSTP, mDTP)(AvailTables))

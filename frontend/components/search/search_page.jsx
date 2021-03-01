@@ -39,7 +39,7 @@ class SearchPage extends React.Component {
     }
 
     render() {
-   
+            debugger
         
         const first = 0
 
@@ -58,8 +58,8 @@ class SearchPage extends React.Component {
         // }
      
  
-        const restaurants = this.props.restaurants.map(restaurant => 
-            <div className="rests-main">
+        const restaurants = this.props.restaurants.map((restaurant, i) => 
+            <div key={i} className="rests-main">
                 <div className="sp-img">
                     {/* <Link to={`/restaurants/${restaurant.id}`}><img src={restaurant.photoUrls[first]} /></Link> */}
                     <Link to={`/restaurants/${restaurant.id}`}><img src={window.salmonplate} /></Link>
@@ -75,7 +75,7 @@ class SearchPage extends React.Component {
                         <i className="fas fa-star-half fpstl"></i>
 
                           <p>Awesome</p> */}
-                          <SearchStars fetchReviews={this.props.fetchReviews} reviews={this.props.reviews} restaurantId={restaurant.id}/>
+                          <SearchStars  fetchReviews={this.props.fetchReviews} reviews={this.props.reviews} restaurantId={restaurant.id}/>
                     </span>
                     <div className="dols">
                       
@@ -86,7 +86,7 @@ class SearchPage extends React.Component {
                     <div className="fp-book">
                         <p>Booked {Math.floor((Math.random() * 50))} times today</p>
                     </div>
-                    <AvailTables search={this.search} openModal={this.props.openModal} operation_hours={restaurant.operation_hours}/>
+                    <AvailTables currentUser={this.props.currentUser} search={this.props.search} restaurantId={restaurant.id} sendForm={this.props.sendForm} searchRestaurants={this.props.searchRestaurants} openModal={this.props.openModal} operation_hours={restaurant.operation_hours}/>
 
                 </div>
             </div>)

@@ -306,5 +306,35 @@ background-color: rgb(228, 224, 224);
   width: 18px;
 }
 
+.none-avail{
+  display: flex;
+  flex-direction: column;
+}
+
+.none-avail > a{
+  width:160px;
+  height: 32px;
+  font-size: 14.5px;
+  font-weight: 100;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: solid #B22222 1px;
+  color: #B22222;
+}
+
+.none-avail > a:hover{
+  background-color:rgb(235, 231, 231) ;
+  transition: 0.4s;
+
+
+}
+.none-avail > span{
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 100;
+}
 
 
