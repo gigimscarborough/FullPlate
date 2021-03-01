@@ -64,9 +64,9 @@ class AvailTables extends React.Component {
         this.dateToday = new Date('2021-08-19T' + this.props.search.time)
         this.hours = ((this.dateToday.getHours() ) % 24) < 10 ? `0${((this.dateToday.getHours() ) % 24)}` : ((this.dateToday.getHours() ) % 24)
         this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes()
-        this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1
-        this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate()
-        this.year = this.dateToday.getFullYear()
+        // this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1
+        // this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate()
+        // this.year = this.dateToday.getFullYear()
 
         this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`
 

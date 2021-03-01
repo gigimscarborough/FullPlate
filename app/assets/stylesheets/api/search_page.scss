@@ -173,6 +173,10 @@ display:flex;
   font-weight: bold;
   margin-bottom:10px
 }
+
+.sp-info  a:hover{
+  text-decoration:underline;
+}
 .sp-info > span{
   display: flex;
   align-items: center;
@@ -328,13 +332,14 @@ background-color: rgb(228, 224, 224);
 .none-avail > a:hover{
   background-color:rgb(235, 231, 231) ;
   transition: 0.4s;
-
+  text-decoration: none;
 
 }
 .none-avail > span{
   font-size: 13px;
   line-height: 1.6;
   font-weight: 100;
+  width: 510px;
 }
 
 

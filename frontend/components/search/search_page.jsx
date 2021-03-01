@@ -86,7 +86,7 @@ class SearchPage extends React.Component {
                     <div className="fp-book">
                         <p>Booked {Math.floor((Math.random() * 50))} times today</p>
                     </div>
-                    <AvailTables currentUser={this.props.currentUser} search={this.props.search} restaurantId={restaurant.id} sendForm={this.props.sendForm} searchRestaurants={this.props.searchRestaurants} openModal={this.props.openModal} operation_hours={restaurant.operation_hours}/>
+                    <AvailTables currentUser={this.props.currentUser} search={this.search} restaurantId={restaurant.id} sendForm={this.props.sendForm} searchRestaurants={this.props.searchRestaurants} openModal={this.props.openModal} operation_hours={restaurant.operation_hours}/>
 
                 </div>
             </div>)

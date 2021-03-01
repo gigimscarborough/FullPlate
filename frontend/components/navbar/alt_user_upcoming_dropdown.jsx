@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-class UserUpcomingDropdown extends React.Component {
+class AltUserUpcomingDropdown extends React.Component {
 
     constructor(props) {
         super(props)
@@ -42,9 +42,9 @@ class UserUpcomingDropdown extends React.Component {
                             <span className="dd-res-time">{resDate.toLocaleDateString(undefined, format)} {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]}</span>
                         </div>
                         <div className="dd-res-links2">
-                            <Link to={{ pathname:`/reservations/${reservation.id}/view`}}>View</Link>
-                            <Link to={{ pathname:`reservations/${reservation.id}/update`}}>Modify</Link>
-                            <Link to={{ pathname:`reservations/${reservation.id}/delete`}}>Cancel</Link>
+                            <Link to={{ pathname: `/reservations/${reservation.id}/view` }}>View</Link>
+                            <Link to={{ pathname: `reservations/${reservation.id}/update` }}>Modify</Link>
+                            <Link to={{ pathname: `reservations/${reservation.id}/delete` }}>Cancel</Link>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@ class UserUpcomingDropdown extends React.Component {
 
             return (
                 <div>
-                    <div className="uu-dropdown">
+                    <div className="alt-uu-dropdown">
                         <div className="pointer3"></div>
                         <h2>UPCOMING</h2>
                         <p>You have no upcoming reservations</p>
@@ -70,18 +70,18 @@ class UserUpcomingDropdown extends React.Component {
             )
 
         }
-            return (
-                <div>
-                    <div className="uu-dropdown2">
+        return (
+            <div>
+                <div className="alt-uu-dropdown2">
                     <div className="pointer3-2"></div>
-                        <h2>UPCOMING</h2>
-                        <div className="uu-over2">
-                        {this.reservations().slice(0,4)}
+                    <h2>UPCOMING</h2>
+                    <div className="uu-over2">
+                        {this.reservations().slice(0, 4)}
                         <Link to={`/users/${this.props.currentUser.id}`}>View All</Link>
-                        </div>
                     </div>
-                    </div>
-                )
+                </div>
+            </div>
+        )
     }
 }
 
@@ -99,4 +99,4 @@ const mDTP = (dispatch) => ({
 
 })
 
-export default connect(mSTP, mDTP)(UserUpcomingDropdown)
+export default connect(mSTP, mDTP)(AltUserUpcomingDropdown)

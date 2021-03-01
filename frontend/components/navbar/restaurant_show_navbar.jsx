@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {openModal} from '../../actions/modal_actions';
 import MainNavBar from './main_navbar';
-import ClickUserUpcomingDropdown from './click_user_upcoming_dropdown';
-import ClickGreetingDropdown from './click_greeting_dropdown';
+import AltClickUserUpcomingDropdown from './alt_click_user_upcoming_dropdown';
+import AltClickGreetingDropdown from './alt_click_greeting_dropdown';
 
 
 class RestaurantShowNavBar extends React.Component {
@@ -52,6 +52,7 @@ class RestaurantShowNavBar extends React.Component {
 
     render() {
    
+        debugger
         const first = 0;
 
         const restaurant = this.props.restaurant;
@@ -74,8 +75,8 @@ class RestaurantShowNavBar extends React.Component {
                         <div className="logo-border2"></div>
                     </div>
                     <ul className="user-link-list">
-                        <ClickUserUpcomingDropdown />
-                        <ClickGreetingDropdown logout={this.props.logout} currentUser={this.props.currentUser} />
+                        <AltClickUserUpcomingDropdown />
+                        <AltClickGreetingDropdown logout={this.props.logout} currentUser={this.props.currentUser} />
                             <li onClick={() => this.props.openModal('search')} className="search-icon rsearch"><img src={window.search_icon} /></li>
                     </ul>
                 </div>

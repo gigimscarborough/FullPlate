@@ -48,11 +48,11 @@ class UpcomingDropdown extends React.Component {
                             <span className="dd-res-date"><img src={window.calsvg} alt="" />{resDate.toLocaleDateString(undefined, format)}</span>
                         </div>
                         <div className="dd-res-links">
-                            <Link to={`/reservations/${reservation.id}/view`}>View</Link>
+                            <Link to={{ pathname:`/reservations/${reservation.id}/view`}}>View</Link>
                             <i class="fas fa-circle"></i>
-                            <Link to={`reservations/${reservation.id}/update`}>Modify</Link>
+                            <Link to={{ pathname:`reservations/${reservation.id}/update`}}>Modify</Link>
                         </div>
-                        <Link to={`reservations/${reservation.id}/delete`}>Cancel</Link>
+                        <Link to={{ pathname:`reservations/${reservation.id}/delete`}}>Cancel</Link>
                     </div>
 
                 </div>

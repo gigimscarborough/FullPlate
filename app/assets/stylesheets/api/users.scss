@@ -29,11 +29,24 @@
   background-color: white;
   border: solid lightgray 1px;
   z-index: 4;
-  width: 180px;
+  width: 190px;
   right: 10px;
   border-radius: 4px;
   margin: 5px;
 }
+
+.alt-uu-dropdown{
+    display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 4;
+  width: 190px;
+  right: 72px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
 .pointer3{
   position: absolute;
   background-color: white;
@@ -41,7 +54,7 @@
   border-left: solid lightgray 1px;
   height: 14px;
   width: 14px;
-  margin-left: 16px;
+  margin-left: 26px;
   margin-top:-8px;
 
   transform: rotate(45deg);
@@ -56,16 +69,107 @@
   padding-bottom: 15px;
   border-bottom: solid lightgray 2px;
 }
+.alt-uu-dropdown h2{
+    color: gray;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  border-bottom: solid lightgray 2px;
+}
 
 .uu-dropdown p{
   font-weight: bold;
   padding-top: 15px;
   padding-bottom: 15px;
-  font-size: 14px;
+  font-size: 13.5px;
   padding-right: 25px;
   padding-left: 10px;
 
 
+}
+.alt-uu-dropdown p{
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 13.5px;
+  padding-right: 25px;
+  padding-left: 10px;
+
+}
+
+.uu-dropdown2{
+   display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 4;
+  width: 330px;
+  right: 10px;
+  border-radius: 4px;
+  margin: 5px;
+}
+.alt-uu-dropdown2{
+   display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 4;
+  width: 330px;
+  right: 72px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.uu-dropdown2 h2{
+    color: gray;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  border-bottom: solid lightgray 1px;
+}
+.alt-uu-dropdown2 h2{
+    color: gray;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  border-bottom: solid lightgray 1px;
+}
+
+.uu-over2 > a {
+text-decoration: none;
+  color: #247F9E;
+  font-size: 15px;
+  padding: 15px 0 15px 15px;
+  margin-top: 10px;
+}
+.uu-over2 > a:hover {
+  color:#19596f;
+  transition: 0.4s;
+}
+
+.uu-over2{
+  overflow:scroll;
+  max-height: 333px;
+  padding-bottom: 20px;
+}
+
+.pointer3-2{
+  position: absolute;
+  background-color: white;
+  border-top: solid lightgray 1px;
+  border-left: solid lightgray 1px;
+  height: 14px;
+  width: 14px;
+  margin-left: 166px;
+  margin-top:-8px;
+
+  transform: rotate(45deg);
 }
 
 .greeting-dropdown li:hover {
@@ -73,7 +177,17 @@
   transition: 0.15s;
   color: black;
 }
+.alt-greeting-dropdown li:hover {
+  background-color:  rgb(244, 246, 248);
+  transition: 0.15s;
+  color: black;
+}
 .greeting-dropdown a:hover {
+  background-color: rgb(244, 246, 248);
+  transition: 0.15s;
+  color: black;
+}
+.alt-greeting-dropdown a:hover {
   background-color: rgb(244, 246, 248);
   transition: 0.15s;
   color: black;
@@ -87,7 +201,20 @@
   color: dimgray;
   font-weight: bold;
 }
+.alt-greeting-dropdown li {
+  list-style: none;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-top: 5px;
+  color: dimgray;
+  font-weight: bold;
+}
 .greeting-dropdown a {
+  text-decoration: none;
+  color: dimgray;
+  font-weight: bold;
+}
+.alt-greeting-dropdown a {
   text-decoration: none;
   color: dimgray;
   font-weight: bold;
@@ -101,6 +228,17 @@
   z-index: 4;
   width: 200px;
   right: 20px;
+  border-radius: 4px;
+  margin-top: 25px;
+}
+.alt-greeting-dropdown{
+  display: block;
+  position: absolute;
+  background-color: white;
+  border: solid lightgray 1px;
+  z-index: 4;
+  width: 200px;
+  right: 76px;
   border-radius: 4px;
   margin-top: 25px;
 }

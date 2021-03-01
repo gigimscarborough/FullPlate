@@ -1,8 +1,8 @@
 import React from 'react'
-import UpcomingDropdown from './upcoming_dropdown'
+import AltUserUpcomingDropdown from './alt_user_upcoming_dropdown'
 
 
-class ClickUpcomingDropdown extends React.Component {
+class AltClickUserUpcomingDropdown extends React.Component {
     constructor(props) {
         super(props)
         this.state = { clicked: false }
@@ -17,12 +17,11 @@ class ClickUpcomingDropdown extends React.Component {
     render() {
         return (
             <div>
-                <i onClick={this.whenClicked} className="far2 far fa-calendar"></i>
-                {this.state.clicked ? <UpcomingDropdown /> : null}
+                <i onClick={this.whenClicked} className=" far2 far fa-calendar-alt"></i>
+                {this.state.clicked ? <AltUserUpcomingDropdown /> : null}
             </div>
         )
     }
 }
 
-export default ClickUpcomingDropdown;
-
+export default AltClickUserUpcomingDropdown;
