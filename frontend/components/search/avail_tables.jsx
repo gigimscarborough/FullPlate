@@ -55,8 +55,9 @@ class AvailTables extends React.Component {
             `23:30:00`,
         ]
 
-        this.dateToday = new Date()
-        this.hours = ((this.dateToday.getHours() + 2) % 24) < 10 ? `0${((this.dateToday.getHours() + 2) % 24)}` : ((this.dateToday.getHours() + 2) % 24)
+        
+        this.dateToday = new Date('2021-08-19T' + this.props.search.time)
+        this.hours = ((this.dateToday.getHours() ) % 24) < 10 ? `0${((this.dateToday.getHours() ) % 24)}` : ((this.dateToday.getHours() ) % 24)
         this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes()
         this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1
         this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate()
@@ -65,6 +66,9 @@ class AvailTables extends React.Component {
         this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`
 
     }
+
+    
+    
 
     tIndexes() {
 
@@ -93,12 +97,13 @@ class AvailTables extends React.Component {
             closingTime2 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1])
         }
 
+        let today = new Date()
         let options = []
 
         if (openingTime2 || closingTime2) {
 
             for (let i = 0; i < this.tIndexes().length; i++) {
-                if ((new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1) || (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime2 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime2)) {
+                if (((new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1) || (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime2 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime2)) && new Date(this.props.search.date + "T" + this.times[this.tIndexes()[i]]) > today) {
                     options.push(this.times[this.tIndexes()[i]])
                 }
 
@@ -106,7 +111,7 @@ class AvailTables extends React.Component {
 
         } else {
             for (let i = 0; i < this.tIndexes().length; i++) {
-                if (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1) {
+                if (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1 && new Date(this.props.search.date + "T" + this.times[this.tIndexes()[i]]) > today) {
                     options.push(this.times[this.tIndexes()[i]])
                 }
 
@@ -142,9 +147,12 @@ class AvailTables extends React.Component {
 
 
     render() {
+        debugger
         return (
             <div className="timeslots">
-                <span >You're in luck! We still have {this.validTimes().length} timeslots left</span>
+                
+                {this.validTimes().length < 5 && this.validTimes().length > 0 ? <span >
+                    <img src={window.fastclock} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslots left`}</span> : null}
                 <div className="avail-btns">
                     {this.buttons()}
                 </div>
