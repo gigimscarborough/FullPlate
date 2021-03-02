@@ -239,6 +239,7 @@
   align-items: center;
   position: relative;
   padding-right:10px;
+  height: 100%;
 
 }
 .modal-search-div select{
@@ -259,19 +260,20 @@
 right: 0px;
 position: absolute;
   background-color:white;
-  padding-right: 13px;
+  padding-right: 2px;
+  margin-right: 13px;
+  font-size: 17px;
 
 }
 
 .modal-search-input{
   background-color:white;
-  height: 40px;
+  height: 100%;
   border:none;
   border-right: solid lightgray 1px;
   font-size: 15px;
   font-family: 'Amiko', sans-serif;
  padding-right:10px;
-  margin-top: 3px;
   cursor:pointer
 }
 
