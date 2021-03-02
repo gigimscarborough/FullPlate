@@ -34,6 +34,19 @@ background-color:white;
   cursor:pointer;
 }
 
+.sp-date-o{
+      position: absolute;
+   background-color: white;
+   width: 95px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: -332px;
+    padding-left: 15px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+}
+
 .sp-select-time{
   display:flex;
   position: relative;

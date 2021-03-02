@@ -69,6 +69,12 @@ class Search extends React.Component {
 
         let currentOption = <option selected value={this.state.time}>{`${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `PM` : `AM`}`}</option>
 
+        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+
+        let resDate = new Date(this.state.date)
+        // let resDate = new Date(this.props.search.date)
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+
 
 
         // const currentHour = dateToday.getHours()
@@ -86,6 +92,7 @@ class Search extends React.Component {
                     <div className="splash-f-cont">
 
                         <div id="splash-search-form">
+                            <div className="splash-date-o">{resDate.toLocaleDateString(undefined, format).split(", ").slice(1).join(", ")}</div>
                             <input className="splash-search-input" type="date" defaultValue={`${this.year}-${this.month}-${this.date}`} onChange={this.handleChange('date')} />
                             <div className="splash-time-in">
 

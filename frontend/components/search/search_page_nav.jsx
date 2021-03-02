@@ -115,6 +115,14 @@ class SearchPageNav extends React.Component {
         let currentOption = <option selected value={this.state.time}>{`${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `PM` : `AM`}` }</option>
 
             // ((currentHour) / 12) >= 1 ? `PM` : `AM`
+        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+
+        let resDate = new Date(this.state.date)
+        // let resDate = new Date(this.props.search.date)
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+
+        let defDate = new Date(`${this.year}-${this.month}-${this.date}`)
+        defDate = new Date(defDate.getTime() + defDate.getTimezoneOffset() * 60000)
         
           
         return (
@@ -129,6 +137,7 @@ class SearchPageNav extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                 <div className="search-page-nav">
                     <div id="sp-form">
+                            <div className="sp-date-o">{this.state.date ? resDate.toLocaleDateString(undefined, format).split(", ").slice(1).join(", ") : defDate.toLocaleDateString(undefined, format).split(", ").slice(1).join(", ")}</div>
                             <input className="sp-input" type="date" value={this.state.date ? this.state.date : `${this.year}-${this.month}-${this.date}`} onChange={this.handleChange('date')} />
                             <div className="sp-select-time">
                                 <select className="sp-select" onChange={this.handleChange('time')} >
