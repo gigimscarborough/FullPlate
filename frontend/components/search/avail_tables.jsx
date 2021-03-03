@@ -81,7 +81,7 @@ class AvailTables extends React.Component {
 
     tIndexes() {
 
-        const tIndex = this.times.indexOf(this.defaultTime)
+        const tIndex = this.times.indexOf(this.props.time)
 
 
         const prev1 = tIndex - 1 >= 0 ? tIndex - 1 : (tIndex - 1) + this.times.length
@@ -112,7 +112,7 @@ class AvailTables extends React.Component {
         if (openingTime2 || closingTime2) {
 
             for (let i = 0; i < this.tIndexes().length; i++) {
-                if (((new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1) || (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime2 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime2)) && new Date(this.props.search.date + "T" + this.times[this.tIndexes()[i]]) > today) {
+                if (((new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1) || (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime2 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime2)) && new Date(this.props.date + "T" + this.times[this.tIndexes()[i]]) > today) {
                     options.push(this.times[this.tIndexes()[i]])
                 }
 
@@ -120,7 +120,7 @@ class AvailTables extends React.Component {
 
         } else {
             for (let i = 0; i < this.tIndexes().length; i++) {
-                if (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1 && new Date(this.props.search.date + "T" + this.times[this.tIndexes()[i]]) > today) {
+                if (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1 && new Date(this.props.date + "T" + this.times[this.tIndexes()[i]]) > today) {
                     options.push(this.times[this.tIndexes()[i]])
                 }
 
@@ -139,9 +139,9 @@ class AvailTables extends React.Component {
         
         if (this.props.currentUser) {
             let form = {
-                date: this.props.search.date,
+                date: this.props.date,
                 time: rTime,
-                guest_count:this.props.search.guest_count
+                guest_count:this.props.guest_count
             }
             this.props.sendForm(form)
             this.props.history.push(`/restaurants/${this.props.restaurantId}/reserve`)
@@ -200,10 +200,12 @@ class AvailTables extends React.Component {
 
 // export default AvailTables
 
-const mSTP = (state) => {
+const mSTP = (state) => ({
+    time: state.ui.search.time,
+    date: state.ui.search.date,
+    guest_count: state.ui.search.guest_count
 
-
-}
+})
 
 
 const mDTP = (dispatch) => ({
