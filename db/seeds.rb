@@ -136,7 +136,7 @@ r6 = Restaurant.create!(
     price_range: '$$$$',
     cuisine_type: 'Korean',
     city: 'New York',
-    operation_hours: "5:00pm-10:00pm",
+    operation_hours: "17:00-22:00",
     dining_style: "Elegant Dining",
     dress_code: "Business Casual",
     noise_level: "Moderate",
@@ -159,7 +159,7 @@ r6.photos.attach(io: f25, filename: '5.jpg')
 
 r7 = Restaurant.create!(
     name: "Lamia's Fish Market",
-    address: '145 W 53rd St New York, NY 10019',
+    address: '47 Avenue B New York, NY 10009',
     phone_number: '(212) 777-3650',
     description: "Lamia’s Fish Market, a Fresh New Mediterranean Restaurant and Raw Bar from Lamia Funti, Ready to Lure You to the Heart of the East Village.Restaurateur Lamia Funti will pay homage to her coastal Mediterranean roots with the opening of Lamia’s Fish Market, a seafood-centric eatery dishing out a menu of fresh offerings in a playful yet refined space that immerses diners in the indulgent depths below. Lamia is achieving her long-time dream by creating this new restaurant in a seductive setting, designed with women in mind. Lamia's Fish Market takes the feminine allure of seafood and gives it that Lower East Side edge. Each of the seven different dining experiences achieved a unique identity and feel which is ideal for a romantic dinner for two, birthday parties or large private events.",
     price_range: '$$$',
