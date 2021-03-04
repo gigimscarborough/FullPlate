@@ -287,6 +287,10 @@ margin-right: 5px;
 .avail-btns{
   display:flex;
   margin-top: 8px;
+  flex-wrap: wrap;
+}
+.avail-btns > *{
+  margin-top: 8px;
 }
 .avail-btns button{
   margin-right: 10px;

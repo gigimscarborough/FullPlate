@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import {sendForm} from '../../actions/search_actions'
 import { openModal } from '../../actions/modal_actions'
 import {withRouter} from 'react-router-dom'
+import WidgetTables from './widget_tables'
 
 class ReservationWidget extends React.Component {
     constructor(props) {
@@ -24,28 +25,52 @@ class ReservationWidget extends React.Component {
             keyword: !this.props.search.keyword ? "" : this.props.search.keyword,
             date: !this.props.search.date ? `${this.year}-${this.month}-${this.date}` : this.props.search.date,
             time: !this.props.search.time ? this.defaultTime : this.props.search.time,
-            guest_count: !this.props.search.guest_count ? 1 : this.props.search.guest_count
+            guest_count: !this.props.search.guest_count ? 1 : this.props.search.guest_count,
+            updated: false,
+        
         }
        
     }
 
     handleChange(type) {
         return (e) => (
-            this.setState({ [type]: e.currentTarget.value })
+            this.setState({ [type]: e.currentTarget.value, updated: false})
         )
 
     }
 
     handleSubmit(e){
         e.preventDefault()
-        if (this.props.currentUser){
+        // if (this.props.currentUser){
 
-            this.props.sendForm(this.state)
-            this.props.history.push(`/restaurants/${this.props.match.params.restaurantId}/reserve`)
+            let form = {
+                keyword: this.state.keyword,
+                date: this.state.date,
+                time: this.state.time,
+                guest_count: this.state.guest_count
+            }
+
+            this.props.sendForm(form)
+            this.setState({
+                updated: true
+            })
+            // this.props.history.push(`/restaurants/${this.props.match.params.restaurantId}/reserve`)
+        // } else {
+        //     this.props.openModal('login')
+        // }
+
+    }
+
+    button(){
+        if (!this.state.updated){
+            return(
+                <button onClick={this.handleSubmit} className="wid-btn">Find a table</button>
+            )
         } else {
-            this.props.openModal('login')
+            return (
+                <WidgetTables currentUser={this.props.currentUser} restaurantId={this.props.restaurantId} sendForm={this.props.sendForm}  openModal={this.props.openModal} operation_hours={this.props.operation_hours}/>
+            )
         }
-
     }
  
     render() {
@@ -134,7 +159,7 @@ class ReservationWidget extends React.Component {
                 </div >
                 <div className="wid-form">
                     <div className="wid-body">
-                        <form onSubmit={this.handleSubmit}>
+                        <form >
                             <div className="wid-sel">
                                 <label className="wid-lbl">Party Size
                                 <select onChange={this.handleChange('guest_count')}>
@@ -202,7 +227,7 @@ class ReservationWidget extends React.Component {
 
                                 </label>
                             </div>
-                            <button className="wid-btn">Find a table</button>
+                            {this.button()}
                         </form>
                     </div>
                 </div>
