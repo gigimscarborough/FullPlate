@@ -189,8 +189,9 @@ class WidgetTables extends React.Component {
                     <div className="avail-btns">
                         {this.buttons()}
                     </div>
-                    {this.validTimes().length < 5 && this.validTimes().length > 0 ? <span >
-                        <img src={window.fastclockb} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslots left`}</span> : null}
+                    {this.validTimes().length < 5 && this.validTimes().length > 0 ? this.validTimes().length < 5 && this.validTimes().length > 0 && this.validTimes().length !== 1 ? <span >
+                        <img src={window.fastclockb} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslots left`}</span> : <span >
+                            <img src={window.fastclockb} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslot left`}</span> : null}
                 </div>
             )
         }
