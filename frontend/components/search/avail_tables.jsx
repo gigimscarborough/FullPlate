@@ -186,8 +186,9 @@ class AvailTables extends React.Component {
         return (
             <div className="timeslots">
                 
-                {this.validTimes().length < 5 && this.validTimes().length > 0 ? <span >
-                    <img src={window.fastclock} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslots left`}</span> : null}
+                {this.validTimes().length < 5 && this.validTimes().length > 0 ? this.validTimes().length < 5 && this.validTimes().length > 0 && this.validTimes().length !== 1 ? <span >
+                    <img src={window.fastclock} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslots left`}</span> : <span >
+                        <img src={window.fastclock} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslot left`}</span> : null}
                 <div className="avail-btns">
                     {this.buttons()}
                 </div>
