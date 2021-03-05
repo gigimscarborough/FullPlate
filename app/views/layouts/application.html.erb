@@ -7,6 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
+
+ 
+    <%= stylesheet_link_tag 'application', media: 'all' %> <%= csrf_meta_tags %>
+    
 <%= favicon_link_tag asset_path('favicon.ico') %>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300&display=swap" rel="stylesheet">
@@ -40,6 +45,10 @@ crossorigin="anonymous"/>
   window.clocksvg = '<%= image_url "svgclock.svg" %>'
   window.calsvg = '<%= image_url "cal.svg" %>'
   window.fastclock = '<%= image_url "fast_clock.png" %>'
+  window.fastclockb = '<%= image_url "fastclock_b.png" %>'
+  window.marker = '<%= image_url "marker.svg" %>'
+  window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
+  window.table = '<%= image_url "table.png" %>'
 
 </script>
   </head>

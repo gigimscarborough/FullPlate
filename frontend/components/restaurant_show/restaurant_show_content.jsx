@@ -60,7 +60,7 @@ class ShowContent extends React.Component {
         const third = 2
         const fourth = 3
         const fifth = 4
-        
+        const rformat = this.props.restaurant.address.split(/\s+/).join("+")
     
         return (
             <div className="res-content-div">
@@ -144,11 +144,18 @@ class ShowContent extends React.Component {
                         <h2>Menu</h2>
                         <span>{menu}</span>
                     </div>
-                    
                         <ReviewIndex openModal={this.props.openModal} reviews={this.props.reviews} restaurant={this.props.restaurant} fetchReviews={this.props.fetchReviews} restaurantId={this.props.restaurantId}/>
                 </div>
                 <div className="reserve-div">
-                    <ReservationWidget search={this.props.search}/>
+                    <ReservationWidget operation_hours={this.props.restaurant.operation_hours} restaurantId={this.props.restaurant.id} search={this.props.search}/>
+                    {/* <div className="map-holder">
+
+                        <a target="_blank" rel="noopener" href={`//www.google.com/maps/dir/?api=1&amp;destination=${this.props.restaurant.name.split(" ").join("%20")}${this.props.restaurant.address.split(" ").join("%20")}&key=${window.googleAPIKey}`}><img width="288" src={`https://maps.googleapis.com/maps/api/staticmap?autoscale=false&size=288x144&maptype=roadmap&key=${window.googleAPIKey}&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0x0e8eaf%7Clabel:%7C${rformat}&style=feature%3Alandscape%7Celement%3Aall%7Chue%3A0xe5e1df%7Csaturation%3A-62%7Clightness%3A0%7Cvisibility%3Aon&style=feature%3Apoi.school%7Celement%3Aall%7Chue%3A0xffffff%7Csaturation%3A-100%7Clightness%3A100%7Cvisibility%3Aoff&style=feature%3Apoi.medical%7Celement%3Aall%7Chue%3A0xffffff%7Csaturation%3A-100%7Clightness%3A100%7Cvisibility%3Aoff&style=feature%3Apoi.attraction%7Celement%3Aall%7Chue%3A0xffffff%7Csaturation%3A-100%7Clightness%3A100%7Cvisibility%3Aoff&style=feature%3Apoi.government%7Celement%3Aall%7Chue%3A0xffffff%7Csaturation%3A-100%7Clightness%3A100%7Cvisibility%3Aoff&style=feature%3Apoi.place_of_worship%7Celement%3Aall%7Chue%3A0xffffff%7Csaturation%3A-100%7Clightness%3A100%7Cvisibility%3Aoff&style=feature%3Aadministrative.locality%7Celement%3Aall%7Chue%3A0xffffff%7Csaturation%3A0%7Clightness%3A100%7Cvisibility%3Aoff&style=feature%3Aroad.local%7Celement%3Alabels%7Chue%3A0xffffff%7Csaturation%3A-100%7Clightness%3A100%7Cvisibility%3Aoff&style=feature%3Apoi.business%7Celement%3Alabels%7Chue%3A0xffffff%7Csaturation%3A-100%7Clightness%3A100%7Cvisibility%3Aoff&style=feature%3Awater%7Celement%3Ageometry%7Chue%3A0x82b4ff%7Csaturation%3A100%7Clightness%3A-1%7Cvisibility%3Aon&style=feature%3Aroad.highway%7Celement%3Ageometry%7Chue%3A0xfcb04d%7Csaturation%3A-3%7Clightness%3A1%7Cvisibility%3Asimplified&style=feature%3Apoi.park%7Celement%3Aall%7Chue%3A0xc9e3a8%7Csaturation%3A15%7Clightness%3A-1%7Cvisibility`} alt={this.props.restaurant.address}></img></a>
+                        <div>
+                        <img src={window.marker} alt=""/>
+                        <a target="_blank" rel="noopener" href={`//www.google.com/maps/dir/?api=1&amp;destination=${this.props.restaurant.name.split(" ").join("%20")}${this.props.restaurant.address.split(" ").join("%20")}&key=${window.googleAPIKey}`}>{this.props.restaurant.address}</a>
+                        </div>
+                    </div> */}
                     <div className="rs-details">
                         <div className="rs-nei-det">
                             <div className="rs-nei-icn">
