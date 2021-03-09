@@ -20,6 +20,7 @@ class UserShow extends React.Component {
         this.props.fetchRestaurants()
         // this.props.fetchReservations()
         // this.props.fetchUser(this.props.currentUser.id)
+        window.scrollTo(0, 0)
     }
 
     reservations() {
