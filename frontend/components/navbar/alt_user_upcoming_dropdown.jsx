@@ -60,7 +60,7 @@ class AltUserUpcomingDropdown extends React.Component {
 
             return (
                 <div>
-                    <div className="alt-uu-dropdown">
+                    <div id="alt-uu-dropdown" className="alt-uu-dropdown">
                         <div className="pointer3"></div>
                         <h2>UPCOMING</h2>
                         <p>You have no upcoming reservations</p>
@@ -72,7 +72,7 @@ class AltUserUpcomingDropdown extends React.Component {
         }
         return (
             <div>
-                <div className="alt-uu-dropdown2">
+                <div id="alt-uu-dropdown2" className="alt-uu-dropdown2">
                     <div className="pointer3-2"></div>
                     <h2>UPCOMING</h2>
                     <div className="uu-over2">

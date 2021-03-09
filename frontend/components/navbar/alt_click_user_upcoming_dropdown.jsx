@@ -31,7 +31,7 @@ class AltClickUserUpcomingDropdown extends React.Component {
             const status = !this.state.clicked
             this.setState({ clicked: status })
         }
-
+        
         if (document.getElementById('alt-greeting-dropdown')) {
             document.getElementById('alt-greeting-dropdown').style.display = 'none'
         }

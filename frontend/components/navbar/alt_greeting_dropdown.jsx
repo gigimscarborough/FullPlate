@@ -6,7 +6,7 @@ class AltGreetingDropdown extends React.Component {
     render() {
         return (
             <div>
-                <div className="alt-greeting-dropdown">
+                <div id="alt-greeting-dropdown" className="alt-greeting-dropdown">
                     <div className="pointer2"></div>
                     <div id="greeting-header-div">
                         <h2 >Start Earning Dining Points Coming Soon!</h2>
