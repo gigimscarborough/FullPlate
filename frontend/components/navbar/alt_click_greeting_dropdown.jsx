@@ -11,8 +11,28 @@ class AltClickGreetingDropdown extends React.Component {
     }
 
     whenClicked(e) {
-        const status = !this.state.clicked
-        this.setState({ clicked: status })
+        if (document.getElementById('alt-greeting-dropdown')) {
+            if (document.getElementById('alt-greeting-dropdown').style.display === 'none') {
+                document.getElementById('alt-greeting-dropdown').style.display = 'block'
+                this.setState({ clicked: true })
+            }
+            else {
+                const status = !this.state.clicked
+                this.setState({ clicked: status })
+            }
+        } else {
+
+            const status = !this.state.clicked
+            this.setState({ clicked: status })
+        }
+
+
+        if (document.getElementById('alt-uu-dropdown')) {
+            document.getElementById('alt-uu-dropdown').style.display = 'none'
+        }
+        if (document.getElementById('alt-uu-dropdown2')) {
+            document.getElementById('alt-uu-dropdown2').style.display = 'none'
+        }
     }
 
     render() {

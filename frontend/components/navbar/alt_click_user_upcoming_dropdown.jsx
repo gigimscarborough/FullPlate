@@ -10,8 +10,31 @@ class AltClickUserUpcomingDropdown extends React.Component {
     }
 
     whenClicked(e) {
-        const status = !this.state.clicked
-        this.setState({ clicked: status })
+        if (document.getElementById('alt-uu-dropdown')) {
+            if (document.getElementById('alt-uu-dropdown').style.display === 'none') {
+                document.getElementById('alt-uu-dropdown').style.display = 'block'
+                this.setState({ clicked: true })
+            }
+            else {
+                const status = !this.state.clicked
+                this.setState({ clicked: status })
+            }
+        } else if (document.getElementById('alt-uu-dropdown2')) {
+            if (document.getElementById('alt-uu-dropdown2').style.display === 'none') {
+                document.getElementById('alt-uu-dropdown2').style.display = 'block'
+                this.setState({ clicked: true })
+            } else {
+                const status = !this.state.clicked
+                this.setState({ clicked: status })
+            }
+        } else {
+            const status = !this.state.clicked
+            this.setState({ clicked: status })
+        }
+
+        if (document.getElementById('alt-greeting-dropdown')) {
+            document.getElementById('alt-greeting-dropdown').style.display = 'none'
+        }
     }
 
     render() {
