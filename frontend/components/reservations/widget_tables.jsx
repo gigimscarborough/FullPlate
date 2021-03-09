@@ -130,8 +130,8 @@ class WidgetTables extends React.Component {
     }
 
 
-    handleSubmit(rTime) {
-        // e.preventDefault()
+    handleSubmit(e, rTime) {
+        e.preventDefault()
 
         if (this.props.currentUser) {
             let form = {
@@ -154,7 +154,7 @@ class WidgetTables extends React.Component {
         for (let i = 0; i < this.tIndexes().length; i++) {
             if (this.validTimes().includes(this.times[this.tIndexes()[i]])) {
                 buttons.push(
-                    <button key={i} className="w-valid-t" onClick={() => this.handleSubmit(this.times[this.tIndexes()[i]])}>
+                    <button key={i} className="w-valid-t" onClick={(e) => this.handleSubmit(e, this.times[this.tIndexes()[i]])}>
                         <img src={window.table} alt="" />
                         {new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(" ")[1]}</button>
                 )
