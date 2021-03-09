@@ -110,28 +110,28 @@ class ShowContent extends React.Component {
                         <div className="rest-photos">
                             <div className="photo-c1">
                                 <div className="photo-r1">
-                                    {/* <img src={this.props.restaurant.photoUrls[first]} /> */}
-                                    <img src={window.salmonplate} />
+                                    <img src={this.props.restaurant.photoUrls[first]} />
+                                    {/* <img src={window.salmonplate} /> */}
                                 </div>
                                 <div className="photo-r1">
-                                    {/* <img src={this.props.restaurant.photoUrls[second]} /> */}
-                                    <img src={window.salmonplate} />
+                                    <img src={this.props.restaurant.photoUrls[second]} />
+                                    {/* <img src={window.salmonplate} /> */}
                                 </div>
                             </div >
                             <div className="photo-c2">
-                                {/* <img src={this.props.restaurant.photoUrls[third]} /> */}
-                                <img src={window.salmonplate} />
+                                <img src={this.props.restaurant.photoUrls[third]} />
+                                {/* <img src={window.salmonplate} /> */}
 
                             </div>
                             <div className="photo-c1">
                                 <div className="photo-r1">
-                                    {/* <img src={this.props.restaurant.photoUrls[fourth]} /> */}
-                                    <img src={window.salmonplate} />
+                                    <img src={this.props.restaurant.photoUrls[fourth]} />
+                                    {/* <img src={window.salmonplate} /> */}
 
                                 </div>
                                 <div className="photo-r1">
-                                    {/* <img src={this.props.restaurant.photoUrls[fifth]} /> */}
-                                    <img src={window.salmonplate} />
+                                    <img src={this.props.restaurant.photoUrls[fifth]} />
+                                    {/* <img src={window.salmonplate} /> */}
 
                                 </div>
                             </div>

@@ -61,8 +61,8 @@ class SearchPage extends React.Component {
         const restaurants = this.props.restaurants.map((restaurant, i) => 
             <div key={i} className="rests-main">
                 <div className="sp-img">
-                    {/* <Link to={`/restaurants/${restaurant.id}`}><img src={restaurant.photoUrls[first]} /></Link> */}
-                    <Link to={`/restaurants/${restaurant.id}`}><img src={window.salmonplate} /></Link>
+                    <Link to={`/restaurants/${restaurant.id}`}><img src={restaurant.photoUrls[first]} /></Link>
+                    {/* <Link to={`/restaurants/${restaurant.id}`}><img src={window.salmonplate} /></Link> */}
                 </div>
                 <div className="sp-info">
                     <Link to={`/restaurants/${restaurant.id}`}><h2>{restaurant.name}</h2></Link>

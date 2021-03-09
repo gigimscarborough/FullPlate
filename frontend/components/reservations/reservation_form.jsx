@@ -187,8 +187,8 @@ class ReservationForm extends React.Component {
                         </div>
                         <div className="rdiv-img">
                             <div className="rdiv-a">
-                                {/* <img src={this.props.restaurant.photoUrls[first]} /> */}
-                                <img src={window.salmonplate} />
+                                <img src={this.props.restaurant.photoUrls[first]} />
+                                {/* <img src={window.salmonplate} /> */}
                             </div>
                             <div className="rdiv-b">
                                 <Link to={`/restaurants/${this.props.restaurant.id}`}></Link><h2>{this.props.restaurant.name}</h2>
