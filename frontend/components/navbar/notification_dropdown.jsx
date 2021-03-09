@@ -7,7 +7,7 @@ class NotificationDropdown extends React.Component {
 
         return (
             <div>
-                <div className="notification-dropdown">
+                <div id="notification-dropdown" className="notification-dropdown">
                     <div className="pointer"></div>
                     <h2>Notifications</h2>
                     <div className="bell-div">

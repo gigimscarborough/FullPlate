@@ -52,7 +52,7 @@ class RestaurantShowNavBar extends React.Component {
 
     render() {
    
-        debugger
+        
         const first = 0;
 
         const restaurant = this.props.restaurant;

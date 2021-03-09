@@ -260,6 +260,8 @@ class UserShow extends React.Component {
         const favsList = []
 
         for (let i = 0; i < theseFavs.length; i++) {
+            const thisFav = this.props.currentUser.favorites.filter(fav => fav.restaurant_id === theseFavs[i].id)[0]
+            
             favsList.push(
                 <div key={i} className="fav-hold">
                     <div className="fav-it">
@@ -269,7 +271,7 @@ class UserShow extends React.Component {
                         </div>
                         <div className="u-res-info-div">
                             <div className="u-res-name">
-                                <Link to={`/restaurants/${theseFavs[i].restaurant_id}`}><span>{theseFavs[i].name}</span></Link>
+                                <Link to={`/restaurants/${theseFavs[i].id}`}><span>{theseFavs[i].name}</span></Link>
                             </div>
                             <div onClick={() => this.props.deleteFavorite(thisFav.id).then(() => this.props.fetchUser(this.props.currentUser.id))} id="rem-fav">
                                 <i className="fas fa-bookmark"></i>

@@ -39,7 +39,7 @@ class SearchPage extends React.Component {
     }
 
     render() {
-            debugger
+            
         
         const first = 0
 

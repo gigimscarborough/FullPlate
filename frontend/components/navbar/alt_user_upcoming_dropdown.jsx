@@ -16,14 +16,14 @@ class AltUserUpcomingDropdown extends React.Component {
         let reservations = this.props.reservations.filter(function (res) {
             let resTime = new Date(res.reservation_datetime)
             resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
-            debugger
+            
             return resTime > today
         })
 
         reservations.sort((a, b) => {
             return new Date(a.reservation_datetime) - new Date(b.reservation_datetime)
         })
-        debugger
+        
         return reservations.map((reservation, i) => {
 
             const restaurant = this.props.restaurants.filter(rest => rest.id === reservation.restaurant_id)[0]

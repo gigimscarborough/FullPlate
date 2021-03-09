@@ -16,14 +16,14 @@ class UpcomingDropdown extends React.Component {
         let reservations = this.props.reservations.filter(function (res) {
             let resTime = new Date(res.reservation_datetime)
             resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
-            debugger
+            
             return resTime > today
         })
 
         reservations.sort((a, b) => {
             return new Date(a.reservation_datetime) - new Date(b.reservation_datetime)
         })
-        debugger
+        
         return reservations.map(reservation => {
 
             const restaurant = this.props.restaurants.filter(rest => rest.id === reservation.restaurant_id)[0]
@@ -67,7 +67,7 @@ class UpcomingDropdown extends React.Component {
 
             return (
                 <div>
-                    <div className="upcoming-dropdown">
+                    <div id="upcoming-dropdown" className="upcoming-dropdown">
                         <div id="pointer"></div>
                         <h2>Upcoming Reservations</h2>
                         <p>You have no upcoming reservations!</p>
@@ -78,7 +78,7 @@ class UpcomingDropdown extends React.Component {
 
         return (
             <div>
-                <div className="alt-upcoming-dropdown">
+                <div id="alt-upcoming-dropdown" className="alt-upcoming-dropdown">
                     <div id="pointer"></div>
                     <h2>Upcoming Reservations</h2>
                     <div className="uu-over">

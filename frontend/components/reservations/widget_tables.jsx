@@ -85,7 +85,7 @@ class WidgetTables extends React.Component {
         const next1 = tIndex + 1 <= (this.times.length - 1) ? tIndex + 1 : (tIndex + 1) % tIndex.length
         const next2 = tIndex + 2 <= (this.times.length - 1) ? tIndex + 2 : (tIndex + 2) % tIndex.length
 
-        debugger
+        
         return [prev2, prev1, tIndex, next1, next2]
     }
 
@@ -123,7 +123,7 @@ class WidgetTables extends React.Component {
             }
         }
 
-        debugger
+        
 
         return options
 
@@ -172,7 +172,7 @@ class WidgetTables extends React.Component {
     
 
     render() {
-        debugger
+        
 
         if (this.validTimes().length === 0) {
             return (

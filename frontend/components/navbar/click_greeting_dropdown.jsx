@@ -11,8 +11,30 @@ class ClickGreetingDropdown extends React.Component {
     }
 
     whenClicked(e) {
-        const status = !this.state.clicked
-        this.setState({ clicked: status })
+
+        if (document.getElementById('greeting-dropdown')) {
+            if (document.getElementById('greeting-dropdown').style.display === 'none') {
+                document.getElementById('greeting-dropdown').style.display = 'block'
+                this.setState({ clicked: true })
+            }
+            else {
+                const status = !this.state.clicked
+                this.setState({ clicked: status })
+            }
+        } else {
+          
+            const status = !this.state.clicked
+            this.setState({ clicked: status })
+        }
+       
+
+        if (document.getElementById('uu-dropdown')) {
+            document.getElementById('uu-dropdown').style.display = 'none'
+        }
+        if (document.getElementById('uu-dropdown2')) {
+            document.getElementById('uu-dropdown2').style.display = 'none'
+        }
+      
     }
 
     render() {

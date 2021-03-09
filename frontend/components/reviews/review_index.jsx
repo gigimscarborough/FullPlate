@@ -73,11 +73,11 @@ class ReviewIndex extends React.Component {
     }
 
     reviewsList() {
-        debugger
+        
 
         const that = this
   
-        return this.reviews().map(review => {
+        return this.reviews().map((review, i) => {
             let initials = review.nickname.split("")
    
 
@@ -94,7 +94,7 @@ class ReviewIndex extends React.Component {
             const colors = ["pinkish", "purplish", "blueish", "orangeish"]
 
             return (
-                <div className="review-holder">
+                <div key={i} className="review-holder">
                     <div className="review-l">
                         <div class="rev-circle">
                             <i class={`fas fa-circle ${colors[Math.floor(Math.random() * 4)]}`}></i>

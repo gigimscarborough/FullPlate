@@ -10,8 +10,38 @@ class ClickUpcomingDropdown extends React.Component {
     }
 
     whenClicked(e) {
+
+        if (document.getElementById('upcoming-dropdown')) {
+            if (document.getElementById('upcoming-dropdown').style.display === 'none') {
+                document.getElementById('upcoming-dropdown').style.display = 'block'
+                this.setState({ clicked: true })
+            } else {
+                
+                const status = !this.state.clicked
+                this.setState({ clicked: status })
+            }
+        }else if (document.getElementById('alt-upcoming-dropdown')){
+            if (document.getElementById('alt-upcoming-dropdown').style.display === 'none') {
+                document.getElementById('alt-upcoming-dropdown').style.display = 'block'
+                this.setState({ clicked: true })
+            } else {
+
+                const status = !this.state.clicked
+                this.setState({ clicked: status })
+            }
+        } else {
+
         const status = !this.state.clicked
         this.setState({ clicked: status })
+        }
+
+        if (document.getElementById('notification-dropdown')) {
+            document.getElementById('notification-dropdown').style.display = 'none'
+        }
+        if (document.getElementById('user-dropdown')) {
+            document.getElementById('user-dropdown').style.display = 'none'
+        }
+        
     }
 
     render() {
