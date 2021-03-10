@@ -210,8 +210,8 @@ class ViewReservation extends React.Component {
                                 </div>
                                 <div className="res-conf-inf">
                                     <div className="conf-rest">
-                                        <img id="u-conf-pic" src={this.restaurant().photoUrls[0]} alt="" />
-                                        {/* <img id="u-conf-pic" src={window.salmonplate} alt="" /> */}
+                                        {/* <img id="u-conf-pic" src={this.restaurant().photoUrls[0]} alt="" /> */}
+                                        <img id="u-conf-pic" src={window.salmonplate} alt="" />
                                         <div className="conf-rest-inf">
                                             <h3>{this.restaurant().name} </h3>
                                             <span><img id="conf-cal" src={window.rescal} /><p>{resDate.toLocaleDateString(undefined, format)}, {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]} </p> </span>

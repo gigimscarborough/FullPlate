@@ -11,7 +11,7 @@ class MainNavBar extends React.Component {
                         <a href="https://github.com/gigimscarborough">GitHub</a>
                         <a href="https://linkedin.com/in/gigimscarborough">LinkedIn</a>
                         <a href="https://angel.co/u/gigi-scarborough">AngelList</a>
-                        <a href="">Portfolio</a>
+                        <a href="https://gigiscarborough.com">Portfolio</a>
                     </li>
                 </ul>
             </div>

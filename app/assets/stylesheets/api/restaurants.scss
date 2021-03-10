@@ -385,7 +385,7 @@ outline: none;
   margin-top:-50px;
   background-color: white;
   width: 300px;
-  z-index: 3;
+  // z-index: 3;
   margin-left: 35px;
 
 
@@ -519,11 +519,13 @@ z-index: -1;
   height: 137px;
   width: 154px;
   object-fit: cover;
+  cursor: pointer;
 }
 .photo-c2 img{
   width:302px;
   height:280px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .res-menu{
@@ -1048,4 +1050,89 @@ border-bottom: solid lightgray 1px;
   width:13px;
   margin-right: 2px;
   margin-top: -3px;
+}
+
+.pm-bg{
+  display: none;
+  position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.9);
+   z-index: 10;
+}
+
+.pm-cnt{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7vh;
+}
+
+.pm-cnt > img{
+  box-sizing: border-box;
+  height: 525px;
+  width: 525px;
+  margin: 0 32px;
+}
+.left-arrow{
+  padding:3px 2px 3px 8px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.right-arrow{
+  padding:3px 8px 3px 2px;
+  cursor: pointer;
+   background-color: transparent;
+
+}
+.left-arrow > div{
+  border-top: solid rgb(161, 161, 161) 2px;
+  border-left: solid rgb(161, 161, 161) 2px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(-45deg);
+}
+  
+.left-arrow:hover > div{
+  border-color: gray;
+}
+
+.right-arrow > div{
+  border-top: solid  rgb(161, 161, 161) 2px;
+  border-left: solid  rgb(161, 161, 161) 2px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(135deg);
+}
+.right-arrow:hover > div{
+  border-color: gray;
+}
+
+
+.close-pm{
+ display: flex;
+ position: fixed;
+ right: 65px;
+ top: 7vh;
+
+
+}
+.close-pm > div{
+  border-left: solid gray 2px;
+   height: 25px;
+   
+
+}
+.close-pm > div:first-of-type{
+  transform: rotate(45deg);
+  margin-right: -1px;
+
+}
+.close-pm > div:last-of-type{
+  transform: rotate(-45deg);
+
 }

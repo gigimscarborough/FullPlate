@@ -27,8 +27,8 @@ class CancelConf extends React.Component {
         const restaurants = qualRests.map(restaurant => (
             <Link key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
             <div className="restaurant-icon">
-                <img src={restaurant.photoUrls[0]}></img>
-                {/* <img src={window.salmonplate}></img> */}
+                {/* <img src={restaurant.photoUrls[0]}></img> */}
+                <img src={window.salmonplate}></img>
                 <div className="res-info">
                     <h2>{restaurant.name}</h2>
                 </div>

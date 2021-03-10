@@ -151,8 +151,8 @@ class DeleteReservation extends React.Component {
                 <div className="cancel-body">
                     <div className="c-body-div">
                         <div className="c-div-top">
-                            <img src={this.restaurant().photoUrls[0]} alt=""/>
-                            {/* <img src={window.salmonplate} alt=""/> */}
+                            {/* <img src={this.restaurant().photoUrls[0]} alt=""/> */}
+                            <img src={window.salmonplate} alt=""/>
                             <div className="c-div-inf">
                                 <div>
                                     <span>GUESTS</span>
