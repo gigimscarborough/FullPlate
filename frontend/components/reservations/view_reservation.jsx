@@ -175,23 +175,23 @@ class ViewReservation extends React.Component {
     }
 
     render() {
-
-
         // const resId = this.props.match.params.reservationId
         const format = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
         // const that = this
         // const reservation = this.props.reservations.filter(reservation => reservation.id === that.resId)[0]
         // const restPhoto = this.props.restaurants.filter(rest => (rest.id === reservation.restaurant_id))[0].photoUrls[0]
         const dateJ = new Date(this.props.currentUser.created_at)
-
+        
         let resDate = new Date(this.reservation().reservation_datetime)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
-
-
+        
+        
         if (Object.values(this.props.restaurants).length <= 0) {
             return null
         } else{
-
+            
+            const adLength = this.restaurant().address.split(" ").length - 4
+            debugger
             return (
                 <div onClick={this.closeTA}>
                     {this.navBar()}
@@ -210,8 +210,8 @@ class ViewReservation extends React.Component {
                                 </div>
                                 <div className="res-conf-inf">
                                     <div className="conf-rest">
-                                        {/* <img id="u-conf-pic" src={this.restaurant().photoUrls[0]} alt="" /> */}
-                                        <img id="u-conf-pic" src={window.salmonplate} alt="" />
+                                        <img id="u-conf-pic" src={this.restaurant().photoUrls[0]} alt="" />
+                                        {/* <img id="u-conf-pic" src={window.salmonplate} alt="" /> */}
                                         <div className="conf-rest-inf">
                                             <h3>{this.restaurant().name} </h3>
                                             <span><img id="conf-cal" src={window.rescal} /><p>{resDate.toLocaleDateString(undefined, format)}, {resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]} </p> </span>
@@ -219,7 +219,7 @@ class ViewReservation extends React.Component {
                                             <div className="conf-links">
                                                 <Link to={{pathname: `/reservations/${this.reservation().id}/update`}}>Modify</Link>
                                                 <div></div>
-                                                <Link to={{ pathname: `/reservations/${this.reservation().id}/delete` }}><a>Cancel</a></Link>
+                                                <Link to={{ pathname: `/reservations/${this.reservation().id}/delete` }}>Cancel</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -270,6 +270,16 @@ class ViewReservation extends React.Component {
                                 <span >A note from the restaurant</span>
                                 <p id="imp-inf">due to limited seating, all parties are reserved for 90 minutes dining time</p>
                             </div>
+                            <div className="res-google">
+                                    <div>
+                                        <h2>{this.restaurant().name}</h2>
+                                    <span>{this.restaurant().address.split(" ").slice(0, adLength).join(" ")}</span><br/>
+                                    <div>{this.restaurant().phone_number}</div>
+                                    <div><Link to={{ pathname: `/restaurants/${this.restaurant().id}` }}>View Hours, Transportation, and Other Details</Link> <div></div></div>
+                                    </div>
+                                <a target="_blank" href={`https://maps.google.com/?q=${this.restaurant().address.split(" ").join("+")}`}>
+                                <img src={`https://maps.googleapis.com/maps/api/staticmap?autoscale=false&size=288x144&maptype=roadmap&key=${window.googleAPIKey}&zoom=15&scale=2&format=png&visual_refresh=true&markers=size:mid%7Clabel:%7C${this.restaurant().address.split(" ").join("+")}`} alt=""/></a>
+                            </div>
                         </div>
                         <div className="up-res-l">
                             <div className="member-sin">
@@ -281,7 +291,7 @@ class ViewReservation extends React.Component {
                                     <span>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</span>
                                     <span>Joined in {dateJ.toLocaleDateString(undefined, format).split(" ")[1]} {dateJ.toLocaleDateString(undefined, format).split(" ")[3]}</span>
                                     <span><img src={window.loc} />{this.props.currentUser.dining_city} Area</span>
-                                    <span><i className="far fa-comment-alt"></i> 0 reviews</span>
+                                    <span><i className="far fa-comment-alt"></i> {this.props.currentUser.reviews ? this.props.currentUser.reviews.length === 1 ? `1 review` : `${this.props.currentUser.reviews.length} reviews` : `0 reviews`}</span>
                                 </div>
 
                             </div>

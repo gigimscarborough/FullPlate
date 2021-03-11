@@ -32,8 +32,8 @@ class RestaurantIndex extends React.Component {
             return(
             <Link key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
                 <div className="restaurant-icon">
-                    {/* <img src={restaurant.photoUrls[first]}></img> */}
-                    <img src={window.salmonplate}></img>
+                    <img src={restaurant.photoUrls[first]}></img>
+                    {/* <img src={window.salmonplate}></img> */}
                     <div className="res-info">
                         <h2>{restaurant.name}</h2>
                     </div>

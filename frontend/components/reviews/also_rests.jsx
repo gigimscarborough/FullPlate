@@ -18,8 +18,8 @@ class AlsoRests extends React.Component{
         return matches.map(restaurant => (
             <Link key={restaurant.id} className="rev-res-link" to={`/restaurants/${restaurant.id}`}>
                 <div className="restaurant-icon">
-                    {/* <img src={restaurant.photoUrls[first]}></img> */}
-                    <img src={window.salmonplate}></img>
+                    <img src={restaurant.photoUrls[first]}></img>
+                    {/* <img src={window.salmonplate}></img> */}
                     <div className="res-info">
                         <h2>{restaurant.name}</h2>
                     </div>

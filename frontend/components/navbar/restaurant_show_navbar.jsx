@@ -90,8 +90,8 @@ class RestaurantShowNavBar extends React.Component {
                     <p>{this.props.restaurant.neighborhood}</p>
                 </div>
                 <div className="res-nav-div">
-                    {/* <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]}/> */}
-                    <img className="res-img-nav" src={window.salmonplate}/>
+                    <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]}/>
+                    {/* <img className="res-img-nav" src={window.salmonplate}/> */}
                         {/* <button className="res-fav-btn">
                             <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites
@@ -129,8 +129,8 @@ class RestaurantShowNavBar extends React.Component {
                             <p>{this.props.restaurant.neighborhood}</p>
                         </div>
                         <div className="res-nav-div">
-                            {/* <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]} /> */}
-                            <img className="res-img-nav" src={window.salmonplate} />
+                            <img className="res-img-nav" src={this.props.restaurant.photoUrls[first]} />
+                            {/* <img className="res-img-nav" src={window.salmonplate} /> */}
                             {/* <button className="res-fav-btn">
                                 <i className=" far2 far fa-bookmark"></i>
                             Add To Favorites

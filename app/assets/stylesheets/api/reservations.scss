@@ -244,13 +244,15 @@ margin-bottom: 10px;;
   background-color: #f4f6f8;
 }
 .up-res-r{
-  width: 50vw;
+  width: 56vw;
   margin-right: 3vw;
+  min-width: 740px;
 
 }
 
 .up-res-l{
   width: 23vw;
+  min-width: 23vw;
 
 }
 
@@ -512,6 +514,67 @@ margin-top: 5px;
 outline: none;
 
 }
+.res-google{
+    display: flex;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 1px 1px lightgrey;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-height: 178px;
+}
+
+.res-google > a > img{
+    height: 178px;
+    width:338px;
+}
+.res-google > div{
+    width: 100%;
+    padding: 25px;
+}
+.res-google > div > h2{
+    font-size: 19px;
+    margin-bottom: 25px;
+    font-weight: bolder;
+}
+.res-google > div > div{
+    margin-top: 10px;
+    color: #247F9E;
+    font-size: 14.5px;
+}
+.res-google > div > span{
+    font-size: 14.5px;
+}
+.res-google > div > div > a{
+    margin-right: 3px;
+    text-decoration: none;
+    color: #B22222;
+    font-size: 14.5px;
+}
+.res-google > div > div:last-of-type{
+    margin: 30px 0 0 0;
+    display: flex;
+}
+.res-google > div > div:last-of-type:hover a{
+    color: #8d1b1b;
+    transition: 0.4s;
+}
+.res-google > div > div > div{
+    margin-top: 3px;
+    height: 4px;
+    width:4px;
+    border-left: solid 1px;
+    border-top: solid 1px;
+    border-color:#B22222;
+    transform: rotate(135deg);
+    cursor: pointer;
+}
+.res-google > div > div:last-of-type:hover div{
+    border-color:#8d1b1b;
+}
+
+
 
 #restext textarea{
     box-sizing: border-box;
@@ -581,6 +644,7 @@ outline: none;
     box-sizing:border-box;
     box-shadow: 0px 1px 1px lightgray;
   width: 100%;
+  min-width: 235px;
     border-radius: 0 0 5px 5px;
     height:170px;
     background-color: white;

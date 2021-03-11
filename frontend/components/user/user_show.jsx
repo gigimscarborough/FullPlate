@@ -47,8 +47,8 @@ class UserShow extends React.Component {
                 (
                     <div key={i} className="reservation-it">
                         <div>
-                            {/* <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link> */}
-                            <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link>
+                            <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link>
+                            {/* <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link> */}
                         </div>
                         <div className="u-res-info-div">
                             <div className="u-res-name">
@@ -216,8 +216,8 @@ class UserShow extends React.Component {
 
                     <div key={i} className="reservation-it">
                         <div>
-                            {/* <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link> */}
-                            <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link>
+                            <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={allRests.filter(rest => (rest.id === reservations[i].restaurant_id))[0].photoUrls[0]} alt="" /></Link>
+                            {/* <Link to={`/restaurants/${reservations[i].restaurant_id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link> */}
                         </div>
                         <div className="u-res-info-div">
                             <div className="u-res-name">
@@ -267,8 +267,8 @@ class UserShow extends React.Component {
                 <div key={i} className="fav-hold">
                     <div className="fav-it">
                         <div>
-                            {/* <Link to={`/restaurants/${theseFavs[i].id}`}><img id="u-res-pic" src={theseFavs[i].photoUrls[0]} alt="" /></Link> */}
-                            <Link to={`/restaurants/${theseFavs[i].id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link>
+                            <Link to={`/restaurants/${theseFavs[i].id}`}><img id="u-res-pic" src={theseFavs[i].photoUrls[0]} alt="" /></Link>
+                            {/* <Link to={`/restaurants/${theseFavs[i].id}`}><img id="u-res-pic" src={window.salmonplate} alt="" /></Link> */}
                         </div>
                         <div className="u-res-info-div">
                             <div className="u-res-name">

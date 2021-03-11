@@ -182,28 +182,28 @@ class ShowContent extends React.Component {
                         <div className="rest-photos">
                             <div className="photo-c1">
                                 <div  className="photo-r1">
-                                    {/* <img src={this.props.restaurant.photoUrls[first]} /> */}
-                                    <img onClick={() => this.photoModal(0)} src={window.salmonplate} />
+                                    <img src={this.props.restaurant.photoUrls[first]} />
+                                    {/* <img onClick={() => this.photoModal(0)} src={window.salmonplate} /> */}
                                 </div>
                                 <div className="photo-r1">
-                                    {/* <img src={this.props.restaurant.photoUrls[second]} /> */}
-                                    <img onClick={() => this.photoModal(1)} src={window.salmonplate} />
+                                    <img src={this.props.restaurant.photoUrls[second]} />
+                                    {/* <img onClick={() => this.photoModal(1)} src={window.salmonplate} /> */}
                                 </div>
                             </div >
                             <div className="photo-c2">
-                                {/* <img src={this.props.restaurant.photoUrls[third]} /> */}
-                                <img onClick={() => this.photoModal(2)} src={window.salmonplate} />
+                                <img src={this.props.restaurant.photoUrls[third]} />
+                                {/* <img onClick={() => this.photoModal(2)} src={window.salmonplate} /> */}
 
                             </div>
                             <div className="photo-c1">
                                 <div className="photo-r1">
-                                    {/* <img src={this.props.restaurant.photoUrls[fourth]} /> */}
-                                    <img onClick={() => this.photoModal(3)} src={window.salmonplate} />
+                                    <img src={this.props.restaurant.photoUrls[fourth]} />
+                                    {/* <img onClick={() => this.photoModal(3)} src={window.salmonplate} /> */}
 
                                 </div>
                                 <div className="photo-r1">
-                                    {/* <img src={this.props.restaurant.photoUrls[fifth]} /> */}
-                                    <img onClick={() => this.photoModal(4)} src={window.salmonplate} />
+                                    <img src={this.props.restaurant.photoUrls[fifth]} />
+                                    {/* <img onClick={() => this.photoModal(4)} src={window.salmonplate} /> */}
 
                                 </div>
                             </div>
