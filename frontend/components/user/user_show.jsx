@@ -17,6 +17,7 @@ class UserShow extends React.Component {
     }
 
     componentDidMount() {
+        debugger
         this.props.fetchRestaurants()
         // this.props.fetchReservations()
         // this.props.fetchUser(this.props.currentUser.id)
@@ -42,7 +43,7 @@ class UserShow extends React.Component {
         for (let i = 0; i < reservations.length; i++) {
             let resDate = new Date(reservations[i].reservation_datetime)
             resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
-
+            debugger
             resList.push(
                 (
                     <div key={i} className="reservation-it">

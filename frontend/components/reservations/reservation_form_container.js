@@ -22,6 +22,7 @@ const mDTP = (dispatch) => ({
     createReservation: (reservation) => dispatch(createReservation(reservation)),
     logout: () => dispatch(logout()),
     fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
+    fetchRestaurants: () => dispatch(fetchRestaurants()),
     fetchReservations: () => dispatch(fetchReservations()),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     

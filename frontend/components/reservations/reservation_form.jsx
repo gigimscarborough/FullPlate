@@ -103,10 +103,11 @@ class ReservationForm extends React.Component {
     }
 
     handleSubmit(e) {
-
+        debugger
         e.preventDefault()
         this.props.createReservation(this.state)
         .then(() => this.props.fetchUser(this.props.currentUser.id))
+        .then(() => this.props.fetchRestaurants())
         .then(() => this.props.history.push(`/users/${this.props.currentUser.id}`))
         // .then(() => this.props.fetchReservations())
         // .then(() => window.location.reload())
