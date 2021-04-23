@@ -1,21 +1,19 @@
 import React from "react";
-import { Route } from 'react-router-dom'
-import {ProtectedRoute, AuthRoute} from '../util/route_util'
-import Modal from './modal'
-import SplashNavBar from '../components/navbar/splash_navbar'
-import UserShowContainer from './user/user_show_container'
-import Search from './search/search'
-import Landing from './landing'
-import RestaurantShowContainer from '../components/restaurant_show/restaurant_show_container'
-import SearchPageContainter from './search/search_page_container'
-import ReservationFormContainer from './reservations/reservation_form_container'
-import ViewReservationContainer from './reservations/view_reservation_container'
-import UpdateReservationContainer from './reservations/update_reservation_container'
-import DeleteReservationContainer from './reservations/delete_reservation_container'
-import ReviewFormContainer from './reviews/review_form_container'
-import EditReviewContainer from './reviews/edit_review_container'
-import ReviewConfContainer from './reviews/review_conf'
-import Footer from './footer/footer'
+import { Route } from 'react-router-dom';
+import {ProtectedRoute, AuthRoute} from '../util/route_util';
+import Modal from './modal';
+import UserShowContainer from './user/user_show_container';
+import Landing from './landing';
+import RestaurantShowContainer from '../components/restaurant_show/restaurant_show_container';
+import SearchPageContainter from './search/search_page_container';
+import ReservationFormContainer from './reservations/reservation_form_container';
+import ViewReservationContainer from './reservations/view_reservation_container';
+import UpdateReservationContainer from './reservations/update_reservation_container';
+import DeleteReservationContainer from './reservations/delete_reservation_container';
+import ReviewFormContainer from './reviews/review_form_container';
+import EditReviewContainer from './reviews/edit_review_container';
+import ReviewConfContainer from './reviews/review_conf';
+import Footer from './footer/footer';
 
 
 

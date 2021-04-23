@@ -1,37 +1,37 @@
-import React from 'react'
-import AltGreetingDropdown from './alt_greeting_dropdown'
+import React from 'react';
+import AltGreetingDropdown from './alt_greeting_dropdown';
 
 
 class AltClickGreetingDropdown extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = { clicked: false }
-        this.whenClicked = this.whenClicked.bind(this)
+        super(props);
+        this.state = { clicked: false };
+        this.whenClicked = this.whenClicked.bind(this);
 
     }
 
     whenClicked(e) {
         if (document.getElementById('alt-greeting-dropdown')) {
             if (document.getElementById('alt-greeting-dropdown').style.display === 'none') {
-                document.getElementById('alt-greeting-dropdown').style.display = 'block'
-                this.setState({ clicked: true })
+                document.getElementById('alt-greeting-dropdown').style.display = 'block';
+                this.setState({ clicked: true });
             }
             else {
-                const status = !this.state.clicked
-                this.setState({ clicked: status })
+                const status = !this.state.clicked;
+                this.setState({ clicked: status });
             }
         } else {
 
-            const status = !this.state.clicked
-            this.setState({ clicked: status })
+            const status = !this.state.clicked;
+            this.setState({ clicked: status });
         }
 
 
         if (document.getElementById('alt-uu-dropdown')) {
-            document.getElementById('alt-uu-dropdown').style.display = 'none'
+            document.getElementById('alt-uu-dropdown').style.display = 'none';
         }
         if (document.getElementById('alt-uu-dropdown2')) {
-            document.getElementById('alt-uu-dropdown2').style.display = 'none'
+            document.getElementById('alt-uu-dropdown2').style.display = 'none';
         }
     }
 

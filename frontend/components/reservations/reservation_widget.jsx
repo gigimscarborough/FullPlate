@@ -1,97 +1,91 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import { Link } from 'react-router-dom'
-import {sendForm} from '../../actions/search_actions'
-import { openModal } from '../../actions/modal_actions'
-import {withRouter} from 'react-router-dom'
-import WidgetTables from './widget_tables'
+import React from 'react';
+import { connect } from 'react-redux';
+import { sendForm } from '../../actions/search_actions';
+import { openModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
+import WidgetTables from './widget_tables';
 
 class ReservationWidget extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
-        
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.dateToday = new Date()
-        this.hours = ((this.dateToday.getHours() + 1) % 24) < 10 ? `0${((this.dateToday.getHours() + 1) % 24)}` : ((this.dateToday.getHours() + 1) % 24)
-        this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes()
-        this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1
-        this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate()
-        this.year = this.dateToday.getFullYear()
-        
-        this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`
-        
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.dateToday = new Date();
+        this.hours = ((this.dateToday.getHours() + 1) % 24) < 10 ? `0${((this.dateToday.getHours() + 1) % 24)}` : ((this.dateToday.getHours() + 1) % 24);
+        this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes();
+        this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1;
+        this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate();
+        this.year = this.dateToday.getFullYear();
+
+        this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`;
+
         this.state = {
             keyword: !this.props.search.keyword ? "" : this.props.search.keyword,
             date: !this.props.search.date ? `${this.year}-${this.month}-${this.date}` : this.props.search.date,
             time: !this.props.search.time ? this.defaultTime : this.props.search.time,
             guest_count: !this.props.search.guest_count ? 1 : this.props.search.guest_count,
             updated: false,
-        
-        }
-       
+
+        };
+
     }
 
     handleChange(type) {
         return (e) => (
-            this.setState({ [type]: e.currentTarget.value, updated: false})
-        )
+            this.setState({ [type]: e.currentTarget.value, updated: false })
+        );
 
     }
 
-    handleSubmit(e){
-        e.preventDefault()
+    handleSubmit(e) {
+        e.preventDefault();
         // if (this.props.currentUser){
-
-            let form = {
-                keyword: this.state.keyword,
-                date: this.state.date,
-                time: this.state.time,
-                guest_count: this.state.guest_count
-            }
-
-            this.props.sendForm(form)
-            this.setState({
-                updated: true
-            })
-            // this.props.history.push(`/restaurants/${this.props.match.params.restaurantId}/reserve`)
+        let form = {
+            keyword: this.state.keyword,
+            date: this.state.date,
+            time: this.state.time,
+            guest_count: this.state.guest_count
+        };
+        this.props.sendForm(form);
+        this.setState({
+            updated: true
+        });
+        // this.props.history.push(`/restaurants/${this.props.match.params.restaurantId}/reserve`)
         // } else {
         //     this.props.openModal('login')
         // }
-
     }
 
-    button(){
-        if (!this.state.updated){
-            return(
+    button() {
+        if (!this.state.updated) {
+            return (
                 <button onClick={this.handleSubmit} className="wid-btn">Find a table</button>
-            )
+            );
         } else {
             return (
-                <WidgetTables currentUser={this.props.currentUser} restaurantId={this.props.restaurantId} sendForm={this.props.sendForm}  openModal={this.props.openModal} operation_hours={this.props.operation_hours}/>
-            )
+                <WidgetTables currentUser={this.props.currentUser} restaurantId={this.props.restaurantId} sendForm={this.props.sendForm} openModal={this.props.openModal} operation_hours={this.props.operation_hours} />
+            );
         }
     }
- 
+
     render() {
 
-        
-
-        const resSearch = this.props.search
+        const resSearch = this.props.search;
 
         if (typeof resSearch === "undefined") {
-            return null
+            return null;
         }
 
 
-        const dateToday = new Date()
-        const hours = dateToday.getHours() < 10 ? `0${dateToday.getHours()}` : dateToday.getHours()
-        const minutes = dateToday.getMinutes() < 10 ? `0${dateToday.getMinutes()}` : dateToday.getMinutes()
-        const month = dateToday.getMonth() < 10 ? `0${dateToday.getMonth() + 1}` : dateToday.getMonth() + 1
-        const date = dateToday.getDate() < 10 ? `0${dateToday.getDate()}` : dateToday.getDate()
-        const year = dateToday.getFullYear()
+        const dateToday = new Date();
+        const hours = dateToday.getHours() < 10 ? `0${dateToday.getHours()}` : dateToday.getHours();
+        const minutes = dateToday.getMinutes() < 10 ? `0${dateToday.getMinutes()}` : dateToday.getMinutes();
+        const month = dateToday.getMonth() < 10 ? `0${dateToday.getMonth() + 1}` : dateToday.getMonth() + 1;
+        const date = dateToday.getDate() < 10 ? `0${dateToday.getDate()}` : dateToday.getDate();
+        const year = dateToday.getFullYear();
 
-        let options = []
+        let options = [];
 
         for (let i = 2; i <= 20; i++) {
             options.push(this.props.search.guest_count == i ? <option selected key={i} value={i}>For {i}</option> : <option key={i} value={i}>For {i}</option>)
@@ -100,31 +94,31 @@ class ReservationWidget extends React.Component {
 
         const timeOnHour = []
 
-            for(let i= 12; i >= 1; i--){
-                timeOnHour.push(`${i}:00`)
-            }
+        for (let i = 12; i >= 1; i--) {
+            timeOnHour.push(`${i}:00`);
+        }
         const timeOnHalf = []
 
         for (let i = 12; i >= 1; i--) {
-            timeOnHalf.push(`${i}:30`)
+            timeOnHalf.push(`${i}:30`);
         }
 
-        const allTimes = function(arr1, arr2){
-            const ttlTimes = []
+        const allTimes = function (arr1, arr2) {
+            const ttlTimes = [];
 
-            while(arr1.length || arr2.length){
-                if (arr1.length >= arr2.length){
-                    ttlTimes.push(arr1.shift())
+            while (arr1.length || arr2.length) {
+                if (arr1.length >= arr2.length) {
+                    ttlTimes.push(arr1.shift());
                 } else {
-                    ttlTimes.push(arr2.shift())
+                    ttlTimes.push(arr2.shift());
                 }
             }
             return ttlTimes;
         }
 
-        const times = allTimes(timeOnHour, timeOnHalf)
-        
-        const timeOptionsAm = times.map(time =>(
+        const times = allTimes(timeOnHour, timeOnHalf);
+
+        const timeOptionsAm = times.map(time => (
 
             time.length === 4 ? <option value={`0${time}:00`}>{time} AM</option> : <option value={`${time}:00`}>{time} AM</option>
         ))
@@ -137,19 +131,12 @@ class ReservationWidget extends React.Component {
         // const currentHour = dateToday.getHours() 
 
         // let currentOption = dateToday.getMinutes() > 15 && dateToday.getMinutes() < 45 ? <option selected value={`${(hours + 1) % 24}:30:00`}>{`${(currentHour + 1) % 12}:30`} {((currentHour + 1) / 12) > 1 ? `PM` : `AM`}</option> : <option selected value={`${(hours + 1) % 24}:00:00`}>{`${(currentHour + 1) % 12}:00`} {((currentHour + 1) / 12) > 1 ? `PM` : `AM`}</option>
-         
-        const currentHour = !this.props.search.time ? this.defaultTime.split(":") : this.props.search.time.split(":")
 
-        const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12
+        const currentHour = !this.props.search.time ? this.defaultTime.split(":") : this.props.search.time.split(":");
+
+        const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12;
 
         let currentOption = <option selected value={this.state.time}>{`${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `PM` : `AM`}`}</option>
-
-        
-
-
-
-
-
 
 
         return (
@@ -163,14 +150,14 @@ class ReservationWidget extends React.Component {
                             <div className="wid-sel">
                                 <label className="wid-lbl">Party Size
                                 <select onChange={this.handleChange('guest_count')}>
-                                    <option key={1} value={1} selected>For 1</option>
-                                    {options}
-                                </select>
+                                        <option key={1} value={1} selected>For 1</option>
+                                        {options}
+                                    </select>
                                 </label>
                             </div>
                             <div className="wid-dt">
                                 <label className="wid-lbl">Date
-                                    <input type="date" defaultValue={this.state.date ? this.state.date : `${this.year}-${this.month}-${this.date}`} onChange={this.handleChange('date')}/>
+                                    <input type="date" defaultValue={this.state.date ? this.state.date : `${this.year}-${this.month}-${this.date}`} onChange={this.handleChange('date')} />
                                 </label>
                                 <label className="wid-lbl">Time
                                 <select onChange={this.handleChange('time')} >
@@ -223,7 +210,7 @@ class ReservationWidget extends React.Component {
                                         < option value={`22:30:00`}> 10:30 PM</option >
                                         < option value={`23:00:00`}> 11:00 PM</option >
                                         < option value={`23:30:00`}> 11:30 PM</option >
-                                </select>
+                                    </select>
 
                                 </label>
                             </div>
@@ -248,4 +235,4 @@ const mDTP = (state) => ({
     openModal: modal => dispatch(openModal(modal))
 })
 
-export default withRouter(connect(mSTP, mDTP)(ReservationWidget))
+export default withRouter(connect(mSTP, mDTP)(ReservationWidget));

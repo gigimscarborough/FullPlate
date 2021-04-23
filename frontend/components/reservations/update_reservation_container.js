@@ -1,9 +1,9 @@
-import { connect } from 'react-redux'
-import { updateReservation } from '../../actions/reservation_actions'
-import { openModal } from '../../actions/modal_actions'
-import UpdateReservation from './update_reservation'
-import { fetchRestaurants } from '../../actions/restaurant_actions'
-import { logout, fetchUser } from '../../actions/session_actions'
+import { connect } from 'react-redux';
+import { updateReservation } from '../../actions/reservation_actions';
+import { openModal } from '../../actions/modal_actions';
+import UpdateReservation from './update_reservation';
+import { fetchRestaurants } from '../../actions/restaurant_actions';
+import { logout, fetchUser } from '../../actions/session_actions';
 
 
 
@@ -14,7 +14,6 @@ const mSTP = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         reservations: state.entities.users[state.session.id].reservations,
         // reservation: state.entities.users[state.session.id].reservations[ownProps.match.params.reservationId],
-
     }
 }
 
@@ -28,4 +27,4 @@ const mDTP = (dispatch) => ({
 })
 
 
-export default connect(mSTP, mDTP)(UpdateReservation)
+export default connect(mSTP, mDTP)(UpdateReservation);

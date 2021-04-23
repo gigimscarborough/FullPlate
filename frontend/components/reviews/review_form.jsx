@@ -9,7 +9,7 @@ import { fetchUser } from '../../util/session_api_util';
 
 class ReviewForm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
 
         this.state = {
@@ -27,11 +27,11 @@ class ReviewForm extends React.Component {
             guest_id: this.reservation().guest_id,
             reservation_id: this.reservation().id,
             page: 1
-        }
-        this.handleRating = this.handleRating.bind(this)
-        this.handleNext = this.handleNext.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.nextAvail3 = this.nextAvail3.bind(this)
+        };
+        this.handleRating = this.handleRating.bind(this);
+        this.handleNext = this.handleNext.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.nextAvail3 = this.nextAvail3.bind(this);
 
 
     }
@@ -40,7 +40,7 @@ class ReviewForm extends React.Component {
 
         this.props.fetchRestaurants();
 
-        if(this.props.fetchReviews){
+        if (this.props.fetchReviews) {
 
             this.props.fetchReviews();
         }
@@ -65,7 +65,7 @@ class ReviewForm extends React.Component {
         // if (this.state[type] === 5){
         //     return "Outstanding"
         // } 
-        return this.state[type] === 5 ? "Outstanding" : this.state[type] === 4 ? "Very Good" : this.state[type] === 3 ? "Good" : this.state[type] === 3 ? "Fair" : this.state[type] === 3 ? "Poor" : " "
+        return this.state[type] === 5 ? "Outstanding" : this.state[type] === 4 ? "Very Good" : this.state[type] === 3 ? "Good" : this.state[type] === 3 ? "Fair" : this.state[type] === 3 ? "Poor" : " ";
 
     }
 
@@ -84,15 +84,15 @@ class ReviewForm extends React.Component {
             //     next.style.backgroundColor = "#B22222";
             //     next.style.transition = "0.4s";
             // })
-            return(
+            return (
 
                 <button id="next-btn-1" className="next-btn-1-hov" onClick={() => this.handleNext(1)}>Next</button>
-                )
+            );
         } else {
-            return(
+            return (
 
                 <button className="next-btn-1-hov">Next</button>
-            )
+            );
         }
     }
 
@@ -110,41 +110,41 @@ class ReviewForm extends React.Component {
 
             // })
             // next.addEventListener("mouseleave", (e) => {
-                //     next.style.backgroundColor = "#B22222";
-                //     next.style.transition = "0.4s";
-                // })
-                return(
+            //     next.style.backgroundColor = "#B22222";
+            //     next.style.transition = "0.4s";
+            // })
+            return (
 
-                    <button id="next-btn-2" onClick={() => this.handleNext(2)}>Next</button>
-                )
-            } else {
+                <button id="next-btn-2" onClick={() => this.handleNext(2)}>Next</button>
+            );
+        } else {
             return (
                 <button>Next</button>
-            )
-            }
+            );
+        }
 
     }
 
     nextAvail3() {
 
-        
+
         // const next = document.getElementById('next-btn-3')
-        
-        
+
+
         if ((this.state.nickname && this.state.nickname.length < 25)
-        && (this.state.pm === "" || (this.state.pm.length > 49 && this.state.pm.length < 2001) )
+            && (this.state.pm === "" || (this.state.pm.length > 49 && this.state.pm.length < 2001))
         ) {
-            return(
+            return (
                 <button id="rev-sub" onClick={this.handleSubmit}>Submit your review </button>
 
-            )
+            );
         } else {
             return (
                 <button>Submit your review </button>
 
-            )
+            );
         }
-        
+
     }
 
     handleNext(num) {
@@ -243,7 +243,7 @@ class ReviewForm extends React.Component {
         }
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault()
 
         let form = {
@@ -261,17 +261,18 @@ class ReviewForm extends React.Component {
             body: this.state.body,
             would_recommend: this.state.would_recommend
         }
-     
+
         this.props.action(form)
-        .then(() => this.props.fetchUser(this.props.currentUser.id))
-        .then(() => this.props.history.push({
-            pathname: `/restaurants/${this.reservation().restaurant_id}/reservations/${this.reservation().id}/review/confirm`, 
-            state: { restaurant : this.props.restaurant}}))
+            .then(() => this.props.fetchUser(this.props.currentUser.id))
+            .then(() => this.props.history.push({
+                pathname: `/restaurants/${this.reservation().restaurant_id}/reservations/${this.reservation().id}/review/confirm`,
+                state: { restaurant: this.props.restaurant }
+            }))
 
     }
 
     navBar() {
-    
+
         if (this.props.currentUser) {
             return (
                 <div>
@@ -318,8 +319,8 @@ class ReviewForm extends React.Component {
 
     render() {
 
- 
-    
+
+
         let resDate = new Date(this.reservation().reservation_datetime)
         resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
 
@@ -430,7 +431,7 @@ class ReviewForm extends React.Component {
                                 <div className="l-dot"></div>
                                 <div className="d-dot"></div>
                                 <div className="l-dot"></div>
-                      
+
                             </div>
                             <h3>
                                 Write a review
@@ -439,7 +440,7 @@ class ReviewForm extends React.Component {
                             <div className="wr-review">
                                 <span onClick={() => this.props.openModal('rev-help')}><i className="far fa-question-circle"></i> Need help?</span>
                                 <textarea onChange={this.handleChange('body')} defaultValue={this.state.body ? this.state.body : null} placeholder="Your review must be at least 50 characters"></textarea>
-                                 
+
                                 <div>
                                     <span>Minimum 50 characters</span>
                                     <span><p>{this.state.body.length}</p> &nbsp; / 2000 characters</span>
@@ -459,7 +460,7 @@ class ReviewForm extends React.Component {
                             <div className="rev-pg">
                                 <button onClick={() => this.handleBack(1)}>Back</button>
                                 {this.nextAvail2()}
-                                
+
                             </div>
                         </div>
                     </div>
@@ -478,7 +479,7 @@ class ReviewForm extends React.Component {
                                 <div className="l-dot"></div>
                                 <div className="l-dot"></div>
                                 <div className="d-dot"></div>
-                           
+
                             </div>
                             <h3>
                                 What is your reviews nickname?
@@ -504,13 +505,13 @@ class ReviewForm extends React.Component {
                             </div>
                             <div id="pm-text" className="pm-body">
 
-                            <textarea onChange={this.handleChange('pm')} placeholder={`e.g. "Our server Gigi was very helpful and attentive all night. Please send her our thanks."`} >
+                                <textarea onChange={this.handleChange('pm')} placeholder={`e.g. "Our server Gigi was very helpful and attentive all night. Please send her our thanks."`} >
 
-                            </textarea>
-                            <span className="pm-leng">
-                                <span>Minimum 50 characters</span>
-                                <span><p>{this.state.pm.length}</p>&nbsp; / 2000 characters</span>
-                            </span>
+                                </textarea>
+                                <span className="pm-leng">
+                                    <span>Minimum 50 characters</span>
+                                    <span><p>{this.state.pm.length}</p>&nbsp; / 2000 characters</span>
+                                </span>
                             </div>
                             <div className="rev-pg">
                                 <button onClick={() => this.handleBack(2)}>Back</button>
@@ -527,4 +528,4 @@ class ReviewForm extends React.Component {
     }
 }
 
-export default ReviewForm
+export default ReviewForm;

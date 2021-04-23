@@ -1,20 +1,20 @@
-import React from 'react'
+import React from 'react';
 import MainNavBar from '../navbar/main_navbar';
 import AltClickUserUpcomingDropdown from '../navbar/alt_click_user_upcoming_dropdown';
 import AltClickGreetingDropdown from '../navbar/alt_click_greeting_dropdown';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import UpdateReservationNext from './update_reservation_next'
 
 
 class UpdateReservation extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         // this.resId = this.props.match.params.reservationId;
-        this.reservation = this.reservation.bind(this)
-        this.restaurant = this.restaurant.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.modified = false
+        this.reservation = this.reservation.bind(this);
+        this.restaurant = this.restaurant.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.modified = false;
 
 
 
@@ -32,44 +32,44 @@ class UpdateReservation extends React.Component {
             time: new Date(this.reservation().reservation_datetime).toTimeString(),
             date: this.reservation().reservation_datetime.split("T")[0],
             reservation_datetime: this.reservation().reservation_datetime.split("T")[0] + " " + new Date(this.reservation().reservation_datetime).toTimeString(),
-        }
+        };
 
     }
 
     componentDidMount() {
-        this.props.fetchRestaurants()
+        this.props.fetchRestaurants();
     }
 
     reservation() {
 
-        const reservations = this.props.reservations
-        const resId = this.props.match.params.reservationId
-        const res = []
+        const reservations = this.props.reservations;
+        const resId = this.props.match.params.reservationId;
+        const res = [];
 
 
         for (let i = 0; i < reservations.length; i++) {
             if (reservations[i].id === parseInt(resId)) {
-                res.push(reservations[i])
+                res.push(reservations[i]);
             }
         }
 
-        return res[0]
+        return res[0];
     }
 
     restaurant() {
-        const restaurants = this.props.restaurants
-        const resId = this.reservation().restaurant_id
-        const res = []
+        const restaurants = this.props.restaurants;
+        const resId = this.reservation().restaurant_id;
+        const res = [];
 
 
         for (let i = 0; i < restaurants.length; i++) {
 
             if (restaurants[i].id === resId) {
-                res.push(restaurants[i])
+                res.push(restaurants[i]);
             }
         }
 
-        return res[0]
+        return res[0];
 
     }
 
@@ -101,7 +101,7 @@ class UpdateReservation extends React.Component {
                         </div>
                     </div>
                 </div>
-            )
+            );
         } else {
             return (
                 <div>
@@ -126,24 +126,24 @@ class UpdateReservation extends React.Component {
                         <p>{this.props.currentUser.dining_city}</p>
                     </div>
                 </div>
-            )
+            );
 
         }
     }
 
     handleChange(type) {
         return (e) => {
-            if (type === "date"){
-                this.setState({ reservation_datetime: e.currentTarget.value + " " + this.state.time })
+            if (type === "date") {
+                this.setState({ reservation_datetime: e.currentTarget.value + " " + this.state.time });
             }
-            this.setState({ [type]: e.currentTarget.value })
-    }
+            this.setState({ [type]: e.currentTarget.value });
+        }
 
     }
 
     handleSubmit(e) {
-        e.preventDefault()
-        
+        e.preventDefault();
+
         let form = {
             email: this.state.email,
             first_name: this.state.first_name,
@@ -156,51 +156,51 @@ class UpdateReservation extends React.Component {
             reservation_datetime: this.state.date + " " + this.state.time.split(" ")[0],
             restaurant_id: this.state.restaurant_id,
             special_request: this.state.special_request,
-        }
-        
+        };
+
         this.props.updateReservation(form)
-        .then(() => this.props.fetchUser(this.props.currentUser.id))
+            .then(() => this.props.fetchUser(this.props.currentUser.id));
         // .then(() => 
-        this.modified = true
+        this.modified = true;
         // )
     }
 
 
     render() {
-        
-        let options = []
-        
+
+        let options = [];
+
         for (let i = 1; i <= 20; i++) {
-            options.push(this.reservation().guest_count === i ? <option selected key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option> : <option key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
+            options.push(this.reservation().guest_count === i ? <option selected key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option> : <option key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option>);
         }
-        
-        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
-        
-        let resDate = new Date(this.reservation().reservation_datetime)
+
+        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+        let resDate = new Date(this.reservation().reservation_datetime);
         // let resDate = new Date(this.props.search.date)
-        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
-        
-        let resState = new Date(this.state.reservation_datetime)
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
+
+        let resState = new Date(this.state.reservation_datetime);
         // let resDate = new Date(this.props.search.date)
-        resState = new Date(resState.getTime() + resState.getTimezoneOffset() * 60000)
-        
+        resState = new Date(resState.getTime() + resState.getTimezoneOffset() * 60000);
+
         // let sDate = new Date(this.state.date)
         // // let resDate = new Date(this.props.search.date)
         // sDate = new Date(resState.getTime() + resState.getTimezoneOffset() * 60000)
-        
- 
+
+
 
         if (Object.values(this.props.restaurants).length <= 0) {
-            return null
-        } 
-        if(this.modified === true){
+            return null;
+        }
+        if (this.modified === true) {
             return (
                 <div>
                     {this.navBar()}
-                    <UpdateReservationNext currentUser={this.props.currentUser} openModal={this.props.openModal} restaurant={this.restaurant()} reservation={this.state} updateReservation={this.props.updateReservation} fetchUser={this.props.fetchUser}/>
+                    <UpdateReservationNext currentUser={this.props.currentUser} openModal={this.props.openModal} restaurant={this.restaurant()} reservation={this.state} updateReservation={this.props.updateReservation} fetchUser={this.props.fetchUser} />
                 </div>
-                )
-        }else {
+            );
+        } else {
 
             return (
                 <div>
@@ -234,7 +234,7 @@ class UpdateReservation extends React.Component {
                                 <div className="mod-res-div">
                                     <div className="mod-res-sel">
                                         <div className="mod-date">
-                                            <input type="date"  onChange={this.handleChange('date')} />
+                                            <input type="date" onChange={this.handleChange('date')} />
                                             <div className="mod-date-s">{new Date(this.state.reservation_datetime).toLocaleDateString(undefined, format).split(", ").slice(1).join(", ")}</div>
                                         </div>
                                         <div className="g-bord"></div>
@@ -279,8 +279,8 @@ class UpdateReservation extends React.Component {
                                                 {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `6:00 PM` ? < option selected value={`18:00:00`}> 6:00 PM</option > : < option value={`18:00:00`}> 6:00 PM</option >}
                                                 {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `6:30 PM` ? < option selected value={`18:30:00`}> 6:30 PM</option > : < option value={`18:30:00`}> 6:30 PM</option >}
                                                 {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `7:00 PM` ? < option selected value={`19:00:00`}> 7:00 PM</option > : < option value={`19:00:00`}> 7:00 PM</option >}
-                                                {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `7:30 PM` ? < option selected value={`19:30:00`}> 7:30 PM</option > : < option value={`19:30:00`}> 7:30 PM</option >}   
-                                                {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `8:00 PM` ? < option selected value={`20:00:00`}> 8:00 PM</option > : < option value={`20:00:00`}> 8:00 PM</option >}   
+                                                {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `7:30 PM` ? < option selected value={`19:30:00`}> 7:30 PM</option > : < option value={`19:30:00`}> 7:30 PM</option >}
+                                                {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `8:00 PM` ? < option selected value={`20:00:00`}> 8:00 PM</option > : < option value={`20:00:00`}> 8:00 PM</option >}
                                                 {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `8:30 PM` ? < option selected value={`20:30:00`}> 8:30 PM</option > : < option value={`20:30:00`}> 8:30 PM</option >}
                                                 {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `9:00 PM` ? < option selected value={`21:00:00`}> 9:00 PM</option > : < option value={`21:00:00`}> 9:00 PM</option >}
                                                 {`${resState.toLocaleTimeString().split(":").slice(0, 2).join(":")} ${resState.toLocaleTimeString().split(" ").slice(1)}` === `9:30 PM` ? < option selected value={`21:30:00`}> 9:30 PM</option > : < option value={`21:30:00`}> 9:30 PM</option >}
@@ -294,7 +294,7 @@ class UpdateReservation extends React.Component {
                                         <div className="g-bord"></div>
                                         <div className="mod-guest">
                                             <select onChange={this.handleChange('guest_count')}>
-                                            {options}
+                                                {options}
                                             </select>
                                             <i className="far fa-user"></i>
                                         </div>
@@ -307,11 +307,11 @@ class UpdateReservation extends React.Component {
 
                     </div>
                 </div>
-            )
+            );
         }
     }
 
 
 }
 
-export default UpdateReservation
+export default UpdateReservation;

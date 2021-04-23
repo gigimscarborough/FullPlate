@@ -1,36 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 class UpcomingDropdown extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     reservations() {
-        const today = new Date()
+        const today = new Date();
 
 
         let reservations = this.props.reservations.filter(function (res) {
-            let resTime = new Date(res.reservation_datetime)
-            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
+            let resTime = new Date(res.reservation_datetime);
+            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000);
             
             return resTime > today
-        })
+        });
 
         reservations.sort((a, b) => {
             return new Date(a.reservation_datetime) - new Date(b.reservation_datetime)
-        })
+        });
         
         return reservations.map(reservation => {
 
-            const restaurant = this.props.restaurants.filter(rest => rest.id === reservation.restaurant_id)[0]
+            const restaurant = this.props.restaurants.filter(rest => rest.id === reservation.restaurant_id)[0];
 
-            let resDate = new Date(reservation.reservation_datetime)
-            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
-            const format = { year: 'numeric', month: 'short', day: 'numeric' }
+            let resDate = new Date(reservation.reservation_datetime);
+            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
+            const format = { year: 'numeric', month: 'short', day: 'numeric' };
             return (
                 <div className="dd-res">
                     <div className="dd-res-l">
@@ -56,9 +56,8 @@ class UpcomingDropdown extends React.Component {
                     </div>
 
                 </div>
-            )
-        }
-        )
+            );
+        });
     }
 
 
@@ -106,4 +105,4 @@ const mDTP = (dispatch) => ({
 
 })
 
-export default connect(mSTP, mDTP)(UpcomingDropdown)
+export default connect(mSTP, mDTP)(UpcomingDropdown);

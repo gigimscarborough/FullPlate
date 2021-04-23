@@ -1,21 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class AltUserUpcomingDropdown extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
     }
 
 
     reservations() {
-        const today = new Date()
+        const today = new Date();
 
 
         let reservations = this.props.reservations.filter(function (res) {
-            let resTime = new Date(res.reservation_datetime)
-            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
+            let resTime = new Date(res.reservation_datetime);
+            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000);
             
             return resTime > today
         })
@@ -26,11 +26,11 @@ class AltUserUpcomingDropdown extends React.Component {
         
         return reservations.map((reservation, i) => {
 
-            const restaurant = this.props.restaurants.filter(rest => rest.id === reservation.restaurant_id)[0]
+            const restaurant = this.props.restaurants.filter(rest => rest.id === reservation.restaurant_id)[0];
 
-            let resDate = new Date(reservation.reservation_datetime)
-            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
-            const format = { year: 'numeric', month: 'short', day: 'numeric' }
+            let resDate = new Date(reservation.reservation_datetime);
+            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
+            const format = { year: 'numeric', month: 'short', day: 'numeric' };
             return (
                 <div key={i} className="dd-res2">
                     <div className="dd-res-r2">
@@ -99,4 +99,4 @@ const mDTP = (dispatch) => ({
 
 })
 
-export default connect(mSTP, mDTP)(AltUserUpcomingDropdown)
+export default connect(mSTP, mDTP)(AltUserUpcomingDropdown);

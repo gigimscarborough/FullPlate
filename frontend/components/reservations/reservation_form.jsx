@@ -1,25 +1,25 @@
-import React from 'react'
-import MainNavBar from '../navbar/main_navbar'
-import AltClickUserUpcomingDropdown from '../navbar/alt_click_user_upcoming_dropdown'
-import AltClickGreetingDropdown from '../navbar/alt_click_greeting_dropdown'
-import { Link } from 'react-router-dom'
-import { openModal } from '../../actions/modal_actions'
-import { timers } from 'jquery'
-import { fetchReservations } from '../../util/reservation_util'
+import React from 'react';
+import MainNavBar from '../navbar/main_navbar';
+import AltClickUserUpcomingDropdown from '../navbar/alt_click_user_upcoming_dropdown';
+import AltClickGreetingDropdown from '../navbar/alt_click_greeting_dropdown';
+import { Link } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
+import { timers } from 'jquery';
+import { fetchReservations } from '../../util/reservation_util';
 
 
 class ReservationForm extends React.Component {
     constructor(props) {
-        super(props)
-        this.search = this.props.search
-        this.time = 300
-        this.setTimer = this.setTimer.bind(this)
-        this.thisTime = setInterval(this.setTimer, 1000)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        super(props);
+        this.search = this.props.search;
+        this.time = 300;
+        this.setTimer = this.setTimer.bind(this);
+        this.thisTime = setInterval(this.setTimer, 1000);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
-        this.dateTime = this.props.search.date + " " + this.props.search.time
+        this.dateTime = this.props.search.date + " " + this.props.search.time;
         if (this.time === 0){
-            clearInterval(this.thisTime)
+            clearInterval(this.thisTime);
         }
 
         // this.state = {
@@ -45,21 +45,20 @@ class ReservationForm extends React.Component {
             phone_number: "",
             special_request: "",
             occasion: "",
-        }
+        };
     }
 
     componentDidMount() {
-        this.props.fetchRestaurant(this.props.match.params.restaurantId)
+        this.props.fetchRestaurant(this.props.match.params.restaurantId);
 
         if (Object.values(this.props.search).length) {
-            window.localStorage.setItem('savedSearch', JSON.stringify(this.props.search))
+            window.localStorage.setItem('savedSearch', JSON.stringify(this.props.search));
 
         } else {
-            this.search = JSON.parse(window.localStorage.getItem('savedSearch'))
+            this.search = JSON.parse(window.localStorage.getItem('savedSearch'));
         }
 
-    //   thi
-    this.thisTime
+        this.thisTime;
     }
 
     // componentDidUpdate(prevProps){
@@ -98,13 +97,13 @@ class ReservationForm extends React.Component {
     handleChange(type) {
         return (e) => (
             this.setState({ [type]: e.currentTarget.value })
-        )
+        );
 
     }
 
     handleSubmit(e) {
-        debugger
-        e.preventDefault()
+    
+        e.preventDefault();
         this.props.createReservation(this.state)
         .then(() => this.props.fetchUser(this.props.currentUser.id))
         .then(() => this.props.fetchRestaurants())
@@ -125,11 +124,11 @@ class ReservationForm extends React.Component {
 
         }
         
-        const resSearch = this.search
+        const resSearch = this.search;
         // const resSearch = this.props.search
 
         if (!Object.values(resSearch).length){
-            return null
+            return null;
         }
 
         if (typeof resSearch === "undefined") {
@@ -137,7 +136,7 @@ class ReservationForm extends React.Component {
             return null;
 
         }
-        const first = 0
+        const first = 0;
 
         // const currentUser = this.props.currentUser;
         // if (typeof currentUser === "undefined") {
@@ -147,17 +146,17 @@ class ReservationForm extends React.Component {
         // }
     
         // const currentHour =  this.props.search.time.split(":") 
-        const currentHour =  this.search.time.split(":") 
+        const currentHour =  this.search.time.split(":"); 
 
-        const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12
+        const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12;
 
-        let currentOption = `${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `pm` : `am`}`
+        let currentOption = `${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `pm` : `am`}`;
 
         let resDate = new Date(this.search.date)
         // let resDate = new Date(this.props.search.date)
-        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
 
-        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
         return (
             <div>
@@ -265,8 +264,8 @@ class ReservationForm extends React.Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default ReservationForm
+export default ReservationForm;

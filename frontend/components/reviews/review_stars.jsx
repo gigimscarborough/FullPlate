@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactStars from 'react-stars'
+import React from 'react';
+import ReactStars from 'react-stars';
 
 class ReviewStars extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     componentDidMount() {
@@ -11,27 +11,27 @@ class ReviewStars extends React.Component {
     }
 
     matches() {
-        const matches = this.props.reviews.filter(review => review.restaurant_id === this.props.restaurantId)
+        const matches = this.props.reviews.filter(review => review.restaurant_id === this.props.restaurantId);
 
-        return matches
+        return matches;
     }
 
     rating() {
 
 
-        let count = 0
+        let count = 0;
 
         for (let i = 0; i < this.matches().length; i++) {
-            count += this.matches()[i].overall_rating
+            count += this.matches()[i].overall_rating;
         }
   
-        return Math.round((count / this.matches().length) * 10) / 10
+        return Math.round((count / this.matches().length) * 10) / 10;
     }
 
     render() {
   
         if (this.props.reviews.length <= 0) {
-            return null
+            return null;
         }
         return (
             <span className="icn-strs">
@@ -48,11 +48,11 @@ class ReviewStars extends React.Component {
 
                 <p>{this.matches().length} reviews</p>
             </span>
-        )
+        );
     }
 
 
 }
 
-export default ReviewStars
+export default ReviewStars;
 

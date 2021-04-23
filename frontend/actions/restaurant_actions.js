@@ -1,8 +1,8 @@
-import * as RestaurantAPIUtil from '../util/restaurant_util'
+import * as RestaurantAPIUtil from '../util/restaurant_util';
 
-export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS'
-export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANT'
-export const SEARCH_RESTAURANTS = 'SEARCH_RESTAURANTS'
+export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS';
+export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANT';
+export const SEARCH_RESTAURANTS = 'SEARCH_RESTAURANTS';
 
 
 export const receiveSearchedRestaurants = (searchResult) => ({

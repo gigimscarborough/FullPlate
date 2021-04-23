@@ -2,11 +2,11 @@ import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../components/session_form/login_form_container';
-import SignupFormContainer from '../components/session_form/signup_form_container'
-import ResSearchModalContainer from './navbar/res_search_modal_container'
-import PrivateMessage from '../components/reviews/private_message'
-import ReviewHelp from '../components/reviews/review_help'
-import Report from '../components/restaurant_show/report'
+import SignupFormContainer from '../components/session_form/signup_form_container';
+import ResSearchModalContainer from './navbar/res_search_modal_container';
+import PrivateMessage from '../components/reviews/private_message';
+import ReviewHelp from '../components/reviews/review_help';
+import Report from '../components/restaurant_show/report';
 
 function Modal({ modal, closeModal }) {
     let component;
@@ -23,7 +23,7 @@ function Modal({ modal, closeModal }) {
                 {component}
                 {/* </div> */}
             </div>
-        )
+        );
     }
   
     return (

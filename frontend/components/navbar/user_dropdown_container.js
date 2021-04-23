@@ -1,6 +1,6 @@
-import { connect } from 'react-redux'
-import UserDropdown from './user_dropdown'
-import { logout } from '../../actions/session_actions'
+import { connect } from 'react-redux';
+import UserDropdown from './user_dropdown';
+import { logout } from '../../actions/session_actions';
 
 const mSTP = (state) => {
     
@@ -13,4 +13,4 @@ const mDTP = (dispatch) => ({
     logout: () => dispatch(logout())
 })
 
-export default connect(mSTP, mDTP)(UserDropdown)
+export default connect(mSTP, mDTP)(UserDropdown);

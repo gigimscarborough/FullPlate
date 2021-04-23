@@ -5,7 +5,7 @@ import ReviewStars from '../reviews/review_stars'
 
 class RestaurantIndex extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     componentDidMount() {
@@ -15,43 +15,44 @@ class RestaurantIndex extends React.Component {
 
     render() {
         const first = 0;
-        
-        
+
+
         const restaurants = this.props.restaurants.map(restaurant => {
 
-            let matches = this.props.reviews.filter(review => review.restaurant_id === restaurant.id)
-           
+            let matches = this.props.reviews.filter(review => review.restaurant_id === restaurant.id);
+
             // let count = 0
 
             // for (let i = 0; i < matches.length; i++) {
             //     count += matches[i].overall_rating
             // }
-            
+
             // count =  Math.round((count / matches.length) * 10) / 10
 
-            return(
-            <Link key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
-                <div className="restaurant-icon">
-                    <img src={restaurant.photoUrls[first]}></img>
-                    {/* <img src={window.salmonplate}></img> */}
-                    <div className="res-info">
-                        <h2>{restaurant.name}</h2>
-                    </div>
-                    
-                        <ReviewStars 
-                        reviews={this.props.reviews} fetchReviews={this.props.fetchReviews} restaurantId={restaurant.id}
+            return (
+                <Link key={restaurant.id} id="res-link" to={`/restaurants/${restaurant.id}`}>
+                    <div className="restaurant-icon">
+                        <img src={restaurant.photoUrls[first]}></img>
+                        {/* <img src={window.salmonplate}></img> */}
+                        <div className="res-info">
+                            <h2>{restaurant.name}</h2>
+                        </div>
+
+                        <ReviewStars
+                            reviews={this.props.reviews} fetchReviews={this.props.fetchReviews} restaurantId={restaurant.id}
                         />
-                        
-                    <div>
-                        <div className="dols2">
-                        <p>{restaurant.cuisine_type} &bull;</p>
-                            {restaurant.price_range === "$$" ? <div className="dols-in2"><span>$$</span><span className="g-dol2">$$</span></div> : restaurant.price_range === "$$$" ? <div className="dols-in2"><span>$$$</span><span className="g-dol2">$</span></div> : <div className="dols-in2"><span>$$$$</span></div>}
-                            <p id="nei">&bull; {restaurant.neighborhood}</p>
+
+                        <div>
+                            <div className="dols2">
+                                <p>{restaurant.cuisine_type} &bull;</p>
+                                {restaurant.price_range === "$$" ? <div className="dols-in2"><span>$$</span><span className="g-dol2">$$</span></div> : restaurant.price_range === "$$$" ? <div className="dols-in2"><span>$$$</span><span className="g-dol2">$</span></div> : <div className="dols-in2"><span>$$$$</span></div>}
+                                <p id="nei">&bull; {restaurant.neighborhood}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </Link>
-        )})
+                </Link>
+            );
+        });
 
 
         return (
@@ -69,9 +70,9 @@ class RestaurantIndex extends React.Component {
                 {/* <div className="slider-1">
                     <div className="scroll-left1"></div> */}
                 <div className="res-icon-cont">
-                    {restaurants.slice(0, 5)}   
+                    {restaurants.slice(0, 5)}
                 </div>
-                    {/* <div className="scroll-right1"></div>
+                {/* <div className="scroll-right1"></div>
                 </div> */}
                 <div className="res-header">
                     <h2>Most Popular</h2>
@@ -87,8 +88,8 @@ class RestaurantIndex extends React.Component {
                 </div>
             </div>
 
-        )
+        );
     }
 }
 
-export default RestaurantIndex
+export default RestaurantIndex;

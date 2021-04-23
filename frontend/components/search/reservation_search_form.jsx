@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 class ReservationSearchForm extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
     }
 
 
@@ -10,17 +10,17 @@ class ReservationSearchForm extends React.Component{
     render(){
 
 
-        const dateToday= new Date()
-        const hours = dateToday.getHours() < 10 ? `0${dateToday.getHours()}` : dateToday.getHours()
-        const minutes = dateToday.getMinutes() < 10 ? `0${dateToday.getMinutes()}` : dateToday.getMinutes()
-        const month = dateToday.getMonth() < 10 ? `0${dateToday.getMonth() + 1}` : dateToday.getMonth() + 1
-        const date = dateToday.getDate() < 10 ? `0${dateToday.getDate()}` : dateToday.getDate()
-        const year = dateToday.getFullYear()
+        const dateToday= new Date();
+        const hours = dateToday.getHours() < 10 ? `0${dateToday.getHours()}` : dateToday.getHours();
+        const minutes = dateToday.getMinutes() < 10 ? `0${dateToday.getMinutes()}` : dateToday.getMinutes();
+        const month = dateToday.getMonth() < 10 ? `0${dateToday.getMonth() + 1}` : dateToday.getMonth() + 1;
+        const date = dateToday.getDate() < 10 ? `0${dateToday.getDate()}` : dateToday.getDate();
+        const year = dateToday.getFullYear();
         
-        let options= []
+        let options= [];
 
         for( let i = 1; i <= 20; i++){
-            options.push(<option key={i} value={1} >{i < 2 ? `${i} Person`: `${i} People`}</option>)
+            options.push(<option key={i} value={1} >{i < 2 ? `${i} Person`: `${i} People`}</option>);
         }
 
         return(
@@ -32,8 +32,8 @@ class ReservationSearchForm extends React.Component{
                 {options}
             </select>
         </div>
-        )
+        );
     }
 }
 
-export default ReservationSearchForm
+export default ReservationSearchForm;

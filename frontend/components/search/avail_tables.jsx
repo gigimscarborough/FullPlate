@@ -1,13 +1,13 @@
-import React from 'react'
-import {withRouter} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 
 
 class AvailTables extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.times = [
             `00:00:00`,
@@ -58,62 +58,62 @@ class AvailTables extends React.Component {
             `22:30:00`,
             `23:00:00`,
             `23:30:00`,
-        ]
+        ];
 
         
-        this.dateToday = new Date('2021-08-19T' + this.props.search.time)
-        this.hours = ((this.dateToday.getHours() ) % 24) < 10 ? `0${((this.dateToday.getHours() ) % 24)}` : ((this.dateToday.getHours() ) % 24)
-        this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes()
+        this.dateToday = new Date('2021-08-19T' + this.props.search.time);
+        this.hours = ((this.dateToday.getHours() ) % 24) < 10 ? `0${((this.dateToday.getHours() ) % 24)}` : ((this.dateToday.getHours() ) % 24);
+        this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes();
         // this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1
         // this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate()
         // this.year = this.dateToday.getFullYear()
 
-        this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`
+        this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`;
 
     }
 
 
     componentDidMount(){
-        this.props.searchRestaurants(this.props.search.keyword)
+        this.props.searchRestaurants(this.props.search.keyword);
     }
     
     
 
     tIndexes() {
 
-        const tIndex = this.times.indexOf(this.props.time)
+        const tIndex = this.times.indexOf(this.props.time);
 
 
-        const prev1 = tIndex - 1 >= 0 ? tIndex - 1 : (tIndex - 1) + this.times.length
-        const prev2 = tIndex - 2 >= 0 ? tIndex - 2 : (tIndex - 2) + this.times.length
-        const next1 = tIndex + 1 <= (this.times.length - 1) ? tIndex + 1 : (tIndex + 1) % tIndex.length
-        const next2 = tIndex + 2 <= (this.times.length - 1) ? tIndex + 2 : (tIndex + 2) % tIndex.length
+        const prev1 = tIndex - 1 >= 0 ? tIndex - 1 : (tIndex - 1) + this.times.length;
+        const prev2 = tIndex - 2 >= 0 ? tIndex - 2 : (tIndex - 2) + this.times.length;
+        const next1 = tIndex + 1 <= (this.times.length - 1) ? tIndex + 1 : (tIndex + 1) % tIndex.length;
+        const next2 = tIndex + 2 <= (this.times.length - 1) ? tIndex + 2 : (tIndex + 2) % tIndex.length;
 
         
-        return [prev2, prev1, tIndex, next1, next2]
+        return [prev2, prev1, tIndex, next1, next2];
     }
 
     validTimes() {
 
-        let openingTime1 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[0])
-        let closingTime1 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1])
-        let openingTime2
-        let closingTime2
+        let openingTime1 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[0]);
+        let closingTime1 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1]);
+        let openingTime2;
+        let closingTime2;
 
         if (closingTime1 < openingTime1) {
-            closingTime1 = new Date('2021-08-19T' + '23:59')
-            openingTime2 = new Date('2021-08-19T' + '00:00')
-            closingTime2 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1])
+            closingTime1 = new Date('2021-08-19T' + '23:59');
+            openingTime2 = new Date('2021-08-19T' + '00:00');
+            closingTime2 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1]);
         }
 
-        let today = new Date()
-        let options = []
+        let today = new Date();
+        let options = [];
 
         if (openingTime2 || closingTime2) {
 
             for (let i = 0; i < this.tIndexes().length; i++) {
                 if (((new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1) || (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime2 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime2)) && new Date(this.props.date + "T" + this.times[this.tIndexes()[i]]) > today) {
-                    options.push(this.times[this.tIndexes()[i]])
+                    options.push(this.times[this.tIndexes()[i]]);
                 }
 
             }
@@ -121,7 +121,7 @@ class AvailTables extends React.Component {
         } else {
             for (let i = 0; i < this.tIndexes().length; i++) {
                 if (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1 && new Date(this.props.date + "T" + this.times[this.tIndexes()[i]]) > today) {
-                    options.push(this.times[this.tIndexes()[i]])
+                    options.push(this.times[this.tIndexes()[i]]);
                 }
 
             }
@@ -129,7 +129,7 @@ class AvailTables extends React.Component {
 
         
 
-        return options
+        return options;
 
     }
     
@@ -142,11 +142,11 @@ class AvailTables extends React.Component {
                 date: this.props.date,
                 time: rTime,
                 guest_count:this.props.guest_count
-            }
-            this.props.sendForm(form)
-            this.props.history.push(`/restaurants/${this.props.restaurantId}/reserve`)
+            };
+            this.props.sendForm(form);
+            this.props.history.push(`/restaurants/${this.props.restaurantId}/reserve`);
         } else {
-            this.props.openModal('login')
+            this.props.openModal('login');
         }
         
     }
@@ -161,7 +161,7 @@ class AvailTables extends React.Component {
                 <Link to={`/restaurants/${this.props.restaurantId}`}>Find next available</Link>
                 <span>At the moment, there's no online availability within 2.5 hours of your request. Do you have another time in mind?</span>
                 </div>
-            )
+            );
 
         }else {
 
@@ -169,15 +169,15 @@ class AvailTables extends React.Component {
             if (this.validTimes().includes(this.times[this.tIndexes()[i]])) {
                 buttons.push(
                     <button key={i} className="valid-t" onClick={() => this.handleSubmit(this.times[this.tIndexes()[i]])}>{new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(" ")[1]}</button>
-                )
+                );
             } else {
                 buttons.push(
                     <button key={i} className="inv-t"></button>
-                )
+                );
             }
         }
     }
-        return buttons
+        return buttons;
 
     }
 
@@ -193,7 +193,7 @@ class AvailTables extends React.Component {
                     {this.buttons()}
                 </div>
             </div>
-        )
+        );
     }
 }
 
@@ -214,4 +214,4 @@ const mDTP = (dispatch) => ({
 
 })
 
-export default withRouter(connect(mSTP, mDTP)(AvailTables))
+export default withRouter(connect(mSTP, mDTP)(AvailTables));

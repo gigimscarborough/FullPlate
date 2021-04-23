@@ -1,97 +1,97 @@
-import React from 'react'
+import React from 'react';
 import ReactStars from 'react-stars';
 import { openModal } from '../../actions/modal_actions';
 
 class ReviewIndex extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     componentDidMount() {
-        this.props.fetchReviews()
+        this.props.fetchReviews();
     }
 
     reviews() {
         if (this.props.reviews) {
 
-            return Object.values(this.props.reviews).filter(review => review.restaurant_id == this.props.restaurant.id)
+            return Object.values(this.props.reviews).filter(review => review.restaurant_id == this.props.restaurant.id);
         }
     }
 
     overallRating() {
-        let rating = 0
+        let rating = 0;
 
         for (let i = 0; i < this.reviews().length; i++) {
-            rating += this.reviews()[i].overall_rating
+            rating += this.reviews()[i].overall_rating;
         }
 
-        return Math.round((rating / this.reviews().length) * 10) / 10
+        return Math.round((rating / this.reviews().length) * 10) / 10;
     }
 
     foodRating() {
-        let rating = 0
+        let rating = 0;
 
         for (let i = 0; i < this.reviews().length; i++) {
-            rating += this.reviews()[i].food_rating
+            rating += this.reviews()[i].food_rating;
         }
 
-        return Math.round((rating / this.reviews().length) * 10) / 10
+        return Math.round((rating / this.reviews().length) * 10) / 10;
     }
 
     valueRating() {
-        let rating = 0
+        let rating = 0;
 
         for (let i = 0; i < this.reviews().length; i++) {
-            rating += this.reviews()[i].value_rating
+            rating += this.reviews()[i].value_rating;
         }
 
-        return Math.round((rating / this.reviews().length) * 10) / 10
+        return Math.round((rating / this.reviews().length) * 10) / 10;
     }
     ambienceRating() {
-        let rating = 0
+        let rating = 0;
 
         for (let i = 0; i < this.reviews().length; i++) {
-            rating += this.reviews()[i].ambience_rating
+            rating += this.reviews()[i].ambience_rating;
         }
 
-        return Math.round((rating / this.reviews().length) * 10) / 10
+        return Math.round((rating / this.reviews().length) * 10) / 10;
     }
     serviceRating() {
-        let rating = 0
+        let rating = 0;
 
         for (let i = 0; i < this.reviews().length; i++) {
-            rating += this.reviews()[i].service_rating
+            rating += this.reviews()[i].service_rating;
         }
 
-        return Math.round((rating / this.reviews().length) * 10) / 10
+        return Math.round((rating / this.reviews().length) * 10) / 10;
     }
 
-    percentRec(){
-        const approve = this.reviews().filter(review => review.would_recommend === true)
+    percentRec() {
+        const approve = this.reviews().filter(review => review.would_recommend === true);
 
-        return Math.floor((approve.length / this.reviews().length) * 100)
+        return Math.floor((approve.length / this.reviews().length) * 100);
     }
 
     reviewsList() {
-        
 
-        const that = this
-  
+
+        const that = this;
+
         return this.reviews().map((review, i) => {
-            let initials = review.nickname.split("")
-   
+            let initials = review.nickname.split("");
+
 
             for (let i = 0; i < initials.length; i++) {
                 if (initials[i] !== initials[i].toUpperCase()) {
-                    initials.splice(i, 1)
+                    initials.splice(i, 1);
                     i = 0;
                 }
             }
 
-            let vDate = new Date(review.visited)
-            vDate = new Date(vDate.getTime() + vDate.getTimezoneOffset() * 60000)
-            const format = { year: 'numeric', month: 'long', day: 'numeric' }
-            const colors = ["pinkish", "purplish", "blueish", "orangeish"]
+            let vDate = new Date(review.visited);
+            vDate = new Date(vDate.getTime() + vDate.getTimezoneOffset() * 60000);
+            const format = { year: 'numeric', month: 'long', day: 'numeric' };
+            const colors = ["pinkish", "purplish", "blueish", "orangeish"];
 
             return (
                 <div key={i} className="review-holder">
@@ -101,17 +101,17 @@ class ReviewIndex extends React.Component {
                             <span>{initials.slice(0, 2).join("")}</span>
                         </div>
                         <div class="rev-user">
-                        <span>
-                            {review.nickname}
-                        </span>
-                        <span>
+                            <span>
+                                {review.nickname}
+                            </span>
+                            <span>
 
-                        <i class="far fa-comment-alt"></i> 
-                        <span>
+                                <i class="far fa-comment-alt"></i>
+                                <span>
 
-                            {Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length === 1 ? ` ${Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length} review` : ` ${Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length} reviews`}
-                        </span>
-                        </span>
+                                    {Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length === 1 ? ` ${Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length} review` : ` ${Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length} reviews`}
+                                </span>
+                            </span>
                         </div>
                     </div>
                     <div className="review-r">
@@ -176,7 +176,7 @@ class ReviewIndex extends React.Component {
                         </div>
                     </div>
                 </div>
-            )
+            );
         }
         )
 
@@ -200,13 +200,13 @@ class ReviewIndex extends React.Component {
                             className="rev-stars"
                             id="past-str"
                             count={5}
-                            value={this.overallRating() ? this.overallRating() : 5 }
+                            value={this.overallRating() ? this.overallRating() : 5}
                             color1={'lightgray'}
                             color2={'#B22222'}
                             size={17}
                             edit={false}
                         />
-                        
+
                         <p>{this.overallRating() ? this.overallRating() : 5} overall based on average ratings</p>
                     </span>
                     <div className="res-rating">
@@ -237,8 +237,8 @@ class ReviewIndex extends React.Component {
                 </div>
                 {this.reviewsList()}
             </div>
-        )
+        );
     }
 }
 
-export default ReviewIndex
+export default ReviewIndex;

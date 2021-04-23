@@ -1,12 +1,12 @@
-import React from 'react'
-import GreetingDropdown from './greeting_dropdown'
+import React from 'react';
+import GreetingDropdown from './greeting_dropdown';
 
 
 class ClickGreetingDropdown extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = { clicked: false }
-        this.whenClicked = this.whenClicked.bind(this)
+        super(props);
+        this.state = { clicked: false };
+        this.whenClicked = this.whenClicked.bind(this);
 
     }
 
@@ -14,25 +14,25 @@ class ClickGreetingDropdown extends React.Component {
 
         if (document.getElementById('greeting-dropdown')) {
             if (document.getElementById('greeting-dropdown').style.display === 'none') {
-                document.getElementById('greeting-dropdown').style.display = 'block'
-                this.setState({ clicked: true })
+                document.getElementById('greeting-dropdown').style.display = 'block';
+                this.setState({ clicked: true });
             }
             else {
-                const status = !this.state.clicked
-                this.setState({ clicked: status })
+                const status = !this.state.clicked;
+                this.setState({ clicked: status });
             }
         } else {
           
-            const status = !this.state.clicked
-            this.setState({ clicked: status })
+            const status = !this.state.clicked;
+            this.setState({ clicked: status });
         }
        
 
         if (document.getElementById('uu-dropdown')) {
-            document.getElementById('uu-dropdown').style.display = 'none'
+            document.getElementById('uu-dropdown').style.display = 'none';
         }
         if (document.getElementById('uu-dropdown2')) {
-            document.getElementById('uu-dropdown2').style.display = 'none'
+            document.getElementById('uu-dropdown2').style.display = 'none';
         }
       
     }

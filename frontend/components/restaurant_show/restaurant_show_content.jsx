@@ -1,65 +1,65 @@
-import React from 'react'
-import ReviewIndex from '../reviews/review_index'
-import ReservationWidget from '../reservations/reservation_widget'
-import { HashLink as Link } from 'react-router-hash-link'
-import ReactStars from 'react-stars'
+import React from 'react';
+import ReviewIndex from '../reviews/review_index';
+import ReservationWidget from '../reservations/reservation_widget';
+import { HashLink as Link } from 'react-router-hash-link';
+import ReactStars from 'react-stars';
 
 class ShowContent extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             photo: 0
-        }
+        };
     }
 
     componentDidMount() {
-        this.props.fetchReviews()
+        this.props.fetchReviews();
     }
 
     reviews() {
         if (this.props.reviews) {
 
-            return Object.values(this.props.reviews).filter(review => review.restaurant_id == this.props.restaurant.id)
+            return Object.values(this.props.reviews).filter(review => review.restaurant_id == this.props.restaurant.id);
         }
     }
 
     rating() {
         if (this.props.reviews) {
 
-            const reviews = Object.values(this.props.reviews).filter(review => review.restaurant_id == this.props.restaurant.id)
+            const reviews = Object.values(this.props.reviews).filter(review => review.restaurant_id == this.props.restaurant.id);
 
-            let rating = 0
+            let rating = 0;
 
             for (let i = 0; i < reviews.length; i++) {
-                rating += reviews[i].overall_rating
+                rating += reviews[i].overall_rating;
             }
 
-            return Math.round((rating / reviews.length) * 10) / 10
+            return Math.round((rating / reviews.length) * 10) / 10;
         }
     }
 
 
     pmClose() {
-        document.getElementById('pm-bg').style.display = 'none'
+        document.getElementById('pm-bg').style.display = 'none';
     }
 
     photoModal(idx){
 
-        document.getElementById('pm-bg').style.display = 'block'
+        document.getElementById('pm-bg').style.display = 'block';
         
-        this.setState({photo: idx})
+        this.setState({photo: idx});
 
         if (idx === 0){
-            document.getElementById('l-a').style.borderColor = "#3c3b3b"
-            document.getElementById('l-b').style.cursor = "default"
-            document.getElementById('l-b').style.outline = "none"
+            document.getElementById('l-a').style.borderColor = "#3c3b3b";
+            document.getElementById('l-b').style.cursor = "default";
+            document.getElementById('l-b').style.outline = "none";
         }
 
         if (idx === this.props.restaurant.photoUrls.length - 1){
-            document.getElementById('r-a').style.borderColor = "#3c3b3b"
-            document.getElementById('r-b').style.cursor = "default"
-            document.getElementById('r-b').style.outline = "none"
+            document.getElementById('r-a').style.borderColor = "#3c3b3b";
+            document.getElementById('r-b').style.cursor = "default";
+            document.getElementById('r-b').style.outline = "none";
         }
 
 
@@ -68,22 +68,22 @@ class ShowContent extends React.Component {
     photo(){
         return (
             <img id="p-mdl" src={this.props.restaurant.photoUrls[this.state.photo]} alt="" />
-        )
+        );
 
     }
 
     clickLeft(){
         if (this.state.photo > 0){
 
-            this.setState({ photo: this.state.photo - 1 })
-            document.getElementById('r-a').style.removeProperty("border-color")
-            document.getElementById('r-b').style.cursor = "pointer"
-            document.getElementById('r-b').style.removeProperty("outline")
+            this.setState({ photo: this.state.photo - 1 });
+            document.getElementById('r-a').style.removeProperty("border-color");
+            document.getElementById('r-b').style.cursor = "pointer";
+            document.getElementById('r-b').style.removeProperty("outline");
 
         } else {
-            document.getElementById('l-a').style.borderColor = "#3c3b3b"
-            document.getElementById('l-b').style.cursor = "default"
-            document.getElementById('l-b').style.outline = "none"
+            document.getElementById('l-a').style.borderColor = "#3c3b3b";
+            document.getElementById('l-b').style.cursor = "default";
+            document.getElementById('l-b').style.outline = "none";
         }
 
 
@@ -92,16 +92,16 @@ class ShowContent extends React.Component {
 
     clickRight() {
         if (this.state.photo < this.props.restaurant.photoUrls.length-1) {
-        this.setState({ photo: this.state.photo + 1 })
-            document.getElementById('l-a').style.removeProperty("border-color")
-            document.getElementById('l-b').style.cursor = "pointer"
-            document.getElementById('l-b').style.removeProperty("outline")
+        this.setState({ photo: this.state.photo + 1 });
+            document.getElementById('l-a').style.removeProperty("border-color");
+            document.getElementById('l-b').style.cursor = "pointer";
+            document.getElementById('l-b').style.removeProperty("outline");
 
 
         } else {
-            document.getElementById('r-a').style.borderColor = "#3c3b3b"
-            document.getElementById('r-b').style.cursor = "default"
-            document.getElementById('r-b').style.outline = "none"
+            document.getElementById('r-a').style.borderColor = "#3c3b3b";
+            document.getElementById('r-b').style.cursor = "default";
+            document.getElementById('r-b').style.outline = "none";
         }
 
 
@@ -127,12 +127,12 @@ class ShowContent extends React.Component {
 
         // const operatingHours = 
 
-        const first = 0
-        const second = 1
-        const third = 2
-        const fourth = 3
-        const fifth = 4
-        const rformat = this.props.restaurant.address.split(/\s+/).join("+")
+        const first = 0;
+        const second = 1;
+        const third = 2;
+        const fourth = 3;
+        const fifth = 4;
+        const rformat = this.props.restaurant.address.split(/\s+/).join("+");
 
         return (
             <div className="res-content-div">
@@ -312,8 +312,8 @@ class ShowContent extends React.Component {
                 </div>
             </div>
 
-        )
+        );
     }
 }
 
-export default ShowContent
+export default ShowContent;

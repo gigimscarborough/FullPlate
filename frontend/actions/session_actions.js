@@ -1,10 +1,10 @@
-import * as SessionApiUtil from '../util/session_api_util'
+import * as SessionApiUtil from '../util/session_api_util';
 
-export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
-export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
-export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS'
-export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS'
-export const REFRESH_USER = 'REFRESH_USER'
+export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS';
+export const REFRESH_USER = 'REFRESH_USER';
 
 const receiveCurrentUser = (currentUser) => {
    

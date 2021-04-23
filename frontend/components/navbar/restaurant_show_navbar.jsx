@@ -9,14 +9,14 @@ import AltClickGreetingDropdown from './alt_click_greeting_dropdown';
 class RestaurantShowNavBar extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
 
-        this.handleFav = this.handleFav.bind(this)
+        this.handleFav = this.handleFav.bind(this);
     }
 
     bookmark(){
 
-        const favs = Object.values(this.props.currentUser.favorites).filter(favorite => favorite.restaurant_id === this.props.restaurant.id)[0]
+        const favs = Object.values(this.props.currentUser.favorites).filter(favorite => favorite.restaurant_id === this.props.restaurant.id)[0];
    
         if (!favs){
             return(
@@ -37,16 +37,16 @@ class RestaurantShowNavBar extends React.Component {
     }
 
     handleFav(e){
-        e.preventDefault()
+        e.preventDefault();
 
-        const favs = this.props.currentUser.favorites.filter(favorite => favorite.restaurant_id === this.props.restaurant.id)[0]
+        const favs = this.props.currentUser.favorites.filter(favorite => favorite.restaurant_id === this.props.restaurant.id)[0];
 
         if (!favs){
             this.props.createFavorite({ user_id: this.props.currentUser.id, restaurant_id: this.props.restaurant.id})
-                .then(() => this.props.fetchUser(this.props.currentUser.id))
+                .then(() => this.props.fetchUser(this.props.currentUser.id));
         } else{
             this.props.deleteFavorite(favs.id)
-                .then(() => this.props.fetchUser(this.props.currentUser.id))
+                .then(() => this.props.fetchUser(this.props.currentUser.id));
         }
     }
 
@@ -144,4 +144,4 @@ class RestaurantShowNavBar extends React.Component {
     }
 }
 
-export default RestaurantShowNavBar
+export default RestaurantShowNavBar;

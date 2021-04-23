@@ -7,69 +7,69 @@ import CancelConf from './cancel_conf'
 
 class DeleteReservation extends React.Component {
     constructor(props) {
-        super(props)
-        this.reservation = this.reservation.bind(this)
-        this.restaurant = this.restaurant.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.deleted = false
-        this.res = this.restaurant()
-        this.reserve = this.reservation()
+        super(props);
+        this.reservation = this.reservation.bind(this);
+        this.restaurant = this.restaurant.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.deleted = false;
+        this.res = this.restaurant();
+        this.reserve = this.reservation();
     }
 
     componentDidMount() {
-        this.props.fetchRestaurants()
+        this.props.fetchRestaurants();
 
         if (this.restaurant()) {
-            window.localStorage.setItem('savedRest', JSON.stringify(this.restaurant()))
-            window.localStorage.setItem('savedReserve', JSON.stringify(this.reservation()))
+            window.localStorage.setItem('savedRest', JSON.stringify(this.restaurant()));
+            window.localStorage.setItem('savedReserve', JSON.stringify(this.reservation()));
 
         } else {
-            this.res = JSON.parse(window.localStorage.getItem('savedRest'))
-            this.reserve = JSON.parse(window.localStorage.getItem('savedReserve'))
+            this.res = JSON.parse(window.localStorage.getItem('savedRest'));
+            this.reserve = JSON.parse(window.localStorage.getItem('savedReserve'));
         }
     }
 
     reservation() {
 
-        const reservations = this.props.reservations
-        const resId = this.props.match.params.reservationId
-        const res = []
+        const reservations = this.props.reservations;
+        const resId = this.props.match.params.reservationId;
+        const res = [];
 
 
         for (let i = 0; i < reservations.length; i++) {
             if (reservations[i].id === parseInt(resId)) {
-                res.push(reservations[i])
+                res.push(reservations[i]);
             }
         }
 
-        return res[0]
+        return res[0];
     }
 
     restaurant() {
         if (!this.reservation()){
-            return null
+            return null;
         }
-        const restaurants = this.props.restaurants
-        const resId = this.reservation().restaurant_id
-        const res = []
+        const restaurants = this.props.restaurants;
+        const resId = this.reservation().restaurant_id;
+        const res = [];
 
 
         for (let i = 0; i < restaurants.length; i++) {
 
             if (restaurants[i].id === resId) {
-                res.push(restaurants[i])
+                res.push(restaurants[i]);
             }
         }
 
         
 
         // this.res = res[0]
-        return res[0]
+        return res[0];
 
     }
 
     handleSubmit(e){
-        e.preventDefault()
+        e.preventDefault();
 
         this.props.deleteReservation(this.reservation().id)
         .then(() => this.props.fetchUser(this.props.currentUser.id))
@@ -183,4 +183,4 @@ class DeleteReservation extends React.Component {
         }
     }
 }
-export default DeleteReservation
+export default DeleteReservation;

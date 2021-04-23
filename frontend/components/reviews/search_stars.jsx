@@ -3,54 +3,54 @@ import ReactStars from 'react-stars'
 
 class SearchStars extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     componentDidMount() {
-        this.props.fetchReviews()
+        this.props.fetchReviews();
     }
 
     matches() {
-        const matches = this.props.reviews.filter(review => review.restaurant_id === this.props.restaurantId)
+        const matches = this.props.reviews.filter(review => review.restaurant_id === this.props.restaurantId);
 
-        return matches
+        return matches;
     }
 
     rating() {
 
 
-        let count = 0
+        let count = 0;
 
         for (let i = 0; i < this.matches().length; i++) {
-            count += this.matches()[i].overall_rating
+            count += this.matches()[i].overall_rating;
         }
 
-        return Math.round((count / this.matches().length) * 10) / 10
+        return Math.round((count / this.matches().length) * 10) / 10;
     }
 
     description(rating){
 
         if (rating >4.5){
-            return "Exceptional"
+            return "Exceptional";
         } else if (rating > 4){
-            return "Awesome"
+            return "Awesome";
         } else if (rating > 3.5) {
-            return "Very Good"
+            return "Very Good";
         } else if(rating > 3){
-            return "Good"
+            return "Good";
         }else if (rating > 2.5){
-            return "Fair"
+            return "Fair";
         } else if (rating > 1.5) {
-            return "Okay"
+            return "Okay";
         }else if (rating >= 0){
-            return "Poor"
+            return "Poor";
         }
     }
 
     render() {
 
         if (this.props.reviews.length <= 0) {
-            return null
+            return null;
         }
         return (
             <span className="srch-str">
@@ -68,11 +68,11 @@ class SearchStars extends React.Component {
                 <p>{`(${this.matches().length})`}</p>
                 {/* <p>{this.matches().length} reviews</p> */}
             </span>
-        )
+        );
     }
 
 
 }
 
-export default SearchStars
+export default SearchStars;
 

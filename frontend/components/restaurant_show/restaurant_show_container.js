@@ -1,20 +1,21 @@
-import {connect} from 'react-redux'
-import { fetchRestaurant } from '../../actions/restaurant_actions'
-import RestaurantShow from './restaurant_show'
-import {logout, fetchUser} from '../../actions/session_actions'
-import {openModal} from '../../actions/modal_actions'
-import {createFavorite, deleteFavorite} from '../../actions/favorite_actions'
-import {fetchReviews} from '../../actions/review_actions'
+import { connect } from 'react-redux';
+import { fetchRestaurant } from '../../actions/restaurant_actions';
+import RestaurantShow from './restaurant_show';
+import { logout, fetchUser } from '../../actions/session_actions';
+import { openModal } from '../../actions/modal_actions';
+import { createFavorite, deleteFavorite } from '../../actions/favorite_actions';
+import { fetchReviews } from '../../actions/review_actions';
 
 
 const mSTP = (state, ownProps) => {
 
-    return{
-    restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
-    reviews: state.entities.reviews,
-    currentUser: state.entities.users[state.session.id],
-    search: state.ui.search
-}}
+    return {
+        restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
+        reviews: state.entities.reviews,
+        currentUser: state.entities.users[state.session.id],
+        search: state.ui.search
+    };
+}
 
 
 const mDTP = (dispatch) => ({
@@ -27,4 +28,4 @@ const mDTP = (dispatch) => ({
     fetchReviews: () => dispatch(fetchReviews())
 })
 
-export default connect(mSTP, mDTP)(RestaurantShow) 
+export default connect(mSTP, mDTP)(RestaurantShow);

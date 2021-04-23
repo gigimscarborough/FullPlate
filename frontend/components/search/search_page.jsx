@@ -8,20 +8,20 @@ import AvailTables from './avail_tables'
 class SearchPage extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
 
-        this.search = this.props.search
+        this.search = this.props.search;
     }
 
     componentDidMount() {
         
-        this.props.searchRestaurants(this.props.search.keyword)
+        this.props.searchRestaurants(this.props.search.keyword);
 
         if (Object.values(this.props.search).length) {
-            window.localStorage.setItem('savedSearch', JSON.stringify(this.props.search))
+            window.localStorage.setItem('savedSearch', JSON.stringify(this.props.search));
 
         } else {
-            this.search = JSON.parse(window.localStorage.getItem('savedSearch'))
+            this.search = JSON.parse(window.localStorage.getItem('savedSearch'));
         }
 
 
@@ -31,7 +31,7 @@ class SearchPage extends React.Component {
 
         if (this.props.search.keyword !== prevProps.search.keyword) {
    
-            this.props.searchRestaurants(this.props.search.keyword)
+            this.props.searchRestaurants(this.props.search.keyword);
         }
 
        
@@ -41,13 +41,13 @@ class SearchPage extends React.Component {
     render() {
             
         
-        const first = 0
+        const first = 0;
 
-        const resSearch = this.props.search
+        const resSearch = this.props.search;
 
         if (typeof resSearch === "undefined"){
       
-            return null
+            return null;
         }
 
         // const currentUser = this.props.currentUser.dining_city
@@ -89,9 +89,9 @@ class SearchPage extends React.Component {
                     <AvailTables currentUser={this.props.currentUser} search={this.search} restaurantId={restaurant.id} sendForm={this.props.sendForm} searchRestaurants={this.props.searchRestaurants} openModal={this.props.openModal} operation_hours={restaurant.operation_hours}/>
 
                 </div>
-            </div>)
+            </div>);
 
-        const searchLength = this.props.restaurants.length === 1 ? " 1 restaurant" : `${this.props.restaurants.length} restaurants`
+        const searchLength = this.props.restaurants.length === 1 ? " 1 restaurant" : `${this.props.restaurants.length} restaurants`;
 
         return (
             <div>
@@ -115,5 +115,5 @@ class SearchPage extends React.Component {
     }
 }
 
-export default SearchPage
+export default SearchPage;
 

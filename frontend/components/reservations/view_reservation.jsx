@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 import MainNavBar from '../navbar/main_navbar';
 import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown';
 import ClickGreetingDropdown from '../navbar/click_greeting_dropdown';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class ViewReservation extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.resId = this.props.match.params.reservationId;
-        this.reservation = this.reservation.bind(this)
-        this.restaurant = this.restaurant.bind(this)
+        this.reservation = this.reservation.bind(this);
+        this.restaurant = this.restaurant.bind(this);
         // this.reservation = this.props.reservations.filter(reservation => reservation.id === this.resId)[0];
         // this.format = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         // this.resId = props.match.params.reservationId;
@@ -27,11 +27,11 @@ class ViewReservation extends React.Component {
         //     special_request: "",
         //     occasion: "",
         // }
-        this.textarea = this.textarea.bind(this)
+        this.textarea = this.textarea.bind(this);
         // this.closeTA = this.closeTA.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.confirmBtn = this.confirmBtn.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.confirmBtn = this.confirmBtn.bind(this);
 
 
         this.state ={
@@ -46,11 +46,11 @@ class ViewReservation extends React.Component {
             reservation_datetime: this.reservation().reservation_datetime,
             restaurant_id: this.reservation().restaurant_id,
             special_request: this.reservation().special_request,
-        }
+        };
     }
 
     componentDidMount() {
-        this.props.fetchRestaurants()
+        this.props.fetchRestaurants();
     }
    
   
@@ -75,7 +75,7 @@ class ViewReservation extends React.Component {
                         </div>
                     </div>
                 </div>
-            )
+            );
         } else {
             return (
                 <div>
@@ -93,51 +93,50 @@ class ViewReservation extends React.Component {
                         </div>
                     </div>
                 </div>
-            )
-
+            );
         }
     }
 
     reservation() {
-        const reservations = this.props.reservations
-        const resId = this.props.match.params.reservationId
-        const res = []
+        const reservations = this.props.reservations;
+        const resId = this.props.match.params.reservationId;
+        const res = [];
 
 
         for (let i = 0; i < reservations.length; i++) {
             if (reservations[i].id === parseInt(resId)) {
-                res.push(reservations[i])
+                res.push(reservations[i]);
             }
         }
 
-        return res[0]
+        return res[0];
     }
 
     restaurant() {
-        const restaurants = this.props.restaurants
-        const resId = this.reservation().restaurant_id
-        const res = []
+        const restaurants = this.props.restaurants;
+        const resId = this.reservation().restaurant_id;
+        const res = [];
 
 
         for (let i = 0; i < restaurants.length; i++) {
 
             if (restaurants[i].id === resId) {
-                res.push(restaurants[i])
+                res.push(restaurants[i]);
             }
         }
 
-        return res[0]
+        return res[0];
 
     }
 
     textarea() {
-        const div = document.getElementById('restext')
-        const textarea = document.getElementById('text-a')
-        const btn = document.getElementById('restext-btn')
+        const div = document.getElementById('restext');
+        const textarea = document.getElementById('text-a');
+        const btn = document.getElementById('restext-btn');
 
-        div.style.height = "130px"
-        btn.style.display = "flex"
-        textarea.style.height = "80px"
+        div.style.height = "130px";
+        btn.style.display = "flex";
+        textarea.style.height = "80px";
     }
 
     // closeTA(){
@@ -157,41 +156,40 @@ class ViewReservation extends React.Component {
         return (e) => {
             this.setState({ [type]: e.currentTarget.value });
             document.getElementById('sub-btn').innerHTML = 'Submit'
-        }
+        };
     }
 
     handleSubmit(e){
-        e.preventDefault()
-        this.props.updateReservation(this.state).then(() => this.confirmBtn())
+        e.preventDefault();
+        this.props.updateReservation(this.state).then(() => this.confirmBtn());
     }
 
     confirmBtn(){
-        const btn = document.getElementById('sub-btn')
+        const btn = document.getElementById('sub-btn');
 
-        btn.innerHTML = '<i className=" btn-spin fas fa-spinner"></i>'
+        btn.innerHTML = '<i className=" btn-spin fas fa-spinner"></i>';
         setTimeout(() => {
-            btn.innerHTML = '<i className="btn-check fas fa-check"></i>'
+            btn.innerHTML = '<i className="btn-check fas fa-check"></i>';
         },2000)
     }
 
     render() {
         // const resId = this.props.match.params.reservationId
-        const format = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+        const format = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         // const that = this
         // const reservation = this.props.reservations.filter(reservation => reservation.id === that.resId)[0]
         // const restPhoto = this.props.restaurants.filter(rest => (rest.id === reservation.restaurant_id))[0].photoUrls[0]
-        const dateJ = new Date(this.props.currentUser.created_at)
+        const dateJ = new Date(this.props.currentUser.created_at);
         
-        let resDate = new Date(this.reservation().reservation_datetime)
-        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+        let resDate = new Date(this.reservation().reservation_datetime);
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
         
         
         if (Object.values(this.props.restaurants).length <= 0) {
-            return null
+            return null;
         } else{
             
-            const adLength = this.restaurant().address.split(" ").length - 4
-            debugger
+            const adLength = this.restaurant().address.split(" ").length - 4;
             return (
                 <div onClick={this.closeTA}>
                     {this.navBar()}
@@ -298,7 +296,7 @@ class ViewReservation extends React.Component {
                         </div>
                     </div>
                 </div>
-            )
+            );
 
         }
     }

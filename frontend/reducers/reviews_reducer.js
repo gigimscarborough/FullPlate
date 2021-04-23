@@ -6,14 +6,14 @@ const reviewsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_ALL_REVIEWS:
-            return action.reviews
+            return action.reviews;
         case RECEIVE_REVIEW:
-            newState[action.review.id] = action.review
-            return newState
+            newState[action.review.id] = action.review;
+            return newState;
         case REMOVE_REVIEW:
-            delete newState[action.reviewId]
-            return newState
-        default: return state
+            delete newState[action.reviewId];
+            return newState;
+        default: return state;
     }
 }
-export default reviewsReducer
+export default reviewsReducer;

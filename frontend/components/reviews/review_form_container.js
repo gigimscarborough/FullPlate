@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         reservations: state.entities.users[state.session.id].reservations,
         formType: 'create'
-    }
+    };
 }
 
 
@@ -25,4 +25,4 @@ const mDTP = (dispatch) => ({
     action: review => dispatch(createReview(review))
 })
 
-export default connect(mSTP, mDTP)(ReviewForm) 
+export default connect(mSTP, mDTP)(ReviewForm);

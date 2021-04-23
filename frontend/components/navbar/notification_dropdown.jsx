@@ -1,24 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
-class NotificationDropdown extends React.Component {
-
-    render() {
-
-        return (
-            <div>
-                <div id="notification-dropdown" className="notification-dropdown">
-                    <div className="pointer"></div>
-                    <h2>Notifications</h2>
-                    <div className="bell-div">
-                        <img id="bell-img" src={window.bell} />
-                        <p>Never miss a plate! Notifications coming soon...</p>
-                    </div>
+const NotificationDropdown = () => {
+    return (
+        <div>
+            <div id="notification-dropdown" className="notification-dropdown">
+                <div className="pointer"></div>
+                <h2>Notifications</h2>
+                <div className="bell-div">
+                    <img id="bell-img" src={window.bell} />
+                    <p>Never miss a plate! Notifications coming soon...</p>
                 </div>
             </div>
-
-        )
-    }
+        </div>
+    )
 }
 
 export default NotificationDropdown;

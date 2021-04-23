@@ -1,17 +1,17 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, REMOVE_SESSION_ERRORS} from '../actions/session_actions'
+import { RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, REMOVE_SESSION_ERRORS} from '../actions/session_actions';
 
 const sessionErrorsReducer = (state =[], action) => {
-    Object.freeze(state)
+    Object.freeze(state);
 
     switch (action.type) {
         case RECEIVE_SESSION_ERRORS:
-            return action.errors
+            return action.errors;
         case RECEIVE_CURRENT_USER:
-            return [] 
+            return [];
         case REMOVE_SESSION_ERRORS:
-            return []
-        default: return state
+            return [];
+        default: return state;    
     }
 }
 
-export default sessionErrorsReducer
+export default sessionErrorsReducer;

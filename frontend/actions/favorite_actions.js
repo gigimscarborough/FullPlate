@@ -1,7 +1,7 @@
-import * as FavoriteAPIUtil from '../util/favorite_util'
+import * as FavoriteAPIUtil from '../util/favorite_util';
 
-export const RECEIVE_FAVORITE = 'RECEIVE_FAVORITE'
-export const REMOVE_FAVORITE = 'REMOVE_FAVORITE'
+export const RECEIVE_FAVORITE = 'RECEIVE_FAVORITE';
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
 
 const receiveFavorite = (favorite) => ({
     type: RECEIVE_FAVORITE,
@@ -28,6 +28,6 @@ export const createFavorite = (favorite) => dispatch => {
 export const deleteFavorite = (favoriteId) => dispatch => (
     FavoriteAPIUtil.deleteFavorite(favoriteId)
         .then(() => dispatch(removeFavorite(favoriteId)),
-            // errors => dispatch(receiveErrors(errors.responseJSON))
-            )
+        // errors => dispatch(receiveErrors(errors.responseJSON))
+    )
 )

@@ -1,14 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import MainNavBar from './main_navbar'
-import ClickUserUpcomingDropdown from './click_user_upcoming_dropdown'
-import ClickGreetingDropdown from './click_greeting_dropdown'
-import UserHeaderNavBar from './user_header_navbar'
+import MainNavBar from './main_navbar';
+import ClickUserUpcomingDropdown from './click_user_upcoming_dropdown';
+import ClickGreetingDropdown from './click_greeting_dropdown';
+import UserHeaderNavBar from './user_header_navbar';
 
-class UserNavBar extends React.Component {
-    render() {
-
+const UserNavBar = (props) => {
 
         return (
             <div>
@@ -20,13 +18,12 @@ class UserNavBar extends React.Component {
                     </div>
                     <ul className="user-link-list">
                         <ClickUserUpcomingDropdown/>
-                        <ClickGreetingDropdown logout={this.props.logout} currentUser={this.props.currentUser}/>
+                        <ClickGreetingDropdown logout={props.logout} currentUser={props.currentUser}/>
                     </ul>
                 </div>
-                <UserHeaderNavBar currentUser={this.props.currentUser}/>
+                <UserHeaderNavBar currentUser={props.currentUser}/>
             </div>
-        )
-    }
+        );
 }
 
-export default UserNavBar
+export default UserNavBar;

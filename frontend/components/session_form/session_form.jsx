@@ -4,21 +4,21 @@ import { withRouter } from "react-router-dom";
 class SessionForm extends React.Component {
     constructor(props) {
 
-        super(props)
+        super(props);
         this.state = this.props.user;
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.demo = this.demo.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.demo = this.demo.bind(this);
 
     }
 
     componentDidMount() {
         if (Boolean(this.props.errors.length)) {
-            this.props.removeErrors()
+            this.props.removeErrors();
         }
     }
     componentWillUnmount() {
         if (Boolean(this.props.errors.length)) {
-            this.props.removeErrors()
+            this.props.removeErrors();
         }
     }
 
@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
         return (e) => (
             this.setState(
                 { [type]: e.currentTarget.value })
-        )
+        );
     }
 
     handleErrors(type) {
@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
     }
 
     demo(e) {
-        e.stopPropagation()
+        e.stopPropagation();
         this.props.action({ email: "demo@demo.com", password: "demo1234" })
             .then(() => this.props.closeModal());
     }
@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
 
 
     render() {
-        const errorList = this.props.errors.map((error, i) => (<li key={i}>{error}</li>))
+        const errorList = this.props.errors.map((error, i) => (<li key={i}>{error}</li>));
 
         const loginRender = () => (
             <div className="modal-form" onClick={e => e.stopPropagation()}>
@@ -144,4 +144,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default withRouter(SessionForm)
+export default withRouter(SessionForm);

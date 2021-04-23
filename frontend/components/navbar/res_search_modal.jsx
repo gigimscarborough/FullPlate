@@ -1,24 +1,22 @@
-import React from 'react'
-import ReservationModalSearchForm from '../search/reservation_modal_form'
-import ModalSearchForm from '../search/modal_search_form'
-import {withRouter} from 'react-router-dom'
-import { connect } from 'react-redux'
-import { sendForm } from '../../actions/search_actions'
-import { searchRestaurants } from '../../actions/restaurant_actions'
-import {closeModal} from '../../actions/modal_actions'
+import React from 'react';
+import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { sendForm } from '../../actions/search_actions';
+import { searchRestaurants } from '../../actions/restaurant_actions';
+import {closeModal} from '../../actions/modal_actions';
 
 class ResSearchModal extends React.Component {
     constructor(props) {
         super(props)
 
-        this.dateToday = new Date()
-        this.hours = ((this.dateToday.getHours() + 1) % 24) < 10 ? `0${((this.dateToday.getHours() + 1) % 24)}` : ((this.dateToday.getHours() + 1) % 24)
-        this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes()
-        this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1
-        this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate()
-        this.year = this.dateToday.getFullYear()
+        this.dateToday = new Date();
+        this.hours = ((this.dateToday.getHours() + 1) % 24) < 10 ? `0${((this.dateToday.getHours() + 1) % 24)}` : ((this.dateToday.getHours() + 1) % 24);
+        this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes();
+        this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1;
+        this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate();
+        this.year = this.dateToday.getFullYear();
 
-        this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`
+        this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`;
 
 
         this.state = {
@@ -27,23 +25,23 @@ class ResSearchModal extends React.Component {
             time: this.defaultTime,
             guest_count: "1"
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
     handleChange(type) {
         return (e) => (
             this.setState({ [type]: e.currentTarget.value })
-        )
+        );
 
     }
 
     handleSubmit(e) {
 
-        e.preventDefault()
-        this.props.sendForm(this.state)
-        this.props.history.push("/search")
-        this.props.closeModal()
+        e.preventDefault();
+        this.props.sendForm(this.state);
+        this.props.history.push("/search");
+        this.props.closeModal();
 
     }
 
@@ -51,22 +49,22 @@ class ResSearchModal extends React.Component {
 
     render() {
 
-        const dateToday = new Date()
-        const hours = dateToday.getHours() < 10 ? `0${dateToday.getHours()}` : dateToday.getHours()
-        const minutes = dateToday.getMinutes() < 10 ? `0${dateToday.getMinutes()}` : dateToday.getMinutes()
-        const month = dateToday.getMonth() < 10 ? `0${dateToday.getMonth() + 1}` : dateToday.getMonth() + 1
-        const date = dateToday.getDate() < 10 ? `0${dateToday.getDate()}` : dateToday.getDate()
-        const year = dateToday.getFullYear()
+        const dateToday = new Date();
+        const hours = dateToday.getHours() < 10 ? `0${dateToday.getHours()}` : dateToday.getHours();
+        const minutes = dateToday.getMinutes() < 10 ? `0${dateToday.getMinutes()}` : dateToday.getMinutes();
+        const month = dateToday.getMonth() < 10 ? `0${dateToday.getMonth() + 1}` : dateToday.getMonth() + 1;
+        const date = dateToday.getDate() < 10 ? `0${dateToday.getDate()}` : dateToday.getDate();
+        const year = dateToday.getFullYear();
 
-        let options = []
+        let options = [];
 
         for (let i = 2; i <= 20; i++) {
-            options.push(<option key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option>)
+            options.push(<option key={i} value={i} >{i < 2 ? `${i} Person` : `${i} People`}</option>);
         }
 
-        const currentHour = this.state.time.split(":")
+        const currentHour = this.state.time.split(":");
 
-        const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12
+        const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12;
 
         let currentOption = <option selected value={this.state.time}>{`${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `PM` : `AM`}`}</option>
 
@@ -180,4 +178,4 @@ const mDTP = (dispatch) => ({
     closeModal: () => dispatch(closeModal())
 })
 
-export default withRouter(connect(mSTP, mDTP)(ResSearchModal))
+export default withRouter(connect(mSTP, mDTP)(ResSearchModal));

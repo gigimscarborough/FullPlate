@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux'
-import reservationsErrorsReducer from './reservations_errors_reducer'
-import sessionErrorsReducer from './session_errors_reducer'
+import { combineReducers } from 'redux';
+import reservationsErrorsReducer from './reservations_errors_reducer';
+import sessionErrorsReducer from './session_errors_reducer';
 
 
 const errorsReducer = combineReducers({
@@ -8,4 +8,4 @@ const errorsReducer = combineReducers({
     reservations: reservationsErrorsReducer
 })
 
-export default errorsReducer
+export default errorsReducer;

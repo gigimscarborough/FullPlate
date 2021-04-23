@@ -9,7 +9,7 @@ import { fetchUser } from '../../util/session_api_util';
 
 class EditReviewForm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
      
 
@@ -30,12 +30,12 @@ class EditReviewForm extends React.Component {
             guest_id: this.review().guest_id,
             reservation_id: this.review().reservation_id,
             page: 1
-        }
-        this.handleRating = this.handleRating.bind(this)
-        this.handleNext = this.handleNext.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.nextAvail3 = this.nextAvail3.bind(this)
-        this.review = this.review.bind(this)
+        };
+        this.handleRating = this.handleRating.bind(this);
+        this.handleNext = this.handleNext.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.nextAvail3 = this.nextAvail3.bind(this);
+        this.review = this.review.bind(this);
 
 
     }
@@ -54,8 +54,8 @@ class EditReviewForm extends React.Component {
     }
 
     review(){
-        const rev = this.props.reviews.filter(review => review.id === parseInt(this.props.match.params.reviewId))
-        return rev[0]
+        const rev = this.props.reviews.filter(review => review.id === parseInt(this.props.match.params.reviewId));
+        return rev[0];
     }
 
     handleRating(type) {
@@ -69,7 +69,7 @@ class EditReviewForm extends React.Component {
         // if (this.state[type] === 5){
         //     return "Outstanding"
         // } 
-        return this.state[type] === 5 ? "Outstanding" : this.state[type] === 4 ? "Very Good" : this.state[type] === 3 ? "Good" : this.state[type] === 3 ? "Fair" : this.state[type] === 3 ? "Poor" : " "
+        return this.state[type] === 5 ? "Outstanding" : this.state[type] === 4 ? "Very Good" : this.state[type] === 3 ? "Good" : this.state[type] === 3 ? "Fair" : this.state[type] === 3 ? "Poor" : " ";
 
     }
 
@@ -91,12 +91,12 @@ class EditReviewForm extends React.Component {
             return (
 
                 <button id="next-btn-1" className="next-btn-1-hov" onClick={() => this.handleNext(1)}>Next</button>
-            )
+            );
         } else {
             return (
 
                 <button className="next-btn-1-hov">Next</button>
-            )
+            );
         }
     }
 
@@ -120,11 +120,11 @@ class EditReviewForm extends React.Component {
             return (
 
                 <button id="next-btn-2" onClick={() => this.handleNext(2)}>Next</button>
-            )
+            );
         } else {
             return (
                 <button>Next</button>
-            )
+            );
         }
 
     }
@@ -141,12 +141,12 @@ class EditReviewForm extends React.Component {
             return (
                 <button id="rev-sub" onClick={this.handleSubmit}>Submit your review </button>
 
-            )
+            );
         } else {
             return (
                 <button>Submit your review </button>
 
-            )
+            );
         }
 
     }
@@ -154,18 +154,18 @@ class EditReviewForm extends React.Component {
     handleNext(num) {
 
         if (this.state.overall_rating && this.state.food_rating && this.state.service_rating && this.state.ambience_rating && this.state.value_rating && num === 1) {
-            this.setState({ page: 2 })
+            this.setState({ page: 2 });
         }
 
         if (this.state.body && this.state.would_recommend !== null && num === 2) {
-            this.setState({ page: 3 })
+            this.setState({ page: 3 });
         }
 
 
     }
 
     handleBack(num) {
-        this.setState({ page: num })
+        this.setState({ page: num });
     }
 
 
@@ -173,7 +173,7 @@ class EditReviewForm extends React.Component {
     handleChange(type) {
         return (e) => (
             this.setState({ [type]: e.currentTarget.value })
-        )
+        );
     }
 
     handleBool(type) {
@@ -212,8 +212,8 @@ class EditReviewForm extends React.Component {
     handlePM(type) {
         const yes = document.getElementById('pm-bool-y');
         const no = document.getElementById('pm-bool-n');
-        const pm = document.getElementById('pm-text')
-        const resp = document.getElementById('pm-resp')
+        const pm = document.getElementById('pm-text');
+        const resp = document.getElementById('pm-resp');
 
 
         if (type === 'y') {
@@ -242,13 +242,13 @@ class EditReviewForm extends React.Component {
             no.classList.remove('far');
             yes.classList.add('fa-circle');
             yes.classList.add('far');
-            pm.style.display = "none"
-            resp.style.margin = "15px 0 130px 0"
+            pm.style.display = "none";
+            resp.style.margin = "15px 0 130px 0";
         }
     }
 
     handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
 
         let form = {
             id: this.state.id,
@@ -265,7 +265,7 @@ class EditReviewForm extends React.Component {
             rating: (this.state.overall_rating + this.state.food_rating + this.state.service_rating + this.state.ambience_rating + this.state.value_rating) / 5,
             body: this.state.body,
             would_recommend: this.state.would_recommend
-        }
+        };
 
         this.props.action(form)
             .then(() => this.props.fetchUser(this.props.currentUser.id))
@@ -297,7 +297,7 @@ class EditReviewForm extends React.Component {
                         </div>
                     </div>
                 </div>
-            )
+            );
         } else {
             return (
                 <div>
@@ -315,7 +315,7 @@ class EditReviewForm extends React.Component {
                         </div>
                     </div>
                 </div>
-            )
+            );
 
         }
     }
@@ -325,25 +325,24 @@ class EditReviewForm extends React.Component {
     render() {
 
         
-        let resDate = new Date(this.reservation().reservation_datetime)
-        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+        let resDate = new Date(this.reservation().reservation_datetime);
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
         
         if (typeof this.props.restaurant === 'undefined') {
-            return null
+            return null;
         }
         if (typeof this.props.reviews === 'undefined') {
-            return null
+            return null;
         }
         
         if (Object.values(this.props.reviews).length <= 0) {
-            return null
+            return null;
         } 
         
       
         if (this.state.page === 1) {
 
             return (
-
                 <div>
                     {this.navBar()}
                     <div className="review-hold-div">
@@ -428,9 +427,7 @@ class EditReviewForm extends React.Component {
 
                 </div>
 
-
-
-            )
+            );
         }
 
         if (this.state.page === 2) {
@@ -477,7 +474,7 @@ class EditReviewForm extends React.Component {
                         </div>
                     </div>
                 </div>
-            )
+            );
 
         }
 
@@ -535,9 +532,9 @@ class EditReviewForm extends React.Component {
                     </div>
                 </div>
 
-            )
+            );
         }
     }
 }
 
-export default EditReviewForm
+export default EditReviewForm;

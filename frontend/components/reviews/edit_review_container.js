@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
         reservations: state.entities.users[state.session.id].reservations,
         reviews: state.entities.users[state.session.id].reviews,
         formType: 'update'
-    }
+    };
 }
 
 
@@ -27,4 +27,4 @@ const mDTP = (dispatch) => ({
     action: review => dispatch(updateReview(review))
 })
 
-export default connect(mSTP, mDTP)(EditReviewForm) 
+export default connect(mSTP, mDTP)(EditReviewForm);

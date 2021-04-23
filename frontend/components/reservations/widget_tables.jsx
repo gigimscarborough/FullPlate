@@ -1,13 +1,12 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 
 class WidgetTables extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.times = [
             `00:00:00`,
@@ -58,7 +57,7 @@ class WidgetTables extends React.Component {
             `22:30:00`,
             `23:00:00`,
             `23:30:00`,
-        ]
+        ];
 
 
         // this.dateToday = new Date('2021-08-19T' + this.props.search.time)
@@ -77,39 +76,39 @@ class WidgetTables extends React.Component {
 
     tIndexes() {
 
-        const tIndex = this.times.indexOf(this.props.time)
+        const tIndex = this.times.indexOf(this.props.time);
 
 
-        const prev1 = tIndex - 1 >= 0 ? tIndex - 1 : (tIndex - 1) + this.times.length
-        const prev2 = tIndex - 2 >= 0 ? tIndex - 2 : (tIndex - 2) + this.times.length
-        const next1 = tIndex + 1 <= (this.times.length - 1) ? tIndex + 1 : (tIndex + 1) % tIndex.length
-        const next2 = tIndex + 2 <= (this.times.length - 1) ? tIndex + 2 : (tIndex + 2) % tIndex.length
+        const prev1 = tIndex - 1 >= 0 ? tIndex - 1 : (tIndex - 1) + this.times.length;
+        const prev2 = tIndex - 2 >= 0 ? tIndex - 2 : (tIndex - 2) + this.times.length;
+        const next1 = tIndex + 1 <= (this.times.length - 1) ? tIndex + 1 : (tIndex + 1) % tIndex.length;
+        const next2 = tIndex + 2 <= (this.times.length - 1) ? tIndex + 2 : (tIndex + 2) % tIndex.length;
 
         
-        return [prev2, prev1, tIndex, next1, next2]
+        return [prev2, prev1, tIndex, next1, next2];
     }
 
     validTimes() {
 
-        let openingTime1 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[0])
-        let closingTime1 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1])
-        let openingTime2
-        let closingTime2
+        let openingTime1 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[0]);
+        let closingTime1 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1]);
+        let openingTime2;
+        let closingTime2;
 
         if (closingTime1 < openingTime1) {
-            closingTime1 = new Date('2021-08-19T' + '23:59')
-            openingTime2 = new Date('2021-08-19T' + '00:00')
-            closingTime2 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1])
+            closingTime1 = new Date('2021-08-19T' + '23:59');
+            openingTime2 = new Date('2021-08-19T' + '00:00');
+            closingTime2 = new Date('2021-08-19T' + this.props.operation_hours.split("-")[1]);
         }
 
-        let today = new Date()
-        let options = []
+        let today = new Date();
+        let options = [];
 
         if (openingTime2 || closingTime2) {
 
             for (let i = 0; i < this.tIndexes().length; i++) {
                 if (((new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1) || (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime2 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime2)) && new Date(this.props.date + "T" + this.times[this.tIndexes()[i]]) > today) {
-                    options.push(this.times[this.tIndexes()[i]])
+                    options.push(this.times[this.tIndexes()[i]]);
                 }
 
             }
@@ -117,7 +116,7 @@ class WidgetTables extends React.Component {
         } else {
             for (let i = 0; i < this.tIndexes().length; i++) {
                 if (new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) >= openingTime1 && new Date('2021-08-19T' + this.times[this.tIndexes()[i]]) < closingTime1 && new Date(this.props.date + "T" + this.times[this.tIndexes()[i]]) > today) {
-                    options.push(this.times[this.tIndexes()[i]])
+                    options.push(this.times[this.tIndexes()[i]]);
                 }
 
             }
@@ -125,31 +124,31 @@ class WidgetTables extends React.Component {
 
         
 
-        return options
+        return options;
 
     }
 
 
     handleSubmit(e, rTime) {
-        e.preventDefault()
+        e.preventDefault();
 
         if (this.props.currentUser) {
             let form = {
                 date: this.props.date,
                 time: rTime,
                 guest_count: this.props.guest_count
-            }
-            this.props.sendForm(form)
-            this.props.history.push(`/restaurants/${this.props.restaurantId}/reserve`)
+            };
+            this.props.sendForm(form);
+            this.props.history.push(`/restaurants/${this.props.restaurantId}/reserve`);
         } else {
-            this.props.openModal('login')
+            this.props.openModal('login');
         }
 
     }
 
     buttons() {
 
-        let buttons = []
+        let buttons = [];
 
         for (let i = 0; i < this.tIndexes().length; i++) {
             if (this.validTimes().includes(this.times[this.tIndexes()[i]])) {
@@ -157,7 +156,7 @@ class WidgetTables extends React.Component {
                     <button key={i} className="w-valid-t" onClick={(e) => this.handleSubmit(e, this.times[this.tIndexes()[i]])}>
                         <img src={window.table} alt="" />
                         {new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date('2021-08-19T' + this.times[this.tIndexes()[i]]).toLocaleTimeString().split(" ")[1]}</button>
-                )
+                );
             }
         }
         // else {
@@ -165,7 +164,7 @@ class WidgetTables extends React.Component {
         //         <button key={i} className="inv-t"></button>
         //     )
         // }
-        return buttons
+        return buttons;
 
     }
 
@@ -180,7 +179,7 @@ class WidgetTables extends React.Component {
                     <i class="fas fa-exclamation-circle"></i>
                     <span>At the moment, there's no online availability within 2.5 hours of {new Date('2021-08-19T' + this.props.time).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date('2021-08-19T' + this.props.time).toLocaleTimeString().split(" ")[1]}.</span>
                 </div>
-            )
+            );
         } else {
             return (
                 <div className="w-timeslots">
@@ -193,7 +192,7 @@ class WidgetTables extends React.Component {
                         <img src={window.fastclockb} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslots left`}</span> : <span >
                             <img src={window.fastclockb} alt="" />{`You're in luck! We still have ${this.validTimes().length} timeslot left`}</span> : null}
                 </div>
-            )
+            );
         }
     }
 }
@@ -215,4 +214,4 @@ const mDTP = (dispatch) => ({
 
 })
 
-export default withRouter(connect(mSTP, mDTP)(WidgetTables))
+export default withRouter(connect(mSTP, mDTP)(WidgetTables));

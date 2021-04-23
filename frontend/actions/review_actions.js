@@ -1,10 +1,10 @@
-import * as ReviewAPIUtil from '../util/review_util'
+import * as ReviewAPIUtil from '../util/review_util';
 
-export const RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS'
-export const RECEIVE_REVIEW = 'RECEIVE_REVIEW'
-export const REMOVE_REVIEW = 'REMOVE_REVIEW'
-export const RECEIVE_REVIEW_ERRORS = 'RECEIVE_REVIEW_ERRORS'
-export const REMOVE_REVIEW_ERRORS = 'REMOVE_REVIEW_ERRORS'
+export const RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS';
+export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+export const REMOVE_REVIEW = 'REMOVE_REVIEW';
+export const RECEIVE_REVIEW_ERRORS = 'RECEIVE_REVIEW_ERRORS';
+export const REMOVE_REVIEW_ERRORS = 'REMOVE_REVIEW_ERRORS';
 
 
 const receiveAllReviews = (reviews) => ({

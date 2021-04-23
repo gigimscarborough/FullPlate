@@ -1,19 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import MainNavBar from '../navbar/main_navbar'
-import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown'
-import ClickGreetingDropdown from '../navbar/click_greeting_dropdown'
-import {fetchReviews} from '../../actions/review_actions'
-import AlsoRests from './also_rests'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import MainNavBar from '../navbar/main_navbar';
+import ClickUserUpcomingDropdown from '../navbar/click_user_upcoming_dropdown';
+import ClickGreetingDropdown from '../navbar/click_greeting_dropdown';
+import {fetchReviews} from '../../actions/review_actions';
+import AlsoRests from './also_rests';
 
 class ReviewConf extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     componentDidMount() {
-        this.props.fetchRestaurants()
+        this.props.fetchRestaurants();
     }
 
     navBar() {
@@ -31,7 +31,7 @@ class ReviewConf extends React.Component {
                     </ul>
                 </div>
             </div>
-        )
+        );
     }
 
     render() {
@@ -61,7 +61,7 @@ class ReviewConf extends React.Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
@@ -74,7 +74,7 @@ const mSTP = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         reviews: Object.values(state.entities.reviews)
 
-    }
+    };
 }
 
 
@@ -85,5 +85,5 @@ const mDTP = (dispatch) => ({
     openModal: (modal) => dispatch(openModal(modal)),
 })
 
-export default connect(mSTP, mDTP)(ReviewConf)
+export default connect(mSTP, mDTP)(ReviewConf);
 

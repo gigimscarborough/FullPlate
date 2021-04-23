@@ -94,7 +94,7 @@ class UpdateReservationNext extends React.Component {
     }
 
     handleSubmit(e){
-        e.preventDefault()
+        e.preventDefault();
 
         let form = {
             email: this.state.email,
@@ -108,7 +108,7 @@ class UpdateReservationNext extends React.Component {
             reservation_datetime: this.state.date + " " + this.state.time,
             restaurant_id: this.state.restaurant_id,
             special_request: this.state.special_request,
-        }
+        };
         this.props.updateReservation(form)
             .then(() => this.props.fetchUser(this.props.currentUser.id))
             .then(() => this.props.history.push(`/reservations/${this.props.reservation.id}/view`))

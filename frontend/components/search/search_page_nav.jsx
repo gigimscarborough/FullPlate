@@ -1,26 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { sendForm, clearForm} from '../../actions/search_actions'
-import { searchRestaurants } from '../../actions/restaurant_actions'
-import { withRouter } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { sendForm, clearForm} from '../../actions/search_actions';
+import { searchRestaurants } from '../../actions/restaurant_actions';
+import { withRouter } from 'react-router-dom';
 
 
 class SearchPageNav extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         
         this.dateToday = new Date()
-        this.hours = ((this.dateToday.getHours() + 1) % 24) < 10 ? `0${((this.dateToday.getHours() + 1) % 24)}` : ((this.dateToday.getHours() + 1) % 24)
-        this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes()
-        this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1
-        this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate()
-        this.year = this.dateToday.getFullYear()
+        this.hours = ((this.dateToday.getHours() + 1) % 24) < 10 ? `0${((this.dateToday.getHours() + 1) % 24)}` : ((this.dateToday.getHours() + 1) % 24);
+        this.minutes = this.dateToday.getMinutes() < 10 ? `0${this.dateToday.getMinutes()}` : this.dateToday.getMinutes();
+        this.month = this.dateToday.getMonth() < 10 ? `0${this.dateToday.getMonth() + 1}` : this.dateToday.getMonth() + 1;
+        this.date = this.dateToday.getDate() < 10 ? `0${this.dateToday.getDate()}` : this.dateToday.getDate();
+        this.year = this.dateToday.getFullYear();
 
-        this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`
-
-        this.state = this.props.search
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.defaultTime = this.dateToday.getMinutes() >= 0 && this.dateToday.getMinutes() < 30 ? `${this.hours}:00:00` : `${this.hours}:30:00`;
+        this.state = this.props.search;
+        this.handleSubmit = this.handleSubmit.bind(this);
 
       
     }
@@ -30,14 +29,14 @@ class SearchPageNav extends React.Component {
     handleChange(type) {
         return (e) => (
             this.setState({ [type]: e.currentTarget.value })
-        )
+        );
 
     }
 
     handleSubmit(e) {
    
-        e.preventDefault()
-        this.props.sendForm(this.state)
+        e.preventDefault();
+        this.props.sendForm(this.state);
         // this.props.searchRestaurants(this.state.search)
         // this.props.history.push("/search")
     }
@@ -46,53 +45,53 @@ class SearchPageNav extends React.Component {
     render() {
   
 
-        const resSearch = this.props.search
+        const resSearch = this.props.search;
 
         if (typeof resSearch === "undefined"){
-            return null
+            return null;
         }
   
 
-        const dateToday = new Date()
-        const hours = dateToday.getHours() < 10 ? `0${dateToday.getHours()}` : dateToday.getHours()
-        const minutes = dateToday.getMinutes() < 10 ? `0${dateToday.getMinutes()}` : dateToday.getMinutes()
-        const month = dateToday.getMonth() < 10 ? `0${dateToday.getMonth() + 1}` : dateToday.getMonth() + 1
-        const date = dateToday.getDate() < 10 ? `0${dateToday.getDate()}` : dateToday.getDate()
-        const year = dateToday.getFullYear()
+        const dateToday = new Date();
+        const hours = dateToday.getHours() < 10 ? `0${dateToday.getHours()}` : dateToday.getHours();
+        const minutes = dateToday.getMinutes() < 10 ? `0${dateToday.getMinutes()}` : dateToday.getMinutes();
+        const month = dateToday.getMonth() < 10 ? `0${dateToday.getMonth() + 1}` : dateToday.getMonth() + 1;
+        const date = dateToday.getDate() < 10 ? `0${dateToday.getDate()}` : dateToday.getDate();
+        const year = dateToday.getFullYear();
 
-        let options = []
+        let options = [];
 
         for (let i = 1; i <= 20; i++) {
             
-            options.push(this.props.search.guest_count == i ? <option selected key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option> : <option key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option>)
+            options.push(this.props.search.guest_count == i ? <option selected key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option> : <option key={i} value={i} >{i < 2 ? `${i} person` : `${i} people`}</option>);
         }
 
 
-        const timeOnHour = []
+        const timeOnHour = [];
 
         for (let i = 12; i >= 1; i--) {
-            timeOnHour.push(`${i}:00`)
+            timeOnHour.push(`${i}:00`);
         }
-        const timeOnHalf = []
+        const timeOnHalf = [];
 
         for (let i = 12; i >= 1; i--) {
-            timeOnHalf.push(`${i}:30`)
+            timeOnHalf.push(`${i}:30`);
         }
 
         const allTimes = function (arr1, arr2) {
-            const ttlTimes = []
+            const ttlTimes = [];
 
             while (arr1.length || arr2.length) {
                 if (arr1.length >= arr2.length) {
-                    ttlTimes.push(arr1.shift())
+                    ttlTimes.push(arr1.shift());
                 } else {
-                    ttlTimes.push(arr2.shift())
+                    ttlTimes.push(arr2.shift());
                 }
             }
             return ttlTimes;
         }
 
-        const times = allTimes(timeOnHour, timeOnHalf)
+        const times = allTimes(timeOnHour, timeOnHalf);
 
         const timeOptionsAm = times.map(time => (
 
@@ -108,21 +107,21 @@ class SearchPageNav extends React.Component {
 
 
         // const currentTimes = 
-        const currentHour = !this.props.search.time ? this.defaultTime.split(":") : this.props.search.time.split(":")
+        const currentHour = !this.props.search.time ? this.defaultTime.split(":") : this.props.search.time.split(":");
 
-        const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12
+        const normalHour = parseInt(currentHour[0]) === 0 || parseInt(currentHour[0]) === 12 ? 12 : (parseInt(currentHour[0]) + 12) % 12;
 
         let currentOption = <option selected value={this.state.time}>{`${normalHour}:${currentHour.slice(1, 2)} ${((currentHour[0]) / 12) >= 1 ? `PM` : `AM`}` }</option>
 
             // ((currentHour) / 12) >= 1 ? `PM` : `AM`
-        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+        const format = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
-        let resDate = new Date(this.state.date)
+        let resDate = new Date(this.state.date);
         // let resDate = new Date(this.props.search.date)
-        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+        resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
 
-        let defDate = new Date(`${this.year}-${this.month}-${this.date}`)
-        defDate = new Date(defDate.getTime() + defDate.getTimezoneOffset() * 60000)
+        let defDate = new Date(`${this.year}-${this.month}-${this.date}`);
+        defDate = new Date(defDate.getTime() + defDate.getTimezoneOffset() * 60000);
         
           
         return (
@@ -210,7 +209,7 @@ class SearchPageNav extends React.Component {
                 </div>
                 </form>
             </div>
-        )
+        );
     }
 }
 

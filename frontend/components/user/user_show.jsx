@@ -9,41 +9,38 @@ import FavStars from '../reviews/fav_stars'
 class UserShow extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
 
-        this.reservations = this.reservations.bind(this)
-        this.pastRes = this.pastRes.bind(this)
-        this.savedRests = this.savedRests.bind(this)
+        this.reservations = this.reservations.bind(this);
+        this.pastRes = this.pastRes.bind(this);
+        this.savedRests = this.savedRests.bind(this);
     }
 
     componentDidMount() {
-        debugger
-        this.props.fetchRestaurants()
+
+        this.props.fetchRestaurants();
         // this.props.fetchReservations()
         // this.props.fetchUser(this.props.currentUser.id)
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }
 
     reservations() {
-        const allRests = Object.values(this.props.restaurants)
-        const rests = this.props.currentUser.reserved_restaurants
-        const today = new Date()
+        const allRests = Object.values(this.props.restaurants);
+        const rests = this.props.currentUser.reserved_restaurants;
+        const today = new Date();
 
 
         const reservations = this.props.currentUser.reservations.filter(function (res) {
-            let resTime = new Date(res.reservation_datetime)
-            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
+            let resTime = new Date(res.reservation_datetime);
+            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000);
 
             return resTime > today
         })
-        const resList = []
-
-
+        const resList = [];
 
         for (let i = 0; i < reservations.length; i++) {
-            let resDate = new Date(reservations[i].reservation_datetime)
-            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
-            debugger
+            let resDate = new Date(reservations[i].reservation_datetime);
+            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
             resList.push(
                 (
                     <div key={i} className="reservation-it">
@@ -82,27 +79,27 @@ class UserShow extends React.Component {
     }
 
     pastRes() {
-        const today = new Date()
-        const allRests = Object.values(this.props.restaurants)
-        const rests = this.props.currentUser.reserved_restaurants
+        const today = new Date();
+        const allRests = Object.values(this.props.restaurants);
+        const rests = this.props.currentUser.reserved_restaurants;
 
 
         const reservations = this.props.currentUser.reservations.filter(function (res) {
-            let resTime = new Date(res.reservation_datetime)
-            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000)
+            let resTime = new Date(res.reservation_datetime);
+            resTime = new Date(resTime.getTime() + resTime.getTimezoneOffset() * 60000);
 
             return resTime < today
         })
-        const resList = []
-        const favs = this.props.currentUser.favorites
-        const reviews = this.props.currentUser.reviews
+        const resList = [];
+        const favs = this.props.currentUser.favorites;
+        const reviews = this.props.currentUser.reviews;
 
 
         for (let i = 0; i < reservations.length; i++) {
-            let resDate = new Date(reservations[i].reservation_datetime)
-            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000)
+            let resDate = new Date(reservations[i].reservation_datetime);
+            resDate = new Date(resDate.getTime() + resDate.getTimezoneOffset() * 60000);
 
-            const thisFav = favs.filter(fav => fav.restaurant_id === reservations[i].restaurant_id)[0]
+            const thisFav = favs.filter(fav => fav.restaurant_id === reservations[i].restaurant_id)[0];
 
             const favBtn = !thisFav ? (
                 <div onClick={() => this.props.createFavorite({ user_id: this.props.currentUser.id, restaurant_id: reservations[i].restaurant_id }).then(() => this.props.fetchUser(this.props.currentUser.id))} className="fav-me">
@@ -116,9 +113,9 @@ class UserShow extends React.Component {
                     </div>
                 )
 
-            const resRest = rests.filter(rest => (rest.id === reservations[i].restaurant_id))[0]
+            const resRest = rests.filter(rest => (rest.id === reservations[i].restaurant_id))[0];
 
-            const thisRev = reviews.filter(review => review.reservation_id === reservations[i].id)[0]
+            const thisRev = reviews.filter(review => review.reservation_id === reservations[i].id)[0];
             const revBtn = !thisRev ? (
                 <Link to={{ pathname: `/restaurants/${resRest.id}/reservations/${reservations[i].id}/review` }} className="fav-me">
                     <i className="far fa-comment-alt"></i>
@@ -255,11 +252,11 @@ class UserShow extends React.Component {
 
     savedRests() {
 
-        const allRests = Object.values(this.props.restaurants)
-        const favs = this.props.currentUser.favorites.map(fav => fav.restaurant_id)
-        const theseFavs = allRests.filter(rest => favs.includes(rest.id))
+        const allRests = Object.values(this.props.restaurants);
+        const favs = this.props.currentUser.favorites.map(fav => fav.restaurant_id);
+        const theseFavs = allRests.filter(rest => favs.includes(rest.id));
 
-        const favsList = []
+        const favsList = [];
 
         for (let i = 0; i < theseFavs.length; i++) {
             const thisFav = this.props.currentUser.favorites.filter(fav => fav.restaurant_id === theseFavs[i].id)[0]
@@ -309,15 +306,15 @@ class UserShow extends React.Component {
 
 
         if (Object.values(this.props.restaurants) <= 0) {
-            return null
+            return null;
         }
 
         if (typeof this.props.restaurants === 'undefined') {
-            return null
+            return null;
         }
 
         if (typeof this.props.reservations === 'undefined') {
-            return null
+            return null;
         }
 
         else {
@@ -427,4 +424,4 @@ class UserShow extends React.Component {
 }
 
 
-export default UserShow
+export default UserShow;

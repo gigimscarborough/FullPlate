@@ -1,11 +1,11 @@
-import { connect } from 'react-redux'
-import UserShow from './user_show'
-import { logout } from '../../actions/session_actions'
-import {fetchReservations, deleteReservation} from '../../actions/reservation_actions'
-import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_actions'
-import { createFavorite, deleteFavorite } from '../../actions/favorite_actions'
-import { fetchUser } from '../../actions/session_actions'
-import { fetchReviews } from '../../actions/review_actions'
+import { connect } from 'react-redux';
+import UserShow from './user_show';
+import { logout } from '../../actions/session_actions';
+import {fetchReservations, deleteReservation} from '../../actions/reservation_actions';
+import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_actions';
+import { createFavorite, deleteFavorite } from '../../actions/favorite_actions';
+import { fetchUser } from '../../actions/session_actions';
+import { fetchReviews } from '../../actions/review_actions';
 
 
 

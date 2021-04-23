@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import ClickUserDropdown from '../navbar/click_user_dropdown'
-import ClickUpcomingDropdown from '../navbar/click_upcoming_dropdown'
-import ClickNotificationDropdown from '../navbar/click_notification'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ClickUserDropdown from '../navbar/click_user_dropdown';
+import ClickUpcomingDropdown from '../navbar/click_upcoming_dropdown';
+import ClickNotificationDropdown from '../navbar/click_notification';
 
 class Greeting extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
     }
 
@@ -26,7 +26,7 @@ class Greeting extends React.Component {
                         <li><ClickNotificationDropdown/></li>
                         <li onClick={() => this.props.openModal('search')}className="search-icon lsearch"><img src={window.search_icon} /></li>
                     </ul>
-            )
+            );
         } else {
             
             return (
@@ -35,7 +35,7 @@ class Greeting extends React.Component {
                         <button className="log-in-btn" onClick={() => this.props.openModal('login')}> Sign in </button>
                         <li onClick={() => this.props.openModal('search')} className="search-icon ssearch"><img src={window.search_icon} /></li>
                     </div>
-            )
+            );
         }
 
     }

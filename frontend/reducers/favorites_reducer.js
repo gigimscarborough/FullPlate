@@ -6,12 +6,12 @@ const favoritesReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_FAVORITE:
-            newState[action.favorite.id] = action.favorite
-            return newState
+            newState[action.favorite.id] = action.favorite;
+            return newState;
         case REMOVE_FAVORITE:
-            delete newState[action.favoriteId]
-            return newState
-        default: return state
+            delete newState[action.favoriteId];
+            return newState;
+        default: return state;
     }
 }
 export default favoritesReducer

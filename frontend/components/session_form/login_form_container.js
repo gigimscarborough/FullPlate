@@ -1,8 +1,8 @@
-import SessionForm from './session_form'
-import React from 'react'
-import { connect } from 'react-redux'
-import { login, removeErrors } from '../../actions/session_actions'
-import { openModal, closeModal } from '../../actions/modal_actions'
+import SessionForm from './session_form';
+import React from 'react';
+import { connect } from 'react-redux';
+import { login, removeErrors } from '../../actions/session_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
     errors: state.errors.session,
@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm)
+export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

@@ -1,7 +1,7 @@
-import React from 'react'
-import SplashNavBar from '../components/navbar/splash_navbar'
-import Search from './search/search'
-import RestaurantDisplayContainer from './restaurant_display/restaurant_display_container'
+import React from 'react';
+import SplashNavBar from '../components/navbar/splash_navbar';
+import Search from './search/search';
+import RestaurantDisplayContainer from './restaurant_display/restaurant_display_container';
 
 class Landing extends React.Component{
 
