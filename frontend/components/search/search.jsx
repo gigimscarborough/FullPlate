@@ -155,7 +155,7 @@ class Search extends React.Component {
                                 <option key={1} value={1} selected>1 person</option>
                                 {options}
                             </select>
-                            <i class="far fa-user"></i>
+                            <i className="far fa-user"></i>
                             </div>
                         </div>
                         <div id="splash-search-div">

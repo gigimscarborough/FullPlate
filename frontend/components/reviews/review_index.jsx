@@ -96,17 +96,17 @@ class ReviewIndex extends React.Component {
             return (
                 <div key={i} className="review-holder">
                     <div className="review-l">
-                        <div class="rev-circle">
-                            <i class={`fas fa-circle ${colors[Math.floor(Math.random() * 4)]}`}></i>
+                        <div className="rev-circle">
+                            <i className={`fas fa-circle ${colors[Math.floor(Math.random() * 4)]}`}></i>
                             <span>{initials.slice(0, 2).join("")}</span>
                         </div>
-                        <div class="rev-user">
+                        <div className="rev-user">
                             <span>
                                 {review.nickname}
                             </span>
                             <span>
 
-                                <i class="far fa-comment-alt"></i>
+                                <i className="far fa-comment-alt"></i>
                                 <span>
 
                                     {Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length === 1 ? ` ${Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length} review` : ` ${Object.values(that.props.reviews).filter(greview => greview.guest_id === review.guest_id).length} reviews`}
@@ -170,7 +170,7 @@ class ReviewIndex extends React.Component {
                         </span>
                         <div className="report-rev">
                             <span onClick={() => this.props.openModal('report')}>
-                                <i class="far fa-flag"></i>
+                                <i className="far fa-flag"></i>
                                 <span>Report</span>
                             </span>
                         </div>

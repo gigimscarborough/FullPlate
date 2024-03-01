@@ -144,7 +144,7 @@ class ResSearchModal extends React.Component {
                                         <option key={1} value="1" >1 Person</option>
                                     {options}
                                 </select>
-                                        <i class="far fa-user"></i>
+                                        <i className="far fa-user"></i>
                                     </div>
                             </div>
                             {/* <ReservationModalSearchForm /> */}

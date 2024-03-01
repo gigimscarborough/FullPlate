@@ -176,7 +176,7 @@ class WidgetTables extends React.Component {
         if (this.validTimes().length === 0) {
             return (
                 <div className='w-none-avail'>
-                    <i class="fas fa-exclamation-circle"></i>
+                    <i className="fas fa-exclamation-circle"></i>
                     <span>At the moment, there's no online availability within 2.5 hours of {new Date('2021-08-19T' + this.props.time).toLocaleTimeString().split(":").slice(0, 2).join(":")} {new Date('2021-08-19T' + this.props.time).toLocaleTimeString().split(" ")[1]}.</span>
                 </div>
             );

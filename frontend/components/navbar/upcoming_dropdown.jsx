@@ -44,12 +44,12 @@ class UpcomingDropdown extends React.Component {
                         </h4 >
                         <div className="dd-res-inf">
                             <span className="dd-res-gc"><img src={window.pplsvg} alt="" />{reservation.guest_count > 1 ? `Table for ${reservation.guest_count} people` : `Table for ${reservation.guest_count} person`}</span>
-                            <span className="dd-res-time"><i class="far fa-clock"></i>{resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]}</span>
+                            <span className="dd-res-time"><i className="far fa-clock"></i>{resDate.toLocaleTimeString().split(":").slice(0, 2).join(":")} {resDate.toLocaleTimeString().split(" ")[1]}</span>
                             <span className="dd-res-date"><img src={window.calsvg} alt="" />{resDate.toLocaleDateString(undefined, format)}</span>
                         </div>
                         <div className="dd-res-links">
                             <Link to={{ pathname:`/reservations/${reservation.id}/view`}}>View</Link>
-                            <i class="fas fa-circle"></i>
+                            <i className="fas fa-circle"></i>
                             <Link to={{ pathname:`reservations/${reservation.id}/update`}}>Modify</Link>
                         </div>
                         <Link to={{ pathname:`reservations/${reservation.id}/delete`}}>Cancel</Link>
